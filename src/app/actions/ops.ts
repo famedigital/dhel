@@ -597,8 +597,9 @@ export async function seedTravelersFromPax(formData: FormData) {
     redirect(`/itineraries/${itinerary_id}?tab=travelers&saved=1`);
   }
 
+  const agencyId = ctx.agency.id;
   const rows = Array.from({ length: target - have }, (_, i) => ({
-    agency_id: ctx.agency.id,
+    agency_id: agencyId,
     itinerary_id,
     name: `Traveler ${have + i + 1}`,
     sdf_category: "other",

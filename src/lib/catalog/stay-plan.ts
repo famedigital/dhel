@@ -189,7 +189,7 @@ export function staySlotsFromDays(
           findRouteCityInText(d.overnight)
         : null;
     const fromRoute = findRouteCityInText([d.route, d.title, d.description].filter(Boolean).join(" "));
-    const city = fromOvernight || fromRoute || lastCity;
+    const city: string | null = fromOvernight || fromRoute || lastCity;
     if (!city) continue;
     lastCity = city;
     nights.push({ day: dayNum, city });
