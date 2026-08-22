@@ -1,17 +1,16 @@
 /**
- * Inspect Silverpine HTML reference corpus (root *.html files).
+ * Inspect Silverpine HTML reference corpus (data/html-references/*.html).
  * Run: node scripts/build-html-reference-corpus.mjs
  */
 import fs from "node:fs";
 import path from "node:path";
-import { createRequire } from "node:module";
 
-const require = createRequire(import.meta.url);
-const root = path.resolve(import.meta.dirname, "..");
+const root = path.resolve(import.meta.dirname, "..", "data", "html-references");
 
-// Dynamic import compiled TS won't work without tsx — duplicate minimal parse count via regex
 const SKIP = new Set(["tracy-guide-zh.html", "tracy-guide-en.html", "tracy-bank-zh.html"]);
-const files = fs.readdirSync(root).filter((f) => f.endsWith(".html") && !SKIP.has(f));
+const files = fs.existsSync(root)
+  ? fs.readdirSync(root).filter((f) => f.endsWith(".html") && !SKIP.has(f))
+  : [];
 
 const rows = [];
 for (const file of files) {

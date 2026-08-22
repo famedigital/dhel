@@ -57,3 +57,6 @@ next-env.d.ts
 .query_only*
 *_query_only*
 *_query.txt
+
+.vercel
+.env*

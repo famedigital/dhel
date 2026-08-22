@@ -11,18 +11,17 @@ const SKIP_FILES = new Set([
   "tracy-bank-zh.html",
 ]);
 
+/** Statically scoped so Turbopack/Vercel does not trace the whole repo. */
+const CORPUS_DIR = path.join(process.cwd(), "data", "html-references");
+
 let cached: ParsedHtmlItinerary[] | null = null;
 
-function repoRoot(): string {
-  return process.cwd();
-}
-
 function htmlCandidates(): string[] {
-  const root = repoRoot();
+  if (!fs.existsSync(CORPUS_DIR)) return [];
   return fs
-    .readdirSync(root)
+    .readdirSync(CORPUS_DIR)
     .filter((f) => f.endsWith(".html") && !SKIP_FILES.has(f))
-    .map((f) => path.join(root, f));
+    .map((f) => path.join(CORPUS_DIR, f));
 }
 
 export function loadHtmlReferenceCorpus(): ParsedHtmlItinerary[] {
