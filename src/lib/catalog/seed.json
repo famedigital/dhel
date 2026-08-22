@@ -1,0 +1,109 @@
+{
+  "version": "2026-08-22",
+  "currency_default": "USD",
+  "fx_rates": {
+    "USD_INR": 84,
+    "USD_BTN": 84
+  },
+  "sdf_rules": {
+    "indian": { "daily_usd": 15, "label": "Indian (SDF concession)" },
+    "saarc": { "daily_usd": 15, "label": "SAARC (concession)" },
+    "other": { "daily_usd": 100, "label": "International" }
+  },
+  "guide_day_rate_usd": 85,
+  "guide_day_rate_nu": 2500,
+  "car_day_rate_usd": 235,
+  "car_day_rate_nu": 7000,
+  "pickup_paro_usd": 35,
+  "drop_paro_usd": 35,
+  "pickup_bagdogra_usd": 95,
+  "drop_bagdogra_usd": 95,
+  "pickup_hasimara_usd": 75,
+  "drop_hasimara_usd": 75,
+  "visa_fee_usd": 40,
+  "hotels": [
+    {
+      "id": "pelbu-suites",
+      "name": "Pelbu Suites Olakha",
+      "city": "Thimphu",
+      "star_rating": 3,
+      "pelbu_property_id": "pelbu-olakha",
+      "source": "pelbu",
+      "rooms": [
+        { "type": "Deluxe Twin", "net_usd": 95, "meal": "MAP" },
+        { "type": "Executive King", "net_usd": 120, "meal": "MAP" }
+      ]
+    },
+    {
+      "id": "densa-boutique",
+      "name": "Densa Boutique Residency",
+      "city": "Thimphu",
+      "star_rating": 3,
+      "source": "catalog",
+      "rooms": [
+        { "type": "Deluxe", "net_usd": 88, "meal": "BB" },
+        { "type": "Suite", "net_usd": 110, "meal": "BB" }
+      ]
+    },
+    {
+      "id": "termalodge",
+      "name": "Terma Linca Resort & Spa",
+      "city": "Paro",
+      "star_rating": 5,
+      "source": "catalog",
+      "rooms": [
+        { "type": "Deluxe", "net_usd": 145, "meal": "MAP" },
+        { "type": "Premium", "net_usd": 175, "meal": "MAP" }
+      ]
+    },
+    {
+      "id": "le-meridien-paro",
+      "name": "Le Meridien Paro",
+      "city": "Paro",
+      "star_rating": 5,
+      "source": "catalog",
+      "rooms": [{ "type": "Deluxe", "net_usd": 165, "meal": "BB" }]
+    },
+    {
+      "id": "rkpo-green-resort",
+      "name": "RKPO Green Resort",
+      "city": "Punakha",
+      "star_rating": 3,
+      "source": "catalog",
+      "rooms": [{ "type": "Standard", "net_usd": 75, "meal": "MAP" }]
+    },
+    {
+      "id": "damchen-resort",
+      "name": "Damchen Resort",
+      "city": "Paro",
+      "star_rating": 3,
+      "source": "catalog",
+      "rooms": [{ "type": "Standard", "net_usd": 70, "meal": "BB" }]
+    },
+    {
+      "id": "hotel-druk",
+      "name": "Hotel Druk",
+      "city": "Thimphu",
+      "star_rating": 3,
+      "source": "catalog",
+      "rooms": [{ "type": "Standard", "net_usd": 82, "meal": "BB" }]
+    },
+    {
+      "id": "amankora-paro",
+      "name": "Amankora Paro",
+      "city": "Paro",
+      "star_rating": 5,
+      "source": "catalog",
+      "rooms": [{ "type": "Suite", "net_usd": 450, "meal": "MAP" }]
+    }
+  ],
+  "activities": [
+    { "id": "tigers-nest", "name": "Tiger's Nest hike", "net_usd": 15, "dzongkhag": "Paro" },
+    { "id": "punakha-dzong", "name": "Punakha Dzong visit", "net_usd": 8, "dzongkhag": "Punakha" }
+  ],
+  "transit_gates": [
+    { "id": "paro-airport", "label": "Paro (PBH) — Drukair / Bhutan Airlines" },
+    { "id": "hasimara", "label": "Hasimara land entry (Indian nationals)" },
+    { "id": "bagdogra", "label": "Bagdogra + road (via Phuentsholing)" }
+  ]
+}

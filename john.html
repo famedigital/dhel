@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Silverpine Tours — Spiritual Bhutan · John</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .simple-intro {
+      font-size: 10pt;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin-bottom: 5mm;
+    }
+    .cmp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9pt;
+      margin-bottom: 5mm;
+    }
+    .cmp-table th,
+    .cmp-table td {
+      border: 0.5pt solid var(--line);
+      padding: 2.2mm 2.5mm;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    .cmp-table thead th {
+      background: var(--mist);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11pt;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .cmp-table thead th.rec {
+      background: #ebe4d6;
+      border-bottom: 1.5pt solid var(--gold);
+    }
+    .cmp-table tbody th {
+      width: 26%;
+      font-weight: 500;
+      color: var(--charcoal);
+      background: #faf8f5;
+    }
+    .cmp-table td.rec { background: #fbf9f5; }
+    .cmp-table .price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16pt;
+      font-weight: 600;
+    }
+    .cmp-table .small { font-size: 8pt; color: var(--stone); }
+    .day-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8.5pt;
+      margin-bottom: 4mm;
+    }
+    .day-table th,
+    .day-table td {
+      border: 0.5pt solid var(--line);
+      padding: 1.8mm 2mm;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.35;
+    }
+    .day-table thead th {
+      background: var(--mist);
+      font-weight: 500;
+      font-size: 8pt;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+    }
+    .day-table td:first-child { white-space: nowrap; font-weight: 500; width: 22mm; }
+    .day-table td:nth-child(2) { width: 28mm; color: var(--stone); }
+    .note-line {
+      font-size: 8.5pt;
+      color: var(--ink-soft);
+      line-height: 1.45;
+      margin-top: 2mm;
+    }
+    .hotel-block {
+      margin-bottom: 5mm;
+      page-break-inside: avoid;
+    }
+    .hotel-block-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 4mm;
+      margin-bottom: 2.5mm;
+      padding-bottom: 1.5mm;
+      border-bottom: 0.5pt solid var(--gold-pale);
+    }
+    .hotel-block-head h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15pt;
+      font-weight: 500;
+    }
+    .hotel-block-head .nights {
+      font-size: 8pt;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .hotel-block-meta {
+      font-size: 8.5pt;
+      color: var(--stone);
+      margin-bottom: 2.5mm;
+      line-height: 1.45;
+    }
+    .hotel-block-meta a {
+      color: var(--ink-soft);
+      text-decoration: underline;
+      text-underline-offset: 1.5px;
+    }
+    .hotel-shots {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr;
+      grid-template-rows: 28mm 28mm;
+      gap: 2mm;
+    }
+    .hotel-shots figure {
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      background: var(--cream);
+    }
+    .hotel-shots figure:first-child { grid-row: 1 / span 2; }
+    .hotel-shots img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hotel-shots figcaption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 1.5mm 2mm;
+      font-size: 5.5pt;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(14, 14, 12, 0.78));
+    }
+    .place-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3mm;
+      margin-top: 3mm;
+    }
+    .place-grid figure {
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+      height: 42mm;
+      background: var(--cream);
+    }
+    .place-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .place-grid figcaption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 2mm;
+      font-size: 7.5pt;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(14, 14, 12, 0.75));
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 01 COVER -->
+  <section class="page cover">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="cover-hero">
+      <img src="images/cover_bhutan_landscape.jpg" alt="Tiger's Nest Monastery, Paro Bhutan" />
+    </div>
+    <div class="page-body">
+      <div class="cover-content">
+        <p class="cover-eyebrow">Kingdom of Bhutan · 12 Days · Spiritual · Premium · Solo</p>
+        <h1 class="cover-brand">Silverpine <em>Tours</em></h1>
+        <p class="cover-title">Buddhist Heartland · Temples · Treks · Learning</p>
+        <div class="cover-rule"></div>
+        <p class="cover-client">Prepared for John · Spain · Solo traveller</p>
+        <div class="cover-details">
+          <div class="cover-detail">
+            <label>Gateway</label>
+            <p>Paro (PBH) via Delhi</p>
+          </div>
+          <div class="cover-detail">
+            <label>Route</label>
+            <p>Thimphu → Punakha → Phobjikha → Bumthang → Paro</p>
+          </div>
+          <div class="cover-detail">
+            <label>Dates</label>
+            <p>20 – 31 March 2027</p>
+          </div>
+          <div class="cover-detail">
+            <label>Stay</label>
+            <p>Pelbu · Lobesa · farmstay · Olathang Cottage</p>
+          </div>
+          <div class="cover-detail">
+            <label>Vehicle</label>
+            <p>Hyundai Creta / Santa Fe SUV</p>
+          </div>
+          <div class="cover-detail">
+            <label>Package</label>
+            <p>USD 3,955 land · no intl flights</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">01 / 20</span>
+    </footer>
+  </section>
+
+  <!-- 02 LETTER -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Correspondence</p>
+      <h2 class="page-heading">A note of welcome</h2>
+      <p class="page-sub">Personal brochure · spiritual Bhutan · March 2027</p>
+
+      <p class="letter-date">Issue date · 14 August 2026</p>
+      <p class="letter-greeting">Dear John,</p>
+
+      <div class="letter-body">
+        <p>
+          Thank you for your patience — and for sharing what you want from Bhutan:
+          something <strong>more spiritual</strong>, with <strong>trekking</strong> and
+          <strong>learning</strong>. This brochure puts the clear price table first,
+          then hotels with photos, places, and a full day-by-day with pictures.
+        </p>
+        <p>
+          Your window <strong>20–31 March 2027</strong> fits our recommended
+          <strong>12-day Buddhist heartland</strong> journey — west valleys, Phobjikha farmstay,
+          sacred <strong>Bumthang</strong>, a domestic flight back to Paro, and
+          <strong>Tiger’s Nest</strong> on the penultimate day. Paro nights are at
+          <strong>Olathang Cottage</strong>; Thimphu at our hotel
+          <strong>Pelbu Suites</strong> (<a href="https://www.pelbusuites.bt" target="_blank" rel="noopener">pelbusuites.bt</a>)
+          in the best available room.
+        </p>
+        <p>
+          You handle <strong>Madrid → Delhi → Paro</strong>. Our package is land + domestic flight only.
+          A shorter <strong>7-day Tiger Nest</strong> option is in the compare table if you prefer lighter.
+        </p>
+        <p>
+          <strong>Silverpine Tours</strong> — Rajiv Pradhan &amp; Tshering Lhamo since <strong>2012</strong>.
+          WhatsApp <strong>+975-17649720</strong> · <strong>www.silverpinebhutan.com</strong>.
+        </p>
+      </div>
+
+      <div class="letter-sign">
+        <img class="letter-photo" src="images/Rajiv_Tshering.jpg" alt="Rajiv Pradhan and Tshering Lhamo" />
+        <div>
+          <p class="closing">With warm regards,</p>
+          <p class="name">Rajiv Pradhan &amp; Tshering Lhamo</p>
+          <p class="role">Proprietors · Silverpine Tours</p>
+          <p class="since">Managing Silverpine Tours as a couple since 2012</p>
+        </div>
+      </div>
+
+      <div class="letter-contact">
+        <div>
+          <label>Website</label>
+          <a href="https://www.silverpinebhutan.com">www.silverpinebhutan.com</a>
+        </div>
+        <div>
+          <label>WhatsApp</label>
+          <p>+975-17649720</p>
+        </div>
+        <div>
+          <label>Prepared for</label>
+          <p>John · Solo · Spain · Mar 2027</p>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">02 / 20</span>
+    </footer>
+  </section>
+
+  <!-- 03 COMPARE -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Quote</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Easy compare</p>
+      <h2 class="page-heading">Two options · side by side</h2>
+      <p class="simple-intro">
+        Land only · no Madrid/Delhi/Paro international flights · premium best rooms · breakfast &amp; dinner.
+      </p>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="rec">A · Spiritual 12 days ★</th>
+            <th>B · Tiger Nest 7 days</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Dates</th>
+            <td class="rec"><strong>20 – 31 Mar 2027</strong></td>
+            <td>e.g. 20 – 26 Mar 2027</td>
+          </tr>
+          <tr>
+            <th>Length</th>
+            <td class="rec">12 days · 11 nights</td>
+            <td>7 days · 6 nights</td>
+          </tr>
+          <tr>
+            <th>Route</th>
+            <td class="rec">Thimphu · Punakha · Phobjikha · Bumthang · Paro</td>
+            <td>Paro · Thimphu · Punakha · Paro</td>
+          </tr>
+          <tr>
+            <th>Domestic flight</th>
+            <td class="rec">Bumthang → Paro (included)</td>
+            <td>No · car only</td>
+          </tr>
+          <tr>
+            <th>Paro hotel</th>
+            <td class="rec">Olathang Cottage · 3 nights</td>
+            <td>Olathang Cottage · 3 nights</td>
+          </tr>
+          <tr>
+            <th>Thimphu hotel</th>
+            <td class="rec">Pelbu Suites · best room</td>
+            <td>Pelbu Suites · best room</td>
+          </tr>
+          <tr>
+            <th>Price (solo)</th>
+            <td class="rec"><span class="price">USD 3,955</span><br /><span class="small">SDF 1,100 + land 2,855 + domestic 240</span></td>
+            <td><span class="price">USD 2,355</span><br /><span class="small">SDF 600 + land 1,755</span></td>
+          </tr>
+          <tr>
+            <th>Best for</th>
+            <td class="rec"><strong>Spiritual · treks · learning</strong> (recommended)</td>
+            <td>Shorter classic west</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note-line">
+        Website calculator Premium ≈ USD 4,255 — your private 12-day quote is a little under that.
+        Detailed photos &amp; day pages follow for Option A.
+      </p>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">03 / 20</span>
+    </footer>
+  </section>
+
+  <!-- 04 HOTELS WEST -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Stay · with photographs</p>
+      <h2 class="page-heading">Hotels · Thimphu · Punakha · Phobjikha</h2>
+      <p class="page-sub">Best available rooms · breakfast &amp; dinner · same-tier substitute if a named property is full.</p>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Thimphu · Pelbu Suites</h3>
+          <span class="nights">2 nights · 20–21 Mar</span>
+        </div>
+        <p class="hotel-block-meta">
+          Olakha · Thimphu ·
+          <a href="https://www.pelbusuites.bt" target="_blank" rel="noopener">www.pelbusuites.bt</a>
+          · our hotel · best available room / suite · dining &amp; spa
+        </p>
+        <div class="hotel-shots">
+          <figure>
+            <img src="images/hotel_pelbu_exterior.jpg" alt="Pelbu Suites" />
+            <figcaption>Exterior</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_suite.jpg" alt="Suite" />
+            <figcaption>Best room / suite</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_room_double.jpg" alt="Room" />
+            <figcaption>Guest room</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_dining.jpg" alt="Dining" />
+            <figcaption>Dining</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_spa.jpg" alt="Spa" />
+            <figcaption>Spa</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Punakha · Hotel Lobesa (or similar)</h3>
+          <span class="nights">2 nights · 22–23 Mar</span>
+        </div>
+        <p class="hotel-block-meta">
+          Lobesa ·
+          <a href="https://hotellobesa.com/" target="_blank" rel="noopener">hotellobesa.com</a>
+          · valley setting after Dochula
+        </p>
+        <div class="hotel-shots">
+          <figure>
+            <img src="images/hotel_lobesa_exterior.jpg" alt="Lobesa" />
+            <figcaption>Property</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_lobesa_room1.jpg" alt="Room" />
+            <figcaption>Room</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_lobesa_room2.jpg" alt="Room" />
+            <figcaption>Guest room</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_lobesa_view.jpg" alt="View" />
+            <figcaption>Valley view</figcaption>
+          </figure>
+          <figure>
+            <img src="images/punakha_valley.jpg" alt="Valley" />
+            <figcaption>Valley setting</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">04 / 20</span>
+    </footer>
+  </section>
+
+  <!-- 05 HOTELS EAST + PARO -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Stay · with photographs</p>
+      <h2 class="page-heading">Hotels · Phobjikha · Bumthang · Paro</h2>
+      <p class="page-sub">Farmstay texture in the high valleys · Olathang Cottage for Paro nights.</p>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Phobjikha · Valley lodge / farmstay</h3>
+          <span class="nights">1 night · 24 Mar</span>
+        </div>
+        <p class="hotel-block-meta">Clean family-run farmstay or valley lodge · friendly hosts · quiet highland night</p>
+        <div class="hotel-shots">
+          <figure>
+            <img src="images/bhutan_green_valley.jpg" alt="Phobjikha" />
+            <figcaption>Valley setting</figcaption>
+          </figure>
+          <figure>
+            <img src="images/punakha_valley_alt.jpg" alt="Bowl" />
+            <figcaption>Open bowl</figcaption>
+          </figure>
+          <figure>
+            <img src="images/bhutan_prayer_flags.jpg" alt="Flags" />
+            <figcaption>Prayer flags</figcaption>
+          </figure>
+          <figure>
+            <img src="images/mountain_drive.jpg" alt="Road" />
+            <figcaption>Approach</figcaption>
+          </figure>
+          <figure>
+            <img src="images/bhutan_prayer_mountains.jpg" alt="Mountains" />
+            <figcaption>Highland light</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Bumthang · Partner hotel + farmhouse mix</h3>
+          <span class="nights">3 nights · 25–27 Mar</span>
+        </div>
+        <p class="hotel-block-meta">Jakar / Choekor · best available rooms · at least one farmhouse night</p>
+        <div class="hotel-shots">
+          <figure>
+            <img src="images/bumthang_valley.jpg" alt="Bumthang" />
+            <figcaption>Bumthang valley</figcaption>
+          </figure>
+          <figure>
+            <img src="images/kurjey_lhakhang.jpg" alt="Kurjey" />
+            <figcaption>Near Kurjey</figcaption>
+          </figure>
+          <figure>
+            <img src="images/jambay_lhakhang.jpg" alt="Jambay" />
+            <figcaption>Temple valley</figcaption>
+          </figure>
+          <figure>
+            <img src="images/bumthang_location.jpg" alt="Map" />
+            <figcaption>Valleys</figcaption>
+          </figure>
+          <figure>
+            <img src="images/mebar_tsho.jpg" alt="Lake" />
+            <figcaption>Sacred landscape</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Paro · Olathang Cottage</h3>
+          <span class="nights">3 nights · 28–30 Mar</span>
+        </div>
+        <p class="hotel-block-meta">
+          Paro ·
+          <a href="https://www.bhutanhotels.com.bt/hotel-olathang/" target="_blank" rel="noopener">bhutanhotels.com.bt/hotel-olathang</a>
+          · classic hillside cottages · best available room · base for Tiger’s Nest &amp; departure
+        </p>
+        <div class="hotel-shots">
+          <figure>
+            <img src="images/paro_location.jpg" alt="Paro" />
+            <figcaption>Paro valley</figcaption>
+          </figure>
+          <figure>
+            <img src="images/paro_nemi_bridge.jpg" alt="Valley" />
+            <figcaption>Valley setting</figcaption>
+          </figure>
+          <figure>
+            <img src="images/paro_kyichu_lhakhang.jpg" alt="Kyichu" />
+            <figcaption>Near Kyichu</figcaption>
+          </figure>
+          <figure>
+            <img src="images/paro_shaba_river.jpg" alt="River" />
+            <figcaption>Paro river</figcaption>
+          </figure>
+          <figure>
+            <img src="images/paro_airport_view.jpg" alt="Airport area" />
+            <figcaption>Near airport road</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">05 / 20</span>
+    </footer>
+  </section>
+
+  <!-- 06 PLACES -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Places you will see</p>
+      <h2 class="page-heading">Landscapes &amp; sacred sites</h2>
+      <p class="page-sub">A visual taste of the 12-day route — full day pages with more photos follow.</p>
+
+      <div class="place-grid">
+        <figure>
+          <img src="images/thimphu_buddha_point_hero.jpg" alt="Buddha Point" />
+          <figcaption>Thimphu · Buddha Point</figcaption>
+        </figure>
+        <figure>
+          <img src="images/dochula_pass.jpg" alt="Dochula" />
+          <figcaption>Dochula Pass</figcaption>
+        </figure>
+        <figure>
+          <img src="images/punakha_dzong.jpg" alt="Punakha Dzong" />
+          <figcaption>Punakha Dzong</figcaption>
+        </figure>
+        <figure>
+          <img src="images/bhutan_green_valley.jpg" alt="Phobjikha" />
+          <figcaption>Phobjikha wetlands</figcaption>
+        </figure>
+        <figure>
+          <img src="images/trongsa_dzong.jpg" alt="Trongsa" />
+          <figcaption>Trongsa Dzong</figcaption>
+        </figure>
+        <figure>
+          <img src="images/kurjey_lhakhang.jpg" alt="Kurjey" />
+          <figcaption>Bumthang · Kurjey</figcaption>
+        </figure>
+        <figure>
+          <img src="images/jambay_lhakhang.jpg" alt="Jambay" />
+          <figcaption>Jambay Lhakhang</figcaption>
+        </figure>
+        <figure>
+          <img src="images/mebar_tsho.jpg" alt="Burning Lake" />
+          <figcaption>Mebar Tsho</figcaption>
+        </figure>
+        <figure>
+          <img src="images/paro_tigers_nest.jpg" alt="Tiger's Nest" />
+          <figcaption>Tiger’s Nest · Paro</figcaption>
+        </figure>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">06 / 20</span>
+    </footer>
+  </section>
+
+  <!-- 07 SUMMARY TABLES -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Quote</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Option A · USD 3,955</p>
+      <h2 class="page-heading">12-day · summary table</h2>
+      <p class="page-sub">Detailed photo itinerary starts on the next page</p>
+
+      <table class="day-table">
+        <thead>
+          <tr><th>Day</th><th>Date</th><th>Plan</th><th>Sleep</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>01</td><td>20 Mar</td><td>Arrive Paro → Thimphu</td><td>Pelbu Suites</td></tr>
+          <tr><td>02</td><td>21 Mar</td><td>Thimphu spiritual · learning</td><td>Pelbu Suites</td></tr>
+          <tr><td>03</td><td>22 Mar</td><td>Dochula → Punakha · Chimi</td><td>Lobesa</td></tr>
+          <tr><td>04</td><td>23 Mar</td><td>Punakha Dzong · bridge · walk</td><td>Lobesa</td></tr>
+          <tr><td>05</td><td>24 Mar</td><td>Phobjikha · Gangtey · farmstay</td><td>Farmstay</td></tr>
+          <tr><td>06</td><td>25 Mar</td><td>Via Trongsa → Bumthang</td><td>Bumthang</td></tr>
+          <tr><td>07</td><td>26 Mar</td><td>Kurjey · Jambay · Tamshing</td><td>Bumthang</td></tr>
+          <tr><td>08</td><td>27 Mar</td><td>Mebar Tsho · short trek / farm</td><td>Bumthang</td></tr>
+          <tr><td>09</td><td>28 Mar</td><td><strong>Flight</strong> Bumthang → Paro</td><td>Olathang Cottage</td></tr>
+          <tr><td>10</td><td>29 Mar</td><td>Paro valley · Kyichu</td><td>Olathang Cottage</td></tr>
+          <tr><td>11</td><td>30 Mar</td><td><strong>Tiger’s Nest</strong> trek</td><td>Olathang Cottage</td></tr>
+          <tr><td>12</td><td>31 Mar</td><td>Depart Paro → Delhi</td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <p class="section-label" style="margin-top: 4mm;">Option B · USD 2,355</p>
+      <h2 class="page-heading" style="font-size: 18pt;">7-day · summary</h2>
+      <table class="day-table">
+        <thead>
+          <tr><th>Day</th><th>Date</th><th>Plan</th><th>Sleep</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>01</td><td>20 Mar</td><td>Arrive → Thimphu</td><td>Pelbu Suites</td></tr>
+          <tr><td>02</td><td>21 Mar</td><td>Thimphu</td><td>Pelbu Suites</td></tr>
+          <tr><td>03</td><td>22 Mar</td><td>Dochula → Punakha</td><td>Lobesa</td></tr>
+          <tr><td>04</td><td>23 Mar</td><td>Punakha → Paro</td><td>Olathang Cottage</td></tr>
+          <tr><td>05</td><td>24 Mar</td><td>Paro valley</td><td>Olathang Cottage</td></tr>
+          <tr><td>06</td><td>25 Mar</td><td>Tiger’s Nest</td><td>Olathang Cottage</td></tr>
+          <tr><td>07</td><td>26 Mar</td><td>Depart</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">07 / 20</span>
+    </footer>
+  </section>
+
+  <!-- DAY 01 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 01 · 20 March 2027</p>
+          <h2 class="day-route">Arrive Paro · Drive to Thimphu</h2>
+          <dl class="day-meta">
+            <div><dt>Location</dt><dd>Paro Airport → Thimphu</dd></div>
+            <div><dt>Drive</dt><dd>≈ 1–1.5 hrs</dd></div>
+            <div><dt>Hotel</dt><dd>Pelbu Suites · best room</dd></div>
+            <div><dt>Meals</dt><dd>Dinner</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Arrive Paro · meet guide &amp; driver</li>
+              <li>Immigration / visa formalities</li>
+              <li>Scenic drive to Thimphu</li>
+              <li>Optional Tachog stop if timing allows</li>
+              <li>Check-in Pelbu Suites · dinner</li>
+            </ul>
+          </div>
+          <p class="day-desc">Touch down in Paro valley — then a gentle drive to the capital and your first night at Pelbu Suites.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/thimphu_location.jpg" alt="Thimphu" />
+            <span>Thimphu · capital</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/paro_airport_view.jpg" alt="Arrival" /><figcaption>Paro arrival</figcaption></figure>
+            <figure><img src="images/thimphu_mountain_highway.jpg" alt="Drive" /><figcaption>Drive to Thimphu</figcaption></figure>
+            <figure><img src="images/tachogang_lhakhang.jpg" alt="Tachog" /><figcaption>Route stop</figcaption></figure>
+            <figure><img src="images/hotel_pelbu_home.jpg" alt="Pelbu" /><figcaption>Pelbu Suites</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">08 / 20</span>
+    </footer>
+  </section>
+
+  <!-- DAY 02 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 02 · 21 March 2027</p>
+          <h2 class="day-route">Thimphu — spiritual &amp; learning</h2>
+          <dl class="day-meta">
+            <div><dt>Location</dt><dd>Thimphu valley</dd></div>
+            <div><dt>Hotel</dt><dd>Pelbu Suites</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · dinner</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Buddha Point (Buddha Dordenma)</li>
+              <li>Memorial Chorten · circumambulation</li>
+              <li>Simtokha or Changangkha as timing allows</li>
+              <li>Guide-led learning on Bhutanese Buddhism</li>
+              <li>Evening at leisure · dinner at Pelbu</li>
+            </ul>
+          </div>
+          <p class="day-desc">A capital day with room to breathe — icons that matter spiritually, plus conversation so the rest of the journey has meaning.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/thimphu_buddha_point_hero.jpg" alt="Buddha" />
+            <span>Buddha Point</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/thimphu_buddha_point.jpg" alt="Buddha" /><figcaption>Buddha Dordenma</figcaption></figure>
+            <figure><img src="images/thimphu_memorial_chorten.jpg" alt="Chorten" /><figcaption>Memorial Chorten</figcaption></figure>
+            <figure><img src="images/simtokha_dzong.jpg" alt="Simtokha" /><figcaption>Simtokha</figcaption></figure>
+            <figure><img src="images/buddhist_temple.jpg" alt="Temple" /><figcaption>Temple detail</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">09 / 20</span>
+    </footer>
+  </section>
+
+  <!-- DAY 03 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 03 · 22 March 2027</p>
+          <h2 class="day-route">Thimphu · Dochula · Punakha</h2>
+          <dl class="day-meta">
+            <div><dt>Drive</dt><dd>≈ 3 hrs + stops</dd></div>
+            <div><dt>Hotel</dt><dd>Lobesa / similar</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · dinner</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Depart Pelbu Suites</li>
+              <li>Dochula Pass — 108 chortens</li>
+              <li>Descend into Punakha basin</li>
+              <li>Chimi Lhakhang field walk</li>
+              <li>Hotel check-in</li>
+            </ul>
+          </div>
+          <p class="day-desc">High-pass prayer flags, then the warmer river valley — a classic west Bhutan transition.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/punakha_location.jpg" alt="Punakha" />
+            <span>Punakha · valley</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/dochula_pass.jpg" alt="Dochula" /><figcaption>Dochula Pass</figcaption></figure>
+            <figure><img src="images/thimphu_dochula.jpg" alt="Chortens" /><figcaption>108 chortens</figcaption></figure>
+            <figure><img src="images/punakha_valley.jpg" alt="Valley" /><figcaption>Punakha basin</figcaption></figure>
+            <figure><img src="images/hotel_lobesa_exterior.jpg" alt="Lobesa" /><figcaption>Punakha stay</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">10 / 20</span>
+    </footer>
+  </section>
+
+  <!-- DAY 04 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 04 · 23 March 2027</p>
+          <h2 class="day-route">Punakha — dzong, rivers &amp; walk</h2>
+          <dl class="day-meta">
+            <div><dt>Location</dt><dd>Punakha valley</dd></div>
+            <div><dt>Hotel</dt><dd>Lobesa / similar</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · dinner</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Punakha Dzong at the confluence</li>
+              <li>Guided courtyard time</li>
+              <li>Suspension bridge walk</li>
+              <li>Optional riverside / Khamsum walk</li>
+              <li>Quiet afternoon · dinner</li>
+            </ul>
+          </div>
+          <p class="day-desc">Bhutan’s most photogenic dzong — fortress light, river sound, unhurried walking.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/punakha_dzong.jpg" alt="Dzong" />
+            <span>Punakha Dzong</span>
+          </div>
+          <div class="day-acts">
+            <figure><img class="is-portrait" src="images/punakha_suspension_bridge.jpg" alt="Bridge" /><figcaption>Suspension bridge</figcaption></figure>
+            <figure><img src="images/punakha_valley_alt.jpg" alt="Valley" /><figcaption>Valley light</figcaption></figure>
+            <figure><img src="images/bhutan_prayer_flags.jpg" alt="Flags" /><figcaption>Prayer flags</figcaption></figure>
+            <figure><img src="images/hotel_lobesa_view.jpg" alt="Stay" /><figcaption>Valley stay</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">11 / 20</span>
+    </footer>
+  </section>
+
+  <!-- DAY 05 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 05 · 24 March 2027</p>
+          <h2 class="day-route">Punakha → Phobjikha / Gangtey</h2>
+          <dl class="day-meta">
+            <div><dt>Drive</dt><dd>≈ 3–4 hrs + walks</dd></div>
+            <div><dt>Hotel</dt><dd>Farmstay / valley lodge</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · dinner</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Drive to high wetlands</li>
+              <li>Gangtey Goemba</li>
+              <li>Nature trail / short wetland walk</li>
+              <li>Farmstay check-in · host welcome</li>
+            </ul>
+          </div>
+          <p class="day-desc">Open sky and a slower night with local hosts — the farmstay mix between fortresses and Bumthang.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/bhutan_green_valley.jpg" alt="Phobjikha" />
+            <span>Phobjikha · wetlands</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/mountain_drive.jpg" alt="Road" /><figcaption>Mountain road</figcaption></figure>
+            <figure><img src="images/bhutan_prayer_mountains.jpg" alt="Flags" /><figcaption>Highland flags</figcaption></figure>
+            <figure><img src="images/punakha_valley.jpg" alt="Bowl" /><figcaption>Valley bowl</figcaption></figure>
+            <figure><img src="images/buddhist_temple.jpg" alt="Goemba" /><figcaption>Monastery feel</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">12 / 20</span>
+    </footer>
+  </section>
+
+  <!-- DAY 06 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 06 · 25 March 2027</p>
+          <h2 class="day-route">Phobjikha · Trongsa · Bumthang</h2>
+          <dl class="day-meta">
+            <div><dt>Drive</dt><dd>Long scenic day · early start</dd></div>
+            <div><dt>Hotel</dt><dd>Bumthang premium / farm</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · dinner</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Early departure from Phobjikha</li>
+              <li>Trongsa Dzong viewpoint</li>
+              <li>Continue into Bumthang Choekor</li>
+              <li>Check-in · rest after the road</li>
+            </ul>
+          </div>
+          <p class="day-desc">This long day completes a spiritual Bhutan trip — you arrive by road into the sacred heartland.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/bumthang_valley.jpg" alt="Bumthang" />
+            <span>Entering Bumthang</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/trongsa_dzong.jpg" alt="Trongsa" /><figcaption>Trongsa Dzong</figcaption></figure>
+            <figure><img src="images/trongsa_real.jpg" alt="Cliff" /><figcaption>Cliff fortress</figcaption></figure>
+            <figure><img src="images/mountain_drive.jpg" alt="Highway" /><figcaption>East highway</figcaption></figure>
+            <figure><img src="images/bumthang_location.jpg" alt="Valleys" /><figcaption>Bumthang valleys</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">13 / 20</span>
+    </footer>
+  </section>
+
+  <!-- DAY 07 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 07 · 26 March 2027</p>
+          <h2 class="day-route">Bumthang — sacred temples</h2>
+          <dl class="day-meta">
+            <div><dt>Location</dt><dd>Choekor / Jakar</dd></div>
+            <div><dt>Hotel</dt><dd>Bumthang · best available</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · dinner</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Kurjey Lhakhang</li>
+              <li>Jambay Lhakhang</li>
+              <li>Tamshing Lhakhang</li>
+              <li>Quiet courtyard time · learning</li>
+              <li>Optional village stroll</li>
+            </ul>
+          </div>
+          <p class="day-desc">The spiritual core — three of Bhutan’s most important temples, with space to sit, not only photograph.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/kurjey_lhakhang.jpg" alt="Kurjey" />
+            <span>Kurjey Lhakhang</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/jambay_lhakhang.jpg" alt="Jambay" /><figcaption>Jambay Lhakhang</figcaption></figure>
+            <figure><img src="images/tamshing_lhakhang.jpg" alt="Tamshing" /><figcaption>Tamshing</figcaption></figure>
+            <figure><img src="images/kurjey_alt.jpg" alt="Kurjey" /><figcaption>Kurjey grounds</figcaption></figure>
+            <figure><img src="images/jambay_alt.jpg" alt="Light" /><figcaption>Temple light</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">14 / 20</span>
+    </footer>
+  </section>
+
+  <!-- DAY 08 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 08 · 27 March 2027</p>
+          <h2 class="day-route">Bumthang — trek, lake &amp; farm</h2>
+          <dl class="day-meta">
+            <div><dt>Pace</dt><dd>Walk / short trek</dd></div>
+            <div><dt>Hotel</dt><dd>Farmhouse / partner mix</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · dinner</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Mebar Tsho (Burning Lake)</li>
+              <li>Short valley trek or hermitage viewpoint</li>
+              <li>Farm / village time with hosts</li>
+              <li>Rest before tomorrow’s flight</li>
+            </ul>
+          </div>
+          <p class="day-desc">Learning on foot — sacred water, highland paths, and village texture before you fly west.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/mebar_tsho.jpg" alt="Lake" />
+            <span>Mebar Tsho</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/mebar_tsho_alt.jpg" alt="Lake" /><figcaption>Sacred lake</figcaption></figure>
+            <figure><img src="images/tharpaling_monastery.jpg" alt="Hills" /><figcaption>Hermitage hills</figcaption></figure>
+            <figure><img src="images/bumthang_valley.jpg" alt="Walk" /><figcaption>Valley walk</figcaption></figure>
+            <figure><img src="images/thangbi_lhakhang.jpg" alt="Village" /><figcaption>Village temple</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">15 / 20</span>
+    </footer>
+  </section>
+
+  <!-- DAY 09 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 09 · 28 March 2027</p>
+          <h2 class="day-route">Flight Bumthang → Paro</h2>
+          <dl class="day-meta">
+            <div><dt>Flight</dt><dd>BUT → PBH · we book</dd></div>
+            <div><dt>Hotel</dt><dd>Olathang Cottage</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · dinner</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Transfer to Bumthang airport</li>
+              <li>Scenic mountain flight west (≈ 30–40 min)</li>
+              <li>Meet driver · check-in Olathang Cottage</li>
+              <li>Light afternoon · Kyichu if timing allows</li>
+            </ul>
+          </div>
+          <p class="day-desc">The one internal flight — we manage it — so you skip the long return road and arrive fresh for Paro.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/paro_location.jpg" alt="Paro" />
+            <span>Paro · valley</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/paro_airport_real.jpg" alt="Airport" /><figcaption>Paro airport</figcaption></figure>
+            <figure><img src="images/bhutan_prayer_mountains.jpg" alt="Light" /><figcaption>Mountain light</figcaption></figure>
+            <figure><img src="images/paro_nemi_bridge.jpg" alt="Valley" /><figcaption>Olathang area</figcaption></figure>
+            <figure><img src="images/paro_kyichu_lhakhang.jpg" alt="Kyichu" /><figcaption>Kyichu (optional)</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">16 / 20</span>
+    </footer>
+  </section>
+
+  <!-- DAY 10 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 10 · 29 March 2027</p>
+          <h2 class="day-route">Paro valley — temples &amp; short walk</h2>
+          <dl class="day-meta">
+            <div><dt>Hotel</dt><dd>Olathang Cottage</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · dinner</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Kyichu Lhakhang</li>
+              <li>National Museum or Paro Dzong</li>
+              <li>Optional Chele La if energy allows</li>
+              <li>Early night — Tiger’s Nest tomorrow</li>
+            </ul>
+          </div>
+          <p class="day-desc">Soft Paro day before the climb — sacred valley temples and rest for your legs.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/paro_kyichu_lhakhang_alt.jpg" alt="Kyichu" />
+            <span>Kyichu Lhakhang</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/paro_kyichu_lhakhang.jpg" alt="Kyichu" /><figcaption>Kyichu</figcaption></figure>
+            <figure><img src="images/paro_national_museum.jpg" alt="Museum" /><figcaption>Ta Dzong</figcaption></figure>
+            <figure><img src="images/paro_chelela_pass.jpg" alt="Chele La" /><figcaption>Chele La (opt.)</figcaption></figure>
+            <figure><img src="images/paro_shaba_river.jpg" alt="River" /><figcaption>Paro river</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">17 / 20</span>
+    </footer>
+  </section>
+
+  <!-- DAY 11 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 11 · 30 March 2027</p>
+          <h2 class="day-route">Tiger’s Nest — spiritual climax</h2>
+          <dl class="day-meta">
+            <div><dt>Trek</dt><dd>≈ 5–6 hrs round trip</dd></div>
+            <div><dt>Hotel</dt><dd>Olathang Cottage</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · dinner</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Early start · good shoes · water</li>
+              <li>Trek to Taktsang Monastery</li>
+              <li>Optional pony to cafeteria (extra)</li>
+              <li>Temple visit · quiet cliff time</li>
+              <li>Descend · celebrate dinner</li>
+            </ul>
+          </div>
+          <p class="day-desc">Bhutan’s most iconic spiritual landmark — crowning eleven days of temples, valleys, and learning.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/paro_tigers_nest.jpg" alt="Nest" />
+            <span>Taktsang · Tiger’s Nest</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/paro_tigers_nest_trek.jpg" alt="Trek" /><figcaption>Trek path</figcaption></figure>
+            <figure><img src="images/paro_tigers_nest_viewpoint.jpg" alt="View" /><figcaption>Viewpoint</figcaption></figure>
+            <figure><img src="images/paro_tigers_nest_alt.jpg" alt="Cliff" /><figcaption>Cliff monastery</figcaption></figure>
+            <figure><img src="images/bhutan_prayer_flags.jpg" alt="Flags" /><figcaption>Prayer flags</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">18 / 20</span>
+    </footer>
+  </section>
+
+  <!-- DAY 12 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 12 · 31 March 2027</p>
+          <h2 class="day-route">Depart Paro · onward to Delhi</h2>
+          <dl class="day-meta">
+            <div><dt>Transfer</dt><dd>Olathang → airport included</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast if timing allows</dd></div>
+            <div><dt>Your flights</dt><dd>Paro → Delhi → Madrid</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Breakfast (flight-dependent)</li>
+              <li>Private SUV drop at Paro Airport</li>
+              <li>Farewell · onward via Delhi</li>
+            </ul>
+          </div>
+          <p class="day-desc">We time the transfer to your ticket. Share final Paro departure once booked.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/paro_airport_arrive.jpg" alt="Depart" />
+            <span>Paro · departure</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/paro_airport_view.jpg" alt="Airport" /><figcaption>Paro airport</figcaption></figure>
+            <figure><img src="images/cover_bhutan_landscape.jpg" alt="Memory" /><figcaption>Journey memory</figcaption></figure>
+            <figure><img src="images/paro_location.jpg" alt="Valley" /><figcaption>Last valley light</figcaption></figure>
+            <figure><img src="images/bhutan_prayer_flags.jpg" alt="Flags" /><figcaption>Until next time</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">19 / 20</span>
+    </footer>
+  </section>
+
+  <!-- 20 FLIGHTS + NEXT -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Quote</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Flights · Madrid</p>
+      <h2 class="page-heading">Best transit · Drukair &amp; Bhutan Airlines</h2>
+      <p class="page-sub">
+        ★ <strong>Delhi is best from Madrid</strong> (matches your plan). Arrive DEL 19 Mar · fly to Paro 20 Mar.
+        Times indicative — reconfirm for March 2027 on airline sites.
+      </p>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="rec">★ Delhi</th>
+            <th>Bangkok</th>
+            <th>Kathmandu</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>From Madrid</th>
+            <td class="rec">Easiest · overnight stop</td>
+            <td>Longer · early BKK hop</td>
+            <td>Fewer options</td>
+          </tr>
+          <tr>
+            <th>Tip</th>
+            <td class="rec" colspan="3">MAD → DEL (19 Mar) · DEL → PBH (20 Mar midday) · return 31 Mar morning PBH → DEL → MAD</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="day-table">
+        <thead>
+          <tr><th>Airline</th><th>Flight</th><th>Route</th><th>Time (indicative)</th><th>Your date</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Drukair</td><td>KB201</td><td>DEL → PBH</td><td>≈ 12:30 → 15:20</td><td>Inbound 20 Mar</td></tr>
+          <tr><td>Drukair</td><td>KB200</td><td>PBH → DEL</td><td>≈ 09:40 → 11:30</td><td>Outbound 31 Mar</td></tr>
+          <tr><td>Bhutan Airlines</td><td>B3774</td><td>DEL → PBH</td><td>≈ 13:00 → 15:50</td><td>Alt inbound</td></tr>
+          <tr><td>Bhutan Airlines</td><td>B3773</td><td>PBH → DEL</td><td>≈ 10:20 → 12:00</td><td>Alt outbound</td></tr>
+          <tr><td>Drukair</td><td>KB011</td><td>Bumthang → Paro</td><td>≈ 11:10 → 11:45</td><td>Day 09 · we book</td></tr>
+        </tbody>
+      </table>
+
+      <p class="note-line">
+        Book:
+        <a href="https://www.drukair.com.bt" target="_blank" rel="noopener">drukair.com.bt</a> ·
+        <a href="https://www.bhutanairlines.bt" target="_blank" rel="noopener">bhutanairlines.bt</a>
+        · DEL↔PBH often ≈ USD 600–750 return · we can ticket at cost if needed.
+      </p>
+
+      <table class="cmp-table" style="margin-top: 4mm;">
+        <thead><tr><th colspan="2">Included / not · next step</th></tr></thead>
+        <tbody>
+          <tr>
+            <th>Included</th>
+            <td>SDF · visa help · hotels BF+dinner · guide · SUV · entries · airport transfers · 12-day domestic flight</td>
+          </tr>
+          <tr>
+            <th>Not included</th>
+            <td>MAD/DEL/PBH flights · insurance · lunch · tips · spa/pony</td>
+          </tr>
+          <tr>
+            <th>Choose</th>
+            <td>A · USD <strong>3,955</strong> &nbsp;or&nbsp; B · USD <strong>2,355</strong></td>
+          </tr>
+          <tr>
+            <th>Send</th>
+            <td>Passport scan · A or B · flight draft when ready · WhatsApp <strong>+975-17649720</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="letter-sign" style="margin-top: 4mm;">
+        <img class="letter-photo" src="images/Rajiv_Tshering.jpg" alt="Rajiv and Tshering" />
+        <div>
+          <p class="closing">We look forward to welcoming you,</p>
+          <p class="name">Rajiv Pradhan &amp; Tshering Lhamo</p>
+          <p class="role">Silverpine Tours · Pelbu Suites</p>
+          <p class="since">
+            <a href="https://www.silverpinebhutan.com">silverpinebhutan.com</a> ·
+            <a href="https://www.pelbusuites.bt">pelbusuites.bt</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">John · Solo · Spain</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">20 / 20</span>
+    </footer>
+  </section>
+
+</body>
+</html>

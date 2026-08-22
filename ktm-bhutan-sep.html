@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Silverpine Tours — KTM Gateway · Bhutan West · Belgium Group</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .simple-intro { font-size: 10pt; line-height: 1.55; color: var(--ink-soft); margin-bottom: 5mm; }
+    .cmp-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-bottom: 4mm; }
+    .cmp-table th, .cmp-table td {
+      border: 0.5pt solid var(--line); padding: 2.2mm 2.5mm; text-align: left; vertical-align: top; line-height: 1.4;
+    }
+    .cmp-table thead th {
+      background: var(--mist); font-family: 'Cormorant Garamond', serif; font-size: 11pt; font-weight: 600; color: var(--ink);
+    }
+    .cmp-table thead th.rec { background: #ebe4d6; border-bottom: 1.5pt solid var(--gold); }
+    .cmp-table tbody th { width: 28%; font-weight: 500; color: var(--charcoal); background: #faf8f5; }
+    .cmp-table td.rec { background: #fbf9f5; }
+    .cmp-table .price { font-family: 'Cormorant Garamond', serif; font-size: 16pt; font-weight: 600; }
+    .cmp-table .small { font-size: 8pt; color: var(--stone); }
+    .day-table { width: 100%; border-collapse: collapse; font-size: 8.5pt; margin-bottom: 4mm; }
+    .day-table th, .day-table td {
+      border: 0.5pt solid var(--line); padding: 1.8mm 2mm; text-align: left; vertical-align: top; line-height: 1.35;
+    }
+    .day-table thead th {
+      background: var(--mist); font-weight: 500; font-size: 8pt; letter-spacing: 0.06em; text-transform: uppercase; color: var(--charcoal);
+    }
+    .day-table td:first-child { white-space: nowrap; font-weight: 500; width: 22mm; }
+    .day-table td:nth-child(2) { width: 28mm; color: var(--stone); }
+    .note-line { font-size: 8.5pt; color: var(--ink-soft); line-height: 1.45; margin-top: 2mm; }
+    .hotel-block { margin-bottom: 3.5mm; page-break-inside: avoid; }
+    .hotel-block:last-child { margin-bottom: 0; }
+    .hotel-block-head {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 4mm;
+      margin-bottom: 1.5mm; padding-bottom: 1mm; border-bottom: 0.5pt solid var(--gold-pale);
+    }
+    .hotel-block-head h3 { font-family: 'Cormorant Garamond', serif; font-size: 14pt; font-weight: 500; }
+    .hotel-block-head .nights {
+      font-size: 7.5pt; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); white-space: nowrap;
+    }
+    .hotel-block-meta { font-size: 8pt; color: var(--stone); margin-bottom: 1.8mm; line-height: 1.4; }
+    .hotel-block-meta a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 1.5px; }
+    .why-pick { font-size: 8.5pt; color: var(--ink-soft); line-height: 1.45; margin: 0 0 2mm; }
+    .hotel-shots {
+      display: grid; grid-template-columns: 1.35fr 1fr 1fr; grid-template-rows: 38mm 38mm; gap: 1.8mm;
+    }
+    .hotel-shots figure { position: relative; overflow: hidden; margin: 0; background: var(--cream); }
+    .hotel-shots figure:first-child { grid-row: 1 / span 2; }
+    .hotel-shots img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hotel-shots figcaption {
+      position: absolute; left: 0; right: 0; bottom: 0; padding: 1.5mm 2mm;
+      font-size: 5.5pt; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #fff;
+      background: linear-gradient(transparent, rgba(14, 14, 12, 0.78));
+    }
+    .hotel-shots.compact { grid-template-rows: 32mm 32mm; gap: 1.5mm; }
+    .hotel-shots.triple { grid-template-rows: 26mm 26mm; gap: 1.4mm; }
+    .page-stay .page-heading { margin-bottom: 1.5mm; }
+    .page-stay .page-sub { margin-bottom: 3mm; }
+    .page-overview .day-table { margin-bottom: 3mm; }
+    .places-strip {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2mm; margin-top: 4mm;
+    }
+    .places-strip figure { margin: 0; position: relative; overflow: hidden; height: 58mm; background: var(--cream); }
+    .places-strip img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .places-strip figcaption {
+      position: absolute; left: 0; right: 0; bottom: 0; padding: 1.5mm 2mm;
+      font-size: 5.5pt; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #fff;
+      background: linear-gradient(transparent, rgba(14, 14, 12, 0.78));
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1 · COVER -->
+  <section class="page cover">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Group Itinerary</div>
+    </header>
+    <div class="cover-hero">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Paro_Taktsang%2C_Bhutan_%28edited%29.jpg/1280px-Paro_Taktsang%2C_Bhutan_%28edited%29.jpg" alt="Tiger's Nest, Paro Bhutan" />
+    </div>
+    <div class="page-body">
+      <div class="cover-content">
+        <p class="cover-eyebrow">Kingdom of Bhutan · KTM Gateway · Days 7–11</p>
+        <h1 class="cover-brand">Silverpine <em>Tours</em></h1>
+        <p class="cover-title">Bhutan West · Thimphu · Punakha · Paro</p>
+        <div class="cover-rule"></div>
+        <p class="cover-client">Belgium · 4 Adults · Private Group</p>
+        <div class="cover-details">
+          <div class="cover-detail"><label>Gateway</label><p>Kathmandu ↔ Paro (Drukair)</p></div>
+          <div class="cover-detail"><label>Land dates</label><p>14 – 19 September 2026</p></div>
+          <div class="cover-detail"><label>Nights</label><p>5 nights · 6 land days</p></div>
+          <div class="cover-detail"><label>Rooms</label><p>2 doubles · MAP plan</p></div>
+          <div class="cover-detail"><label>Vehicle</label><p>Toyota Hiace or H1</p></div>
+          <div class="cover-detail"><label>Quote</label><p>All figures in USD</p></div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Belgium · 4 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">01 / 10</span>
+    </footer>
+  </section>
+
+  <!-- PAGE 2 · LETTER -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Group Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Correspondence</p>
+      <h2 class="page-heading">Your Bhutan west circuit</h2>
+      <p class="page-sub">14–19 September 2026 · Kathmandu in and out · four adults · two rooms</p>
+
+      <p class="letter-date">Issue date · 22 August 2026</p>
+      <p class="letter-greeting">Dear friends,</p>
+
+      <div class="letter-body">
+        <p>
+          Thank you for planning this <strong>KTM gateway</strong> journey with us. This is the
+          <strong>Days 7–11</strong> Bhutan west segment for your party of <strong>four adults</strong>:
+          Himalayan flight into Paro, two nights at our own <strong>Pelbu Suites</strong> in Thimphu,
+          one Punakha night at <strong>Dhensa</strong> or <strong>Dhumra Farm</strong>, two Paro nights at
+          <strong>Tenzinling</strong> or <strong>Olathang</strong>, and the
+          <strong>Tiger’s Nest</strong> hike before your morning return to Kathmandu.
+        </p>
+        <p>
+          You travel in one <strong>Toyota Hiace or H1</strong> with a licensed English-speaking guide.
+          Hotels are on <strong>MAP</strong> (breakfast and dinner). Page 3 sets out the quote in
+          <strong>US dollars only</strong> — SDF &amp; visa, guide · car · entries, hotels, and indicative
+          Drukair fares.
+        </p>
+        <p>
+          WhatsApp <strong>+975-17649720</strong> ·
+          <a href="https://www.silverpinebhutan.com">www.silverpinebhutan.com</a>.
+        </p>
+      </div>
+
+      <div class="letter-sign">
+        <img class="letter-photo" src="images/Rajiv_Tshering.jpg" alt="Rajiv Pradhan and Tshering Lhamo, Proprietors" />
+        <div>
+          <p class="closing">With warm regards,</p>
+          <p class="name">Rajiv Pradhan &amp; Tshering Lhamo</p>
+          <p class="role">Proprietors · Silverpine Tours</p>
+          <p class="since">Managing Silverpine Tours as a couple since 2012</p>
+        </div>
+      </div>
+
+      <div class="letter-contact">
+        <div><label>Website</label><a href="https://www.silverpinebhutan.com">www.silverpinebhutan.com</a></div>
+        <div><label>WhatsApp</label><p>+975-17649720</p></div>
+        <div><label>Group</label><p>Belgium · 4 adults · 2 rooms</p></div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Belgium · 4 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">02 / 10</span>
+    </footer>
+  </section>
+
+  <!-- PAGE 3 · PRICING (ALL USD) -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Group Quote</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Quote · the deal</p>
+      <h2 class="page-heading">Two paths · pick one total</h2>
+      <p class="page-sub">
+        4 adults · 2 rooms · 14–19 Sep 2026 · breakfast &amp; dinner · guide · Hiace/H1 · all USD
+      </p>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Dhensa path</th>
+            <th class="rec">Dhumra path ★</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Punakha night</th>
+            <td>Dhensa · 4★ lodge</td>
+            <td class="rec"><strong>Dhumra Farm · 3★</strong></td>
+          </tr>
+          <tr>
+            <th>Same on both</th>
+            <td colspan="2">Pelbu Suites · 2 nights · Paro Tenzinling or Olathang · 2 nights · SDF · visa · guide · car · entries</td>
+          </tr>
+          <tr>
+            <th>Land · 4 adults</th>
+            <td><span class="price">USD 5,243</span><br /><span class="small">USD 1,311 / person</span></td>
+            <td class="rec"><span class="price">USD 4,572</span><br /><span class="small">USD 1,143 / person</span></td>
+          </tr>
+          <tr>
+            <th>Flights KTM ↔ Paro</th>
+            <td colspan="2">
+              Indicative <strong>USD 474 / person</strong> · <strong>USD 1,895</strong> for 4 · Drukair economy ·
+              <span class="small">not in land · pay airline · page 4</span>
+            </td>
+          </tr>
+          <tr>
+            <th>Land + flights</th>
+            <td><span class="price">USD 7,138</span><br /><span class="small">USD 1,785 / person</span></td>
+            <td class="rec"><span class="price">USD 6,467</span><br /><span class="small">USD 1,617 / person</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="simple-intro" style="margin-top: 3mm; margin-bottom: 3mm;">
+        Only the Punakha hotel changes the total. Everything else is the same.
+      </p>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th>Inside the land</th>
+            <th>Dhensa path</th>
+            <th class="rec">Dhumra path</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>SDF + visa</th>
+            <td colspan="2">USD 2,160 · SDF USD 100/person/night · visa USD 40/person</td>
+          </tr>
+          <tr>
+            <th>Guide · car · entries</th>
+            <td colspan="2">USD 1,024 · licensed guide · Hiace or H1 · monument fees</td>
+          </tr>
+          <tr>
+            <th>Hotels · MAP</th>
+            <td>USD 2,059 · Pelbu + Dhensa + Paro</td>
+            <td class="rec">USD 1,388 · Pelbu + Dhumra + Paro</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="docs-row" style="margin-top: 4mm; margin-bottom: 0;">
+        <div class="closing-block dos">
+          <h3>Included</h3>
+          <ul>
+            <li>SDF &amp; visa facilitation</li>
+            <li>Hotels · breakfast &amp; dinner</li>
+            <li>Licensed guide · private vehicle</li>
+            <li>Monument entries on this circuit</li>
+            <li>Airport pickup &amp; drop in Bhutan</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>Not included</h3>
+          <ul>
+            <li>KTM ↔ Paro flights</li>
+            <li>Lunch daily</li>
+            <li>Tips · shopping · laundry · spa</li>
+            <li>Tiger’s Nest pony (optional)</li>
+            <li>Travel insurance</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="note-line">
+        Quote valid 15 days · FX reference USD 1 = BTN 84 · recommend confirming the Dhumra path unless you want the Dhensa lodge.
+      </p>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Belgium · 4 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">03 / 10</span>
+    </footer>
+  </section>
+
+  <!-- PAGE 4 · FLIGHTS -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Group Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Access</p>
+      <h2 class="page-heading">Kathmandu ↔ Paro · Drukair</h2>
+      <p class="page-sub">Indicative schedule · 14 &amp; 19 September 2026 · Terminal I KTM · gates day-of</p>
+
+      <div class="two-col">
+        <div class="callout" style="margin: 0;">
+          <h4>Inbound · Mon 14 Sep 2026 · KB401</h4>
+          <p>
+            <strong>KTM ~09:10 → PBH ~10:30</strong> · ~1 hr 20 · economy<br />
+            <strong>KTM:</strong> Tribhuvan Intl · Terminal I · check-in ~3 hrs before<br />
+            <strong>PBH:</strong> meet guide after immigration · drive to Thimphu ~1.5 hrs
+          </p>
+        </div>
+        <div class="callout" style="margin: 0;">
+          <h4>Outbound · Sat 19 Sep 2026 · KB400</h4>
+          <p>
+            <strong>PBH ~07:10 → KTM ~08:10</strong> · ~1 hr · economy<br />
+            Very early hotel checkout · Paro airport 2 hrs before<br />
+            Bhutan Airlines B3 772 / 771 are alternates on some days
+          </p>
+        </div>
+      </div>
+
+      <table class="cmp-table" style="margin-top: 4mm;">
+        <thead><tr><th></th><th>Indicative fare · 4 adults</th></tr></thead>
+        <tbody>
+          <tr>
+            <th>Drukair return</th>
+            <td><strong>USD 474 / person</strong> · group <strong>USD 1,895</strong><br />
+              <span class="small">Aug 2026 reference · fare + taxes · not included in land quote</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="note-line">
+        We can ticket with your land booking or you may hold tickets independently — share e-tickets for meet timing.
+      </p>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Belgium · 4 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">04 / 10</span>
+    </footer>
+  </section>
+
+  <!-- PAGE 5 · THIMPHU + PUNAKHA -->
+  <section class="page page-stay">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Group Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Stay · Thimphu &amp; Punakha</p>
+      <h2 class="page-heading">Pelbu · then Dhensa or Dhumra</h2>
+      <p class="page-sub">2 nights Thimphu · 1 night Punakha · MAP · pick Punakha path on page 3</p>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Thimphu · Pelbu Suites</h3>
+          <span class="nights">2 nights · 14–15 Sep</span>
+        </div>
+        <p class="hotel-block-meta">
+          Our hotel · Rajiv &amp; Tshering · 3★ premium · MAP · lift · spa ·
+          <a href="https://www.pelbusuites.bt" target="_blank" rel="noopener">pelbusuites.bt</a>
+          · <strong>USD 79 / room / night</strong>
+        </p>
+        <p class="why-pick">Arrival base after KTM→Paro. Dinner in-house both nights · short drive to Buddha Point and the dzong.</p>
+        <div class="hotel-shots triple">
+          <figure>
+            <img src="https://res.cloudinary.com/hkkchsfy/image/upload/w_1200,h_750,c_fill,g_auto,f_jpg,q_auto:good/v1785925661/pelbu/home/cxuej0vfzf06hsqqtnqy" alt="Pelbu Suites facade Olakha" />
+            <figcaption>Pelbu · Olakha facade</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/hkkchsfy/image/upload/w_1200,h_750,c_fill,g_auto,f_jpg,q_auto:good/pelbu/hotel/exterior" alt="Pelbu Suites exterior" />
+            <figcaption>Exterior</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/hkkchsfy/image/upload/w_1200,h_750,c_fill,g_auto,f_jpg,q_auto:good/pelbu/rooms/deluxe-suite" alt="Pelbu guest room" />
+            <figcaption>Guest room</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/hkkchsfy/image/upload/w_1200,h_750,c_fill,g_auto,f_jpg,q_auto:good/pelbu/restaurant/dining-room" alt="Pelbu dining" />
+            <figcaption>Dining</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/hkkchsfy/image/upload/w_1200,h_750,c_fill,g_auto,f_jpg,q_auto:good/pelbu/spa/steam" alt="Pelbu spa" />
+            <figcaption>Spa</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Punakha · Dhensa</h3>
+          <span class="nights">1 night · 16 Sep · premium path</span>
+        </div>
+        <p class="hotel-block-meta">
+          4★ valley lodge · private balconies · Kibu Spa ·
+          <a href="https://www.dhensa.com/" target="_blank" rel="noopener">dhensa.com</a>
+          · <strong>USD 506 / room / night</strong>
+        </p>
+        <div class="hotel-shots triple">
+          <figure>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Punakha_Dzong%2C_Bhutan_02.jpg/1280px-Punakha_Dzong%2C_Bhutan_02.jpg" alt="Punakha valley" />
+            <figcaption>Punakha valley</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774148536/hotels/damchen-riverside-resort.jpg" alt="Riverside lodge" />
+            <figcaption>Valley lodge</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774151442/hotels/spirit-village-lodge.jpg" alt="Cottage stay" />
+            <figcaption>Cottage style</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774153295/hotels/hotel-river-valley.jpg" alt="River view" />
+            <figcaption>River view</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774153889/hotels/hotel-classic-wood.jpg" alt="Wood interiors" />
+            <figcaption>Wood interiors</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Punakha · Dhumra Farm Resort</h3>
+          <span class="nights">1 night · 16 Sep · value path</span>
+        </div>
+        <p class="hotel-block-meta">
+          3★ organic farm · valley &amp; dzong views · farm-to-table MAP ·
+          <a href="https://dhumrafarm.com/" target="_blank" rel="noopener">dhumrafarm.com</a>
+          · <strong>USD 170 / room / night</strong>
+        </p>
+        <div class="hotel-shots triple">
+          <figure>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Punakha_Dzong%2C_Bhutan_02.jpg/1280px-Punakha_Dzong%2C_Bhutan_02.jpg" alt="Dhumra valley view" />
+            <figcaption>Dzong &amp; valley</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774151517/hotels/khuru-punakha.jpg" alt="Farm stay Punakha" />
+            <figcaption>Farm stay mood</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774151442/hotels/spirit-village-lodge.jpg" alt="Garden cottage" />
+            <figcaption>Garden cottage</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774148536/hotels/damchen-riverside-resort.jpg" alt="Organic valley" />
+            <figcaption>Organic valley</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774153295/hotels/hotel-river-valley.jpg" alt="Paddy fields" />
+            <figcaption>Paddy fields</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Belgium · 4 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">05 / 10</span>
+    </footer>
+  </section>
+
+  <!-- PAGE 6 · PARO -->
+  <section class="page page-stay">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Group Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Stay · Paro</p>
+      <h2 class="page-heading">Tenzinling or Olathang · same band</h2>
+      <p class="page-sub">2 nights · 17–18 Sep · USD 183 / room / night · short airport run for the 19 Sep KB400</p>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Paro · Tenzinling Resort</h3>
+          <span class="nights">2 nights · recommended</span>
+        </div>
+        <p class="hotel-block-meta">
+          3★ · valley views · short airport run ·
+          <a href="https://www.tenzinlinghotels.com/tenzinling-resort-paro/" target="_blank" rel="noopener">tenzinlinghotels.com</a>
+          · <strong>USD 183 / room / night</strong>
+        </p>
+        <p class="why-pick">Best for Tiger’s Nest day and the early KTM departure — quiet valley setting, reliable MAP dinner.</p>
+        <div class="hotel-shots">
+          <figure>
+            <img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774151187/hotels/taktshang-paradise.jpg" alt="Paro valley hotel" />
+            <figcaption>Valley lodge</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774148517/hotels/paro-heritage.jpg" alt="Paro room" />
+            <figcaption>Heritage room</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774151272/hotels/spirit-of-bhutan-resort.jpg" alt="Paro resort" />
+            <figcaption>Resort</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774153656/hotels/padma-gayul-resort.jpg" alt="Dining" />
+            <figcaption>Dining</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774153596/hotels/norwangs-villa.jpg" alt="Garden" />
+            <figcaption>Garden</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Paro · Olathang Cottages</h3>
+          <span class="nights">2 nights · alternate</span>
+        </div>
+        <p class="hotel-block-meta">
+          3★ cottages · Bondey hill ·
+          <a href="https://olathangcottages.bt/" target="_blank" rel="noopener">olathangcottages.bt</a>
+          · same rate band · <strong>USD 183 / room / night</strong>
+        </p>
+        <p class="why-pick">Use if Tenzinling is full. Cottage rooms · pine grounds · same airport timing for departure morning.</p>
+        <div class="hotel-shots">
+          <figure>
+            <img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774148328/hotels/olathang-cottages.jpg" alt="Olathang Cottages" />
+            <figcaption>Olathang</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774151187/hotels/taktshang-paradise.jpg" alt="Paro valley" />
+            <figcaption>Valley view</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774148517/hotels/paro-heritage.jpg" alt="Cottage room" />
+            <figcaption>Cottage room</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774151272/hotels/spirit-of-bhutan-resort.jpg" alt="Fireplace lounge" />
+            <figcaption>Lounge</figcaption>
+          </figure>
+          <figure>
+            <img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774153596/hotels/norwangs-villa.jpg" alt="Grounds" />
+            <figcaption>Grounds</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Belgium · 4 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">06 / 10</span>
+    </footer>
+  </section>
+
+  <!-- PAGE 7 · OVERVIEW -->
+  <section class="page page-overview">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Group Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">The journey</p>
+      <h2 class="page-heading">Day-by-day · Days 7–11</h2>
+      <p class="page-sub">2 Thimphu · 1 Punakha · 2 Paro · MAP throughout</p>
+
+      <table class="day-table">
+        <thead><tr><th>Day</th><th>Date</th><th>Plan</th><th>Sleep</th></tr></thead>
+        <tbody>
+          <tr><td>07</td><td>Mon 14 Sep</td><td>KB401 KTM→Paro · drive Thimphu · settle in</td><td>Pelbu Suites</td></tr>
+          <tr><td>08</td><td>Tue 15 Sep</td><td>Buddha Dordenma · Tashichho Dzong · market</td><td>Pelbu Suites</td></tr>
+          <tr><td>09</td><td>Wed 16 Sep</td><td>Dochula · Punakha Dzong</td><td>Dhensa / Dhumra</td></tr>
+          <tr><td>10</td><td>Thu 17 Sep</td><td>Drive Paro · Paro Dzong</td><td>Tenzinling / Olathang</td></tr>
+          <tr><td>11</td><td>Fri 18 Sep</td><td>Tiger’s Nest · 3–5 hr round trip</td><td>Tenzinling / Olathang</td></tr>
+          <tr><td>—</td><td>Sat 19 Sep</td><td>KB400 morning PBH→KTM · end services</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <p class="note-line">
+        Drives: Paro airport → Thimphu ≈ 1.5 hrs · Thimphu–Punakha ≈ 2.5–3 hrs · Punakha–Paro ≈ 3 hrs.
+        Tiger’s Nest is manageable without elite fitness — pony option to cafeteria if preferred.
+      </p>
+
+      <div class="places-strip">
+        <figure>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Buddha_Dordenma_statue%2C_Thimphu_06.jpg" alt="Buddha Dordenma" />
+          <figcaption>Buddha Dordenma</figcaption>
+        </figure>
+        <figure>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Punakha_Dzong%2C_Bhutan_02.jpg/1280px-Punakha_Dzong%2C_Bhutan_02.jpg" alt="Punakha Dzong" />
+          <figcaption>Punakha Dzong</figcaption>
+        </figure>
+        <figure>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Paro_Taktsang%2C_Bhutan_%28edited%29.jpg/1280px-Paro_Taktsang%2C_Bhutan_%28edited%29.jpg" alt="Tiger's Nest" />
+          <figcaption>Tiger’s Nest</figcaption>
+        </figure>
+        <figure>
+          <img src="https://res.cloudinary.com/hkkchsfy/image/upload/w_1200,h_750,c_fill,g_auto,f_jpg,q_auto:good/v1785925661/pelbu/home/cxuej0vfzf06hsqqtnqy" alt="Pelbu Suites" />
+          <figcaption>Pelbu Suites</figcaption>
+        </figure>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Belgium · 4 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">07 / 10</span>
+    </footer>
+  </section>
+
+  <!-- PAGE 8 · DAYS 7–8 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Group Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 07 · 14 Sep 2026</p>
+          <h2 class="day-route">Kathmandu → Paro → Thimphu</h2>
+          <dl class="day-meta">
+            <div><dt>Flight</dt><dd>Drukair KB401 · KTM → PBH</dd></div>
+            <div><dt>Hotel</dt><dd>Pelbu Suites · Thimphu</dd></div>
+            <div><dt>Meals</dt><dd>MAP · dinner at hotel</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Himalayan flight into Paro — window seats if possible</li>
+              <li>Meet guide · private transfer to Thimphu</li>
+              <li>Check-in Pelbu · rest · welcome dinner</li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="https://res.cloudinary.com/hkkchsfy/image/upload/w_1200,h_750,c_fill,g_auto,f_jpg,q_auto:good/v1785925713/pelbu/home/hmuenowpmowtkagbxxns" alt="Pelbu Suites Thimphu" />
+            <span>Thimphu · Pelbu</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Paro_Taktsang%2C_Bhutan_%28edited%29.jpg/1280px-Paro_Taktsang%2C_Bhutan_%28edited%29.jpg" alt="Himalayan approach" /><figcaption>Mountain flight</figcaption></figure>
+            <figure><img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Buddha_Dordenma_statue%2C_Thimphu_06.jpg" alt="Thimphu valley" /><figcaption>Capital valley</figcaption></figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-layout" style="margin-top: 6mm;">
+        <div class="day-left">
+          <p class="day-number">Day 08 · 15 Sep 2026</p>
+          <h2 class="day-route">Thimphu · capital sights</h2>
+          <dl class="day-meta">
+            <div><dt>Hotel</dt><dd>Pelbu Suites</dd></div>
+            <div><dt>Highlights</dt><dd>Buddha · Dzong · market</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Buddha Dordenma — valley panorama</li>
+              <li>Tashichho Dzong (exterior / courtyard as permitted)</li>
+              <li>Centenary Farmers Market or craft stalls</li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Buddha_Dordenma_statue%2C_Thimphu_06.jpg" alt="Buddha Dordenma" />
+            <span>Buddha point</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774164642/activities/thimphu/stroll-the-town-1.jpg" alt="Thimphu town" /><figcaption>Town stroll</figcaption></figure>
+            <figure><img src="https://res.cloudinary.com/hkkchsfy/image/upload/w_800,h_600,c_fill,g_auto,f_jpg,q_auto:good/pelbu/rooms/suite-alt" alt="Pelbu room" /><figcaption>Pelbu room</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Belgium · 4 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">08 / 10</span>
+    </footer>
+  </section>
+
+  <!-- PAGE 9 · DAYS 9–10 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Group Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 09 · 16 Sep 2026</p>
+          <h2 class="day-route">Thimphu → Punakha</h2>
+          <dl class="day-meta">
+            <div><dt>Drive</dt><dd>≈ 2.5–3 hrs via Dochula</dd></div>
+            <div><dt>Hotel</dt><dd>Dhensa or Dhumra Farm</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Dochula Pass — 108 chortens · Himalayan views on clear days</li>
+              <li>Punakha Dzong at the river confluence</li>
+              <li>MAP dinner at lodge</li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Punakha_Dzong%2C_Bhutan_02.jpg/1280px-Punakha_Dzong%2C_Bhutan_02.jpg" alt="Punakha Dzong" />
+            <span>Punakha Dzong</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-layout" style="margin-top: 6mm;">
+        <div class="day-left">
+          <p class="day-number">Day 10 · 17 Sep 2026</p>
+          <h2 class="day-route">Punakha → Paro</h2>
+          <dl class="day-meta">
+            <div><dt>Drive</dt><dd>≈ 3 hrs to Paro valley</dd></div>
+            <div><dt>Hotel</dt><dd>Tenzinling or Olathang</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Morning departure after breakfast</li>
+              <li>Paro Rinpung Dzong — fortress and bridge views</li>
+              <li>Evening at leisure before Tiger’s Nest day</li>
+            </ul>
+          </div>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="https://res.cloudinary.com/dvivq8oji/image/upload/v1774148328/hotels/olathang-cottages.jpg" alt="Paro valley stay" />
+            <span>Paro valley</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Belgium · 4 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">09 / 10</span>
+    </footer>
+  </section>
+
+  <!-- PAGE 10 · DAY 11 + DEPART + ESSENTIALS -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Group Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 11 · 18 Sep 2026</p>
+          <h2 class="day-route">Tiger’s Nest · Taktsang</h2>
+          <dl class="day-meta">
+            <div><dt>Hike</dt><dd>3–5 hrs round trip</dd></div>
+            <div><dt>Hotel</dt><dd>Paro · last night</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Early start · drive to trailhead</li>
+              <li>Guided hike to Taktsang monastery</li>
+              <li>Pony to cafeteria available · pace as a group</li>
+            </ul>
+          </div>
+          <p class="day-number" style="margin-top: 5mm;">19 Sep 2026 · Depart</p>
+          <p class="day-desc">KB400 ~07:10 PBH → KTM. Pre-dawn checkout · hotel transfer · farewell at Paro airport.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Paro_Taktsang%2C_Bhutan_%28edited%29.jpg/1280px-Paro_Taktsang%2C_Bhutan_%28edited%29.jpg" alt="Tiger's Nest" />
+            <span>Taktsang</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="closing-grid" style="margin-top: 5mm;">
+        <div class="closing-block dos">
+          <h3>Before you travel</h3>
+          <ul>
+            <li>Passport valid 6+ months · photos for visa</li>
+            <li>Travel insurance recommended</li>
+            <li>Layered clothing · sturdy shoes for Tiger’s Nest</li>
+            <li>Modest dress at dzongs and monasteries</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>Payment</h3>
+          <ul>
+            <li>Land quote in USD on page 3</li>
+            <li>Flights ticketed separately · USD 474/person indicative</li>
+            <li>Card acceptance limited in Bhutan — we advise wire / cash balance plan</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Belgium · 4 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">10 / 10</span>
+    </footer>
+  </section>
+
+</body>
+</html>

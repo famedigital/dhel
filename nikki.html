@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Silverpine Tours — Bhutan Budget Private Tour | Nikki</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Compact hotel gallery — one property per band */
+    .stay-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3mm;
+      margin-bottom: 5mm;
+    }
+    .stay-intro-item {
+      border-top: 1.5pt solid var(--gold);
+      padding-top: 2.5mm;
+    }
+    .stay-intro-item label {
+      display: block;
+      font-size: 6.5pt;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1mm;
+    }
+    .stay-intro-item p {
+      font-size: 9.5pt;
+      color: var(--ink-soft);
+      line-height: 1.35;
+    }
+    .stay-band {
+      display: grid;
+      grid-template-columns: 52mm 1fr;
+      gap: 4mm;
+      padding: 3.5mm 0;
+      border-bottom: 0.5pt solid var(--line);
+      page-break-inside: avoid;
+    }
+    .stay-band:first-of-type {
+      border-top: 0.5pt solid var(--line);
+    }
+    .stay-band-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14pt;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 1.5mm;
+    }
+    .stay-band-info .nights {
+      font-size: 7.5pt;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2mm;
+    }
+    .stay-band-info p {
+      font-size: 8pt;
+      line-height: 1.45;
+      color: var(--stone);
+    }
+    .stay-band-info a {
+      color: var(--ink-soft);
+      text-decoration: underline;
+      text-underline-offset: 1.5px;
+    }
+    .stay-band-photos {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr;
+      gap: 1.8mm;
+      height: 42mm;
+    }
+    .stay-band-photos figure {
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      background: var(--cream);
+    }
+    .stay-band-photos figure:first-child {
+      /* hero image on left */
+    }
+    .stay-band-photos img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .stay-band-photos figcaption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 1.2mm 2mm;
+      font-size: 5pt;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(14, 14, 12, 0.78));
+    }
+    .page-pricing .price-includes {
+      margin-top: 3mm;
+      margin-bottom: 0;
+    }
+    .page-pricing .price-includes ul {
+      columns: 2;
+      column-gap: 6mm;
+    }
+    .page-pricing .price-includes li {
+      break-inside: avoid;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== PAGE 1: COVER ========== -->
+  <section class="page cover">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="cover-hero">
+      <img src="images/cover_bhutan_landscape.jpg" alt="Tiger's Nest Monastery, Paro Bhutan" />
+    </div>
+    <div class="page-body">
+      <div class="cover-content">
+        <p class="cover-eyebrow">Kingdom of Bhutan · 5 Days · 4 Nights · Budget private package</p>
+        <h1 class="cover-brand">Silverpine <em>Tours</em></h1>
+        <p class="cover-title">West Bhutan · Paro to Paro</p>
+        <div class="cover-rule"></div>
+        <p class="cover-client">Prepared for Nikki · Australia · Solo traveller</p>
+        <div class="cover-details">
+          <div class="cover-detail">
+            <label>Gateway</label>
+            <p>Paro International (PBH)</p>
+          </div>
+          <div class="cover-detail">
+            <label>Route</label>
+            <p>Paro → Thimphu → Punakha → Paro</p>
+          </div>
+          <div class="cover-detail">
+            <label>Group</label>
+            <p>1 Adult · private tour</p>
+          </div>
+          <div class="cover-detail">
+            <label>Travel dates</label>
+            <p>18 – 22 December 2026</p>
+          </div>
+          <div class="cover-detail">
+            <label>Vehicle</label>
+            <p>Hyundai Creta / Santa Fe SUV</p>
+          </div>
+          <div class="cover-detail">
+            <label>Stay</label>
+            <p>Clean 3-star · single room</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Nikki · 1 Adult · Australia</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">01 / 10</span>
+    </footer>
+  </section>
+
+  <!-- ========== PAGE 2: LETTER ========== -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Correspondence</p>
+      <h2 class="page-heading">A note of welcome</h2>
+      <p class="page-sub">Personal greeting from Silverpine Tours</p>
+
+      <p class="letter-date">Issue date · 9 August 2026</p>
+      <p class="letter-greeting">Dear Nikki,</p>
+
+      <div class="letter-body">
+        <p>
+          Thank you for your enquiry — and welcome from Bhutan. We are pleased to prepare a
+          <strong>simple, budget-friendly private package</strong> for your solo journey
+          from <strong>18 to 22 December 2026</strong> (5 days / 4 nights),
+          <strong>Paro arrival to Paro departure</strong>.
+        </p>
+        <p>
+          Your brief matches what we do best for first-time, value-conscious travellers:
+          <strong>clean and comfortable 3-star hotels</strong>, a private licensed guide,
+          an SUV (Hyundai <strong>Creta or Santa Fe</strong>), all standard
+          <strong>SDF, visa facilitation, and monument entry fees</strong>, plus airport pickup
+          and drop on the first and last day.
+        </p>
+        <p>
+          The classic west circuit fits these dates well —
+          <strong>Thimphu</strong> (capital), <strong>Punakha</strong> (dzong &amp; rivers),
+          and <strong>Paro</strong> with the signature
+          <strong>Tiger’s Nest Monastery</strong> hike on Day 4 —
+          without rushing you into eastern highways on a short trip.
+        </p>
+        <p>
+          <strong>Silverpine Tours</strong> is managed by
+          <strong>Rajiv Pradhan &amp; Tshering Lhamo</strong> since <strong>2012</strong>.
+          For any refinement, WhatsApp <strong>+975-17649720</strong> or visit
+          <strong>www.silverpinebhutan.com</strong>. We look forward to hosting you
+          in the Land of the Thunder Dragon.
+        </p>
+      </div>
+
+      <div class="letter-sign">
+        <img class="letter-photo" src="images/Rajiv_Tshering.jpg" alt="Rajiv Pradhan and Tshering Lhamo, Proprietors" />
+        <div>
+          <p class="closing">With warm regards,</p>
+          <p class="name">Rajiv Pradhan &amp; Tshering Lhamo</p>
+          <p class="role">Proprietors · Silverpine Tours</p>
+          <p class="since">Managing Silverpine Tours as a couple since 2012</p>
+        </div>
+      </div>
+
+      <div class="letter-contact">
+        <div>
+          <label>Website</label>
+          <a href="https://www.silverpinebhutan.com">www.silverpinebhutan.com</a>
+        </div>
+        <div>
+          <label>WhatsApp</label>
+          <p>+975-17649720</p>
+        </div>
+        <div>
+          <label>Prepared for</label>
+          <p>Nikki · Australia · Solo · Paro ↔ Paro</p>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Nikki · 1 Adult · Australia</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">02 / 10</span>
+    </footer>
+  </section>
+
+  <!-- ========== PAGE 3: PRICE + INCLUSIONS ========== -->
+  <section class="page page-pricing">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Investment</p>
+      <h2 class="page-heading">Tour pricing</h2>
+      <p class="page-sub">
+        Solo private package · 5 days / 4 nights · 18–22 December 2026 · land only · USD.
+      </p>
+
+      <div class="price-hero">
+        <div>
+          <p class="label">Total package · 1 adult</p>
+          <p class="amount">USD 1,355</p>
+        </div>
+        <p class="note">SDF · single hotels · guide · SUV · entries · visa facilitation · coordination. Flights not included (see page 5 for airfares).</p>
+      </div>
+
+      <div class="docs-row" style="margin-bottom: 4mm;">
+        <div class="closing-block dos">
+          <h3>Included</h3>
+          <ul>
+            <li>SDF · USD 100 / night × 4 nights</li>
+            <li>Visa facilitation (tour-operator processing)</li>
+            <li>4 nights clean 3-star hotels · single room</li>
+            <li>Monument &amp; entry fees for this itinerary</li>
+            <li>Licensed English-speaking guide · 5 days</li>
+            <li>Private SUV (Creta / Santa Fe) + driver · 5 days</li>
+            <li>Paro airport pickup &amp; final drop</li>
+            <li>Bottled water on drives · internal permits</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>Not included</h3>
+          <ul>
+            <li>Flights into / out of Paro (see next flights page)</li>
+            <li>Australia → Asia gateway tickets</li>
+            <li>Travel insurance (recommended)</li>
+            <li>Lunches &amp; dinners (breakfast often at hotel)</li>
+            <li>Drinks, laundry, personal shopping</li>
+            <li>Tips for guide &amp; driver (optional)</li>
+            <li>Optional extras (spa, hot-stone bath, etc.)</li>
+            <li>Costs from weather diversions at Paro</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="price-includes">
+        <h4>Notes</h4>
+        <ul>
+          <li>Guide &amp; vehicle every day from arrival meet-and-greet through final airport drop</li>
+          <li>SDF is a government fee already built into the total — not optional for most leisure visitors</li>
+          <li>Airline tickets are paid directly to Drukair or Bhutan Airlines</li>
+          <li>Quote valid 15 days · deposit required to lock hotels and start visa processing</li>
+        </ul>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Nikki · 1 Adult · Australia</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">03 / 10</span>
+    </footer>
+  </section>
+
+  <!-- ========== PAGE 4: HOTELS (ALL THREE) ========== -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Stay</p>
+      <h2 class="page-heading">Your hotels</h2>
+      <p class="page-sub">
+        Clean comfortable 3-star stays · single room each night · included in the package total.
+        Same-category substitute only if a named property is full.
+      </p>
+
+      <div class="stay-intro">
+        <div class="stay-intro-item">
+          <label>Total nights</label>
+          <p>4 nights · single room</p>
+        </div>
+        <div class="stay-intro-item">
+          <label>Standard</label>
+          <p>Private bath · heating · Wi-Fi where offered</p>
+        </div>
+        <div class="stay-intro-item">
+          <label>Route</label>
+          <p>Thimphu · Punakha · Paro</p>
+        </div>
+      </div>
+
+      <div class="stay-band">
+        <div class="stay-band-info">
+          <p class="nights">1 night · 18 Dec</p>
+          <h3>Thimphu<br />Pelbu Suites</h3>
+          <p>
+            Olakha · capital base after arrival<br />
+            <a href="https://www.pelbusuites.bt" target="_blank" rel="noopener">pelbusuites.bt</a>
+          </p>
+        </div>
+        <div class="stay-band-photos">
+          <figure>
+            <img src="images/hotel_pelbu_exterior.jpg" alt="Pelbu Suites exterior" />
+            <figcaption>Exterior</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_room_double.jpg" alt="Pelbu Suites room" />
+            <figcaption>Room</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_dining.jpg" alt="Pelbu Suites dining" />
+            <figcaption>Dining</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="stay-band">
+        <div class="stay-band-info">
+          <p class="nights">1 night · 19 Dec</p>
+          <h3>Punakha<br />Hotel Lobesa</h3>
+          <p>
+            Lobesa · valley overnight (or same-tier similar)<br />
+            <a href="https://hotellobesa.com/" target="_blank" rel="noopener">hotellobesa.com</a>
+          </p>
+        </div>
+        <div class="stay-band-photos">
+          <figure>
+            <img src="images/hotel_lobesa_exterior.jpg" alt="Hotel Lobesa exterior" />
+            <figcaption>Property</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_lobesa_room1.jpg" alt="Hotel Lobesa room" />
+            <figcaption>Room</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_lobesa_view.jpg" alt="Lobesa valley view" />
+            <figcaption>Valley</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="stay-band">
+        <div class="stay-band-info">
+          <p class="nights">2 nights · 20–21 Dec</p>
+          <h3>Paro<br />Hotel Gakyidiana</h3>
+          <p>
+            Base for Tiger’s Nest &amp; airport departure (or same-tier similar)<br />
+            <a href="https://www.gakyidiana.com" target="_blank" rel="noopener">gakyidiana.com</a>
+          </p>
+        </div>
+        <div class="stay-band-photos">
+          <figure>
+            <img src="images/hotel_gakyidiana_exterior.jpg" alt="Gakyidiana exterior" />
+            <figcaption>Hotel</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_gakyidiana_classic.jpg" alt="Gakyidiana room" />
+            <figcaption>Room</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_gakyidiana_restaurant.jpg" alt="Gakyidiana restaurant" />
+            <figcaption>Dining</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="highlight-note" style="margin-top: 4mm;">
+        <strong>Room note:</strong> Package is priced on a <strong>single room</strong> throughout.
+        If a named hotel is full for December, we confirm an equal-standard property in writing before arrival — no silent downgrade.
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Nikki · 1 Adult · Australia</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">04 / 10</span>
+    </footer>
+  </section>
+
+  <!-- ========== PAGE 5: FLIGHTS ========== -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Access</p>
+      <h2 class="page-heading">Flights &amp; airfares</h2>
+      <p class="page-sub">
+        Paro (PBH) · recommended gateway for Australia is <strong>Bangkok (BKK)</strong>.
+        Tickets are <strong>not</strong> in the land package — book on airline sites; fares are indicative until ticketed.
+      </p>
+
+      <div class="price-grid" style="margin-bottom: 4mm;">
+        <div class="price-card">
+          <p class="num">Recommended inbound · 18 Dec 2026</p>
+          <h3>Bangkok → Paro</h3>
+          <p class="value" style="font-size: 13pt;">Drukair KB153</p>
+          <p class="hint">
+            Depart BKK ≈ <strong>06:00</strong> · Arrive PBH ≈ <strong>08:15</strong><br />
+            Nonstop · ≈ 3 hr 15 min · local times<br />
+            Fits same-day drive to Thimphu
+          </p>
+        </div>
+        <div class="price-card">
+          <p class="num">Recommended outbound · 22 Dec 2026</p>
+          <h3>Paro → Bangkok</h3>
+          <p class="value" style="font-size: 13pt;">Drukair KB152</p>
+          <p class="hint">
+            Depart PBH ≈ <strong>16:20</strong> · Arrive BKK ≈ <strong>20:30</strong><br />
+            Nonstop · ≈ 4 hr 10 min · local times<br />
+            We drop you at PBH for this flight
+          </p>
+        </div>
+      </div>
+
+      <div class="highlight-note" style="margin-bottom: 3.5mm;">
+        <strong>Times &amp; flight numbers</strong> follow the published Drukair December 2026 schedule and can change.
+        Confirm live inventory for your exact dates on
+        <a href="https://www.drukair.com.bt" target="_blank" rel="noopener">drukair.com.bt</a>
+        · schedule PDFs:
+        <a href="https://drukair.com.bt/plan/plan-your-trip/flight-schedule/" target="_blank" rel="noopener">Flight schedule</a>.
+        Alternate BKK services on some days: <strong>KB151</strong> (BKK→PBH afternoon) /
+        <strong>KB150</strong> (PBH→BKK morning). Also compare
+        <a href="https://www.bhutanairlines.bt" target="_blank" rel="noopener">bhutanairlines.bt</a>.
+      </div>
+
+      <div class="price-includes" style="margin-bottom: 3.5mm;">
+        <h4>Indicative economy return fares · into / out of Paro (1 adult)</h4>
+        <ul>
+          <li>
+            <strong>Bangkok (BKK) ↔ Paro</strong> — recommended · ≈ <strong>USD 850–1,000</strong>
+            (published round-trip often near ~USD 960 · + 5% GST if ticketed in 2026)
+          </li>
+          <li>
+            <strong>Delhi (DEL) ↔ Paro</strong> · Drukair KB200 / KB201 · ≈ <strong>USD 600–700</strong>
+            · ≈ 2 hr 20 min each way
+          </li>
+          <li>
+            <strong>Kathmandu (KTM) ↔ Paro</strong> · Drukair KB400 / KB401 · ≈ <strong>USD 500–600</strong>
+            · ≈ 1 hr
+          </li>
+          <li>
+            <strong>Kolkata (CCU) ↔ Paro</strong> · ≈ <strong>USD 450–500</strong>
+            · ≈ 1 hr 10 min
+          </li>
+        </ul>
+        <p class="price-note">
+          Fares are published-style indicators used for planning only — not a guarantee.
+          Final price is whatever the airline website (or authorised agent) shows at ticketing.
+          Australia → Bangkok / Delhi / etc. is a separate ticket on any airline (not quoted here).
+        </p>
+      </div>
+
+      <div class="per-head" style="margin-bottom: 3.5mm;">
+        <div class="per-head-item">
+          <label>Land package (this quote)</label>
+          <p class="value">USD 1,355</p>
+          <p class="sub">Hotels · SDF · guide · car · entries</p>
+        </div>
+        <div class="per-head-item">
+          <label>PBH sector estimate · BKK return</label>
+          <p class="value">≈ USD 960</p>
+          <p class="sub">Economy · 1 adult · plus taxes / GST as shown</p>
+        </div>
+      </div>
+
+      <div class="price-hero" style="margin-bottom: 3.5mm;">
+        <div>
+          <p class="label">Planning total · land + BKK ↔ PBH flights</p>
+          <p class="amount" style="font-size: 22pt;">≈ USD 2,315</p>
+        </div>
+        <p class="note">USD 1,355 land + ≈ USD 960 Paro sector · excludes your Australia ↔ Bangkok ticket</p>
+      </div>
+
+      <div class="docs-row" style="margin-bottom: 0;">
+        <div class="closing-block">
+          <h3>How to book air tickets</h3>
+          <ul>
+            <li>Drukair: <a href="https://www.drukair.com.bt" target="_blank" rel="noopener">drukair.com.bt</a></li>
+            <li>Bhutan Airlines: <a href="https://www.bhutanairlines.bt" target="_blank" rel="noopener">bhutanairlines.bt</a></li>
+            <li>Search 18 Dec inbound + 22 Dec outbound · economy · 1 adult</li>
+            <li>Passport name must match the ticket exactly</li>
+            <li>Share e-tickets with us for airport pickup / drop</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>From Australia</h3>
+          <ul>
+            <li>Step 1 · Fly SYD / MEL / other → <strong>Bangkok</strong> (any airline)</li>
+            <li>Step 2 · Overnight BKK if needed so you meet KB153 next morning</li>
+            <li>Step 3 · Drukair / Bhutan Airlines BKK ↔ PBH as above</li>
+            <li>Paro is VFR mountain airport — rare weather delay possible</li>
+            <li>Check-in open 3 hrs before · counters close 1 hr before departure</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Nikki · 1 Adult · Australia</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">05 / 10</span>
+    </footer>
+  </section>
+
+  <!-- ========== DAY 1 ========== -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 01 · 18 Dec 2026</p>
+          <h2 class="day-route">Arrive Paro · Drive to Thimphu</h2>
+          <dl class="day-meta">
+            <div><dt>Location</dt><dd>Gateway → Paro → Thimphu</dd></div>
+            <div><dt>Drive</dt><dd>Paro → Thimphu · ≈ 1–1.5 hrs</dd></div>
+            <div><dt>Hotel</dt><dd>Pelbu Suites · Thimphu · single</dd></div>
+            <div><dt>Vehicle</dt><dd>Creta / Santa Fe SUV</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Arrive Paro International · meet guide &amp; driver</li>
+              <li>Visa / immigration formalities</li>
+              <li>Scenic drive into Thimphu valley</li>
+              <li>Optional quick stops if arrival allows (Tachog / viewpoints)</li>
+              <li>Hotel check-in · evening at leisure</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            Touch down in the Paro valley — Bhutan’s dramatic mountain gateway —
+            then a gentle ascent toward the capital for your first night. December evenings are cool; dress in layers.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/thimphu_location.jpg" alt="Thimphu Bhutan" />
+            <span>Thimphu · capital</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/paro_airport_view.jpg" alt="Paro Airport" />
+              <figcaption>Paro arrival</figcaption>
+            </figure>
+            <figure>
+              <img src="images/thimphu_mountain_highway.jpg" alt="Drive to Thimphu" />
+              <figcaption>Drive to Thimphu</figcaption>
+            </figure>
+            <figure>
+              <img src="images/tachogang_lhakhang.jpg" alt="Tachogang iron bridge" />
+              <figcaption>Route scenery</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_pelbu_home.jpg" alt="Pelbu Suites Thimphu" />
+              <figcaption>Pelbu Suites</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Nikki · 1 Adult · Australia</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">06 / 10</span>
+    </footer>
+  </section>
+
+  <!-- ========== DAY 2 ========== -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 02 · 19 Dec 2026</p>
+          <h2 class="day-route">Thimphu · Dochula · Punakha</h2>
+          <dl class="day-meta">
+            <div><dt>Location</dt><dd>Thimphu → Dochula → Punakha</dd></div>
+            <div><dt>Travel time</dt><dd>City AM · drive ≈ 3 hrs to Punakha</dd></div>
+            <div><dt>Hotel</dt><dd>Lobesa / similar · Punakha · single</dd></div>
+            <div><dt>Highlight</dt><dd>Buddha Point · Dochula · Dzong</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Buddha Point (Buddha Dordenma)</li>
+              <li>Memorial Chorten / local morning life (as time allows)</li>
+              <li>Drive via Dochula Pass — 108 chortens · Himalayan view if clear</li>
+              <li>Punakha Dzong — fortress at the river confluence</li>
+              <li>Suspension bridge walk · hotel check-in</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            A rich but still manageable day — capital icons, the high pass of Dochula,
+            then the warmer Punakha valley and Bhutan’s most photogenic dzong.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/punakha_location.jpg" alt="Punakha location" />
+            <span>Punakha · valley</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/thimphu_buddha_point.jpg" alt="Buddha Point Thimphu" />
+              <figcaption>Buddha Point</figcaption>
+            </figure>
+            <figure>
+              <img src="images/dochula_pass.jpg" alt="Dochula Pass" />
+              <figcaption>Dochula Pass</figcaption>
+            </figure>
+            <figure>
+              <img src="images/punakha_dzong.jpg" alt="Punakha Dzong" />
+              <figcaption>Punakha Dzong</figcaption>
+            </figure>
+            <figure>
+              <img class="is-portrait" src="images/punakha_suspension_bridge.jpg" alt="Suspension bridge" />
+              <figcaption>Suspension bridge</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Nikki · 1 Adult · Australia</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">07 / 10</span>
+    </footer>
+  </section>
+
+  <!-- ========== DAY 3 ========== -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 03 · 20 Dec 2026</p>
+          <h2 class="day-route">Punakha to Paro</h2>
+          <dl class="day-meta">
+            <div><dt>Location</dt><dd>Punakha → Paro valley</dd></div>
+            <div><dt>Travel time</dt><dd>Approx. 3.5–4 hours</dd></div>
+            <div><dt>Hotel</dt><dd>Gakyidiana / similar · Paro · single</dd></div>
+            <div><dt>Focus</dt><dd>Kyichu · valley evening</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Morning departure from Punakha (optional light valley stop)</li>
+              <li>Scenic mountain return via Dochula corridor</li>
+              <li>Kyichu Lhakhang — one of Bhutan’s oldest temples</li>
+              <li>Paro town stroll if energy allows</li>
+              <li>Hotel check-in · rest for Tiger’s Nest tomorrow</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            Leave Punakha’s relative warmth for Paro’s classic valley —
+            sacred calm at Kyichu, and an early night before the signature hike.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/paro_location.jpg" alt="Paro valley location" />
+            <span>Paro · valley</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/punakha_valley.jpg" alt="Leaving Punakha" />
+              <figcaption>Leaving Punakha</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_kyichu_lhakhang.jpg" alt="Kyichu Lhakhang" />
+              <figcaption>Kyichu Lhakhang</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_ta_dzong.jpg" alt="Paro fortress area" />
+              <figcaption>Paro heritage</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_gakyidiana_exterior.jpg" alt="Paro hotel" />
+              <figcaption>Paro stay</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Nikki · 1 Adult · Australia</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">08 / 10</span>
+    </footer>
+  </section>
+
+  <!-- ========== DAY 4 ========== -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 04 · 21 Dec 2026</p>
+          <h2 class="day-route">Paro — Tiger’s Nest day</h2>
+          <dl class="day-meta">
+            <div><dt>Location</dt><dd>Paro · Taktsang Monastery</dd></div>
+            <div><dt>Travel time</dt><dd>Trek · 5–7 hours round trip</dd></div>
+            <div><dt>Hotel</dt><dd>Gakyidiana / similar · Paro · single</dd></div>
+            <div><dt>Difficulty</dt><dd>Moderate · early start · cold morning</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Early departure for Taktsang trailhead</li>
+              <li>Guided hike to Tiger’s Nest Monastery (pace to suit you)</li>
+              <li>Viewpoint rest · monastery visit (as open)</li>
+              <li>Descent · lunch stop · afternoon rest</li>
+              <li>Optional gentle Paro valley evening</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            The signature day of any short Bhutan trip — pine forest, prayer flags,
+            and the cliffside sanctuary of Taktsang. Wear good shoes, carry water and layers;
+            December trail can be cold and dusty.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/paro_tigers_nest.jpg" alt="Tiger's Nest Monastery" />
+            <span>Taktsang · Tiger’s Nest</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/paro_tigers_nest_alt.jpg" alt="Tiger Nest trek view" />
+              <figcaption>Trek view</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_tigers_nest_viewpoint.jpg" alt="Tiger Nest viewpoint" />
+              <figcaption>Viewpoint</figcaption>
+            </figure>
+            <figure>
+              <img src="images/bhutan_prayer_flags.jpg" alt="Prayer flags" />
+              <figcaption>Prayer flags</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_drukgyel_dzong.jpg" alt="Drukgyel Dzong" />
+              <figcaption>Valley below</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Nikki · 1 Adult · Australia</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">09 / 10</span>
+    </footer>
+  </section>
+
+  <!-- ========== DAY 5 + CLOSING ========== -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Final day &amp; next steps</p>
+      <h2 class="page-heading">Depart Paro · essentials</h2>
+      <p class="page-sub">Day 05 · 22 December 2026 · airport drop · packing &amp; documents.</p>
+
+      <div class="docs-row" style="margin-bottom: 4mm;">
+        <div class="closing-block dos">
+          <h3>Day 05 · departure</h3>
+          <ul>
+            <li>Checkout timed to your flight</li>
+            <li>Private transfer to Paro Airport</li>
+            <li>End of Silverpine land services</li>
+            <li>Connect via Drukair / Bhutan Airlines</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>Temple etiquette · brief</h3>
+          <ul>
+            <li>Dress modestly at dzongs &amp; temples</li>
+            <li>Walk clockwise around chortens</li>
+            <li>Remove hats / shoes where asked</li>
+            <li>Ask before photographing people or interiors</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="docs-row" style="margin-bottom: 4mm;">
+        <div class="closing-block">
+          <h3>Send us</h3>
+          <ul>
+            <li>Passport scan (6+ months validity ideally)</li>
+            <li>Passport-size photo (digital OK)</li>
+            <li>Confirmed PBH e-tickets</li>
+            <li>Emergency contact in Australia</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>December packing</h3>
+          <ul>
+            <li>Warm jacket · layers · beanie for mornings</li>
+            <li>Trekking shoes · Tiger’s Nest</li>
+            <li>Sunscreen · lip balm · medicines</li>
+            <li>Power bank · India-style plug adapter</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="price-hero" style="margin-bottom: 4mm;">
+        <div>
+          <p class="label">Ready to confirm</p>
+          <p class="amount" style="font-size: 22pt;">USD 1,355</p>
+        </div>
+        <p class="note">Land package · 1 adult · 18–22 Dec 2026 · + ≈ USD 960 BKK↔PBH flights (estimate)</p>
+      </div>
+
+      <div class="validity-box">
+        <div>
+          <p class="v-label">How to book</p>
+          <p class="v-text">
+            WhatsApp <strong>+975-17649720</strong> with passport name as printed and flight plan.
+            We reply with deposit details, visa checklist, and final balance steps.
+          </p>
+        </div>
+        <p class="v-side">
+          Nikki · Solo · Australia<br />
+          Paro ↔ Paro · 5D / 4N<br />
+          www.silverpinebhutan.com
+        </p>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Nikki · 1 Adult · Australia</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">10 / 10</span>
+    </footer>
+  </section>
+
+</body>
+</html>

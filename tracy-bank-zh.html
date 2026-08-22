@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Silverpine Tours — 中国汇款示范（中国银行）| Tracy</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .warn-box {
+      background: #f7f0e6;
+      border-left: 3px solid var(--gold);
+      padding: 3mm 3.5mm;
+      margin: 3mm 0;
+      font-size: 9pt;
+      line-height: 1.6;
+    }
+    .bank-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5mm;
+      margin: 2.5mm 0 3mm;
+    }
+    .bank-card {
+      border: 1px solid var(--line);
+      background: var(--mist);
+      padding: 2.8mm 3.2mm;
+    }
+    .bank-card.full { grid-column: 1 / -1; }
+    .bank-card label {
+      display: block;
+      font-size: 7pt;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 0.8mm;
+      font-family: 'Outfit', sans-serif;
+    }
+    .bank-card p {
+      font-size: 9.5pt;
+      font-weight: 500;
+      color: var(--ink);
+      word-break: break-word;
+      line-height: 1.45;
+    }
+    .bank-card p.mono {
+      font-family: 'Outfit', monospace;
+      font-size: 12pt;
+      letter-spacing: 0.03em;
+    }
+    .flow {
+      display: flex;
+      align-items: stretch;
+      gap: 2mm;
+      margin: 3mm 0 4mm;
+    }
+    .flow-step {
+      flex: 1;
+      background: var(--mist);
+      border: 1px solid var(--line);
+      padding: 2.5mm;
+      text-align: center;
+      font-size: 8pt;
+      line-height: 1.4;
+    }
+    .flow-step strong {
+      display: block;
+      font-size: 9pt;
+      margin-bottom: 1mm;
+      color: var(--ink);
+    }
+    .flow-num {
+      display: inline-block;
+      width: 5.5mm; height: 5.5mm;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #fff;
+      font-size: 8pt;
+      font-weight: 600;
+      line-height: 5.5mm;
+      margin-bottom: 1.5mm;
+      font-family: 'Outfit', sans-serif;
+    }
+    .flow-arrow {
+      display: flex;
+      align-items: center;
+      color: var(--gold);
+      font-size: 14pt;
+      font-weight: 300;
+      flex: 0 0 auto;
+    }
+    .phone-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3mm;
+      margin: 3mm 0;
+    }
+    .phone {
+      border: 1.5px solid #2a2926;
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+      font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+    }
+    .phone-bar {
+      background: #c8102e;
+      color: #fff;
+      text-align: center;
+      font-size: 7.5pt;
+      font-weight: 600;
+      padding: 2mm 1.5mm;
+      letter-spacing: 0.02em;
+    }
+    .phone-bar span {
+      display: block;
+      font-size: 6.5pt;
+      font-weight: 400;
+      opacity: 0.9;
+      margin-top: 0.5mm;
+    }
+    .phone-body { padding: 2.5mm 2.5mm 3mm; }
+    .phone-field {
+      margin-bottom: 2mm;
+      border-bottom: 1px solid #e8e4dc;
+      padding-bottom: 1.5mm;
+    }
+    .phone-field .k {
+      font-size: 6.5pt;
+      color: #8a857c;
+      margin-bottom: 0.6mm;
+    }
+    .phone-field .v {
+      font-size: 7.5pt;
+      color: #141412;
+      font-weight: 500;
+      line-height: 1.35;
+      word-break: break-word;
+    }
+    .phone-field.hi {
+      background: #f7f0e6;
+      margin: 0 -2.5mm 2mm;
+      padding: 2mm 2.5mm;
+      border-bottom: none;
+      border-left: 2.5px solid var(--gold);
+    }
+    .phone-cap {
+      text-align: center;
+      font-size: 7.5pt;
+      color: var(--stone);
+      margin-top: 1.5mm;
+      font-family: 'Outfit', 'Noto Sans SC', sans-serif;
+    }
+    .mock-note {
+      font-size: 7.5pt;
+      color: var(--stone);
+      text-align: center;
+      margin: 1mm 0 3mm;
+    }
+    .pay-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2mm 0 3mm;
+      font-size: 9pt;
+    }
+    .pay-table th, .pay-table td {
+      border-bottom: 1px solid var(--line);
+      padding: 2mm 1.5mm;
+      text-align: left;
+    }
+    .pay-table th {
+      font-size: 7pt;
+      letter-spacing: 0.05em;
+      color: var(--stone);
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+    .pay-table td.amt { text-align: right; font-family: 'Outfit', sans-serif; white-space: nowrap; }
+    .pay-table tr.total td {
+      font-weight: 600;
+      border-bottom: none;
+      padding-top: 2.5mm;
+      font-size: 10pt;
+    }
+    .corr-note { font-size: 8pt; color: var(--charcoal); line-height: 1.55; margin-top: 2mm; }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3mm;
+      margin: 3mm 0;
+    }
+    .mini-block {
+      border: 1px solid var(--line);
+      padding: 3mm;
+      background: var(--paper);
+    }
+    .mini-block h4 {
+      font-size: 10pt;
+      margin-bottom: 2mm;
+      font-family: 'Noto Serif SC', serif;
+    }
+    .mini-block ul {
+      margin: 0;
+      padding-left: 4mm;
+      font-size: 8.5pt;
+      line-height: 1.55;
+      color: var(--ink-soft);
+    }
+    .h3s {
+      font-size: 10pt;
+      margin: 1.5mm 0 1.2mm;
+      font-family: 'Noto Serif SC', serif;
+    }
+
+    /* Page 1 — fit above footer */
+    .page-bank-p1 .page-body {
+      padding-top: 6mm;
+      padding-bottom: 4mm;
+    }
+    .page-bank-p1 .page-heading { font-size: 16pt; margin-bottom: 1mm; }
+    .page-bank-p1 .page-sub { margin-bottom: 2mm; font-size: 8pt; line-height: 1.4; }
+    .page-bank-p1 .section-label { margin-bottom: 1mm; }
+    .page-bank-p1 .warn-box { margin: 1.5mm 0; padding: 2mm 2.5mm; font-size: 7.5pt; line-height: 1.4; }
+    .page-bank-p1 .flow { margin: 1.5mm 0 1.5mm; gap: 1.5mm; }
+    .page-bank-p1 .bank-grid { gap: 1.8mm; margin: 0 0 2mm; }
+    .page-bank-p1 .bank-card { padding: 2mm 2.5mm; }
+    .page-bank-p1 .bank-card label { font-size: 6.5pt; margin-bottom: 0.4mm; }
+    .page-bank-p1 .bank-card p { font-size: 8.5pt; line-height: 1.35; }
+    .page-bank-p1 .bank-card p.mono { font-size: 11pt; }
+  </style>
+</head>
+<body class="lang-zh">
+
+  <!-- PAGE 1: accounts + fill order -->
+  <section class="page page-bank-p1">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">汇款示范 · 中国银行 App / 柜台</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Tracy · 预付汇款</p>
+      <h2 class="page-heading">填写顺序与资金说明</h2>
+      <p class="page-sub">币种 USD · 先代理行 → 收款行 BNB → 附言写本公司 Ultimate</p>
+
+      <div class="warn-box">
+        <strong>请先了解：不是「直接打进我们口袋」。</strong>
+        汇款先经代理行进入<strong>不丹国家银行（BNB）</strong>。银行会核对旅行社是否<strong>持牌、注册有效、证件齐全</strong>；核实通过后，才会转入本公司账户
+        <em>BHUTAN SILVERPINE TOURS &amp; TREKS · 640007313</em>。
+        若资质不符，银行会<strong>退回款项</strong>。政府严格监管持牌旅行社——流程稍繁，是为保护游客不被骗，也督促我们保持合法合规。
+      </div>
+
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <strong>先填代理行</strong>
+          Correspondent · SCBLUS33
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <strong>再填收款行</strong>
+          BNB 先收 · 核验牌照
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <strong>附言 Ultimate</strong>
+          公司名 + 账号 · 银行再入账
+        </div>
+      </div>
+
+      <div class="warn-box" style="margin-top: 0;">
+        <strong>附言必填：</strong>
+        <em>Ultimate Beneficiary: BHUTAN SILVERPINE TOURS &amp; TREKS A/C 640007313 / Tracy</em>
+      </div>
+
+      <h3 class="h3s">① 代理行 Correspondent（最先填）</h3>
+      <div class="bank-grid">
+        <div class="bank-card full">
+          <label>Bank · SWIFT · ABA</label>
+          <p>Standard Chartered Bank, New York · <strong>SCBLUS33</strong> · CHIPS 0256 · FED 026002561</p>
+        </div>
+        <div class="bank-card full">
+          <label>BNB 在代理行美元账户（若系统要填）</label>
+          <p class="mono">358-202-171-9001</p>
+        </div>
+      </div>
+
+      <h3 class="h3s">② 收款行 Beneficiary Bank</h3>
+      <div class="bank-grid">
+        <div class="bank-card">
+          <label>Bank · SWIFT</label>
+          <p>Bhutan National Bank · <strong>BNBTBTBT</strong></p>
+        </div>
+        <div class="bank-card">
+          <label>Address</label>
+          <p>Thimphu, Bhutan</p>
+        </div>
+      </div>
+
+      <h3 class="h3s">③ Ultimate Beneficiary + ④ Remarks</h3>
+      <div class="bank-grid">
+        <div class="bank-card full">
+          <label>Account name</label>
+          <p>BHUTAN SILVERPINE TOURS &amp; TREKS</p>
+        </div>
+        <div class="bank-card">
+          <label>USD Account</label>
+          <p class="mono">640007313</p>
+        </div>
+        <div class="bank-card">
+          <label>Amount</label>
+          <p class="mono">USD 3,643.00</p>
+        </div>
+        <div class="bank-card full">
+          <label>Remarks / 附言（原样复制）</label>
+          <p>Ultimate Beneficiary: BHUTAN SILVERPINE TOURS &amp; TREKS A/C 640007313 / Tracy</p>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Tracy · 汇款示范</span>
+      <span class="ft-mid">WhatsApp +975-17649720</span>
+      <span class="ft-right">01 / 03</span>
+    </footer>
+  </section>
+
+  <!-- PAGE 2: BOC app sample screens -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">汇款示范 · 中国银行 App</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">示例银行 · 中国银行</p>
+      <h2 class="page-heading">可以用手机 App 吗？可以</h2>
+      <p class="page-sub">
+        中国银行个人手机银行支持「外币跨境汇款」。以下为<strong>示意界面</strong>（非官方截图），帮助您看清填什么、先填什么。
+        App 菜单名称可能随版本微调，以您手机显示为准。
+      </p>
+
+      <div class="warn-box">
+        <strong>App 路径（示意）：</strong>
+        打开「中国银行」App → 登录 →
+        <strong>首页「跨境汇款」</strong>
+        或 <strong>首页 → 跨境金融（专区）→ 跨境汇款</strong>
+        → 选 <strong>境外汇款</strong>（汇往境外他行，不是「境外中行」）→ 币种 <strong>美元 USD</strong>。
+        若账户无美元：先在 App 做<strong>购汇</strong>（出境和外币服务 → 结汇购汇 → 购汇 · 选现汇 · 用途可选因私旅游）。
+      </div>
+
+      <p class="mock-note">▼ 示意三屏：① 代理行 → ② 收款行/账号 → ③ 附言 Ultimate（请对照您 App 字段名称）</p>
+
+      <div class="phone-row">
+        <div>
+          <div class="phone">
+            <div class="phone-bar">中国银行 App<span>示意 · 步骤 1 / 代理行</span></div>
+            <div class="phone-body">
+              <div class="phone-field hi">
+                <div class="k">中间行 / 代理行 SWIFT（先填）</div>
+                <div class="v">SCBLUS33</div>
+              </div>
+              <div class="phone-field">
+                <div class="k">中间行名称</div>
+                <div class="v">Standard Chartered Bank New York</div>
+              </div>
+              <div class="phone-field">
+                <div class="k">中间行账号（若有此栏）</div>
+                <div class="v">358-202-171-9001</div>
+              </div>
+              <div class="phone-field">
+                <div class="k">国家/地区</div>
+                <div class="v">United States</div>
+              </div>
+            </div>
+          </div>
+          <p class="phone-cap">① 先填 Correspondent</p>
+        </div>
+        <div>
+          <div class="phone">
+            <div class="phone-bar">中国银行 App<span>示意 · 步骤 2 / 收款行</span></div>
+            <div class="phone-body">
+              <div class="phone-field hi">
+                <div class="k">收款银行 SWIFT</div>
+                <div class="v">BNBTBTBT</div>
+              </div>
+              <div class="phone-field">
+                <div class="k">收款银行名称</div>
+                <div class="v">Bhutan National Bank</div>
+              </div>
+              <div class="phone-field">
+                <div class="k">收款人姓名（英文）</div>
+                <div class="v">BHUTAN SILVERPINE TOURS &amp; TREKS</div>
+              </div>
+              <div class="phone-field">
+                <div class="k">收款账号</div>
+                <div class="v">640007313</div>
+              </div>
+              <div class="phone-field">
+                <div class="k">汇款金额</div>
+                <div class="v">USD 3,643.00</div>
+              </div>
+            </div>
+          </div>
+          <p class="phone-cap">② 再填 BNB + 本公司账户</p>
+        </div>
+        <div>
+          <div class="phone">
+            <div class="phone-bar">中国银行 App<span>示意 · 步骤 3 / 附言</span></div>
+            <div class="phone-body">
+              <div class="phone-field hi">
+                <div class="k">附言 / 留言 / Remittance info（最后填 · 必填）</div>
+                <div class="v">Ultimate Beneficiary: BHUTAN SILVERPINE TOURS &amp; TREKS A/C 640007313 / Tracy</div>
+              </div>
+              <div class="phone-field">
+                <div class="k">费用承担（建议）</div>
+                <div class="v">OUR / 全额到账 / 汇款人承担</div>
+              </div>
+              <div class="phone-field">
+                <div class="k">汇款用途（示例）</div>
+                <div class="v">旅游费 / Travel payment</div>
+              </div>
+              <div class="phone-field">
+                <div class="k">收款人地址（若要填）</div>
+                <div class="v">Thimphu, Bhutan</div>
+              </div>
+            </div>
+          </div>
+          <p class="phone-cap">③ 最后填 Ultimate 附言</p>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="mini-block">
+          <h4>App 可以办的条件</h4>
+          <ul>
+            <li>中国银行一类借记卡 + 已开通手机银行</li>
+            <li>具备手机盾 / 动态口令等认证工具（单短信验证码往往不够）</li>
+            <li>当日跨境汇出合计不超过等值约 5 万美元（本笔 3,643 通常无妨）</li>
+            <li>汇完在「汇款记录」截图，发给我们</li>
+          </ul>
+        </div>
+        <div class="mini-block">
+          <h4>App 做不了？去柜台</h4>
+          <ul>
+            <li>本人带<strong>身份证</strong> + 中行卡/存折</li>
+            <li>到任意可办国际业务的<strong>中国银行网点</strong></li>
+            <li>填《境外汇款申请书》，出示本 PDF 第 1 页</li>
+            <li>对柜员说：「美元电汇到不丹，经纽约渣打代理行」</li>
+            <li>要回单 / 水单照片发给我们</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="corr-note">
+        没有中行也可：工商银行、招商银行等同类「境外汇款 / 跨境汇款」。字段名可能不同，但顺序仍是
+        <strong>代理行 → 收款行 BNB → 本公司账号 → 附言 Ultimate</strong>。
+        也可致电中行客服 <strong>95566</strong> 问「手机银行境外汇款到不丹怎么填中间行」。
+      </p>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Tracy · 汇款示范</span>
+      <span class="ft-mid">WhatsApp +975-17649720</span>
+      <span class="ft-right">02 / 03</span>
+    </footer>
+  </section>
+
+  <!-- PAGE 3: amounts + checklist -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">汇款示范 · 金额与核对</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">金额</p>
+      <h2 class="page-heading">预付与尾款</h2>
+
+      <div class="warn-box">
+        <strong>到账过程（再次说明）：</strong>
+        您汇出的美元 → 代理行 → <strong>不丹银行先接收</strong> → 银行核验本公司牌照/注册是否有效 →
+        <strong>通过后</strong>再转入我司账户；不通过则<strong>退汇</strong>。
+        这是政府对旅行社的监管，保护游客，也要求我们保持最新合规文件。稍有等候属正常。
+      </div>
+
+      <table class="pay-table">
+        <thead>
+          <tr>
+            <th>项目</th>
+            <th>说明</th>
+            <th style="text-align:right;">USD</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="3" style="padding-top: 2mm; font-weight: 600; color: var(--gold); border-bottom: none; font-size: 8pt;">预付 ADVANCE · 银行电汇</td>
+          </tr>
+          <tr>
+            <td>Drukair 机票</td>
+            <td>KTM⇄PBH · 2 人</td>
+            <td class="amt">943.00</td>
+          </tr>
+          <tr>
+            <td>酒店预付</td>
+            <td>3 家酒店全款锁房</td>
+            <td class="amt">820.00</td>
+          </tr>
+          <tr>
+            <td>SDF + 签证</td>
+            <td>9 晚 × 2 人 + 签证 2 人</td>
+            <td class="amt">1,880.00</td>
+          </tr>
+          <tr class="total">
+            <td colspan="2">请一次汇入</td>
+            <td class="amt">USD 3,643.00</td>
+          </tr>
+          <tr>
+            <td colspan="3" style="padding-top: 3.5mm; font-weight: 600; color: var(--gold); border-bottom: none; font-size: 8pt;">尾款 BALANCE · 抵境后（方案 B）</td>
+          </tr>
+          <tr>
+            <td>尾款</td>
+            <td>总价 6,323 − 预付 3,643 · Pelbu 现金</td>
+            <td class="amt">2,680.00</td>
+          </tr>
+          <tr class="total">
+            <td colspan="2">行程总价（陆地 5,380 + 机票 943 · 方案 B）</td>
+            <td class="amt">USD 6,323</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="warn-box">
+        汇出后请立刻把<strong>回单截图</strong>（金额、日期、参考号）发至
+        WhatsApp <strong>+975-17649720</strong> 或邮件。通常约 <strong>2 个工作日</strong>到账不丹；到账后我们书面确认并推进签证。
+        <strong>尾款 USD 2,680</strong> 抵廷布后于 <strong>Pelbu Suites</strong> 美元现金支付，盖章收据。
+        方案 B：英文持证向导 · Santa Fe · 陆地已重算。
+      </div>
+
+      <h3 class="h3s">汇前 30 秒核对</h3>
+      <div class="bank-grid">
+        <div class="bank-card"><label>01</label><p>代理行 SWIFT = SCBLUS33</p></div>
+        <div class="bank-card"><label>02</label><p>收款行 SWIFT = BNBTBTBT</p></div>
+        <div class="bank-card"><label>03</label><p>账号 = 640007313</p></div>
+        <div class="bank-card"><label>04</label><p>金额 = USD 3,643.00</p></div>
+        <div class="bank-card full"><label>05 附言含 Ultimate</label><p>BHUTAN SILVERPINE TOURS &amp; TREKS A/C 640007313</p></div>
+      </div>
+
+      <div class="validity-box" style="margin-top: 4mm;">
+        <div>
+          <p class="v-label">一句话告诉柜员 / 客服</p>
+          <p class="v-text">
+            「我要美元电汇到不丹 Bhutan National Bank，经纽约渣打 SCBLUS33 代理，最终入账 BHUTAN SILVERPINE TOURS &amp; TREKS，账号 640007313，附言写 Ultimate Beneficiary。」
+          </p>
+        </div>
+        <p class="v-side">
+          中行 95566<br />WhatsApp<br />+975-17649720
+        </p>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Tracy · 汇款示范</span>
+      <span class="ft-mid">WhatsApp +975-17649720</span>
+      <span class="ft-right">03 / 03</span>
+    </footer>
+  </section>
+
+</body>
+</html>

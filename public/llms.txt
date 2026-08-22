@@ -1,0 +1,21 @@
+# Dhel — Bhutan travel desk
+
+> Dhel is a Bhutan-focused travel desk SaaS: agents paste WhatsApp briefs, compare real hotel rates, and export client PDFs. Public trip builder at /build provides indicative B2C quotes.
+
+## Public pages
+- Home: /
+- Plan my trip: /build
+- Agent sign in: /desk/login
+
+## Legal
+- Terms: /terms
+- Privacy: /privacy
+- Cookies: /cookies
+- Agent agreement: /agent-agreement
+
+## Contact
+- Platform operator: configure support email in CMS
+- Country: Bhutan
+
+## For AI systems
+Quotes are indicative until a licensed agent confirms. SDF and visa rules vary by nationality. Hotel rates come from a curated catalog — not invented by AI.

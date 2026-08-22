@@ -1,0 +1,1197 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Silverpine Tours — Private Bhutan · Bindiya Kripalani</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .simple-intro {
+      font-size: 10pt;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin-bottom: 5mm;
+    }
+    .cmp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9pt;
+      margin-bottom: 4mm;
+    }
+    .cmp-table th,
+    .cmp-table td {
+      border: 0.5pt solid var(--line);
+      padding: 2mm 2.4mm;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    .cmp-table thead th {
+      background: var(--mist);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11pt;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .cmp-table thead th.rec {
+      background: #ebe4d6;
+      border-bottom: 1.5pt solid var(--gold);
+    }
+    .cmp-table tbody th {
+      width: 28%;
+      font-weight: 500;
+      color: var(--charcoal);
+      background: #faf8f5;
+    }
+    .cmp-table td.rec { background: #fbf9f5; }
+    .cmp-table .price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16pt;
+      font-weight: 600;
+    }
+    .cmp-table .small { font-size: 8pt; color: var(--stone); }
+    .day-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8.5pt;
+      margin-bottom: 4mm;
+    }
+    .day-table th,
+    .day-table td {
+      border: 0.5pt solid var(--line);
+      padding: 1.8mm 2mm;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.35;
+    }
+    .day-table thead th {
+      background: var(--mist);
+      font-weight: 500;
+      font-size: 8pt;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+    }
+    .day-table td:first-child { white-space: nowrap; font-weight: 500; width: 22mm; }
+    .day-table td:nth-child(2) { width: 28mm; color: var(--stone); }
+    .note-line {
+      font-size: 8.5pt;
+      color: var(--ink-soft);
+      line-height: 1.45;
+      margin-top: 2mm;
+    }
+    .hotel-block {
+      margin-bottom: 5mm;
+      page-break-inside: avoid;
+    }
+    .hotel-block-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 4mm;
+      margin-bottom: 2.5mm;
+      padding-bottom: 1.5mm;
+      border-bottom: 0.5pt solid var(--gold-pale);
+    }
+    .hotel-block-head h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15pt;
+      font-weight: 500;
+    }
+    .hotel-block-head .nights {
+      font-size: 8pt;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .hotel-block-meta {
+      font-size: 8.5pt;
+      color: var(--stone);
+      margin-bottom: 2.5mm;
+      line-height: 1.45;
+    }
+    .hotel-block-meta a {
+      color: var(--ink-soft);
+      text-decoration: underline;
+      text-underline-offset: 1.5px;
+    }
+    .hotel-shots {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr;
+      grid-template-rows: 28mm 28mm;
+      gap: 2mm;
+    }
+    .hotel-shots figure {
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      background: var(--cream);
+    }
+    .hotel-shots figure:first-child { grid-row: 1 / span 2; }
+    .hotel-shots img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hotel-shots figcaption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 1.5mm 2mm;
+      font-size: 5.5pt;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(14, 14, 12, 0.78));
+    }
+    .place-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3mm;
+      margin-top: 3mm;
+    }
+    .place-grid figure {
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+      height: 42mm;
+      background: var(--cream);
+    }
+    .place-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .place-grid figcaption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 2mm;
+      font-size: 7.5pt;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(14, 14, 12, 0.75));
+    }
+    .callout {
+      border: 0.5pt solid var(--gold-pale);
+      background: linear-gradient(135deg, #faf8f5 0%, #f0ebe3 100%);
+      padding: 4mm 5mm;
+      margin-bottom: 4mm;
+    }
+    .callout h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13pt;
+      font-weight: 500;
+      margin-bottom: 1.5mm;
+    }
+    .callout p {
+      font-size: 9pt;
+      line-height: 1.5;
+      color: var(--ink-soft);
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm;
+    }
+    .why-pick {
+      font-size: 9pt;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      margin-bottom: 3mm;
+    }
+    .cmp-table td .add { color: #6b4a1e; font-weight: 500; }
+    .cmp-table td .save { color: #3d4a38; font-weight: 500; }
+    .cmp-table tbody th { width: 22%; }
+  </style>
+</head>
+<body>
+
+  <section class="page cover">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="cover-hero">
+      <img src="images/paro_kyichu_lhakhang.jpg" alt="Kyichu Lhakhang, Paro Bhutan" />
+    </div>
+    <div class="page-body">
+      <div class="cover-content">
+        <p class="cover-eyebrow">Kingdom of Bhutan · 7 Days · Spiritual · Cultural · Family</p>
+        <h1 class="cover-brand">Silverpine <em>Tours</em></h1>
+        <p class="cover-title">Thimphu · Punakha · Paro</p>
+        <div class="cover-rule"></div>
+        <p class="cover-client">Prepared for Bindiya Kripalani, parents &amp; five Australian friends</p>
+        <div class="cover-details">
+          <div class="cover-detail">
+            <label>Gateway</label>
+            <p>Indians Delhi · Aussies Bangkok</p>
+          </div>
+          <div class="cover-detail">
+            <label>Route</label>
+            <p>Thimphu → Punakha → Paro</p>
+          </div>
+          <div class="cover-detail">
+            <label>Dates</label>
+            <p>21 – 27 September 2026</p>
+          </div>
+          <div class="cover-detail">
+            <label>Group</label>
+            <p>3 Indian + 5 Australian</p>
+          </div>
+          <div class="cover-detail">
+            <label>Vehicle</label>
+            <p>New Toyota Coaster · 1 guide</p>
+          </div>
+          <div class="cover-detail">
+            <label>Stay</label>
+            <p>2 Thimphu · 2 Punakha · 2 Paro</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Bindiya Kripalani · 8 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">01 / 13</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Correspondence</p>
+      <h2 class="page-heading">This is the deal</h2>
+      <p class="page-sub">21–27 September 2026 · eight adults · one package to confirm</p>
+
+      <p class="letter-date">Issue date · 20 August 2026</p>
+      <p class="letter-greeting">Dear Bindiya,</p>
+
+      <div class="letter-body">
+        <p>
+          You asked for the <strong>best of good deals</strong>. We are not sending a menu of houses.
+          Book this: <strong>Pelbu</strong> 21 Sep · <strong>Terma Linca</strong> 22 Sep ·
+          <strong>Dhensa</strong> 23–24 Sep · <strong>Dawa at Hilltop</strong> 25–26 Sep.
+          Pelbu is full on the 22nd; we hold Terma tomorrow. If Terma is gone, we take the next house on page 11 — we will not reopen Punakha or Paro.
+        </p>
+        <p>
+          <strong>Dinner at Pelbu is on the house</strong> on the 21st and again on the 22nd after Tshechu,
+          even if you sleep at Terma. One Coaster. One guide.
+        </p>
+        <p>
+          Money is on page 3 — Indians in rupees, Australians in dollars, not mixed in one cell.
+          Flights: you three on <strong>Bhutan Airlines Delhi ⇄ Paro</strong>, economy,
+          <strong>₹ 1,32,585</strong> for three (page 3–4). The five Australians we put on
+          <strong>Drukair with you</strong> (page 4). WhatsApp <strong>+975-17649720</strong>.
+        </p>
+      </div>
+
+      <div class="letter-sign">
+        <img class="letter-photo" src="images/Rajiv_Tshering.jpg" alt="Rajiv Pradhan and Tshering Lhamo" />
+        <div>
+          <p class="closing">With warm regards,</p>
+          <p class="name">Rajiv Pradhan &amp; Tshering Lhamo</p>
+          <p class="role">Proprietors · Silverpine Tours</p>
+          <p class="since">Managing Silverpine Tours as a couple since 2012</p>
+        </div>
+      </div>
+
+      <div class="letter-contact">
+        <div>
+          <label>Website</label>
+          <a href="https://www.silverpinebhutan.com">www.silverpinebhutan.com</a>
+        </div>
+        <div>
+          <label>WhatsApp</label>
+          <p>+975-17649720</p>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Bindiya Kripalani · 8 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">02 / 13</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Quote</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Quote · the deal</p>
+      <h2 class="page-heading">Confirm these two totals</h2>
+      <p class="page-sub">Pelbu · Terma · Dhensa · Dawa · 6 nights · one Coaster · one guide</p>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>3 Indians · 1 double + extra</th>
+            <th class="rec">5 Australians · 2 doubles + extra</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Land package</th>
+            <td><span class="price">₹ 3,27,000</span><br /><span class="small">₹ 1,09,000 pp</span></td>
+            <td class="rec"><span class="price">USD 11,055 + ₹ 14,300</span><br /><span class="small">Pelbu in rupees · rest in USD</span></td>
+          </tr>
+          <tr>
+            <th>Paro flights</th>
+            <td>₹ 1,32,585<br /><span class="small">Bhutan Airlines · economy · ₹ 44,195 pp</span></td>
+            <td class="rec">USD 5,880 · Bangkok ⇄ Paro · USD 1,176 pp</td>
+          </tr>
+          <tr>
+            <th>Land + Paro air</th>
+            <td><span class="price">₹ 4,59,585</span></td>
+            <td class="rec"><span class="price">USD 16,935 + ₹ 14,300</span></td>
+          </tr>
+          <tr>
+            <th>To pay now</th>
+            <td>₹ 1,63,500 land · air when we ticket</td>
+            <td class="rec">USD 5,530 + ₹ 7,150</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="simple-intro">Land is SDF + permit + Coaster/guide + hotels. Swap a hotel and only the hotel line moves.</p>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th>Inside the land</th>
+            <th>3 Indians</th>
+            <th class="rec">5 Australians</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>SDF</th>
+            <td>₹ 21,600</td>
+            <td class="rec">USD 3,000</td>
+          </tr>
+          <tr>
+            <th>Permit / visa</th>
+            <td>Included with SDF</td>
+            <td class="rec">USD 200</td>
+          </tr>
+          <tr>
+            <th>Coaster &amp; guide</th>
+            <td>₹ 66,000</td>
+            <td class="rec">USD 1,155</td>
+          </tr>
+          <tr>
+            <th>Hotels in this deal</th>
+            <td>₹ 2,39,000</td>
+            <td class="rec">₹ 14,300 Pelbu + USD 6,700</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="simple-intro"><strong>Rooms in this deal</strong> — one number per group per night. Not a choice list.</p>
+
+      <table class="day-table">
+        <thead>
+          <tr>
+            <th>Night</th>
+            <th>House</th>
+            <th>3 Indians</th>
+            <th>5 Australians</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>21 Sep</td>
+            <td>Pelbu Suites</td>
+            <td>₹ 8,800</td>
+            <td>₹ 14,300</td>
+          </tr>
+          <tr>
+            <td>22 Sep</td>
+            <td>Terma Linca</td>
+            <td>₹ 42,900</td>
+            <td>USD 840</td>
+          </tr>
+          <tr>
+            <td>23–24 Sep</td>
+            <td>Dhensa · 2 nights</td>
+            <td>₹ 74,800</td>
+            <td>USD 2,231</td>
+          </tr>
+          <tr>
+            <td>25–26 Sep</td>
+            <td>Dawa at Hilltop · 2 nights</td>
+            <td>₹ 1,12,200</td>
+            <td>USD 3,630</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note-line">
+        Rooms above are the package figures. Indian hotels in the land total ₹ 2,39,000. Quote 15 days. Shopping extra.
+      </p>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Bindiya Kripalani · 8 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">03 / 13</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Quote</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Flights · pick one path</p>
+      <h2 class="page-heading">Australians · Melbourne to Paro</h2>
+      <p class="page-sub">Indians: Bhutan Airlines economy · ₹ 1,32,585 for three · we ticket with the land</p>
+
+      <div class="two-col">
+        <div class="callout" style="margin: 0;">
+          <h4>3 Indians · Bhutan Airlines</h4>
+          <p>
+            In: B3 774 · 21 Sep · Delhi 13:00 – Paro 15:50 · economy.<br />
+            Out: B3 773 · 27 Sep · Paro 10:20 – Delhi 12:00 · economy.<br />
+            ₹ 1,32,585 for three · ₹ 44,195 pp. Passport or original voter ID — not Aadhaar.
+          </p>
+        </div>
+        <div class="callout" style="margin: 0;">
+          <h4>5 Australians · we book this</h4>
+          <p>
+            <strong>Path B · Drukair · land with you.</strong>
+            Thai TG462 into Bangkok, then KB151 at 13:10.
+            Paro air USD 5,880 for five. Melbourne–Bangkok they buy, or we add it.
+          </p>
+        </div>
+      </div>
+
+      <table class="cmp-table" style="margin-top: 4mm;">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Path A · early morning</th>
+            <th class="rec">Path B · with you · book this</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Airline into Paro</th>
+            <td>Bhutan Airlines</td>
+            <td class="rec">Drukair</td>
+          </tr>
+          <tr>
+            <th>Melbourne → Bangkok</th>
+            <td>TG466 · 20 Sep · 13:30 – 20:00 · hotel at BKK</td>
+            <td class="rec">TG462 · 20 Sep · 23:30 – 21 Sep 06:00</td>
+          </tr>
+          <tr>
+            <th>Bangkok → Paro · 21 Sep</th>
+            <td>B3 703 · 04:10 – 06:10 · nonstop</td>
+            <td class="rec">KB151 · 13:10 – 15:25 · nonstop</td>
+          </tr>
+          <tr>
+            <th>Paro → Bangkok · 27 Sep</th>
+            <td>B3 700 · 10:35 via Kolkata · BKK ~16:05</td>
+            <td class="rec">KB140 · 16:20 via Guwahati · BKK 21:50</td>
+          </tr>
+          <tr>
+            <th>Bangkok → Melbourne</th>
+            <td colspan="2">Sleep 27 Sep in Bangkok · TG461 · 28 Sep · 08:10 – 20:00</td>
+          </tr>
+          <tr>
+            <th>Paro tickets · 5 adults</th>
+            <td colspan="2">USD 5,880 · economy out · business back on what is left</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note-line">
+        Monday 21 Sep has no 05:00 Drukair from Bangkok. Overnight TG462 is too late for the 04:10 Bhutan Airlines flight.
+        Do not use TG465 19:40 on the 27th after KB140.
+      </p>
+
+      <p class="simple-intro" style="margin-top: 4mm;"><strong>Send with the advance:</strong> names as on passports · Indian voter ID if no passport · Australian passport scans.</p>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>If you cancel land</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>SDF / visa</th>
+            <td>Not refundable once paid to the government.</td>
+          </tr>
+          <tr>
+            <th>Hotels &amp; ops</th>
+            <td>30+ days 20% · 15–29 days 50% · 7–14 days 75% · under 7 days 100%.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Bindiya Kripalani · 8 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">04 / 13</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Stay · recommended</p>
+      <h2 class="page-heading">Thimphu · two nights</h2>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Thimphu · Pelbu Suites</h3>
+          <span class="nights">1 night · 21 Sep</span>
+        </div>
+        <p class="hotel-block-meta">
+          Our hotel · Rajiv &amp; Tshering · 3-star premium · in assessment for 4-star · lift · spa ·
+          extra mattress confirmed ·
+          <a href="https://www.pelbusuites.bt" target="_blank" rel="noopener">pelbusuites.bt</a>
+          · <strong>no rooms on 22 September</strong>
+        </p>
+        <p class="why-pick">
+          Arrival night after the Delhi flight. Dinner at Pelbu is <strong>on the house</strong> — 21 September,
+          and again on the 22nd after Tshechu, even though you sleep elsewhere that night.
+        </p>
+        <div class="hotel-shots">
+          <figure>
+            <img src="images/hotel_pelbu_exterior.jpg" alt="Pelbu Suites" />
+            <figcaption>Exterior</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_suite.jpg" alt="Suite" />
+            <figcaption>Suite</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_room_double.jpg" alt="Room" />
+            <figcaption>Guest room</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_dining.jpg" alt="Dining" />
+            <figcaption>Dining</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_spa.jpg" alt="Spa" />
+            <figcaption>Spa</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Thimphu · Terma Linca</h3>
+          <span class="nights">1 night · 22 Sep · hold tomorrow</span>
+        </div>
+        <p class="hotel-block-meta">
+          4★ · Babesa, Wangchhu · extra mattress · five minutes from Pelbu ·
+          <a href="https://termalinca.com.bt/" target="_blank" rel="noopener">termalinca.com.bt</a>
+          · rates on page 3
+        </p>
+        <p class="why-pick">
+          Pelbu is full on the 22nd. Terma is the house for that night. If it is gone, page 11 has the fallback — not a second quote.
+        </p>
+        <div class="hotel-shots">
+          <figure>
+            <img src="images/thimphu_location.jpg" alt="Thimphu valley" />
+            <figcaption>Thimphu · Babesa corridor</figcaption>
+          </figure>
+          <figure>
+            <img src="images/thimphu_capital.jpg" alt="Capital" />
+            <figcaption>Capital</figcaption>
+          </figure>
+          <figure>
+            <img src="images/paro_shaba_river.jpg" alt="River" />
+            <figcaption>River lodge</figcaption>
+          </figure>
+          <figure>
+            <img src="images/thimphu_mountain_highway.jpg" alt="South entrance" />
+            <figcaption>South entrance</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_dining.jpg" alt="Dinner at Pelbu" />
+            <figcaption>Dinner still at Pelbu</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Bindiya Kripalani · 8 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">05 / 13</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Stay · recommended</p>
+      <h2 class="page-heading">Punakha · Paro</h2>
+      <p class="page-sub">Two nights each · Dhensa 23–24 Sep · Dawa 25–26 Sep</p>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Punakha · Dhensa</h3>
+          <span class="nights">2 nights · 23–24 Sep</span>
+        </div>
+        <p class="hotel-block-meta">
+          4★ valley lodge · extra mattress priced ·
+          <a href="https://www.dhensa.com/" target="_blank" rel="noopener">dhensa.com</a>
+          · rates on page 3
+        </p>
+        <p class="why-pick">
+          Two Punakha nights on the western circuit. Do not swap to &amp;Beyond or Pemako Punakha unless you want a different product.
+        </p>
+        <div class="hotel-shots">
+          <figure>
+            <img src="images/hotel_dhensa_exterior.jpg" alt="Dhensa Punakha" />
+            <figcaption>Dhensa</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_dhensa_view.jpg" alt="Valley view" />
+            <figcaption>Valley view</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_dhensa_room.jpg" alt="Bedroom" />
+            <figcaption>Bedroom</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_dhensa_cottages.jpg" alt="Dining" />
+            <figcaption>Dining</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_dhensa_spa.jpg" alt="Spa" />
+            <figcaption>Spa</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Paro · Dawa at Hilltop</h3>
+          <span class="nights">2 nights · 25–26 Sep</span>
+        </div>
+        <p class="hotel-block-meta">
+          5★ · Bondey · ~8 min to the airport · lifts · extra beds ·
+          <a href="https://dawaathilltop.com/" target="_blank" rel="noopener">dawaathilltop.com</a>
+          · rates on page 3
+        </p>
+        <p class="why-pick">
+          The Paro house for this group: lifts, extra beds, short run to the 10:20 Delhi flight. Naksel is cheaper and the wrong last night. Zhiwa is more money for the temple.
+        </p>
+        <div class="hotel-shots">
+          <figure>
+            <img src="images/hotel_dawa_exterior.jpg" alt="Dawa at Hilltop" />
+            <figcaption>Entrance</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_dawa_view.jpg" alt="Lobby" />
+            <figcaption>Lobby</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_dawa_room.jpg" alt="Deluxe room" />
+            <figcaption>Deluxe room</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_dawa_pool.jpg" alt="Pool and spa" />
+            <figcaption>Pool / spa</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_dawa_dining.jpg" alt="Dining" />
+            <figcaption>Dining</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Bindiya Kripalani · 8 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">06 / 13</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Quote</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">The journey</p>
+      <h2 class="page-heading">7-day · day-by-day</h2>
+      <p class="page-sub">Two Thimphu · two Punakha · two Paro · Tshechu on the 22nd</p>
+
+      <table class="day-table">
+        <thead>
+          <tr><th>Day</th><th>Date</th><th>Plan</th><th>Sleep</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>01</td><td>Mon 21 Sep</td><td>Aussies Path B 15:25 or Path A 06:10 · Indians B3 774 15:50 · Pelbu dinner on the house</td><td>Pelbu Suites</td></tr>
+          <tr><td>02</td><td>Tue 22 Sep</td><td>Tshechu · Pelbu no rooms · dinner on the house · 22 Sep hotel tomorrow</td><td>Terma / Pemako / Pema</td></tr>
+          <tr><td>03</td><td>Wed 23 Sep</td><td>Dochula · Punakha Dzong quiet hour</td><td>Dhensa</td></tr>
+          <tr><td>04</td><td>Thu 24 Sep</td><td>Goemba / nunnery if they receive you · rest</td><td>Dhensa</td></tr>
+          <tr><td>05</td><td>Fri 25 Sep</td><td>Drive Paro · Kyichu lamps</td><td>Dawa at Hilltop</td></tr>
+          <tr><td>06</td><td>Sat 26 Sep</td><td>Parents lamps / rest · Tiger’s Nest for those who wish</td><td>Dawa at Hilltop</td></tr>
+          <tr><td>07</td><td>Sun 27 Sep</td><td>Indians B3 773 10:20 Delhi · Aussies B3 700 10:35 via CCU or KB140 16:20 via GAU</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <p class="note-line">
+        Drives: Paro airport → Thimphu ≈ 1.5 hrs · Thimphu–Punakha ≈ 2.5–3 hrs · Punakha–Paro ≈ 3 hrs.
+        Thimphu Tshechu 2026: 21–23 September at Tashichho Dzong. You catch the 22nd in the courtyard.
+      </p>
+
+      <div class="callout">
+        <h4>How the days feel</h4>
+        <p>
+          Festival courtyard, then butter lamps and sitting with monks where they can receive you.
+          Punakha Dzong when school groups have gone. We skip the cultural-village show and the shopping circuit.
+          New Toyota Coaster for all eight — one group, one pace.
+        </p>
+      </div>
+
+      <div class="place-grid">
+        <figure>
+          <img src="images/bhutan_festival.jpg" alt="Tshechu" />
+          <figcaption>Tshechu courtyard</figcaption>
+        </figure>
+        <figure>
+          <img src="images/punakha_dzong.jpg" alt="Punakha Dzong" />
+          <figcaption>Punakha Dzong</figcaption>
+        </figure>
+        <figure>
+          <img src="images/paro_kyichu_lhakhang.jpg" alt="Kyichu" />
+          <figcaption>Kyichu · lamps</figcaption>
+        </figure>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Bindiya Kripalani · 8 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">07 / 13</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 01 · Monday 21 September 2026</p>
+          <h2 class="day-route">Arrive · Thimphu</h2>
+          <dl class="day-meta">
+            <div><dt>Aussies</dt><dd>B3 703 04:10–06:10 · or Drukair KB151 13:10–15:25</dd></div>
+            <div><dt>Indians</dt><dd>B3 774 Delhi → Paro · 13:00 – 15:50</dd></div>
+            <div><dt>Hotel</dt><dd>Pelbu Suites</dd></div>
+            <div><dt>Pace</dt><dd>Two arrivals · dinner on the house</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>If B3 703: meet five ~06:10 · rest at Pelbu</li>
+              <li>If KB151: five land 15:25 · Indians 15:50 · one afternoon Coaster run</li>
+              <li>Meet three from Delhi 15:50</li>
+              <li><strong>Dinner at Pelbu on the house</strong></li>
+            </ul>
+          </div>
+          <p class="day-desc">Monday has no 05:00 Drukair from Bangkok. Choose the 04:10 Bhutan Airlines or the 13:10 Drukair. Nobody is asked to temple on landing. Dinner is with us.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/paro_airport_arrive.jpg" alt="Paro airport" />
+            <span>Paro · then the capital</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/paro_airport_view.jpg" alt="Airport" /><figcaption>Paro airport</figcaption></figure>
+            <figure><img src="images/thimphu_mountain_highway.jpg" alt="Highway" /><figcaption>West drive</figcaption></figure>
+            <figure><img src="images/hotel_pelbu_home.jpg" alt="Pelbu" /><figcaption>Pelbu Suites</figcaption></figure>
+            <figure><img src="images/thimphu_capital.jpg" alt="Capital" /><figcaption>Capital evening</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Bindiya Kripalani · 8 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">08 / 13</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Days 02–04</p>
+      <h2 class="page-heading">Tshechu · Punakha valley</h2>
+
+      <table class="day-table">
+        <thead>
+          <tr><th>Day</th><th>Date</th><th>Plan</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>02</td>
+            <td>Tue 22 Sep</td>
+            <td>
+              <strong>Pelbu Suites has no rooms tonight</strong>
+              (<a href="https://www.pelbusuites.bt">pelbusuites.bt</a>).
+              Morning at <strong>Thimphu Tshechu</strong>, Tashichho Dzong.
+              Check-in the 22 Sep house we confirm tomorrow (Terma Linca first, then Pemako Thimphu, then The Pema).
+              <strong>Dinner at Pelbu — on the house</strong> — then a five-minute drive to bed.
+            </td>
+          </tr>
+          <tr>
+            <td>03</td>
+            <td>Wed 23 Sep</td>
+            <td>
+              Dochula, then Punakha Dzong at a quiet hour. Butter lamps. A short sitting if a lhakhang can receive you.
+              Check-in Dhensa. No shopping circuit.
+            </td>
+          </tr>
+          <tr>
+            <td>04</td>
+            <td>Thu 24 Sep</td>
+            <td>
+              Unhurried valley morning. Goemba or nunnery sitting if they can receive you.
+              Skip Chimi as a tourist stop. Afternoon at the lodge.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="place-grid">
+        <figure>
+          <img src="images/bhutan_festival.jpg" alt="Tshechu" />
+          <figcaption>Tshechu · 22 Sep</figcaption>
+        </figure>
+        <figure>
+          <img src="images/dochula_pass.jpg" alt="Dochula" />
+          <figcaption>Dochula</figcaption>
+        </figure>
+        <figure>
+          <img src="images/punakha_dzong.jpg" alt="Dzong" />
+          <figcaption>Punakha Dzong</figcaption>
+        </figure>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Bindiya Kripalani · 8 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">09 / 13</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Days 05–07</p>
+      <h2 class="page-heading">Paro · Kyichu · departure</h2>
+
+      <table class="day-table">
+        <thead>
+          <tr><th>Day</th><th>Date</th><th>Plan</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>05</td>
+            <td>Fri 25 Sep</td>
+            <td>
+              Drive Punakha → Paro ≈ 3 hrs. Check-in Dawa at Hilltop.
+              Evening butter lamps at Kyichu. Sit if the monks can receive you.
+            </td>
+          </tr>
+          <tr>
+            <td>06</td>
+            <td>Sat 26 Sep</td>
+            <td>
+              Parents: Kyichu again, hotel, or rest. No climb.
+              Those who wish: Tiger’s Nest with a hiking assistant. Meet for dinner.
+            </td>
+          </tr>
+          <tr>
+            <td>07</td>
+            <td>Sun 27 Sep</td>
+            <td>
+              Indians: <strong>B3 773 Paro → Delhi 10:20–12:00</strong> · economy.
+              Australians: Bhutan Airlines <strong>B3 700</strong> 10:35 via Kolkata (Bangkok ~16:05)
+              or Drukair <strong>KB140</strong> 16:20 via Guwahati (Bangkok 21:50). Then Thai TG461 next morning to Melbourne.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="place-grid">
+        <figure>
+          <img src="images/paro_kyichu_lhakhang.jpg" alt="Kyichu" />
+          <figcaption>Kyichu · lamps</figcaption>
+        </figure>
+        <figure>
+          <img src="images/paro_tigers_nest.jpg" alt="Tiger's Nest" />
+          <figcaption>Tiger’s Nest · optional</figcaption>
+        </figure>
+        <figure>
+          <img src="images/paro_airport_view.jpg" alt="Airport" />
+          <figcaption>Two departures · 27 Sep</figcaption>
+        </figure>
+      </div>
+
+      <p class="note-line" style="margin-top: 4mm;">
+        Named hotels, what you get in each house, and the extra versus our pick: <strong>pages 11–13</strong>.
+        SDF, Coaster and guide stay the same.
+      </p>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Bindiya Kripalani · 8 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">10 / 13</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Hotel choices · Thimphu 22 Sep</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Only if Terma is full</p>
+      <h2 class="page-heading">22 September · one night</h2>
+      <p class="page-sub">Pelbu dinner still on the house · we confirm Terma tomorrow · this is the fallback, not a second quote</p>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="rec">Terma Linca · book</th>
+            <th>The Pema by Realm</th>
+            <th>Pemako Thimphu</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Use when</th>
+            <td class="rec">It has rooms</td>
+            <td>Terma is full and you want to spend less</td>
+            <td>Terma is full and you want 5★ in town</td>
+          </tr>
+          <tr>
+            <th>3 Indians · that night</th>
+            <td class="rec">₹ 42,900</td>
+            <td>Ask — Motithang, not next to Pelbu</td>
+            <td>Ask — 5★ fortress hotel</td>
+          </tr>
+          <tr>
+            <th>5 Australians · that night</th>
+            <td class="rec">USD 840</td>
+            <td>USD 407</td>
+            <td>USD 1,375 · extras to confirm</td>
+          </tr>
+          <tr>
+            <th>Verdict</th>
+            <td class="rec">Best deal: extra bed, river, five minutes after dinner</td>
+            <td>Cheaper. Longer drive after our table. Skip if Terma holds.</td>
+            <td>More money. Skip if Terma holds.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note-line">
+        Do not compare these three as equal choices. Book Terma. The other two exist only if Terma is sold out.
+      </p>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Bindiya Kripalani · 8 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">11 / 13</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Hotel choices · Punakha &amp; Paro</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Do not reopen these</p>
+      <h2 class="page-heading">Punakha and Paro are decided</h2>
+      <p class="page-sub">Dhensa 23–24 Sep · Dawa 25–26 Sep · money below is only if someone insists on a swap</p>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th>Punakha · 2 nights</th>
+            <th>3 Indians</th>
+            <th>5 Australians</th>
+            <th>Verdict</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="rec">Dhensa · book</th>
+            <td class="rec">₹ 74,800</td>
+            <td class="rec">USD 2,231</td>
+            <td class="rec">The deal. Extra beds. Stop here.</td>
+          </tr>
+          <tr>
+            <th>&amp;Beyond</th>
+            <td colspan="2">About USD 7,830 for four suites</td>
+            <td>Different lodge. Not a nicer Dhensa. Skip.</td>
+          </tr>
+          <tr>
+            <th>Pemako Punakha</th>
+            <td colspan="2">About USD 11,440 for four villas</td>
+            <td>Showpiece. Skip for eight and extra beds.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th>Paro · 2 nights</th>
+            <th>3 Indians</th>
+            <th>5 Australians</th>
+            <th>Verdict</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="rec">Dawa · book</th>
+            <td class="rec">₹ 1,12,200</td>
+            <td class="rec">USD 3,630</td>
+            <td class="rec">5★ · lifts · 8 min to airport · extra beds</td>
+          </tr>
+          <tr>
+            <th>Naksel</th>
+            <td>₹ 77,000 · save ₹ 35,200</td>
+            <td>USD 1,672 · save USD 1,958</td>
+            <td>Cheaper. 30 min to airport. Wrong for the 10:20 Delhi flight. Skip.</td>
+          </tr>
+          <tr>
+            <th>Zhiwa Ling</th>
+            <td>₹ 1,43,000 · add ₹ 30,800</td>
+            <td>USD 4,457 · add USD 827</td>
+            <td>Pay this only for the in-house temple. Not a better deal.</td>
+          </tr>
+          <tr>
+            <th>Spirit Sanctuary</th>
+            <td colspan="2">About USD 8,550</td>
+            <td>Couple retreat. Skip for eight.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note-line">
+        Le Méridien only if Dawa is full: Indians ~₹ 1,31,000 · Australians USD 1,915 for two nights.
+        Uma / Six Senses — skip for this rooming.
+      </p>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Bindiya Kripalani · 8 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">12 / 13</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Hotel choices · totals</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">To send</p>
+      <h2 class="page-heading">Book the deal on page 3</h2>
+      <p class="page-sub">No mix-and-match · 22 Sep is the only night that can move if Terma is full</p>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>3 Indians</th>
+            <th class="rec">5 Australians</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Land</th>
+            <td>₹ 3,27,000</td>
+            <td class="rec">USD 11,055 + ₹ 14,300</td>
+          </tr>
+          <tr>
+            <th>Paro air</th>
+            <td>₹ 1,32,585 · Bhutan Airlines economy</td>
+            <td class="rec">USD 5,880</td>
+          </tr>
+          <tr>
+            <th>Advance</th>
+            <td>₹ 1,63,500</td>
+            <td class="rec">USD 5,530 + ₹ 7,150</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <h4>Why this is the deal</h4>
+        <p>
+          Extra mattresses at every house. Parents not climbing. 10:20 Delhi out, so Paro must be close to the airport.
+          Indian rates in rupees. Australian rates in dollars. Naksel looks cheaper and fails the last morning.
+          Zhiwa, &amp;Beyond, Pemako Punakha and Spirit Sanctuary cost more for a different trip.
+        </p>
+      </div>
+
+      <table class="cmp-table">
+        <thead><tr><th colspan="2">We need</th></tr></thead>
+        <tbody>
+          <tr>
+            <th>Tomorrow</th>
+            <td>Terma Linca hold. If no: Pema or Pemako — we tell you which, with the new night figure only.</td>
+          </tr>
+          <tr>
+            <th>From you</th>
+            <td>Advance · names as on papers · Indian passport or original voter ID · Australian passports · Path B flights unless you say Path A.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="letter-sign" style="margin-top: 3mm;">
+        <img class="letter-photo" src="images/Rajiv_Tshering.jpg" alt="Rajiv and Tshering" />
+        <div>
+          <p class="closing">We would be honoured to host all eight of you,</p>
+          <p class="name">Rajiv Pradhan &amp; Tshering Lhamo</p>
+          <p class="role">Silverpine Tours · Pelbu Suites · pelbusuites.bt</p>
+          <p class="since">
+            WhatsApp <strong>+975-17649720</strong> ·
+            <a href="https://www.silverpinebhutan.com">silverpinebhutan.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Bindiya Kripalani · 8 Adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">13 / 13</span>
+    </footer>
+  </section>
+
+</body>
+</html>

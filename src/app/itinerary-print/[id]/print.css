@@ -1,0 +1,42 @@
+/* Loaded only inside the print iframe document */
+@import "../../../../styles.css";
+
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #c8c4bc !important;
+  font-size: 10pt;
+}
+
+.itinerary-print-root {
+  min-height: 100vh;
+  background: #c8c4bc;
+  padding: 24px 0 48px;
+}
+
+.itinerary-print-root:has(.field-pack) {
+  background: #f4f2ee;
+  padding: 0;
+}
+
+.itinerary-print-root .doc-root {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 640px) {
+  .itinerary-print-root:has(.field-pack) {
+    padding: 0;
+  }
+}
+
+@media print {
+  html,
+  body,
+  .itinerary-print-root {
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}

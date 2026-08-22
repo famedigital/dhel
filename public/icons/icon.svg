@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Dhel">
+  <title>Dhel</title>
+  <rect width="512" height="512" rx="96" fill="#0B1F3A"/>
+  <path fill="#EDE6DA" fill-rule="evenodd" d="M118 78h78c128 0 214 72 214 178s-86 178-214 178H118V78zm60 50v256h16c92 0 152-52 152-128S286 128 194 128h-16z"/>
+  <g fill="#C9C0B0">
+    <path d="M186 268l28-70 18 38 20-68 22 52 20-34 20 46 18-28 20 64H186z"/>
+    <path d="M200 268l20-40 18 24 14-52 18 42 18-28 20 36 16-22 16 40H200z" opacity=".55"/>
+    <path d="M176 390l10-98 26-14 28 24 12 88H176z"/>
+    <path d="M196 318h48v54h-48zm10-28h28v30h-28zm40 42h24v30h-24z"/>
+    <path d="M200 282h40l-4 10h-32zm8-12h24l-3 10h-18zm6-10h12l-2 8h-8zm30 64h28l-3 8h-22z"/>
+    <path fill="#0B1F3A" d="M210 330h8v12h-8zm16 0h8v12h-8zm-12-30h8v10h-8z"/>
+    <path d="M296 402h108v12H296zm10-14h88v14h-88zm10-12h68v12h-68z"/>
+    <path d="M324 364h52c8 0 14 6 14 12H310c0-6 6-12 14-12z"/>
+    <path d="M330 320c0-6 10-12 22-12s22 6 22 12v44H330zm4-18h34c10 0 18 10 18 20v8H316v-8c0-10 8-20 18-20z"/>
+    <ellipse cx="351" cy="284" rx="18" ry="20"/>
+    <ellipse cx="351" cy="266" rx="8" ry="6"/>
+    <path d="M331 286c-4 0-7 4-7 9s3 7 5 7v-16zm40 0c4 0 7 4 7 9s-3 7-5 7v-16z"/>
+    <path d="M322 344h12v16c-7 0-12-5-12-10z"/>
+  </g>
+</svg>

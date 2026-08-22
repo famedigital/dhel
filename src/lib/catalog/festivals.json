@@ -1,0 +1,42 @@
+[
+  {
+    "id": "paro-tshechu",
+    "name": "Paro Tshechu",
+    "location": "Paro",
+    "start": "2026-04-02",
+    "end": "2026-04-06",
+    "slug": "paro-tshechu"
+  },
+  {
+    "id": "thimphu-tshechu",
+    "name": "Thimphu Tshechu",
+    "location": "Thimphu",
+    "start": "2026-09-17",
+    "end": "2026-09-19",
+    "slug": "thimphu-tshechu"
+  },
+  {
+    "id": "punakha-drupchen",
+    "name": "Punakha Drubchen",
+    "location": "Punakha",
+    "start": "2026-02-15",
+    "end": "2026-02-19",
+    "slug": "punakha-drubchen"
+  },
+  {
+    "id": "jambay-lhakhang",
+    "name": "Jambay Lhakhang Drup",
+    "location": "Bumthang",
+    "start": "2026-11-08",
+    "end": "2026-11-12",
+    "slug": "jambay-lhakhang"
+  },
+  {
+    "id": "haa-summer",
+    "name": "Haa Summer Festival",
+    "location": "Haa",
+    "start": "2026-07-11",
+    "end": "2026-07-12",
+    "slug": "haa-summer"
+  }
+]

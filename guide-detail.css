@@ -1,0 +1,191 @@
+/* Silverpine — detailed location guide (A4 print)
+   Tracy guests (ZH) + licensed English guide (EN)
+   Print: Chrome → Print → Save as PDF · A4 · Background graphics ON */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+SC:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap');
+
+:root {
+  --ink: #141412;
+  --ink-soft: #2a2926;
+  --charcoal: #3d3c38;
+  --stone: #8a857c;
+  --mist: #f4f1ec;
+  --paper: #faf8f5;
+  --gold: #a8875a;
+  --line: rgba(20, 20, 18, 0.12);
+  --header-h: 13mm;
+  --footer-h: 12mm;
+  --pad-x: 14mm;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  font-family: 'Outfit', 'Noto Sans SC', sans-serif;
+  font-weight: 300;
+  font-size: 9pt;
+  line-height: 1.5;
+  color: var(--ink);
+  background: #c8c4bc;
+}
+body.lang-zh {
+  font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  line-height: 1.62;
+}
+body.lang-zh h1, body.lang-zh h2, body.lang-zh h3, body.lang-zh .cover-title, body.lang-zh .loc-name {
+  font-family: 'Noto Serif SC', 'Songti SC', serif;
+}
+
+.page {
+  width: 210mm;
+  height: 297mm;
+  background: var(--paper);
+  position: relative;
+  margin: 8mm auto;
+  overflow: hidden;
+  page-break-after: always;
+  box-shadow: 0 4px 24px rgba(0,0,0,.12);
+}
+.page-header {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  display: flex; align-items: flex-end; justify-content: space-between;
+  padding: 0 var(--pad-x) 3mm;
+  border-bottom: 0.5pt solid var(--line);
+}
+.brand { font-family: 'Cormorant Garamond', serif; font-size: 12pt; letter-spacing: 0.12em; text-transform: uppercase; }
+.brand span { color: var(--gold); font-style: italic; }
+.meta { font-size: 7pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stone); }
+.page-footer {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: var(--footer-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 var(--pad-x);
+  border-top: 0.5pt solid var(--line);
+  font-size: 7pt; color: var(--stone);
+}
+.page-body {
+  position: absolute;
+  top: var(--header-h);
+  bottom: var(--footer-h);
+  left: 0; right: 0;
+  padding: 6mm var(--pad-x) 4mm;
+  overflow: hidden;
+}
+
+.section-label {
+  font-size: 7pt; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.5mm;
+}
+.page-heading { font-size: 18pt; font-weight: 500; margin-bottom: 1.5mm; line-height: 1.2; }
+.page-sub { font-size: 8.5pt; color: var(--charcoal); margin-bottom: 3mm; }
+
+/* Cover */
+.page.cover { background: #141412; color: #fff; }
+.page.cover .page-header, .page.cover .page-footer { border-color: rgba(255,255,255,.18); color: rgba(255,255,255,.55); }
+.page.cover .brand span { color: #c4a574; }
+.cover-hero { position: absolute; top: var(--header-h); left: 0; right: 0; height: 92mm; overflow: hidden; }
+.cover-hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; filter: brightness(.92); }
+.cover-body { position: absolute; top: calc(var(--header-h) + 92mm); bottom: var(--footer-h); left: 0; right: 0; padding: 7mm var(--pad-x); }
+.cover-eyebrow { font-size: 8pt; letter-spacing: 0.22em; text-transform: uppercase; color: #c4a574; margin-bottom: 2mm; }
+.cover-title { font-size: 22pt; font-weight: 500; line-height: 1.25; margin-bottom: 3mm; }
+.cover-rule { width: 22mm; height: 0.4pt; background: #c4a574; margin: 3mm 0; }
+.cover-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3mm; margin-top: 4mm; }
+.cover-grid div { border-top: 0.4pt solid rgba(255,255,255,.2); padding-top: 2mm; }
+.cover-grid label { display: block; font-size: 6.5pt; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 1mm; }
+.cover-grid p { font-size: 8.5pt; }
+
+/* Location page */
+.loc-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 4mm; margin-bottom: 3mm; }
+.loc-name { font-size: 17pt; font-weight: 500; line-height: 1.2; }
+.loc-en { font-size: 8pt; color: var(--stone); letter-spacing: 0.06em; margin-top: 0.5mm; }
+.chips { display: flex; flex-wrap: wrap; gap: 1.5mm; justify-content: flex-end; max-width: 55%; }
+.chip {
+  font-size: 6.5pt; letter-spacing: 0.04em;
+  border: 0.4pt solid var(--line); padding: 1mm 2.2mm; background: var(--mist); color: var(--charcoal);
+}
+
+.hero {
+  position: relative; height: 62mm; overflow: hidden; background: #1a1916; margin-bottom: 2.5mm;
+}
+.hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; display: block; }
+
+/* Portrait founder photo — do not force landscape crop */
+.founder-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 5mm;
+  height: 118mm;
+}
+.founder-frame img {
+  height: 108mm;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center top;
+  display: block;
+  background: var(--mist);
+}
+.founder-frame figcaption {
+  margin-top: 2mm;
+  font-size: 8pt;
+  letter-spacing: 0.08em;
+  color: var(--stone);
+  text-align: center;
+}
+.hero figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 4mm 3.5mm 2.5mm;
+  font-size: 7pt; letter-spacing: 0.12em; text-transform: uppercase; color: #fff;
+  background: linear-gradient(transparent, rgba(14,14,12,.78));
+}
+
+.mosaic {
+  display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 2mm; margin-bottom: 3mm;
+}
+.mosaic figure { margin: 0; overflow: hidden; height: 28mm; background: #1a1916; position: relative; }
+.mosaic img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.mosaic figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 1.5mm 2mm;
+  font-size: 6pt; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.7));
+}
+
+.cols { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 4.5mm; }
+.block h3 {
+  font-size: 9.5pt; font-weight: 500; margin: 0 0 1.5mm;
+  color: var(--ink); border-bottom: 0.4pt solid var(--gold); padding-bottom: 1mm; display: inline-block;
+}
+.block p, .block li { font-size: 8pt; color: var(--ink-soft); line-height: 1.55; }
+.block p + p, .block ul { margin-top: 1.6mm; }
+.block ul { padding-left: 3.5mm; }
+.block li { margin-bottom: 1mm; }
+.block + .block { margin-top: 2.8mm; }
+
+.note {
+  background: #f7f0e6; border-left: 2.5px solid var(--gold);
+  padding: 2.2mm 3mm; font-size: 7.5pt; line-height: 1.5; color: var(--ink-soft);
+}
+.ops {
+  background: #ece8e1; padding: 2.5mm 3mm; margin-top: 2mm;
+}
+.ops h3 { border-color: var(--charcoal); }
+body.lang-en .ops { border: 0.4pt dashed var(--gold); }
+
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm; }
+.cal { width: 100%; border-collapse: collapse; font-size: 8pt; }
+.cal th, .cal td { border-bottom: 0.4pt solid var(--line); padding: 1.8mm 1.5mm; text-align: left; vertical-align: top; }
+.cal th { font-size: 6.5pt; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); font-weight: 500; }
+.cal td.d { white-space: nowrap; color: var(--gold); font-weight: 500; }
+
+.rules { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+.rules .box { border: 0.4pt solid var(--line); padding: 3mm; background: #fff; }
+.rules h3 { font-size: 10pt; margin-bottom: 2mm; }
+.rules li { font-size: 8pt; margin-bottom: 1.4mm; margin-left: 3.5mm; color: var(--ink-soft); }
+
+@media print {
+  body { background: none; }
+  .page { margin: 0; box-shadow: none; page-break-after: always; }
+}

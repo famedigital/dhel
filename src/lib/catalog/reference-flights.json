@@ -1,0 +1,20 @@
+[
+  {
+    "airline": "Drukair",
+    "flight": "KB203",
+    "from": "DEL",
+    "to": "PBH",
+    "depart": "09:15",
+    "arrive": "10:45",
+    "note": "Indicative — confirm with airline"
+  },
+  {
+    "airline": "Bhutan Airlines",
+    "flight": "B3-701",
+    "from": "BKK",
+    "to": "PBH",
+    "depart": "11:00",
+    "arrive": "14:30",
+    "note": "Indicative schedule snapshot"
+  }
+]

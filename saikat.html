@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Himalayan Marvels — Private Bhutan · Saikat Datta</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .simple-intro {
+      font-size: 10pt;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin-bottom: 5mm;
+    }
+    .cmp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9pt;
+      margin-bottom: 4mm;
+    }
+    .cmp-table th,
+    .cmp-table td {
+      border: 0.5pt solid var(--line);
+      padding: 2mm 2.4mm;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    .cmp-table thead th {
+      background: var(--mist);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11pt;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .cmp-table thead th.rec {
+      background: #ebe4d6;
+      border-bottom: 1.5pt solid var(--gold);
+    }
+    .cmp-table tbody th {
+      width: 28%;
+      font-weight: 500;
+      color: var(--charcoal);
+      background: #faf8f5;
+    }
+    .cmp-table td.rec { background: #fbf9f5; }
+    .cmp-table .price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16pt;
+      font-weight: 600;
+    }
+    .cmp-table .small { font-size: 8pt; color: var(--stone); }
+    .day-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8.5pt;
+      margin-bottom: 4mm;
+    }
+    .day-table th,
+    .day-table td {
+      border: 0.5pt solid var(--line);
+      padding: 1.8mm 2mm;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.35;
+    }
+    .day-table thead th {
+      background: var(--mist);
+      font-weight: 500;
+      font-size: 8pt;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+    }
+    .day-table td:first-child { white-space: nowrap; font-weight: 500; width: 22mm; }
+    .day-table td:nth-child(2) { width: 28mm; color: var(--stone); }
+    .note-line {
+      font-size: 8.5pt;
+      color: var(--ink-soft);
+      line-height: 1.45;
+      margin-top: 2mm;
+    }
+    .hotel-block {
+      margin-bottom: 5mm;
+      page-break-inside: avoid;
+    }
+    .hotel-block-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 4mm;
+      margin-bottom: 2.5mm;
+      padding-bottom: 1.5mm;
+      border-bottom: 0.5pt solid var(--gold-pale);
+    }
+    .hotel-block-head h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15pt;
+      font-weight: 500;
+    }
+    .hotel-block-head .nights {
+      font-size: 8pt;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .hotel-block-meta {
+      font-size: 8.5pt;
+      color: var(--stone);
+      margin-bottom: 2.5mm;
+      line-height: 1.45;
+    }
+    .hotel-block-meta a {
+      color: var(--ink-soft);
+      text-decoration: underline;
+      text-underline-offset: 1.5px;
+    }
+    .hotel-shots {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr;
+      grid-template-rows: 28mm 28mm;
+      gap: 2mm;
+    }
+    .hotel-shots figure {
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      background: var(--cream);
+    }
+    .hotel-shots figure:first-child { grid-row: 1 / span 2; }
+    .hotel-shots img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hotel-shots figcaption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 1.5mm 2mm;
+      font-size: 5.5pt;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(14, 14, 12, 0.78));
+    }
+    .place-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3mm;
+      margin-top: 3mm;
+    }
+    .place-grid figure {
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+      height: 42mm;
+      background: var(--cream);
+    }
+    .place-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .place-grid figcaption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 2mm;
+      font-size: 7.5pt;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(14, 14, 12, 0.75));
+    }
+    .callout {
+      border: 0.5pt solid var(--gold-pale);
+      background: linear-gradient(135deg, #faf8f5 0%, #f0ebe3 100%);
+      padding: 4mm 5mm;
+      margin-bottom: 4mm;
+    }
+    .callout h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13pt;
+      font-weight: 500;
+      margin-bottom: 1.5mm;
+    }
+    .callout p {
+      font-size: 9pt;
+      line-height: 1.5;
+      color: var(--ink-soft);
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm;
+    }
+    .why-pick {
+      font-size: 9pt;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      margin-bottom: 3mm;
+    }
+    .family-banner {
+      border: 0.5pt solid var(--gold-pale);
+      background: linear-gradient(135deg, #faf8f5 0%, #f0ebe3 100%);
+      padding: 4mm 5mm;
+      margin-bottom: 4mm;
+    }
+    .family-banner h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13pt;
+      font-weight: 500;
+      margin-bottom: 1.5mm;
+    }
+    .family-banner p {
+      font-size: 9pt;
+      line-height: 1.5;
+      color: var(--ink-soft);
+    }
+  </style>
+</head>
+<body>
+
+  <section class="page cover">
+    <header class="page-header">
+      <div class="brand">Himalayan <span>Marvels</span></div>
+      <div class="meta">Private Family Itinerary</div>
+    </header>
+    <div class="cover-hero">
+      <img src="images/cover_bhutan_landscape.jpg" alt="Tiger's Nest Monastery, Paro Bhutan" />
+    </div>
+    <div class="page-body">
+      <div class="cover-content">
+        <p class="cover-eyebrow">Kingdom of Bhutan · 7 Days · 6 Nights · Family · Hasimara to Hasimara</p>
+        <h1 class="cover-brand">Himalayan <em>Marvels</em></h1>
+        <p class="cover-title">Thimphu · Punakha · Paro</p>
+        <div class="cover-rule"></div>
+        <p class="cover-client">Prepared for Saikat Datta, Mrs Datta &amp; son (4)</p>
+        <div class="cover-details">
+          <div class="cover-detail">
+            <label>Gateway</label>
+            <p>Hasimara · overland</p>
+          </div>
+          <div class="cover-detail">
+            <label>Route</label>
+            <p>Thimphu → Punakha → Paro → Pling</p>
+          </div>
+          <div class="cover-detail">
+            <label>Dates</label>
+            <p>18 – 24 October 2026</p>
+          </div>
+          <div class="cover-detail">
+            <label>Group</label>
+            <p>2 Adults + son (4 yrs)</p>
+          </div>
+          <div class="cover-detail">
+            <label>Vehicle</label>
+            <p>Hyundai Santa Fe · 1 guide</p>
+          </div>
+          <div class="cover-detail">
+            <label>Stay</label>
+            <p>2 Thimphu · 1 Punakha · 2 Paro · 1 Pling</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Saikat Datta · 2 Adults + son (4)</span>
+      <span class="ft-mid">www.himalayanmarvels.com · WhatsApp +975-77270465</span>
+      <span class="ft-right">01 / 12</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Himalayan <span>Marvels</span></div>
+      <div class="meta">Private Family Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Correspondence</p>
+      <h2 class="page-heading">This is the journey</h2>
+      <p class="page-sub">18–24 October 2026 · Hasimara to Hasimara · one family, one Santa Fe, one guide</p>
+
+      <p class="letter-date">Issue date · 20 August 2026</p>
+      <p class="letter-greeting">Dear Saikat,</p>
+
+      <div class="letter-body">
+        <p>
+          Thank you for writing from Kolkata. We have built this as a
+          <strong>private family tour</strong> for you, your wife, and your
+          <strong>4-year-old son</strong> — comfort and hygiene first, not ultra-luxury.
+          Pickup and drop are at <strong>Hasimara</strong>. We do not leave you at the border.
+        </p>
+        <p>
+          Book this: <strong>Pelbu Suites</strong> 18–19 Oct ·
+          <strong>Punatshangchhu Cottages</strong> 20 Oct ·
+          <strong>Hotel Gakyidiana</strong> 21–22 Oct ·
+          <strong>Hotel Khamsum</strong> 23 Oct · drop Hasimara 24 Oct morning.
+          Day 1 is Hasimara to Thimphu directly — no night in Phuentsholing on the way in.
+          Two Thimphu nights so the capital is not a half-day. Two Paro nights so Taktsang is not on a drive day. Your son does not climb.
+        </p>
+        <p>
+          The <strong>package for all three of you is ₹ 1,05,600</strong>.
+          What is included and what is not is on page 3.
+        </p>
+        <p>
+          Trains Kolkata ⇄ Hasimara you book; we meet the coach.
+          WhatsApp <strong>+975-77270465</strong> ·
+          <a href="https://himalayanmarvels.com">himalayanmarvels.com</a>.
+        </p>
+      </div>
+
+      <div class="letter-sign">
+        <div>
+          <p class="closing">With warm regards,</p>
+          <p class="name">Bivatsu Giri</p>
+          <p class="role">Founder &amp; CEO · Himalayan Marvels</p>
+          <p class="since">Licensed Bhutan operator since 2014 · Changbangdu, Thimphu</p>
+        </div>
+      </div>
+
+      <div class="letter-contact">
+        <div>
+          <label>Website</label>
+          <a href="https://himalayanmarvels.com">www.himalayanmarvels.com</a>
+        </div>
+        <div>
+          <label>WhatsApp</label>
+          <p>+975-77270465</p>
+        </div>
+        <div>
+          <label>Your number</label>
+          <p>+91 74397 60139</p>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Saikat Datta · 2 Adults + son (4)</span>
+      <span class="ft-mid">www.himalayanmarvels.com · WhatsApp +975-77270465</span>
+      <span class="ft-right">02 / 12</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Himalayan <span>Marvels</span></div>
+      <div class="meta">Private Family Quote</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Quote</p>
+      <h2 class="page-heading">Confirm this total</h2>
+      <p class="page-sub">One figure for the family · 18–24 October 2026 · Hasimara to Hasimara</p>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="rec">Package for 3 · you, Mrs Datta &amp; son (4)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Total</th>
+            <td class="rec"><span class="price">₹ 1,05,600</span></td>
+          </tr>
+          <tr>
+            <th>To pay now</th>
+            <td class="rec">₹ 52,800</td>
+          </tr>
+          <tr>
+            <th>Balance</th>
+            <td class="rec">₹ 52,800 · cash or NEFT before / on arrival · card usually not accepted in Bhutan</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="docs-row" style="margin-bottom: 4mm; margin-top: 5mm;">
+        <div class="closing-block dos">
+          <h3>Included</h3>
+          <ul>
+            <li>Hasimara pickup and drop · name board · bags</li>
+            <li>Immigration and permit at Phuentsholing</li>
+            <li>Licensed guide · Hyundai Santa Fe throughout</li>
+            <li>SDF for 2 adults · son (4) exempt</li>
+            <li>6 hotel nights · family room (double + extra mattress) · breakfast &amp; dinner</li>
+            <li>All monument / entry fees on this circuit</li>
+            <li>Bottled water in the car</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>Not included</h3>
+          <ul>
+            <li>Kolkata ⇄ Hasimara train tickets</li>
+            <li>Lunch daily (guide picks a clean family stop)</li>
+            <li>Shopping, laundry, spa, hot-stone bath</li>
+            <li>Tips if you wish to give</li>
+            <li>Travel insurance (recommended)</li>
+          </ul>
+        </div>
+      </div>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>If you cancel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>SDF / permit</th>
+            <td>Not refundable once paid to the government.</td>
+          </tr>
+          <tr>
+            <th>Hotels &amp; services</th>
+            <td>30+ days 20% · 15–29 days 50% · 7–14 days 75% · under 7 days 100%.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note-line">
+        Quote 15 days. Send with the advance: names as on passport or original voter ID (not Aadhaar) · child birth certificate or passport · 2 photos each · train PNR when you have it.
+      </p>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Saikat Datta · 2 Adults + son (4)</span>
+      <span class="ft-mid">www.himalayanmarvels.com · WhatsApp +975-77270465</span>
+      <span class="ft-right">03 / 12</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Himalayan <span>Marvels</span></div>
+      <div class="meta">Private Family Quote</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Hasimara · you book the train · we take the rest</p>
+      <h2 class="page-heading">Kolkata night in · drop then home</h2>
+      <p class="page-sub">17 Oct night from Sealdah · 24 Oct morning Hasimara drop · we meet you at the station</p>
+
+      <div class="two-col">
+        <div class="callout" style="margin: 0;">
+          <h4>Out · Sat 17 Oct night</h4>
+          <p>
+            <strong>13149 Kanchan Kanya Express</strong> · Sealdah ~20:30 → Hasimara ~11:50 on Sun 18 Oct.
+            We stand at the station with your name. 30–40 min to Phuentsholing immigration, then the mountain road to Thimphu the same day.
+          </p>
+        </div>
+        <div class="callout" style="margin: 0;">
+          <h4>Drop · Sat 24 Oct morning</h4>
+          <p>
+            Sleep Friday 23 Oct at <strong>Hotel Khamsum</strong>. Morning drop at Hasimara — name board to the coach.
+            Ticket 24 Oct home (day train into Kolkata that evening, or 13150 overnight into Sealdah 25 Oct morning).
+          </p>
+        </div>
+      </div>
+
+      <p class="note-line" style="margin-bottom: 4mm;">
+        Two Thimphu nights plus a Pling night means the drop is 24 Oct, not the 23rd-morning Kolkata you first wrote. Train times move — confirm on IRCTC and send us the PNR. We do not ticket Indian Railways.
+      </p>
+
+      <div class="place-grid">
+        <figure>
+          <img src="images/phuntsholing_border.jpg" alt="Phuentsholing border" />
+          <figcaption>Border · we handle papers</figcaption>
+        </figure>
+        <figure>
+          <img src="images/mountain_drive.jpg" alt="Mountain highway" />
+          <figcaption>Then the highway north</figcaption>
+        </figure>
+        <figure>
+          <img src="images/bagdogra_transfer.jpg" alt="Private transfer" />
+          <figcaption>Santa Fe · pickup and drop</figcaption>
+        </figure>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Saikat Datta · 2 Adults + son (4)</span>
+      <span class="ft-mid">www.himalayanmarvels.com · WhatsApp +975-77270465</span>
+      <span class="ft-right">04 / 12</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Himalayan <span>Marvels</span></div>
+      <div class="meta">Private Family Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Stay · named houses</p>
+      <h2 class="page-heading">Thimphu · Punakha</h2>
+      <p class="page-sub">Comfort and hygiene · extra mattress · not ultra-luxury</p>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Thimphu · Pelbu Suites</h3>
+          <span class="nights">2 nights · 18–19 Oct</span>
+        </div>
+        <p class="hotel-block-meta">
+          Olakha · 3-star premium · lift · spa · dining under one roof · extra mattress ·
+          <a href="https://www.pelbusuites.bt" target="_blank" rel="noopener">pelbusuites.bt</a>
+        </p>
+        <p class="why-pick">
+          Arrival night after the long Hasimara–Thimphu road, then a full easy capital day. Clean rooms, lift for the child and bags, dinner in-house. No temple on landing.
+        </p>
+        <div class="hotel-shots">
+          <figure>
+            <img src="images/hotel_pelbu_exterior.jpg" alt="Pelbu Suites exterior" />
+            <figcaption>Exterior</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_room_double.jpg" alt="Pelbu guest room" />
+            <figcaption>Guest room</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_suite.jpg" alt="Pelbu suite" />
+            <figcaption>Suite style</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_dining.jpg" alt="Pelbu dining" />
+            <figcaption>Dining</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_spa.jpg" alt="Pelbu spa" />
+            <figcaption>Spa</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Punakha · Punatshangchhu Cottages</h3>
+          <span class="nights">1 night · 20 Oct</span>
+        </div>
+        <p class="hotel-block-meta">
+          Riverside / valley cottages on the Punatshangchhu · Wangdue–Punakha corridor · extra mattress ·
+          similar-category photographs from the Puna Tshang Chu / Lobesa valley set
+        </p>
+        <p class="why-pick">
+          After Dochula you drop into warmer air. One quiet Punakha night — dzong and bridge in the morning — then the road to Paro. Not a shopping halt.
+        </p>
+        <div class="hotel-shots">
+          <figure>
+            <img src="images/hotel_lobesa_exterior.jpg" alt="Punakha valley cottages" />
+            <figcaption>Valley cottages</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_lobesa_view.jpg" alt="Valley view" />
+            <figcaption>Valley view</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_lobesa_room1.jpg" alt="Guest room" />
+            <figcaption>Guest room</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_lobesa_room2.jpg" alt="Room" />
+            <figcaption>Room</figcaption>
+          </figure>
+          <figure>
+            <img src="images/punakha_valley.jpg" alt="Punakha valley" />
+            <figcaption>Punakha basin</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Saikat Datta · 2 Adults + son (4)</span>
+      <span class="ft-mid">www.himalayanmarvels.com · WhatsApp +975-77270465</span>
+      <span class="ft-right">05 / 12</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Himalayan <span>Marvels</span></div>
+      <div class="meta">Private Family Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Stay · named houses</p>
+      <h2 class="page-heading">Paro · Phuentsholing</h2>
+      <p class="page-sub">Two Paro nights so Taktsang is not on a drive day · Khamsum Friday night · drop Saturday morning</p>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Paro · Hotel Gakyidiana</h3>
+          <span class="nights">2 nights · 21–22 Oct</span>
+        </div>
+        <p class="hotel-block-meta">
+          Town Paro · next to Drukair office · lift · spa · dining · extra mattress ·
+          <a href="https://www.gakyidiana.com" target="_blank" rel="noopener">gakyidiana.com</a>
+          · or similar if full
+        </p>
+        <p class="why-pick">
+          Clean, central, family-workable. Kyichu is an easy morning. One adult may walk Taktsang; the other stays with your son — hotel, town, or the viewpoint cafeteria. We do not put a 4-year-old on that trail.
+        </p>
+        <div class="hotel-shots">
+          <figure>
+            <img src="images/hotel_gakyidiana_exterior.jpg" alt="Hotel Gakyidiana" />
+            <figcaption>Hotel</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_gakyidiana_premium.jpg" alt="Premium deluxe" />
+            <figcaption>Premium deluxe</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_gakyidiana_classic.jpg" alt="Classic deluxe" />
+            <figcaption>Classic deluxe</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_gakyidiana_restaurant.jpg" alt="Dining" />
+            <figcaption>Dining</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_gakyidiana_spa.jpg" alt="Spa" />
+            <figcaption>Spa</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Phuentsholing · Hotel Khamsum</h3>
+          <span class="nights">1 night · 23 Oct · then drop</span>
+        </div>
+        <p class="hotel-block-meta">
+          Thabrig Lam · lift · A/C · veg restaurant · pool ·
+          <a href="https://www.khamsumhotels.com/hotel-khamsum-phuentsholing/" target="_blank" rel="noopener">khamsumhotels.com</a>
+          · photographs below are the Phuentsholing 3-star comfort band for this last halt
+        </p>
+        <p class="why-pick">
+          Friday: Paro → Phuentsholing, 5–6 hours, then a proper night at Khamsum.
+          Saturday morning we drop you at Hasimara — not a dirty wait at the station.
+        </p>
+        <div class="hotel-shots">
+          <figure>
+            <img src="images/phuntsholing_location.jpg" alt="Phuentsholing" />
+            <figcaption>Phuentsholing</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_central_exterior.jpg" alt="Pling 3-star comfort" />
+            <figcaption>Pling comfort</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_central_deluxe.jpg" alt="A/C room" />
+            <figcaption>A/C room</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_central_double.jpg" alt="Double room" />
+            <figcaption>Double</figcaption>
+          </figure>
+          <figure>
+            <img src="images/phuntsholing_border.jpg" alt="Bhutan Gate" />
+            <figcaption>Bhutan Gate</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Saikat Datta · 2 Adults + son (4)</span>
+      <span class="ft-mid">www.himalayanmarvels.com · WhatsApp +975-77270465</span>
+      <span class="ft-right">06 / 12</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Himalayan <span>Marvels</span></div>
+      <div class="meta">Private Family Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">The journey</p>
+      <h2 class="page-heading">7-day · day-by-day</h2>
+      <p class="page-sub">Hasimara → Thimphu · Thimphu → Punakha → Paro · Paro → Pling → drop</p>
+
+      <table class="day-table">
+        <thead>
+          <tr><th>Day</th><th>Date</th><th>Plan</th><th>Sleep</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>00</td><td>Sat 17 Oct</td><td>Your train · Sealdah night · we are not on this day</td><td>On the train</td></tr>
+          <tr><td>01</td><td>Sun 18 Oct</td><td>Hasimara ~noon · immigration · Thimphu directly · rest</td><td>Pelbu Suites</td></tr>
+          <tr><td>02</td><td>Mon 19 Oct</td><td>Thimphu easy — Buddha, Chorten, dzong · no long drive</td><td>Pelbu Suites</td></tr>
+          <tr><td>03</td><td>Tue 20 Oct</td><td>Dochula · Punakha Dzong · bridge</td><td>Punatshangchhu</td></tr>
+          <tr><td>04</td><td>Wed 21 Oct</td><td>Punakha morning · drive Paro</td><td>Gakyidiana</td></tr>
+          <tr><td>05</td><td>Thu 22 Oct</td><td>Kyichu · valley · Taktsang optional for one adult only</td><td>Gakyidiana</td></tr>
+          <tr><td>06</td><td>Fri 23 Oct</td><td>Paro → Pling · Khamsum night</td><td>Hotel Khamsum</td></tr>
+          <tr><td>07</td><td>Sat 24 Oct</td><td>Hasimara drop · your train home</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <p class="note-line">
+        Drives: Hasimara → Pling ≈ 40 min · Pling → Thimphu ≈ 6 hrs · Thimphu–Punakha ≈ 2.5 hrs · Punakha–Paro ≈ 3.5 hrs · Paro → Pling ≈ 5–6 hrs.
+      </p>
+
+      <div class="family-banner">
+        <h4>How the days feel with a 4-year-old</h4>
+        <p>
+          The Santa Fe is yours — snacks, stops, a jacket for the climb after Chukha.
+          We skip the cultural-village show and the shopping circuit.
+          Taktsang is optional for one parent; your son stays with the other at the hotel or the lower viewpoint.
+          Guide and driver stay with you from the Hasimara platform until we put you back on the train.
+        </p>
+      </div>
+
+      <div class="place-grid">
+        <figure>
+          <img src="images/thimphu_buddha_point.jpg" alt="Buddha Dordenma" />
+          <figcaption>Thimphu · Buddha Point</figcaption>
+        </figure>
+        <figure>
+          <img src="images/punakha_dzong.jpg" alt="Punakha Dzong" />
+          <figcaption>Punakha Dzong</figcaption>
+        </figure>
+        <figure>
+          <img src="images/paro_kyichu_lhakhang.jpg" alt="Kyichu Lhakhang" />
+          <figcaption>Paro · Kyichu</figcaption>
+        </figure>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Saikat Datta · 2 Adults + son (4)</span>
+      <span class="ft-mid">www.himalayanmarvels.com · WhatsApp +975-77270465</span>
+      <span class="ft-right">07 / 12</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Himalayan <span>Marvels</span></div>
+      <div class="meta">Private Family Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 01 · Sunday 18 October 2026</p>
+          <h2 class="day-route">Hasimara · Thimphu directly</h2>
+          <dl class="day-meta">
+            <div><dt>Meet</dt><dd>Hasimara station · after 13149 · ~noon</dd></div>
+            <div><dt>Vehicle</dt><dd>Hyundai Santa Fe · your guide from here</dd></div>
+            <div><dt>Drive</dt><dd>Pling immigration, then ≈ 6 hrs to Thimphu</dd></div>
+            <div><dt>Hotel</dt><dd>Pelbu Suites · Olakha</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Name-board pickup · bags into the Santa Fe</li>
+              <li>Jaigaon / Phuentsholing immigration — we process the permit</li>
+              <li>Lunch at a clean stop after formalities</li>
+              <li>Mountain highway · toilet and snack breaks for your son</li>
+              <li>Check-in Pelbu · dinner · early night</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            This is the long family day. No overnight in Phuentsholing on the way in — as you asked.
+            Nobody is taken to a temple on landing. Dinner is at Pelbu.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/thimphu_location.jpg" alt="Thimphu valley" />
+            <span>Hasimara · then the capital</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/phuntsholing_border.jpg" alt="Phuentsholing border" />
+              <figcaption>Border · we handle papers</figcaption>
+            </figure>
+            <figure>
+              <img src="images/mountain_drive.jpg" alt="Mountain highway" />
+              <figcaption>Highway to Thimphu</figcaption>
+            </figure>
+            <figure>
+              <img src="images/thimphu_mountain_highway.jpg" alt="Toward capital" />
+              <figcaption>Toward the capital</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_pelbu_home.jpg" alt="Pelbu Suites" />
+              <figcaption>Pelbu Suites</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Saikat Datta · 2 Adults + son (4)</span>
+      <span class="ft-mid">www.himalayanmarvels.com · WhatsApp +975-77270465</span>
+      <span class="ft-right">08 / 12</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Himalayan <span>Marvels</span></div>
+      <div class="meta">Private Family Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Days 02–03</p>
+      <h2 class="page-heading">Thimphu full day · Punakha</h2>
+
+      <table class="day-table">
+        <thead>
+          <tr><th>Day</th><th>Date</th><th>Plan</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>02</td>
+            <td>Mon 19 Oct</td>
+            <td>
+              Easy Thimphu — no long drive. <strong>Buddha Dordenma</strong>, Memorial Chorten, Tashichho Dzong if open, a short craft stop if the boy still has energy.
+              Second night at <strong>Pelbu Suites</strong>. Dinner in-house.
+            </td>
+          </tr>
+          <tr>
+            <td>03</td>
+            <td>Tue 20 Oct</td>
+            <td>
+              Over <strong>Dochula</strong> (108 chortens, tea) into Punakha.
+              <strong>Punakha Dzong</strong> at a quiet hour. Short walk on the suspension bridge.
+              Check-in Punatshangchhu Cottages. Dinner at the house.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="place-grid">
+        <figure>
+          <img src="images/thimphu_buddha_point_hero.jpg" alt="Buddha Point" />
+          <figcaption>Buddha Dordenma</figcaption>
+        </figure>
+        <figure>
+          <img src="images/dochula_pass.jpg" alt="Dochula" />
+          <figcaption>Dochula</figcaption>
+        </figure>
+        <figure>
+          <img src="images/punakha_dzong.jpg" alt="Punakha Dzong" />
+          <figcaption>Punakha Dzong</figcaption>
+        </figure>
+      </div>
+
+      <div class="place-grid">
+        <figure>
+          <img src="images/thimphu_memorial_chorten.jpg" alt="Memorial Chorten" />
+          <figcaption>Memorial Chorten</figcaption>
+        </figure>
+        <figure>
+          <img src="images/punakha_suspension_bridge.jpg" alt="Suspension bridge" />
+          <figcaption>Suspension bridge</figcaption>
+        </figure>
+        <figure>
+          <img src="images/punakha_valley.jpg" alt="Punakha valley" />
+          <figcaption>Punakha basin</figcaption>
+        </figure>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Saikat Datta · 2 Adults + son (4)</span>
+      <span class="ft-mid">www.himalayanmarvels.com · WhatsApp +975-77270465</span>
+      <span class="ft-right">09 / 12</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Himalayan <span>Marvels</span></div>
+      <div class="meta">Private Family Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Days 04–07</p>
+      <h2 class="page-heading">Paro · Pling · drop</h2>
+
+      <table class="day-table">
+        <thead>
+          <tr><th>Day</th><th>Date</th><th>Plan</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>04</td>
+            <td>Wed 21 Oct</td>
+            <td>
+              Punakha morning if you want the bridge again. Then the road to Paro ≈ 3.5 hrs.
+              Check-in <strong>Gakyidiana</strong>. Evening at leisure.
+            </td>
+          </tr>
+          <tr>
+            <td>05</td>
+            <td>Thu 22 Oct</td>
+            <td>
+              Morning <strong>Kyichu Lhakhang</strong> — lamps, courtyard, child-friendly.
+              Ta Dzong / National Museum and Paro town as energy allows.
+              <strong>Tiger’s Nest:</strong> one adult may hike with the guide; the other stays with your son at Gakyidiana or the lower cafeteria. Full family climb — no.
+              Meet for dinner.
+            </td>
+          </tr>
+          <tr>
+            <td>06</td>
+            <td>Fri 23 Oct</td>
+            <td>
+              Early breakfast. Paro → Phuentsholing ≈ 5–6 hrs with stops.
+              Check-in <strong>Hotel Khamsum</strong> · rest · dinner. You sleep here.
+            </td>
+          </tr>
+          <tr>
+            <td>07</td>
+            <td>Sat 24 Oct</td>
+            <td>
+              Morning <strong>Hasimara drop</strong> — included. We put you on your train. Bhutan is finished.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="place-grid">
+        <figure>
+          <img src="images/paro_kyichu_lhakhang.jpg" alt="Kyichu" />
+          <figcaption>Kyichu · family morning</figcaption>
+        </figure>
+        <figure>
+          <img src="images/paro_tigers_nest.jpg" alt="Tiger's Nest" />
+          <figcaption>Taktsang · optional for one adult</figcaption>
+        </figure>
+        <figure>
+          <img src="images/paro_to_pling_drive.jpg" alt="Road south" />
+          <figcaption>Road south · 23 Oct</figcaption>
+        </figure>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Saikat Datta · 2 Adults + son (4)</span>
+      <span class="ft-mid">www.himalayanmarvels.com · WhatsApp +975-77270465</span>
+      <span class="ft-right">10 / 12</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Himalayan <span>Marvels</span></div>
+      <div class="meta">Private Family Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Papers · packing · pace</p>
+      <h2 class="page-heading">What we need from you</h2>
+      <p class="page-sub">Indians enter on passport or original voter ID — not Aadhaar</p>
+
+      <div class="docs-row" style="margin-bottom: 4mm;">
+        <div class="closing-block dos">
+          <h3>Send with the advance</h3>
+          <ul>
+            <li>Names as on passport or original voter ID — both adults</li>
+            <li>Scans of those IDs · 2 passport photos each</li>
+            <li>Son: passport or birth certificate + 2 photos</li>
+            <li>WhatsApp +91 74397 60139 stays the thread</li>
+            <li>Train PNR when you ticket 13149 out and the 24 Oct return</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>Packing · family</h3>
+          <ul>
+            <li>Warm layer for Dochula and the Thimphu climb</li>
+            <li>Walking shoes · light rain shell (October is usually dry)</li>
+            <li>Snacks the boy already likes · motion-sickness if he needs it</li>
+            <li>Modest clothes for dzongs · no hats inside temples</li>
+            <li>Power bank · copies of IDs</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="docs-row" style="margin-bottom: 4mm;">
+        <div class="closing-block">
+          <h3>Do</h3>
+          <ul>
+            <li>Keep original voter ID / passport in hand at immigration</li>
+            <li>Let the guide set the walk length — we cut, we do not add</li>
+            <li>Ask before photographing inside lhakhangs</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>Don’t</h3>
+          <ul>
+            <li>Do not plan Aadhaar as the entry document</li>
+            <li>Do not put your son on the Taktsang trail</li>
+            <li>Do not drone · do not point at statues with one finger</li>
+          </ul>
+        </div>
+      </div>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="rec">Book this</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Package total</th>
+            <td class="rec"><span class="price">₹ 1,05,600</span> · all three of you</td>
+          </tr>
+          <tr>
+            <th>Advance</th>
+            <td class="rec">₹ 52,800</td>
+          </tr>
+          <tr>
+            <th>Houses</th>
+            <td class="rec">Pelbu 18–19 Oct · Punatshangchhu 20 Oct · Gakyidiana 21–22 Oct · Khamsum 23 Oct · drop 24 Oct</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Saikat Datta · 2 Adults + son (4)</span>
+      <span class="ft-mid">www.himalayanmarvels.com · WhatsApp +975-77270465</span>
+      <span class="ft-right">11 / 12</span>
+    </footer>
+  </section>
+
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Himalayan <span>Marvels</span></div>
+      <div class="meta">To confirm</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">To send</p>
+      <h2 class="page-heading">Book the deal on page 3</h2>
+      <p class="page-sub">No mix-and-match · Gakyidiana similar only if that house is full</p>
+
+      <div class="callout">
+        <h4>Why this is the deal</h4>
+        <p>
+          Extra mattress at every house. Santa Fe, not a cramped sedan. Guide from the Hasimara platform, not from the border gate.
+          Two Thimphu nights so the capital is not a half-day. Two Paro nights so Taktsang is optional, not rushed. Khamsum Friday night, Hasimara drop Saturday morning.
+          One package total: <strong>₹ 1,05,600</strong> for the three of you.
+        </p>
+      </div>
+
+      <table class="cmp-table">
+        <thead><tr><th colspan="2">We need</th></tr></thead>
+        <tbody>
+          <tr>
+            <th>From you</th>
+            <td>Advance ₹ 52,800 · names as on papers · ID scans · son’s birth certificate or passport · 13149 PNR and the 24 Oct return PNR when ticketed.</td>
+          </tr>
+          <tr>
+            <th>From us</th>
+            <td>Permit filed · Pelbu / Punatshangchhu / Gakyidiana / Khamsum held · Santa Fe and guide named on WhatsApp before 17 Oct.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="validity-box" style="margin-top: 5mm;">
+        <div>
+          <p class="v-label">Validity</p>
+          <p class="v-text">
+            Package total <strong>₹ 1,05,600</strong> for the family — valid 15 days from issue date, subject to hotel stock in October.
+          </p>
+        </div>
+        <p class="v-side">
+          Saikat Datta · +91 74397 60139<br />
+          Hasimara ↔ Hasimara · 18–24 Oct 2026<br />
+          WhatsApp +975-77270465
+        </p>
+      </div>
+
+      <div class="letter-sign" style="margin-top: 6mm;">
+        <div>
+          <p class="closing">We would be honoured to host the three of you,</p>
+          <p class="name">Bivatsu Giri</p>
+          <p class="role">Himalayan Marvels · licensed operator · Thimphu</p>
+          <p class="since">
+            WhatsApp <strong>+975-77270465</strong> ·
+            <a href="https://himalayanmarvels.com">himalayanmarvels.com</a> ·
+            info@himalayanmarvels.com
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Saikat Datta · 2 Adults + son (4)</span>
+      <span class="ft-mid">www.himalayanmarvels.com · WhatsApp +975-77270465</span>
+      <span class="ft-right">12 / 12</span>
+    </footer>
+  </section>
+
+</body>
+</html>

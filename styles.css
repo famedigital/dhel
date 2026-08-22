@@ -1,0 +1,1630 @@
+/* ============================================
+   Silverpine Tours — A4 Luxury Itinerary
+   Print: Chrome → Print → Save as PDF (A4)
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap');
+
+/* Itinerary tokens — scoped so they do not overwrite the SaaS :root theme */
+.doc-root,
+.preview-root,
+.itinerary-sheet {
+  --ink: #141412;
+  --ink-soft: #2a2926;
+  --charcoal: #3d3c38;
+  --stone: #8a857c;
+  --mist: #f4f1ec;
+  --paper: #faf8f5;
+  --cream: #ebe6de;
+  --gold: #a8875a;
+  --gold-light: #c4a574;
+  --gold-pale: #e8dcc8;
+  --white: #ffffff;
+  --line: rgba(20, 20, 18, 0.12);
+  --header-h: 14mm;
+  --footer-h: 14mm;
+  --page-pad-x: 16mm;
+  --page-pad-top: 20mm;
+  --page-pad-bottom: 18mm;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Reset only inside the printed document — never the app chrome */
+.doc-root *,
+.doc-root *::before,
+.doc-root *::after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Standalone HTML itineraries (no Next app shell) */
+body.itinerary-sheet {
+  font-family: 'Outfit', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-weight: 300;
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--ink);
+  background: #c8c4bc;
+  margin: 0;
+  padding: 0;
+}
+
+.doc-root {
+  font-family: 'Outfit', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-weight: 300;
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* Chinese itinerary pages — refined CJK stacking */
+.lang-zh {
+  font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', 'Outfit', sans-serif;
+  line-height: 1.65;
+}
+
+.lang-zh .page-heading,
+.lang-zh .day-route,
+.lang-zh .cover-brand,
+.lang-zh .cover-title,
+.lang-zh .cover-client,
+.lang-zh .letter-greeting,
+.lang-zh .letter-sign .name,
+.lang-zh .price-hero .amount,
+.lang-zh .price-card h3,
+.lang-zh .price-card .value,
+.lang-zh .per-head-item .value,
+.lang-zh .closing-block h3,
+.lang-zh .validity-box .v-text,
+.lang-zh .day-desc {
+  font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', 'Cormorant Garamond', serif;
+}
+
+.lang-zh .day-route {
+  font-size: 18pt;
+  letter-spacing: 0.02em;
+}
+
+.lang-zh .cover-brand {
+  letter-spacing: 0.08em;
+}
+
+.lang-zh .day-activities li,
+.lang-zh .day-meta dd,
+.lang-zh .letter-body p {
+  line-height: 1.7;
+}
+
+.lang-zh .price-includes ul {
+  grid-template-columns: 1fr;
+}
+
+.lang-zh .price-3col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3.5mm;
+  margin-bottom: 6mm;
+}
+
+.lang-zh .flight-box {
+  border: 0.5pt solid var(--line);
+  background: var(--white);
+  padding: 4.5mm 5.5mm;
+  margin-bottom: 5mm;
+}
+
+.lang-zh .flight-box h4 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 12pt;
+  font-weight: 500;
+  margin-bottom: 2.5mm;
+}
+
+.lang-zh .flight-box p {
+  font-size: 8.5pt;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  margin-bottom: 1.5mm;
+}
+
+.lang-zh .flight-box a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 1.5px;
+  font-weight: 500;
+}
+
+.lang-zh .flight-price {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 16pt;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 2mm;
+}
+
+/* Page 3 pricing — keep last block clear of footer */
+.lang-zh .page-pricing .page-body {
+  padding-top: 7mm;
+  padding-bottom: 5mm;
+  display: flex;
+  flex-direction: column;
+}
+
+.lang-zh .page-pricing .page-heading {
+  margin-bottom: 1.5mm;
+}
+
+.lang-zh .page-pricing .page-sub {
+  margin-bottom: 3.5mm;
+  font-size: 8pt;
+  line-height: 1.45;
+}
+
+.lang-zh .page-pricing .price-hero {
+  margin-bottom: 3.5mm;
+  padding: 4.5mm 5.5mm;
+}
+
+.lang-zh .page-pricing .price-hero .amount {
+  font-size: 26pt;
+}
+
+.lang-zh .page-pricing .highlight-note {
+  margin-bottom: 3.5mm;
+  padding: 2.5mm 4mm;
+  font-size: 7.5pt;
+  line-height: 1.45;
+}
+
+.lang-zh .page-pricing .price-grid {
+  gap: 2.5mm;
+  margin-bottom: 3mm;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.lang-zh .page-pricing .price-card {
+  padding: 3mm 3.5mm;
+}
+
+.lang-zh .page-pricing .price-card h3 {
+  font-size: 10.5pt;
+  margin-bottom: 1mm;
+}
+
+.lang-zh .page-pricing .price-card .value {
+  font-size: 15pt;
+}
+
+.lang-zh .page-pricing .flight-box {
+  padding: 3.5mm 4.5mm;
+  margin-bottom: 3mm;
+  flex-shrink: 0;
+}
+
+.lang-zh .page-pricing .flight-box h4 {
+  font-size: 10.5pt;
+  margin-bottom: 1.5mm;
+}
+
+.lang-zh .page-pricing .flight-box p {
+  font-size: 7.5pt;
+  line-height: 1.45;
+  margin-bottom: 1mm;
+}
+
+.lang-zh .page-pricing .flight-price {
+  font-size: 13pt;
+  margin-top: 1.5mm;
+  margin-bottom: 0;
+}
+
+.lang-zh .page-pricing .per-head {
+  gap: 3mm;
+  margin-top: auto;
+  margin-bottom: 2.5mm;
+}
+
+.lang-zh .page-pricing .pay-note {
+  margin-bottom: 0;
+  padding: 2.5mm 3.5mm;
+  border: 0.5pt solid var(--line);
+  background: var(--mist);
+  font-size: 7pt;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.lang-zh .page-pricing .pay-note strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.lang-zh .page-pricing .per-head-item {
+  padding: 2.8mm 3.5mm;
+}
+
+.lang-zh .page-pricing .per-head-item .value {
+  font-size: 14pt;
+}
+
+.lang-zh .page-pricing .per-head-item label {
+  font-size: 8.5pt;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.lang-zh .page-pricing .per-head-item .sub {
+  font-size: 7pt;
+  line-height: 1.4;
+  margin-top: 1.5mm;
+}
+
+/* Page 4 hotels — avoid footer overlap */
+.lang-zh .page-hotels .page-body {
+  padding-top: 7mm;
+  padding-bottom: 5mm;
+  display: flex;
+  flex-direction: column;
+}
+
+.lang-zh .page-hotels .page-heading {
+  margin-bottom: 1.5mm;
+}
+
+.lang-zh .page-hotels .page-sub {
+  margin-bottom: 3.5mm;
+  font-size: 8pt;
+  line-height: 1.45;
+}
+
+.lang-zh .page-hotels .hotel-rows {
+  border-top: 0.5pt solid var(--line);
+  margin-bottom: 4mm;
+  flex: 1;
+}
+
+.lang-zh .page-hotels .hotel-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3mm;
+  align-items: start;
+  padding: 3.2mm 0;
+  border-bottom: 0.5pt solid var(--line);
+}
+
+.lang-zh .page-hotels .hotel-row-main {
+  font-size: 8.5pt;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.lang-zh .page-hotels .hotel-row-main strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.lang-zh .page-hotels .hotel-row-main a {
+  display: block;
+  font-size: 7.5pt;
+  color: var(--stone);
+  margin-top: 0.5mm;
+  text-decoration: underline;
+  text-underline-offset: 1px;
+}
+
+.lang-zh .page-hotels .hotel-alt {
+  display: block;
+  font-size: 7pt;
+  color: var(--stone);
+  margin-top: 0.8mm;
+}
+
+.lang-zh .page-hotels .hotel-row-price {
+  font-size: 8.5pt;
+  text-align: right;
+  white-space: nowrap;
+  color: var(--ink-soft);
+  padding-top: 0.5mm;
+}
+
+.lang-zh .page-hotels .hotel-row-price strong {
+  color: var(--ink);
+  font-family: 'Noto Serif SC', serif;
+  font-size: 11pt;
+  font-weight: 600;
+}
+
+.lang-zh .page-hotels .price-hero {
+  margin-top: auto;
+  margin-bottom: 3mm;
+  padding: 4mm 5mm;
+}
+
+.lang-zh .page-hotels .price-hero .amount {
+  font-size: 22pt;
+}
+
+.lang-zh .page-hotels .highlight-note {
+  margin-bottom: 0;
+  padding: 2.5mm 4mm;
+  font-size: 7.5pt;
+  line-height: 1.45;
+}
+
+.lang-zh .highlight-note {
+  background: var(--mist);
+  padding: 3.5mm 4.5mm;
+  margin-bottom: 5mm;
+  font-size: 8.5pt;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  border-left: 2pt solid var(--gold);
+}
+
+.lang-zh .day-journal {
+  margin-top: 3mm;
+  padding-top: 3mm;
+  border-top: 0.5pt solid var(--line);
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.lang-zh .day-journal h5 {
+  font-size: 6.5pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 1.8mm 0 0.8mm;
+  font-weight: 500;
+}
+
+.lang-zh .day-journal h5:first-child {
+  margin-top: 0;
+}
+
+.lang-zh .day-journal p {
+  font-size: 7.2pt;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.lang-zh .day-left .day-desc {
+  margin-top: 2.5mm;
+  padding-top: 0;
+  font-size: 9.5pt;
+}
+
+.lang-zh .day-activities li {
+  font-size: 8.5pt;
+  padding: 1.2mm 0 1.2mm 4mm;
+}
+
+.lang-zh .day-route {
+  font-size: 16pt;
+  margin-bottom: 3mm;
+}
+
+.lang-zh .fit-check {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3mm;
+  margin-bottom: 5mm;
+}
+
+.lang-zh .fit-check .closing-block h3 {
+  font-size: 11pt;
+}
+
+.lang-zh .fit-check li {
+  font-size: 7.5pt;
+}
+
+/* ---------- Screen preview ---------- */
+@media screen {
+  .preview-root,
+  .preview-shell,
+  body.itinerary-sheet {
+    padding: 24px 0 48px;
+  }
+  .page {
+    margin: 0 auto 28px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  }
+}
+
+/* ---------- A4 page ---------- */
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+.page {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  min-height: 297mm;
+  max-height: 297mm;
+  background: var(--paper);
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+}
+
+.page:last-child {
+  page-break-after: auto;
+  break-after: auto;
+}
+
+/* ---------- Shared header / footer ---------- */
+.page-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--page-pad-x);
+  border-bottom: 0.5pt solid var(--line);
+  z-index: 10;
+  background: var(--paper);
+}
+
+.page-header .brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11pt;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.page-header .brand span {
+  color: var(--gold);
+}
+
+.page-header .meta {
+  font-size: 7.5pt;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+.page-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--footer-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3mm;
+  padding: 0 var(--page-pad-x);
+  border-top: 0.5pt solid var(--line);
+  z-index: 10;
+  background: var(--paper);
+  font-size: 6.5pt;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--stone);
+  line-height: 1.3;
+}
+
+.page-footer .ft-left,
+.page-footer .ft-mid,
+.page-footer .ft-right {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.page-footer .ft-left {
+  flex: 1.2;
+  min-width: 0;
+}
+
+.page-footer .ft-mid {
+  flex: 1.4;
+  text-align: center;
+  min-width: 0;
+}
+
+.page-footer .ft-right {
+  flex: 0.6;
+  text-align: right;
+}
+
+.page-footer a {
+  color: var(--stone);
+  text-decoration: none;
+}
+
+.page-body {
+  position: absolute;
+  top: var(--header-h);
+  bottom: var(--footer-h);
+  left: 0;
+  right: 0;
+  padding: 9mm var(--page-pad-x) 6mm;
+  overflow: hidden;
+}
+
+/* Ensure body content never paints into footer zone */
+.page > .page-body {
+  max-height: calc(297mm - var(--header-h) - var(--footer-h));
+}
+
+/* ============================================
+   COVER
+   ============================================ */
+.page.cover {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.page.cover .page-header,
+.page.cover .page-footer {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.page.cover .page-header .brand,
+.page.cover .page-footer {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.page.cover .page-header .brand span {
+  color: var(--gold-light);
+}
+
+.page.cover .page-header .meta {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.page.cover .page-footer {
+  color: rgba(255, 255, 255, 0.65);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.page.cover .page-footer a {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.cover-hero {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.cover-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.cover-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(14, 14, 12, 0.55) 0%, rgba(14, 14, 12, 0.25) 35%, rgba(14, 14, 12, 0.75) 100%),
+    linear-gradient(90deg, rgba(14, 14, 12, 0.5) 0%, transparent 55%);
+}
+
+.cover-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 4mm;
+}
+
+.cover-eyebrow {
+  font-size: 8pt;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 6mm;
+}
+
+.cover-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42pt;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  margin-bottom: 3mm;
+}
+
+.cover-brand em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold-light);
+}
+
+.cover-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18pt;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 8mm;
+  max-width: 140mm;
+}
+
+.cover-rule {
+  width: 28mm;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 8mm;
+}
+
+.cover-client {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16pt;
+  font-weight: 500;
+  margin-bottom: 2mm;
+}
+
+.cover-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3mm 8mm;
+  max-width: 150mm;
+  margin-top: 6mm;
+}
+
+.cover-detail label {
+  display: block;
+  font-size: 6.5pt;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 1mm;
+}
+
+.cover-detail p {
+  font-size: 9.5pt;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ============================================
+   LETTER
+   ============================================ */
+.letter-date {
+  font-size: 8.5pt;
+  color: var(--stone);
+  margin-bottom: 8mm;
+  letter-spacing: 0.04em;
+}
+
+.letter-greeting {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18pt;
+  font-weight: 500;
+  margin-bottom: 6mm;
+  color: var(--ink);
+}
+
+.letter-body p {
+  margin-bottom: 4mm;
+  font-size: 10pt;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 160mm;
+}
+
+.letter-body strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.letter-sign {
+  margin-top: 7mm;
+  display: grid;
+  grid-template-columns: 38mm 1fr;
+  gap: 6mm;
+  align-items: end;
+}
+
+.letter-photo {
+  width: 38mm;
+  height: 42mm;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border: 0.5pt solid var(--gold-pale);
+}
+
+.letter-sign .closing {
+  font-size: 10pt;
+  color: var(--ink-soft);
+  margin-bottom: 3mm;
+}
+
+.letter-sign .name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13pt;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.letter-sign .role {
+  font-size: 7.5pt;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-top: 1.5mm;
+}
+
+.letter-sign .since {
+  font-size: 8.5pt;
+  color: var(--ink-soft);
+  margin-top: 2mm;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+
+.letter-contact {
+  margin-top: 7mm;
+  padding-top: 4mm;
+  border-top: 0.5pt solid var(--line);
+  display: flex;
+  gap: 8mm;
+}
+
+.letter-contact div label {
+  display: block;
+  font-size: 6.5pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 1.5mm;
+}
+
+.letter-contact div p,
+.letter-contact div a {
+  font-size: 9pt;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.section-label {
+  font-size: 7.5pt;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 3mm;
+}
+
+.page-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26pt;
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 2mm;
+}
+
+.page-sub {
+  font-size: 9.5pt;
+  color: var(--stone);
+  margin-bottom: 8mm;
+  max-width: 150mm;
+}
+
+/* ============================================
+   PRICE
+   ============================================ */
+.price-hero {
+  background: var(--ink);
+  color: var(--white);
+  padding: 8mm 10mm;
+  margin: 0 -2mm 8mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.price-hero .label {
+  font-size: 7pt;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 2mm;
+}
+
+.price-hero .amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32pt;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.price-hero .note {
+  font-size: 8pt;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: right;
+  max-width: 55mm;
+  line-height: 1.4;
+}
+
+.price-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4mm;
+  margin-bottom: 7mm;
+}
+
+.price-card {
+  border: 0.5pt solid var(--line);
+  padding: 5mm 6mm;
+  background: var(--white);
+}
+
+.price-card .num {
+  font-size: 7pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2mm;
+}
+
+.price-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14pt;
+  font-weight: 500;
+  margin-bottom: 3mm;
+}
+
+.price-card .value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22pt;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.price-card .hint {
+  font-size: 8pt;
+  color: var(--stone);
+  margin-top: 2mm;
+}
+
+.per-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4mm;
+  margin-bottom: 7mm;
+}
+
+.per-head-item {
+  background: var(--mist);
+  padding: 5mm 6mm;
+}
+
+.per-head-item label {
+  display: block;
+  font-size: 7pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 2mm;
+}
+
+.per-head-item .value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20pt;
+  font-weight: 500;
+}
+
+.per-head-item .sub {
+  font-size: 8pt;
+  color: var(--stone);
+  margin-top: 1mm;
+}
+
+.price-includes {
+  border-top: 0.5pt solid var(--line);
+  padding-top: 5mm;
+}
+
+.price-includes h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13pt;
+  font-weight: 500;
+  margin-bottom: 3mm;
+}
+
+.price-includes ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5mm 6mm;
+}
+
+.price-includes li {
+  font-size: 8.5pt;
+  color: var(--ink-soft);
+  padding-left: 4mm;
+  position: relative;
+}
+
+.price-includes li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2.2mm;
+  width: 1.5mm;
+  height: 1.5mm;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+.price-note {
+  margin-top: 5mm;
+  font-size: 7.5pt;
+  color: var(--stone);
+  font-style: italic;
+}
+
+/* ============================================
+   DAY ITINERARY — photo column optimized for
+   landscape sources inside a tall A4 sidebar
+   ============================================ */
+.day-layout {
+  display: grid;
+  grid-template-columns: 52% 48%;
+  gap: 4mm;
+  height: 100%;
+}
+
+.day-left {
+  padding-right: 2mm;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.day-right {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2mm;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Hero location: wide landscape frame */
+.day-loc {
+  position: relative;
+  flex: 0 0 42%;
+  min-height: 0;
+  overflow: hidden;
+  background: #1a1916;
+}
+
+.day-loc img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  display: block;
+}
+
+.day-loc span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 3mm 3.5mm 2.5mm;
+  font-size: 6.5pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(14, 14, 12, 0.78));
+}
+
+/* Activity mosaic: 2 landscape tiles per row (not portrait cells) */
+.day-acts {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2.2mm;
+}
+
+.day-acts figure {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: #1a1916;
+  min-height: 0;
+  /* Force landscape viewing window so 16:9 / 3:2 photos read clearly */
+  aspect-ratio: auto;
+}
+
+.day-acts img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+/* Portrait source photos (9:16 / 3:4) — show more of the subject */
+.day-acts img.is-portrait,
+.day-loc img.is-portrait {
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+.day-acts figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2mm 2.5mm;
+  font-size: 5.5pt;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(14, 14, 12, 0.8));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.day-number {
+  font-size: 7.5pt;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2mm;
+}
+
+.day-route {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22pt;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 5mm;
+  color: var(--ink);
+}
+
+.day-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3mm;
+  margin-bottom: 5mm;
+  padding-bottom: 4mm;
+  border-bottom: 0.5pt solid var(--line);
+}
+
+.day-meta dt {
+  font-size: 6.5pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 0.8mm;
+}
+
+.day-meta dd {
+  font-size: 9pt;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.day-activities {
+  margin-bottom: 4mm;
+}
+
+.day-activities h4 {
+  font-size: 7pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2.5mm;
+}
+
+.day-activities ul {
+  list-style: none;
+}
+
+.day-activities li {
+  font-size: 9.5pt;
+  padding: 1.8mm 0 1.8mm 4mm;
+  border-bottom: 0.5pt solid var(--line);
+  position: relative;
+  color: var(--ink-soft);
+}
+
+.day-activities li:last-child {
+  border-bottom: none;
+}
+
+.day-activities li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4.2mm;
+  width: 1.5mm;
+  height: 1.5mm;
+  background: var(--gold);
+}
+
+.day-photo {
+  margin-bottom: 3mm;
+}
+
+.day-photo h4 {
+  font-size: 7pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5mm;
+}
+
+.day-photo p {
+  font-size: 9pt;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.day-desc {
+  margin-top: auto;
+  padding-top: 3mm;
+  line-height: 1.55;
+  color: var(--charcoal);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 10.5pt;
+}
+
+/* ============================================
+   CLOSING — Dos & Don'ts
+   ============================================ */
+.closing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5mm;
+  margin-bottom: 5mm;
+}
+
+.closing-block {
+  background: var(--white);
+  border: 0.5pt solid var(--line);
+  padding: 4.5mm 5mm;
+}
+
+.closing-block h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13pt;
+  font-weight: 500;
+  margin-bottom: 3mm;
+  padding-bottom: 2mm;
+  border-bottom: 0.5pt solid var(--gold-pale);
+}
+
+.closing-block.dos h3 {
+  color: var(--ink);
+}
+
+.closing-block ul {
+  list-style: none;
+}
+
+.closing-block li {
+  font-size: 8pt;
+  line-height: 1.45;
+  padding: 1.2mm 0 1.2mm 3.5mm;
+  position: relative;
+  color: var(--ink-soft);
+}
+
+.closing-block li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+.docs-row {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 5mm;
+  margin-bottom: 5mm;
+}
+
+.pack-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3mm;
+}
+
+.pack-col h4 {
+  font-size: 7pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2mm;
+}
+
+.pack-col ul {
+  list-style: none;
+}
+
+.pack-col li {
+  font-size: 7.5pt;
+  padding: 0.8mm 0;
+  color: var(--ink-soft);
+}
+
+.validity-box {
+  background: var(--ink);
+  color: var(--white);
+  padding: 4mm 5mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6mm;
+}
+
+.validity-box .v-label {
+  font-size: 6.5pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 1mm;
+}
+
+.validity-box .v-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11pt;
+  font-weight: 400;
+}
+
+.validity-box .v-side {
+  font-size: 7.5pt;
+  color: rgba(255, 255, 255, 0.55);
+  text-align: right;
+  max-width: 70mm;
+  line-height: 1.4;
+}
+
+.per-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4mm;
+  margin-bottom: 7mm;
+}
+
+.per-head-item {
+  background: var(--mist);
+  padding: 5mm 6mm;
+}
+
+.per-head-item label {
+  display: block;
+  font-size: 7pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 2mm;
+}
+
+.per-head-item .value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20pt;
+  font-weight: 500;
+}
+
+.per-head-item .sub {
+  font-size: 8pt;
+  color: var(--stone);
+  margin-top: 1mm;
+}
+
+.simple-intro {
+  font-size: 10pt;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin-bottom: 5mm;
+}
+
+.cmp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9pt;
+  margin-bottom: 5mm;
+}
+
+.cmp-table th,
+.cmp-table td {
+  border: 0.5pt solid var(--line);
+  padding: 2.2mm 2.5mm;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.4;
+}
+
+.cmp-table thead th {
+  background: var(--mist);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11pt;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.cmp-table thead th.rec {
+  background: #ebe4d6;
+  border-bottom: 1.5pt solid var(--gold);
+}
+
+.cmp-table tbody th {
+  width: 26%;
+  font-weight: 500;
+  color: var(--charcoal);
+  background: #faf8f5;
+}
+
+.cmp-table td.rec {
+  background: #fbf9f5;
+}
+
+.cmp-table .price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16pt;
+  font-weight: 600;
+}
+
+.cmp-table .small {
+  font-size: 8pt;
+  color: var(--stone);
+}
+
+.note-line {
+  font-size: 8.5pt;
+  color: var(--ink-soft);
+  line-height: 1.45;
+  margin-top: 2mm;
+}
+
+.hotel-rows {
+  border-top: 0.5pt solid var(--line);
+  margin: 3mm 0 5mm;
+}
+
+.hotel-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4mm;
+  align-items: start;
+  padding: 3.5mm 0;
+  border-bottom: 0.5pt solid var(--line);
+}
+
+.hotel-row-main {
+  font-size: 9pt;
+  line-height: 1.45;
+}
+
+.hotel-row-main strong {
+  font-weight: 500;
+}
+
+.hotel-alt {
+  display: block;
+  font-size: 7.5pt;
+  color: var(--stone);
+  margin-top: 1mm;
+}
+
+.hotel-row-price {
+  font-size: 9pt;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.hotel-row-price strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12pt;
+  font-weight: 600;
+}
+
+.hotel-block {
+  margin-bottom: 5mm;
+  page-break-inside: avoid;
+}
+
+.hotel-block-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 4mm;
+  margin-bottom: 2.5mm;
+  padding-bottom: 1.5mm;
+  border-bottom: 0.5pt solid var(--gold-pale);
+}
+
+.hotel-block-head h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15pt;
+  font-weight: 500;
+}
+
+.hotel-block-head .nights {
+  font-size: 8pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.hotel-block-meta {
+  font-size: 8.5pt;
+  color: var(--stone);
+  margin-bottom: 2.5mm;
+  line-height: 1.45;
+}
+
+.hotel-shots {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr;
+  grid-template-rows: 28mm 28mm;
+  gap: 2mm;
+}
+
+.hotel-shots figure {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  background: var(--cream);
+}
+
+.hotel-shots figure:first-child {
+  grid-row: 1 / span 2;
+}
+
+.hotel-shots img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hotel-shots figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.5mm 2mm;
+  font-size: 5.5pt;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(14, 14, 12, 0.78));
+}
+
+.print-hint {
+  font-size: 0.8125rem;
+  color: var(--stone, #6b6660);
+  margin: 0 0 0.5rem;
+  max-width: 18rem;
+  line-height: 1.4;
+}
+
+.print-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+/* ---------- Print ---------- */
+@media print {
+  html, body {
+    width: 210mm;
+    height: auto;
+    background: none;
+    padding: 0;
+    margin: 0;
+  }
+  .page {
+    margin: 0;
+    box-shadow: none;
+    page-break-after: always;
+    break-after: page;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+  .page-header,
+  .page-footer {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+/* ---------- Mobile field pack (phone screen; print stays A4) ---------- */
+@media screen {
+  .field-pack {
+    max-width: 28rem;
+    margin-inline: auto;
+    padding: 0.75rem;
+    background: #f4f2ee;
+  }
+  .field-pack .page {
+    width: 100%;
+    min-height: auto;
+    height: auto;
+    margin: 0 0 0.75rem;
+    padding: 1rem 1.1rem 1.25rem;
+    border-radius: 1rem;
+    box-shadow: 0 1px 3px rgba(26, 25, 22, 0.08);
+    page-break-after: auto;
+    break-after: auto;
+  }
+  .field-pack .page-header {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+  }
+  .field-pack .page-footer {
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    font-size: 0.65rem;
+  }
+  .field-pack .page-heading {
+    font-size: 1.25rem;
+  }
+  .field-pack .page-sub,
+  .field-pack .page-body p,
+  .field-pack .day-meta {
+    font-size: 0.875rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .field-pack {
+    max-width: none;
+    padding: 0.5rem;
+    min-height: 100vh;
+  }
+  .field-pack .page {
+    border-radius: 0.85rem;
+    margin-bottom: 0.65rem;
+  }
+}

@@ -1,0 +1,2 @@
+-- Live Agent Desk ops (applied remotely via Supabase MCP: live_agent_desk_ops)
+-- clients, hotels, rooms, guides, drivers, itinerary_stays, itinerary_staff, payments + RLS
