@@ -119,6 +119,8 @@ export interface Guide {
   active: boolean;
   notes: string | null;
   day_rate_usd?: number | null;
+  emv_static?: string | null;
+  portal_user_id?: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -133,6 +135,8 @@ export interface Driver {
   active: boolean;
   notes: string | null;
   day_rate_usd?: number | null;
+  emv_static?: string | null;
+  portal_user_id?: string | null;
   created_at: string;
   updated_at: string;
 }

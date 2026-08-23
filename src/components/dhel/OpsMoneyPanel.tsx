@@ -2,6 +2,7 @@
 
 import { ArrowDownLeft, ArrowUpRight, Trash2 } from "lucide-react";
 import { addPayment, deletePayment, updatePaymentStatus } from "@/app/actions/ops";
+import { EmvQr } from "@/components/pay/emv-qr";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,8 +15,9 @@ import {
 import { EmptyState } from "@/components/ui/empty-state";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { buildDynamicEmv } from "@/lib/payments/emv";
 import { cn } from "@/lib/utils";
-import type { Payment } from "@/lib/types";
+import type { Driver, Guide, Payment } from "@/lib/types";
 
 const fieldControl = cn(
   "flex h-8 w-full rounded-md border border-input bg-background px-2.5 text-xs",
@@ -23,12 +25,39 @@ const fieldControl = cn(
   "focus-visible:ring-ring focus-visible:ring-offset-1",
 );
 
+function resolveStaffEmv(
+  p: Payment,
+  guides: Guide[],
+  drivers: Driver[],
+): string | null {
+  if (p.direction !== "out") return null;
+  if (p.party_type === "guide") {
+    const byId = p.party_id ? guides.find((g) => g.id === p.party_id) : null;
+    if (byId?.emv_static) return byId.emv_static;
+    const label = (p.party_label || "").toLowerCase();
+    const byName = guides.find((g) => label && g.name.toLowerCase().includes(label.slice(0, 6)));
+    return byName?.emv_static || null;
+  }
+  if (p.party_type === "driver") {
+    const byId = p.party_id ? drivers.find((d) => d.id === p.party_id) : null;
+    if (byId?.emv_static) return byId.emv_static;
+    const label = (p.party_label || "").toLowerCase();
+    const byName = drivers.find((d) => label && d.name.toLowerCase().includes(label.slice(0, 6)));
+    return byName?.emv_static || null;
+  }
+  return null;
+}
+
 export function OpsMoneyPanel({
   itineraryId,
   payments,
+  guides = [],
+  drivers = [],
 }: {
   itineraryId: string;
   payments: Payment[];
+  guides?: Guide[];
+  drivers?: Driver[];
 }) {
   const moneyIn = payments
     .filter((p) => p.direction === "in")
@@ -83,6 +112,19 @@ export function OpsMoneyPanel({
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
           {payments.map((p) => {
             const inbound = p.direction === "in";
+            const emvStatic = resolveStaffEmv(p, guides, drivers);
+            const amountNu =
+              p.currency === "BTN" || p.currency === "Nu" || p.currency === "NU"
+                ? Number(p.amount)
+                : Number(p.amount);
+            const dynamic =
+              emvStatic && p.status !== "paid"
+                ? buildDynamicEmv(
+                    emvStatic,
+                    amountNu,
+                    (p.party_label || p.note || "Trip pay").slice(0, 25),
+                  )
+                : "";
             return (
               <Card
                 key={p.id}
@@ -120,6 +162,18 @@ export function OpsMoneyPanel({
                     ) : null}
                   </div>
 
+                  {dynamic ? (
+                    <div className="rounded-md border border-border bg-background p-2 text-center">
+                      <p className="mb-1 text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
+                        Scan &amp; pay
+                      </p>
+                      <EmvQr payload={dynamic} size="sm" />
+                      <p className="mt-1 text-[10px] text-muted-foreground">
+                        {p.currency} {Number(p.amount).toLocaleString()}
+                      </p>
+                    </div>
+                  ) : null}
+
                   <form action={updatePaymentStatus} className="space-y-2">
                     <input type="hidden" name="id" value={p.id} />
                     <input type="hidden" name="itinerary_id" value={itineraryId} />
@@ -130,7 +184,7 @@ export function OpsMoneyPanel({
                       <option value="paid">paid</option>
                     </select>
                     <Button type="submit" variant="outline" size="sm" className="w-full">
-                      Update
+                      {p.status === "paid" ? "Update" : "Mark paid / update"}
                     </Button>
                   </form>
 
@@ -179,6 +233,24 @@ export function OpsMoneyPanel({
                 <option value="other">other</option>
               </select>
             </div>
+            <div className="space-y-1 sm:col-span-2">
+              <Label className="text-xs">Link guide / driver (for pay QR)</Label>
+              <select className={fieldControl} name="party_id" defaultValue="">
+                <option value="">— optional —</option>
+                {guides.map((g) => (
+                  <option key={g.id} value={g.id}>
+                    Guide · {g.name}
+                    {g.emv_static ? " · QR set" : ""}
+                  </option>
+                ))}
+                {drivers.map((d) => (
+                  <option key={d.id} value={d.id}>
+                    Driver · {d.name}
+                    {d.emv_static ? " · QR set" : ""}
+                  </option>
+                ))}
+              </select>
+            </div>
             <div className="space-y-1">
               <Label className="text-xs">Label</Label>
               <Input
@@ -190,6 +262,14 @@ export function OpsMoneyPanel({
             <div className="space-y-1">
               <Label className="text-xs">Amount</Label>
               <Input className="h-8 px-2.5 text-xs" name="amount" type="number" step="0.01" required />
+            </div>
+            <div className="space-y-1">
+              <Label className="text-xs">Currency</Label>
+              <select className={fieldControl} name="currency" defaultValue="BTN">
+                <option value="BTN">BTN (Nu)</option>
+                <option value="USD">USD</option>
+                <option value="INR">INR</option>
+              </select>
             </div>
             <div className="space-y-1">
               <Label className="text-xs">Status</Label>

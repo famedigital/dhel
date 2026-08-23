@@ -318,28 +318,40 @@ export async function POST(request: Request) {
   const brandName = brand?.display_name ?? "Dhel";
   const finalBrief = composeFinalBrief(briefIntent);
 
-  const narrative = await generateItineraryContent({
-    apiKey,
-    provider,
-    geminiKey,
-    cursorKey,
-    brief: finalBrief,
-    clientName: briefIntent.client_name,
-    days: briefIntent.days,
-    language: lang,
-    brand,
-    packageOption: selected,
-    stayPlan: briefIntent.stay_plan,
-    pax: briefIntent.pax,
-    adults: briefIntent.adults,
-    children: briefIntent.children,
-    entryPoint: briefIntent.entry_point,
-    travelDates: briefIntent.travel_dates,
-    defaultVehicleType: rateDefaults.default_vehicle_type,
-    vehicleRates: rateDefaults.vehicle_rates,
-  });
-
-  const [activities, guides, hotelImageUrls] = await Promise.all([
+  // Narrative + reply + catalog enrichments in parallel (was sequential → felt "super slow")
+  const [narrative, reply, activities, guides, hotelImageUrls] = await Promise.all([
+    generateItineraryContent({
+      apiKey,
+      provider,
+      geminiKey,
+      cursorKey,
+      brief: finalBrief,
+      clientName: briefIntent.client_name,
+      days: briefIntent.days,
+      language: lang,
+      brand,
+      packageOption: selected,
+      stayPlan: briefIntent.stay_plan,
+      pax: briefIntent.pax,
+      adults: briefIntent.adults,
+      children: briefIntent.children,
+      entryPoint: briefIntent.entry_point,
+      travelDates: briefIntent.travel_dates,
+      defaultVehicleType: rateDefaults.default_vehicle_type,
+      vehicleRates: rateDefaults.vehicle_rates,
+    }),
+    generateClientReplySafe({
+      apiKey,
+      provider,
+      geminiKey,
+      cursorKey,
+      brief: finalBrief,
+      language: lang,
+      sellPerPerson: selected.sell_per_person,
+      currency: selected.currency,
+      days: briefIntent.days,
+      brandName,
+    }),
     loadCatalogActivitiesFromDb(catalogAdmin).catch(() => []),
     loadCatalogGuidesFromDb(catalogAdmin).catch(() => []),
     loadCatalogHotelImages(
@@ -396,19 +408,6 @@ export async function POST(request: Request) {
       ),
     };
   }
-
-  const reply = await generateClientReplySafe({
-    apiKey,
-    provider,
-    geminiKey,
-    cursorKey,
-    brief: finalBrief,
-    language: lang,
-    sellPerPerson: selected.sell_per_person,
-    currency: selected.currency,
-    days: briefIntent.days,
-    brandName,
-  });
 
   const warnings: string[] = [];
   if (narrative.warning) warnings.push(narrative.warning);

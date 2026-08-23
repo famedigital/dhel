@@ -9,7 +9,7 @@ import { completeItineraryContent } from "./complete-content";
 import { aiProviderLabel, type AiProvider, resolveAiProvider } from "./config";
 import { cursorGenerateObject, cursorGenerateText } from "./cursor-client";
 import { resolveCursorKey } from "./credentials";
-import { resolveGeminiModel } from "./model";
+import { GEMINI_FAST_PROVIDER_OPTIONS, resolveGeminiModel } from "./model";
 import { sanitizeItineraryContent } from "./sanitize-content";
 import { findBestHtmlReference } from "@/lib/reference/load-corpus";
 import { referencePromptBlock } from "@/lib/reference/apply-reference";
@@ -211,6 +211,7 @@ export async function parseBrief(
     model: getGeminiModel(apiKey),
     schema: briefIntentSchema,
     prompt: briefParsePrompt(rawBrief),
+    providerOptions: GEMINI_FAST_PROVIDER_OPTIONS,
   });
   return enrichBriefIntent(rawBrief, object);
 }
@@ -295,6 +296,7 @@ export async function generateNarrative(opts: NarrativeContext & {
     schema: itineraryContentSchema,
     prompt: narrativePrompt(opts),
     maxOutputTokens: 8192,
+    providerOptions: GEMINI_FAST_PROVIDER_OPTIONS,
   });
 
   return {
@@ -322,6 +324,7 @@ export async function generateClientReply(opts: {
   const { text } = await generateText({
     model: getGeminiModel(opts.apiKey),
     prompt: clientReplyPrompt(opts),
+    providerOptions: GEMINI_FAST_PROVIDER_OPTIONS,
   });
   return text.trim();
 }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { DocsPacksPanel } from "@/components/dhel/DocsPacksPanel";
 import { GenerationLogPanel } from "@/components/dhel/GenerationLogPanel";
+import { OpsFieldFeedPanel } from "@/components/dhel/OpsFieldFeedPanel";
 import { OpsFlightsPanel, OpsTravelersPanel } from "@/components/dhel/OpsTravelersPanel";
 import { OpsMoneyPanel } from "@/components/dhel/OpsMoneyPanel";
 import { OpsStaffPanel } from "@/components/dhel/OpsStaffPanel";
@@ -19,6 +20,17 @@ import type {
   TripTraveler,
 } from "@/lib/types";
 
+type OpsLog = {
+  id: string;
+  category: string;
+  amount_nu: number | null;
+  note: string | null;
+  photo_urls: string[] | null;
+  role: string | null;
+  day_number: number | null;
+  created_at: string;
+};
+
 type Props = {
   itineraryId: string;
   tab: string;
@@ -35,6 +47,7 @@ type Props = {
   drivers: Driver[];
   travelers?: TripTraveler[];
   flights?: TripFlight[];
+  opsLogs?: OpsLog[];
 };
 
 export function OpsDesk({
@@ -53,6 +66,7 @@ export function OpsDesk({
   drivers,
   travelers = [],
   flights = [],
+  opsLogs = [],
 }: Props) {
   return (
     <div>
@@ -65,6 +79,7 @@ export function OpsDesk({
             ["travelers", "Travelers"],
             ["flights", "Flights"],
             ["money", "Payments"],
+            ["field", "Field"],
             ["docs", "Docs"],
             ["generation", "Log"],
           ] as const
@@ -113,8 +128,15 @@ export function OpsDesk({
       ) : null}
 
       {tab === "money" ? (
-        <OpsMoneyPanel itineraryId={itineraryId} payments={payments} />
+        <OpsMoneyPanel
+          itineraryId={itineraryId}
+          payments={payments}
+          guides={guides}
+          drivers={drivers}
+        />
       ) : null}
+
+      {tab === "field" ? <OpsFieldFeedPanel logs={opsLogs} /> : null}
 
       {tab === "docs" ? (
         <DocsPacksPanel

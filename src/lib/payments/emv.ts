@@ -1,6 +1,6 @@
-/** Bhutan National QR (EMVCo) string builder — simplified from POS pattern. */
+/** Bhutan National QR (EMVCo) helpers — adapted from POS without POS commerce deps. */
 
-const EMV_CURRENCY_BTN = "064";
+const EMV_CURRENCY = "BTN"; // ISO numeric often 064; Bhutan SCAN&PAY uses BTN alpha in some wallets — POS used numeric via COMMERCE
 
 function tlv(tag: string, value: string): string {
   return `${tag}${String(value.length).padStart(2, "0")}${value}`;
@@ -21,7 +21,6 @@ export function parseEmv(payload: string): Map<string, string> {
   return map;
 }
 
-/** CRC-16/CCITT-FALSE (poly 0x1021, init 0xFFFF). */
 export function crc16ccitt(data: string): string {
   let crc = 0xffff;
   for (let i = 0; i < data.length; i++) {
@@ -56,18 +55,19 @@ function mergeAdditionalData(existing: string, remarks?: string): string {
   return serializeInner(inner);
 }
 
-/** Static SCAN & PAY QR when only account + name are known. */
+/** Build static EMV from typed account (BoB/BNB merchant account string). */
 export function buildStaticEmv(input: {
   merchant: string;
   name: string;
   city?: string;
+  currency?: string;
 }): string {
   const map = new Map<string, string>([
     ["00", "01"],
     ["01", "11"],
     ["26", input.merchant.slice(0, 32)],
     ["52", "5411"],
-    ["53", EMV_CURRENCY_BTN],
+    ["53", input.currency || "064"],
     ["58", "BT"],
     ["59", input.name.slice(0, 25)],
     ["60", (input.city || "Thimphu").slice(0, 15)],
@@ -75,21 +75,27 @@ export function buildStaticEmv(input: {
   return serialize(map);
 }
 
+export function emvAccount(payload: string): string {
+  const inner = parseEmv(payload).get("26") ?? "";
+  return parseEmv(inner).get("01") || inner;
+}
+
 export function emvPayee(payload: string): string {
   return (parseEmv(payload).get("59") || "").trim();
 }
 
-/** Dynamic QR with amount in Nu for guide/driver settlement. */
 export function buildDynamicEmv(
   staticPayload: string,
   amountNu: number,
-  remarks?: string,
+  remarks: string,
 ): string {
   if (!staticPayload.trim()) return "";
   const map = parseEmv(staticPayload);
   map.set("01", "12");
-  map.set("53", EMV_CURRENCY_BTN);
+  if (!map.get("53")) map.set("53", "064");
   map.set("54", amountNu.toFixed(2));
   map.set("62", mergeAdditionalData(map.get("62") || "", remarks));
   return serialize(map);
 }
+
+export { EMV_CURRENCY };

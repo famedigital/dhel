@@ -307,7 +307,7 @@ export const PromptInput = React.forwardRef<HTMLDivElement, PromptInputProps>(
     },
     ref
   ) => {
-    const [expanded, setExpanded] = useState(fullWidth);
+    const [expanded, setExpanded] = useState(fullWidth && !minimal);
     const [isSmoothResize, setIsSmoothResize] = useState(false);
     const [localValue, setLocalValue] = useState(defaultValue);
     const [selectedModel, setSelectedModel] = useState(models[0]);
@@ -372,8 +372,17 @@ export const PromptInput = React.forwardRef<HTMLDivElement, PromptInputProps>(
     }, [isControlled, onChange]);
 
     const expand = () => {
-      setIsSmoothResize(false); 
+      setIsSmoothResize(false);
       setExpanded(true);
+      // Focus immediately — waiting for useEffect races with blur and blocks typing
+      requestAnimationFrame(() => {
+        textareaRef.current?.focus();
+        const el = textareaRef.current;
+        if (el) {
+          const length = el.value.length;
+          el.setSelectionRange(length, length);
+        }
+      });
     };
 
     // --- Voice Recording Logic ---
@@ -597,7 +606,9 @@ export const PromptInput = React.forwardRef<HTMLDivElement, PromptInputProps>(
     }, [isModelSelectOpen]);
 
     const handleBlur = (e: React.FocusEvent<HTMLDivElement>) => {
-      if (fullWidth) return;
+      // Desk minimal: stay open after click so typing isn't killed by expand→blur race.
+      // Collapse only via Escape / empty submit.
+      if (minimal || (fullWidth && !minimal)) return;
       if (internalContainerRef.current && internalContainerRef.current.contains(e.relatedTarget as Node)) return;
       if (value.trim() === "" && !hasAttachments && !isRecording) {
         setIsSmoothResize(false);
@@ -613,7 +624,7 @@ export const PromptInput = React.forwardRef<HTMLDivElement, PromptInputProps>(
       handleValueChange("");
       attachments.forEach((a) => URL.revokeObjectURL(a.url));
       setAttachments([]);
-      if (!fullWidth) setExpanded(false);
+      if (!fullWidth || minimal) setExpanded(false);
       setIsModelSelectOpen(false);
     };
 
@@ -762,13 +773,16 @@ export const PromptInput = React.forwardRef<HTMLDivElement, PromptInputProps>(
               }
             }}
             style={{
-              borderRadius: 24,
+              borderRadius: minimal ? 28 : 24,
               height: expanded ? containerHeight : 48,
               transition: isSmoothResize ? SMOOTH_HEIGHT_TRANSITION : SPRING_TRANSITION,
               overflow: expanded ? "visible" : "hidden",
             }}
             className={cn(
-              "relative w-full border border-border bg-card shadow-sm focus-within:border-ring/40 focus-within:ring-1 focus-within:ring-ring/20 hover:border-border/80 z-10",
+              "relative w-full border z-10",
+              minimal
+                ? "border-[#e1e3e1] bg-white shadow-[0_1px_3px_rgba(0,0,0,0.05),0_4px_12px_rgba(0,0,0,0.04)] focus-within:border-[#c4c7c5] focus-within:shadow-[0_2px_8px_rgba(0,0,0,0.08)]"
+                : "border-border bg-card shadow-sm focus-within:border-ring/40 focus-within:ring-1 focus-within:ring-ring/20 hover:border-border/80",
               expanded ? "cursor-text" : "cursor-default"
             )}
           >
@@ -789,10 +803,12 @@ export const PromptInput = React.forwardRef<HTMLDivElement, PromptInputProps>(
                   e.preventDefault();
                   handleSubmit();
                 }
-                if (e.key === "Escape" && !fullWidth && value.trim() === "" && !hasAttachments) {
-                  setIsSmoothResize(false);
-                  setExpanded(false);
-                  setIsModelSelectOpen(false);
+                if (e.key === "Escape" && value.trim() === "" && !hasAttachments) {
+                  if (!fullWidth || minimal) {
+                    setIsSmoothResize(false);
+                    setExpanded(false);
+                    setIsModelSelectOpen(false);
+                  }
                 }
               }}
               placeholder={placeholder}
@@ -804,7 +820,7 @@ export const PromptInput = React.forwardRef<HTMLDivElement, PromptInputProps>(
                   : "opacity 0.3s ease-out, transform 0.3s ease-out, height 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)"
               }}
               className={cn(
-                "prompt-scrollbar absolute top-0 inset-x-0 z-[1] w-full resize-none bg-transparent pl-4 pr-12 py-3.5 text-sm leading-[22px] text-foreground outline-none placeholder:font-medium placeholder:text-muted-foreground/80 cursor-text",
+                "prompt-scrollbar absolute top-0 inset-x-0 z-[1] w-full resize-none bg-transparent pl-5 pr-14 py-3.5 text-[16px] leading-[22px] text-[#1f1f1f] outline-none placeholder:font-normal placeholder:text-[#747775] cursor-text",
                 expanded ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 -translate-y-1 pointer-events-none",
                 isScrolling ? "overflow-y-auto" : "overflow-y-hidden",
                 isRecording && "pointer-events-none"
@@ -813,11 +829,17 @@ export const PromptInput = React.forwardRef<HTMLDivElement, PromptInputProps>(
 
             <div
               ref={topFadeRef}
-              className="absolute left-4 right-12 top-0 z-[2] h-8 bg-gradient-to-b from-card via-card/90 to-transparent pointer-events-none"
+              className={cn(
+                "absolute left-5 right-14 top-0 z-[2] h-8 pointer-events-none bg-gradient-to-b to-transparent",
+                minimal ? "from-white via-white/90" : "from-card via-card/90",
+              )}
             />
             <div
               ref={bottomFadeRef}
-              className="absolute left-4 right-12 z-[2] h-8 bg-gradient-to-t from-card via-card/90 to-transparent pointer-events-none"
+              className={cn(
+                "absolute left-5 right-14 z-[2] h-8 pointer-events-none bg-gradient-to-t to-transparent",
+                minimal ? "from-white via-white/90" : "from-card via-card/90",
+              )}
               style={{ 
                 opacity: 0, 
                 top: `${textareaHeight - 32}px`,
@@ -827,10 +849,14 @@ export const PromptInput = React.forwardRef<HTMLDivElement, PromptInputProps>(
 
             <button
               type="button"
+              onMouseDown={(e) => {
+                e.preventDefault();
+                expand();
+              }}
               onClick={expand}
               style={{ transition: isSmoothResize ? "none" : "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)" }}
               className={cn(
-                "absolute inset-x-0 top-0 z-[1] cursor-text pl-4 pr-12 py-[15px] text-left text-sm font-medium leading-[17px] text-muted-foreground/80 outline-none",
+                "absolute inset-x-0 top-0 z-[3] cursor-text pl-5 pr-14 py-[15px] text-left text-[16px] font-normal leading-[17px] text-[#747775] outline-none",
                 !expanded ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-105 translate-y-1 pointer-events-none"
               )}
               aria-label="Open prompt input"

@@ -381,15 +381,15 @@ export function ProposalComposer({
   const isB2c = rateTier === "b2c";
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col bg-[var(--background)]">
+    <div className="desk-chat flex min-h-0 flex-1 flex-col">
       <div className="min-h-0 flex-1 overflow-y-auto">
-        <div className="mx-auto flex min-h-full w-full max-w-3xl flex-col px-4 sm:px-6">
+        <div className="mx-auto flex min-h-full w-full max-w-[760px] flex-col px-4 sm:px-6">
           {!hasThread ? (
-            <div className="flex flex-1 flex-col items-center justify-center gap-3 px-2 py-16 text-center">
+            <div className="flex flex-1 flex-col items-center justify-center gap-3 px-2 pb-8 pt-10 text-center">
               <p className="text-xs font-medium uppercase tracking-[0.14em] text-[var(--muted-foreground)]">
                 {isB2c ? "Plan your Bhutan trip" : "Proposal desk"}
               </p>
-              <h1 className="font-[family-name:var(--font-display)] text-3xl tracking-wide sm:text-4xl">
+              <h1 className="desk-chat-greeting">
                 {isB2c ? "How do you want your Bhutan itinerary?" : "What does the client want?"}
               </h1>
               <p className="max-w-md text-sm text-[var(--muted-foreground)]">
@@ -399,7 +399,7 @@ export function ProposalComposer({
               </p>
             </div>
           ) : (
-            <div className="flex flex-col gap-1 py-6 sm:py-8">
+            <div className="flex flex-col gap-1 py-4 sm:py-6">
               <p className="mb-4 text-center text-xs text-[var(--muted-foreground)]">
                 {isB2c
                   ? "Your brief · hotels · draft itinerary"
@@ -647,14 +647,14 @@ export function ProposalComposer({
       </div>
 
       {!reviewMode && !briefConfirm ? (
-        <div className="shrink-0 border-t border-border/60 bg-[var(--background)]/95 px-4 py-4 backdrop-blur-sm sm:px-6">
-          <div className="mx-auto w-full max-w-3xl space-y-3">
+        <div className="desk-chat-dock relative shrink-0">
+          <div className="mx-auto w-full max-w-[760px] space-y-3">
             {!awaitingQuestions ? (
               <>
                 <PromptInput
                   fullWidth
                   minimal
-                  className="mx-auto"
+                  className="desk-chat-box mx-auto"
                   value={input}
                   onChange={setInput}
                   placeholder={

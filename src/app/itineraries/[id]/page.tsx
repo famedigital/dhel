@@ -67,6 +67,13 @@ export default async function ItineraryDetailPage({
     .order("name");
   const clients = (clientsData || []) as Pick<Client, "id" | "name">[];
 
+  const { data: opsLogs } = await supabase
+    .from("trip_ops_logs")
+    .select("id, category, amount_nu, note, photo_urls, role, day_number, created_at")
+    .eq("itinerary_id", id)
+    .order("created_at", { ascending: false })
+    .limit(40);
+
   return (
     <AppShell
       agencyName={ctx.agency.name}
@@ -117,6 +124,7 @@ export default async function ItineraryDetailPage({
         drivers={ops.drivers as Driver[]}
         travelers={ops.travelers as TripTraveler[]}
         flights={ops.flights as TripFlight[]}
+        opsLogs={opsLogs || []}
       />
 
       {tab === "narrative" ? (

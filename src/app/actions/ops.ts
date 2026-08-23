@@ -82,14 +82,14 @@ export async function saveHotel(formData: FormData) {
     email: String(formData.get("email") || "").trim() || null,
     address: String(formData.get("address") || "").trim() || null,
     notes: String(formData.get("notes") || "").trim() || null,
-    active: formData.get("active") !== "0",
+    active: formData.get("active") === "1" || formData.get("active") === "on",
   };
 
   const supabase = await createClient();
   if (id) {
     await supabase.from("hotels").update(row).eq("id", id).eq("agency_id", ctx.agency.id);
   } else {
-    await supabase.from("hotels").insert(row);
+    await supabase.from("hotels").insert({ ...row, active: true });
   }
   revalidatePath("/resources/hotels");
   redirect("/resources/hotels?saved=1");
@@ -112,9 +112,6 @@ export async function saveRoom(formData: FormData) {
     room_type: String(formData.get("room_type") || "Standard").trim() || "Standard",
     status: String(formData.get("status") || "available"),
     notes: String(formData.get("notes") || "").trim() || null,
-    net_rate_usd: formData.get("net_rate_usd")
-      ? Number(formData.get("net_rate_usd"))
-      : null,
   };
 
   const supabase = await createClient();
@@ -137,6 +134,17 @@ export async function deleteRoom(formData: FormData) {
   redirect("/resources/hotels");
 }
 
+export async function deleteHotel(formData: FormData) {
+  const ctx = await getSessionContext();
+  if (!ctx?.agency) redirect("/onboarding");
+  const id = String(formData.get("id") || "");
+  const supabase = await createClient();
+  await supabase.from("rooms").delete().eq("hotel_id", id).eq("agency_id", ctx.agency.id);
+  await supabase.from("hotels").delete().eq("id", id).eq("agency_id", ctx.agency.id);
+  revalidatePath("/resources/hotels");
+  redirect("/resources/hotels");
+}
+
 export async function saveGuide(formData: FormData) {
   const ctx = await getSessionContext();
   if (!ctx?.agency) redirect("/onboarding");
@@ -151,15 +159,14 @@ export async function saveGuide(formData: FormData) {
     languages: String(formData.get("languages") || "").trim() || null,
     license_no: String(formData.get("license_no") || "").trim() || null,
     notes: String(formData.get("notes") || "").trim() || null,
-    active: formData.get("active") !== "0",
-    day_rate_usd: formData.get("day_rate_usd") ? Number(formData.get("day_rate_usd")) : null,
+    active: formData.get("active") === "1" || formData.get("active") === "on",
   };
 
   const supabase = await createClient();
   if (id) {
     await supabase.from("guides").update(row).eq("id", id).eq("agency_id", ctx.agency.id);
   } else {
-    await supabase.from("guides").insert(row);
+    await supabase.from("guides").insert({ ...row, active: true });
   }
   revalidatePath("/resources/guides");
   redirect("/resources/guides?saved=1");
@@ -189,15 +196,14 @@ export async function saveDriver(formData: FormData) {
     vehicle_type: String(formData.get("vehicle_type") || "").trim() || null,
     plate: String(formData.get("plate") || "").trim() || null,
     notes: String(formData.get("notes") || "").trim() || null,
-    active: formData.get("active") !== "0",
-    day_rate_usd: formData.get("day_rate_usd") ? Number(formData.get("day_rate_usd")) : null,
+    active: formData.get("active") === "1" || formData.get("active") === "on",
   };
 
   const supabase = await createClient();
   if (id) {
     await supabase.from("drivers").update(row).eq("id", id).eq("agency_id", ctx.agency.id);
   } else {
-    await supabase.from("drivers").insert(row);
+    await supabase.from("drivers").insert({ ...row, active: true });
   }
   revalidatePath("/resources/drivers");
   redirect("/resources/drivers?saved=1");
@@ -231,9 +237,9 @@ export async function importCatalogHotels() {
   const supabase = admin ?? (await createClient());
   const { data: catalogRows } = await supabase
     .from("catalog_hotels")
-    .select("name, city, star_rating, phone, metadata")
+    .select("name, city, metadata")
     .eq("active", true)
-    .limit(50);
+    .limit(200);
 
   if (!catalogRows?.length) {
     redirect("/resources/hotels?error=" + encodeURIComponent("No catalog hotels found"));
@@ -249,21 +255,15 @@ export async function importCatalogHotels() {
   for (const row of catalogRows) {
     const name = row.name as string;
     if (existingNames.has(name.toLowerCase())) continue;
-    const meta = (row.metadata as Record<string, unknown> | null) ?? null;
-    const imageUrl =
-      typeof meta?.image_url === "string"
-        ? meta.image_url
-        : Array.isArray(meta?.images)
-          ? (meta.images.find((u) => typeof u === "string") as string | undefined)
-          : undefined;
+    const meta = (row.metadata as Record<string, unknown> | null) ?? {};
+    const phone = typeof meta.phone === "string" ? meta.phone : null;
 
     const { error } = await supabase.from("hotels").insert({
       agency_id: ctx.agency.id,
       name,
       city: (row.city as string) || null,
-      star_rating: Number(row.star_rating) || null,
-      phone: (row.phone as string) || null,
-      notes: imageUrl ? `Image: ${imageUrl}` : null,
+      phone,
+      active: true,
     });
     if (!error) {
       imported++;
@@ -275,6 +275,54 @@ export async function importCatalogHotels() {
   redirect(
     `/resources/hotels?saved=1&warning=` +
       encodeURIComponent(`Imported ${imported} hotels from platform catalog`),
+  );
+}
+
+export async function importCatalogGuides() {
+  const ctx = await getSessionContext();
+  if (!ctx?.agency) redirect("/onboarding");
+
+  const admin = createAdminClient();
+  const supabase = admin ?? (await createClient());
+  const { data: catalogRows } = await supabase
+    .from("catalog_guides")
+    .select("name, phone, languages, license_no, notes")
+    .eq("active", true)
+    .limit(200);
+
+  if (!catalogRows?.length) {
+    redirect("/resources/guides?error=" + encodeURIComponent("No catalog guides found"));
+  }
+
+  const { data: existing } = await supabase
+    .from("guides")
+    .select("name")
+    .eq("agency_id", ctx.agency.id);
+  const existingNames = new Set((existing ?? []).map((g) => (g.name as string).toLowerCase()));
+
+  let imported = 0;
+  for (const row of catalogRows) {
+    const name = row.name as string;
+    if (existingNames.has(name.toLowerCase())) continue;
+    const { error } = await supabase.from("guides").insert({
+      agency_id: ctx.agency.id,
+      name,
+      phone: (row.phone as string) || null,
+      languages: (row.languages as string) || null,
+      license_no: (row.license_no as string) || null,
+      notes: (row.notes as string) || null,
+      active: true,
+    });
+    if (!error) {
+      imported++;
+      existingNames.add(name.toLowerCase());
+    }
+  }
+
+  revalidatePath("/resources/guides");
+  redirect(
+    `/resources/guides?saved=1&warning=` +
+      encodeURIComponent(`Imported ${imported} guides from platform catalog`),
   );
 }
 

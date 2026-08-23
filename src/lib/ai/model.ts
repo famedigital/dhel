@@ -18,3 +18,17 @@ export function resolveGeminiModel(envValue?: string | null): string {
   }
   return raw;
 }
+
+/**
+ * Gemini 3.x Flash enables thinking by default — that alone can add many seconds.
+ * Budget 0 + minimal level keeps quality for structured JSON without deep reasoning.
+ */
+export const GEMINI_FAST_PROVIDER_OPTIONS = {
+  google: {
+    thinkingConfig: {
+      thinkingBudget: 0,
+      thinkingLevel: "minimal" as const,
+      includeThoughts: false,
+    },
+  },
+};

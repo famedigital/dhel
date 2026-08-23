@@ -4,7 +4,7 @@ import { generateText } from "ai";
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { createClient } from "@/lib/supabase/server";
 import { resolveAiCredentials } from "@/lib/ai";
-import { resolveGeminiModel } from "@/lib/ai/model";
+import { resolveGeminiModel, GEMINI_FAST_PROVIDER_OPTIONS } from "@/lib/ai/model";
 import { cursorGenerateText } from "@/lib/ai/cursor-client";
 import type { DayContent } from "@/lib/types";
 
@@ -113,6 +113,7 @@ ${JSON.stringify(day, null, 2)}`;
       const result = await generateText({
         model: google(resolveGeminiModel(process.env.GEMINI_MODEL)),
         prompt,
+        providerOptions: GEMINI_FAST_PROVIDER_OPTIONS,
       });
       text = result.text;
     } else {

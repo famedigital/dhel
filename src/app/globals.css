@@ -258,6 +258,56 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
 }
 
+/* Desk chat: cool paper bg + docked input */
+.desk-chat {
+  background-color: #f8fafd;
+  color: #1f1f1f;
+  height: 100%;
+  min-height: 0;
+}
+.desk-chat-greeting {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  color: #1f1f1f;
+  margin: 0;
+}
+.desk-chat-dock {
+  position: sticky;
+  bottom: 0;
+  z-index: 30;
+  padding: 1.75rem 1.25rem 1.25rem;
+  border-top: none;
+  /* Soft blur wash over scrolling content — no hard black line */
+  background: linear-gradient(
+    to top,
+    #f8fafd 0%,
+    #f8fafd 58%,
+    color-mix(in srgb, #f8fafd 70%, transparent) 82%,
+    transparent 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.desk-chat-box > div {
+  max-width: 760px !important;
+}
+.desk-chat-box .relative.w-full.border {
+  border-radius: 28px !important;
+  border-color: #e1e3e1 !important;
+  border-width: 1px !important;
+  background: #ffffff !important;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    0 4px 12px rgba(0, 0, 0, 0.04) !important;
+}
+.desk-chat-box .relative.w-full.border:focus-within {
+  border-color: #c4c7c5 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
 /* One centered column — forms stay readable, not edge-to-edge */
 .app-main-inner {
   width: 100%;

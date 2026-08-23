@@ -1,6 +1,6 @@
-import { redirect } from "next/navigation";
 import { ItineraryRenderer } from "@/components/templates/ItineraryRenderer";
 import { getSessionContext } from "@/lib/agency";
+import { resolvePreviewAgencyId } from "@/lib/portal/preview-access";
 import {
   loadPreviewItinerary,
   parsePreviewPack,
@@ -17,12 +17,10 @@ export default async function ItineraryPrintPage({
   const { pack: packParam } = await searchParams;
   const pack = parsePreviewPack(packParam);
 
+  const agencyId = await resolvePreviewAgencyId(id);
   const ctx = await getSessionContext();
-  if (!ctx) redirect("/login");
-  if (!ctx.agency) redirect("/onboarding");
-
-  const { itinerary, brand, ops } = await loadPreviewItinerary(ctx.agency.id, id);
-  const resolvedBrand = brand || ctx.brand;
+  const { itinerary, brand, ops } = await loadPreviewItinerary(agencyId, id);
+  const resolvedBrand = brand || ctx?.brand;
 
   return (
     <ItineraryRenderer

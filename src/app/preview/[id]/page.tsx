@@ -1,6 +1,5 @@
-import { redirect } from "next/navigation";
 import { PreviewShell } from "@/components/preview/PreviewShell";
-import { getSessionContext } from "@/lib/agency";
+import { resolvePreviewAgencyId } from "@/lib/portal/preview-access";
 import {
   loadPreviewItinerary,
   parsePreviewPack,
@@ -17,12 +16,10 @@ export default async function PreviewPage({
   const { pack: packParam } = await searchParams;
   const pack = parsePreviewPack(packParam);
 
-  const ctx = await getSessionContext();
-  if (!ctx) redirect("/login");
-  if (!ctx.agency) redirect("/onboarding");
+  const agencyId = await resolvePreviewAgencyId(id);
 
   // Auth gate only — document CSS stays inside the iframe route
-  await loadPreviewItinerary(ctx.agency.id, id);
+  await loadPreviewItinerary(agencyId, id);
 
   return <PreviewShell itineraryId={id} pack={pack} />;
 }

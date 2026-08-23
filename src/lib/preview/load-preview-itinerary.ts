@@ -6,6 +6,7 @@ import { parseStayPlan } from "@/lib/catalog/stay-plan";
 import { formatVehicleRatesList } from "@/lib/agency/rate-defaults";
 import { loadItineraryOps } from "@/lib/ops";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import type {
   Brand,
   Driver,
@@ -28,7 +29,7 @@ export function parsePreviewPack(packParam?: string): PreviewPack {
 }
 
 export async function loadPreviewItinerary(agencyId: string, id: string) {
-  const supabase = await createClient();
+  const supabase = createAdminClient() ?? (await createClient());
   const { data } = await supabase
     .from("itineraries")
     .select("*")

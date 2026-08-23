@@ -78,7 +78,7 @@ export function referencePromptBlock(ref: ParsedHtmlItinerary): string {
 
 Match this voice, structure, and detail level. Sample excerpt:
 """
-${ref.promptExcerpt.slice(0, 2500)}
+${ref.promptExcerpt.slice(0, 1200)}
 """
 
 Use the same professional tone. Include specific activities, routes, and hotel bands like the reference — adapted to the client's brief.`;

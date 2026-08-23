@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 
 /**
  * Ensure agency has seed live inventory (Pelbu Suites rooms + sample guide/driver).
@@ -88,7 +89,7 @@ export async function ensureOpsSeed(agencyId: string) {
 }
 
 export async function loadItineraryOps(agencyId: string, itineraryId: string) {
-  const supabase = await createClient();
+  const supabase = createAdminClient() ?? (await createClient());
   const [staysR, staffR, paymentsR, hotelsR, roomsR, guidesR, driversR, travelersR, flightsR] =
     await Promise.all([
       supabase
