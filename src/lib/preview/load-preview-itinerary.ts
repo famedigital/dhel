@@ -41,7 +41,9 @@ export async function loadPreviewItinerary(agencyId: string, id: string) {
 
   const row = data as Itinerary;
   const lang = (row.language as "en" | "zh") || "en";
-  const stayPlan = parseStayPlan(row.brief || "");
+  const metaStay = row.generation_meta?.stay_plan;
+  const stayPlan =
+    metaStay?.length ? metaStay : parseStayPlan(row.brief || "");
   const routeDays = stayPlan?.reduce((n, s) => n + s.nights, 0);
   const inferredDays = routeDays ? routeDays + 1 : row.content?.days?.length || 7;
   const rateDefaults = await loadAgencyRateDefaults(agencyId);

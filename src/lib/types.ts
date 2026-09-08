@@ -264,6 +264,9 @@ export interface GenerationMeta {
   client_reply?: string;
   warnings?: string[];
   generated_at?: string;
+  /** Persisted nights-per-city — do not re-infer from brief alone */
+  stay_plan?: Array<{ city: string; nights: number }>;
+  trip_costs?: Record<string, unknown>;
 }
 
 export interface FlightLeg {

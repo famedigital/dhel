@@ -1,5 +1,6 @@
 import type { BriefIntent } from "@/lib/catalog";
 import type { GapField } from "@/lib/catalog/gap-checker";
+import { formatCostSummary } from "@/lib/catalog/trip-costs";
 import {
   QUESTION_BANK,
   type ClarifyingQuestion,
@@ -14,6 +15,14 @@ const GAP_TO_QUESTION: Partial<Record<GapField, QuestionBankKey>> = {
   entry_point: "entry_point",
   travel_dates: "travel_dates",
   budget_tier: "budget_tier",
+  client_name: "client_name",
+  language: "language",
+  room_avg: "room_avg",
+  guide_day: "guide_day",
+  car_day: "car_day",
+  transfer_trip: "transfer_trip",
+  sdf: "sdf",
+  cost_confirm: "cost_confirm",
 };
 
 function summarizeIntent(intent: Partial<BriefIntent>): string {
@@ -29,15 +38,42 @@ function summarizeIntent(intent: Partial<BriefIntent>): string {
     bits.push(intent.nationalities.join(", "));
   }
   if (intent.travel_dates) bits.push(intent.travel_dates);
+  if (intent.trip_costs?.confirmed || intent.trip_costs?.room_avg_per_night) {
+    const nights =
+      intent.stay_plan?.reduce((s, x) => s + x.nights, 0) ?? Math.max((intent.days ?? 7) - 1, 1);
+    bits.push(formatCostSummary(intent.trip_costs!, intent.days ?? 7, nights));
+  }
   return bits.length ? bits.join(" · ") : "Bhutan private tour enquiry";
 }
 
-/** Max 2 questions per turn (Gemini-style). */
+/** Max 2 questions per turn (Gemini-style). Prefer trip facts before cost lines. */
 export function buildClarifyingQuestions(gaps: GapField[]): ClarifyingQuestion[] {
+  const priority: GapField[] = [
+    "pax",
+    "days",
+    "stay_plan",
+    "nationalities",
+    "entry_point",
+    "travel_dates",
+    "client_name",
+    "budget_tier",
+    "language",
+    "room_avg",
+    "guide_day",
+    "car_day",
+    "transfer_trip",
+    "sdf",
+    "cost_confirm",
+  ];
+  const ordered = [
+    ...priority.filter((g) => gaps.includes(g)),
+    ...gaps.filter((g) => !priority.includes(g)),
+  ];
+
   const seen = new Set<QuestionBankKey>();
   const questions: ClarifyingQuestion[] = [];
 
-  for (const gap of gaps) {
+  for (const gap of ordered) {
     const key = GAP_TO_QUESTION[gap];
     if (!key || seen.has(key)) continue;
     seen.add(key);
@@ -65,7 +101,7 @@ export function buildAssistantMessage(
   }
 
   const needLabels = questions.map((q) => q.prompt.replace(/\?$/, "")).join(" and ");
-  return `Thanks — I picked up: ${summary}. Before I price this, I still need ${needLabels.toLowerCase()}.`;
+  return `Thanks — I picked up: ${summary}. Before I finish this itinerary, I still need ${needLabels.toLowerCase()}.`;
 }
 
 export function buildBriefFromMessages(messages: Array<{ role: string; content: string }>): string {

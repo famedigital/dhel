@@ -36,6 +36,8 @@ export const DEFAULT_MARKUP: AgencyMarkupSettings = {
   min_margin_percent: 5,
 };
 
+export type { TripCostLines } from "./trip-costs";
+
 export interface BriefIntent {
   pax: number;
   adults: number;
@@ -52,6 +54,8 @@ export interface BriefIntent {
   client_name?: string;
   /** Parsed from brief e.g. 2n Phuentsholing, 2n Thimphu, 2n Paro */
   stay_plan?: Array<{ city: string; nights: number }>;
+  /** Per-trip ops cost lines — ask if not written (see trip-costs.ts) */
+  trip_costs?: import("./trip-costs").TripCostLines;
   raw_brief: string;
 }
 

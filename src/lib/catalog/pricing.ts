@@ -34,6 +34,105 @@ function getTransferCostUsd(entryPoint: string): number {
   return seed.pickup_paro_usd + seed.drop_paro_usd;
 }
 
+/** Convert ops amount (often INR) into package display currency. */
+function opsAmountToDisplay(
+  amount: number,
+  opsCurrency: string,
+  display: DisplayCurrency,
+): number {
+  const ops = opsCurrency.toUpperCase();
+  if (ops === display) return Math.round(amount);
+  // Treat BTN ≈ INR
+  let usd = amount;
+  if (ops === "INR" || ops === "BTN") {
+    usd = amount / (seed.fx_rates.USD_INR || 83);
+  } else if (ops === "USD") {
+    usd = amount;
+  }
+  return convertFromUsd(usd, display);
+}
+
+type LandCostParts = {
+  guideCost: number;
+  carCost: number;
+  transferCost: number;
+  sdfCost: number;
+  roomOverridePerNight?: number;
+};
+
+function resolveLandCostsFromBrief(
+  brief: BriefIntent,
+  currency: DisplayCurrency,
+  rateDefaults?: AgencyRateDefaults,
+): LandCostParts {
+  const pax = Math.max(brief.pax, 1);
+  const costs = brief.trip_costs;
+  const opsCur = costs?.currency ?? "INR";
+
+  let guideCost: number;
+  let carCost: number;
+  let transferCost: number;
+  let sdfCost: number;
+
+  if (costs?.guide_per_day != null) {
+    guideCost = opsAmountToDisplay(costs.guide_per_day * brief.days, opsCur, currency);
+  } else {
+    const guideRateUsd = rateDefaults ? resolveGuideDayRateUsd(rateDefaults) : seed.guide_day_rate_usd;
+    guideCost = convertFromUsd(guideRateUsd * brief.days, currency);
+  }
+
+  if (costs?.car_per_day != null) {
+    carCost = opsAmountToDisplay(costs.car_per_day * brief.days, opsCur, currency);
+  } else {
+    const carRateUsd = rateDefaults ? resolveCarDayRateUsd(rateDefaults) : seed.car_day_rate_usd;
+    carCost = convertFromUsd(carRateUsd * brief.days, currency);
+  }
+
+  if (costs?.transfer_per_trip != null) {
+    transferCost = opsAmountToDisplay(costs.transfer_per_trip, opsCur, currency);
+  } else {
+    transferCost = convertFromUsd(getTransferCostUsd(brief.entry_point), currency);
+  }
+
+  if (costs?.include_sdf === false) {
+    sdfCost = 0;
+  } else if (costs?.sdf_per_person_per_day != null) {
+    sdfCost = opsAmountToDisplay(
+      costs.sdf_per_person_per_day * brief.days * pax,
+      costs.sell_currency ?? "USD",
+      currency,
+    );
+  } else {
+    const sdfDaily = brief.nationalities.map(getSdfDailyUsd);
+    const sdfRateUsd = Math.max(...sdfDaily, seed.sdf_rules.other.daily_usd);
+    sdfCost = convertFromUsd(sdfRateUsd * brief.days * pax, currency);
+  }
+
+  const roomOverridePerNight =
+    costs?.room_avg_per_night != null
+      ? opsAmountToDisplay(costs.room_avg_per_night, opsCur, currency)
+      : undefined;
+
+  return { guideCost, carCost, transferCost, sdfCost, roomOverridePerNight };
+}
+
+function applyLockedSell(pkg: PackageOption, brief: BriefIntent): PackageOption {
+  const locked = brief.trip_costs?.sell_total_locked;
+  if (locked == null || locked <= 0) return pkg;
+  const pax = Math.max(brief.pax, 1);
+  const sellCurrency = brief.trip_costs?.sell_currency ?? pkg.currency;
+  return {
+    ...pkg,
+    currency: sellCurrency,
+    sell_total: Math.round(locked),
+    sell_per_person: Math.round(locked / pax),
+    margin_percent:
+      pkg.cost_total > 0
+        ? Math.round(((locked - pkg.cost_total) / pkg.cost_total) * 100)
+        : pkg.margin_percent,
+  };
+}
+
 function avgNightlyUsd(hotel: CatalogHotel, mealPlan?: BriefIntent["meal_plan"]): number {
   const rooms = mealPlan ? hotel.rooms.filter((r) => r.meal === mealPlan) : hotel.rooms;
   const list = rooms.length ? rooms : hotel.rooms;
@@ -152,15 +251,9 @@ export function computePackageFromHotelSelections(
   const catalog = catalogHotels?.length ? catalogHotels : getCatalogHotels();
   const currency = resolveCurrency(brief);
   const pax = Math.max(brief.pax, 1);
-  const sdfDaily = brief.nationalities.map(getSdfDailyUsd);
-  const sdfRateUsd = Math.max(...sdfDaily, seed.sdf_rules.other.daily_usd);
-  const sdfCost = convertFromUsd(sdfRateUsd * brief.days * pax, currency);
-  const guideRateUsd = rateDefaults ? resolveGuideDayRateUsd(rateDefaults) : seed.guide_day_rate_usd;
-  const carRateUsd = rateDefaults ? resolveCarDayRateUsd(rateDefaults) : seed.car_day_rate_usd;
-  const guideCost = convertFromUsd(guideRateUsd * brief.days, currency);
-  const carCost = convertFromUsd(carRateUsd * brief.days, currency);
+  const land = resolveLandCostsFromBrief(brief, currency, rateDefaults);
+  const { guideCost, carCost, transferCost, sdfCost, roomOverridePerNight } = land;
   const visaCost = convertFromUsd(seed.visa_fee_usd * pax, currency);
-  const transferCost = convertFromUsd(getTransferCostUsd(brief.entry_point), currency);
   const b2cMultiplier = rateTier === "b2c" ? 1.08 : 1;
 
   const stayOpts: HotelOption[] = [];
@@ -174,16 +267,19 @@ export function computePackageFromHotelSelections(
       undefined,
     );
     if (!opt) return null;
-    // Keep selected city label even if catalog spelling differs
-    stayOpts.push({ ...opt, city: sel.city, nights: sel.nights });
+    const net =
+      roomOverridePerNight != null ? roomOverridePerNight : convertFromUsd(opt.net_per_night, currency);
+    stayOpts.push({
+      ...opt,
+      city: sel.city,
+      nights: sel.nights,
+      net_per_night: net,
+    });
   }
   if (!stayOpts.length) return null;
 
   const combined = combineStayHotels(stayOpts);
-  const hotelCost = stayOpts.reduce(
-    (sum, s) => sum + convertFromUsd(s.net_per_night * s.nights, currency),
-    0,
-  );
+  const hotelCost = stayOpts.reduce((sum, s) => sum + s.net_per_night * s.nights, 0);
   const isPelbu = stayOpts.some((s) => s.source === "pelbu");
   const landCost = hotelCost + guideCost + carCost + visaCost + transferCost + sdfCost;
   const { sell: landSell } = applyMarkup(landCost, markup, currency, isPelbu);
@@ -198,11 +294,11 @@ export function computePackageFromHotelSelections(
     warnings.unshift({ festival: "Route", message: formatStayRoute(brief.stay_plan) });
   }
 
-  return {
+  const pkg: PackageOption = {
     id: `agent-${stayOpts.map((s) => s.hotel_id).join("-")}`,
     label: "Agent selection",
     recommended: true,
-    hotel: { ...combined, net_per_night: convertFromUsd(combined.net_per_night, currency) },
+    hotel: { ...combined, net_per_night: combined.net_per_night },
     modules: [
       { key: "sdf", label: "SDF", cost: sdfCost, sell: sdfCost },
       { key: "guide", label: "Guide", cost: guideCost, sell: guideCost },
@@ -218,6 +314,7 @@ export function computePackageFromHotelSelections(
     margin_percent: marginPercent,
     warnings,
   };
+  return applyLockedSell(pkg, brief);
 }
 
 /** Value / mid / premium slot within one city. */
@@ -426,18 +523,9 @@ export function computePackages(
   const routeNights = brief.stay_plan?.reduce((sum, s) => sum + s.nights, 0);
   const nights = routeNights ?? Math.max(brief.days - 1, 1);
   const pax = Math.max(brief.pax, 1);
-  const sdfDaily = brief.nationalities.map(getSdfDailyUsd);
-  const sdfRateUsd = Math.max(...sdfDaily, seed.sdf_rules.other.daily_usd);
-  const sdfCost = convertFromUsd(sdfRateUsd * brief.days * pax, currency);
-
-  const guideDays = brief.days;
-  const carDays = brief.days;
-  const guideRateUsd = rateDefaults ? resolveGuideDayRateUsd(rateDefaults) : seed.guide_day_rate_usd;
-  const carRateUsd = rateDefaults ? resolveCarDayRateUsd(rateDefaults) : seed.car_day_rate_usd;
-  const guideCost = convertFromUsd(guideRateUsd * guideDays, currency);
-  const carCost = convertFromUsd(carRateUsd * carDays, currency);
+  const land = resolveLandCostsFromBrief(brief, currency, rateDefaults);
+  const { guideCost, carCost, transferCost, sdfCost } = land;
   const visaCost = convertFromUsd(seed.visa_fee_usd * pax, currency);
-  const transferCost = convertFromUsd(getTransferCostUsd(brief.entry_point), currency);
 
   const b2cMultiplier = rateTier === "b2c" ? 1.08 : 1;
 

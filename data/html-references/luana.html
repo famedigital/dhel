@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Silverpine Tours — Bhutan Heartland · Luana · Brazil</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Darker + larger type for this client PDF */
+    body.itinerary-sheet {
+      --ink: #0a0a08;
+      --ink-soft: #1a1916;
+      --charcoal: #2a2926;
+      --stone: #5c5850;
+      font-size: 11.5pt;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.58;
+    }
+    .page-heading { font-size: 26pt; color: var(--ink); }
+    .page-sub { font-size: 11pt; color: var(--ink-soft); }
+    .section-label { font-size: 9pt; color: var(--charcoal); font-weight: 500; }
+    .letter-body p,
+    .day-desc,
+    .simple-intro,
+    .highlight-note,
+    .price-includes li,
+    .closing-block li,
+    .price-card .hint {
+      font-size: 10.5pt;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+    .day-number { font-size: 10pt; color: var(--charcoal); font-weight: 500; }
+    .day-route { font-size: 20pt; color: var(--ink); }
+    .day-meta dt { font-size: 8pt; color: var(--charcoal); }
+    .day-meta dd { font-size: 10pt; color: var(--ink); }
+    .day-activities h4 { font-size: 10pt; color: var(--ink); }
+    .day-activities li { font-size: 10.5pt; color: var(--ink-soft); }
+    .day-loc span,
+    .day-acts figcaption { font-size: 8pt; font-weight: 500; }
+    /* Cover sits on dark photo — keep light text (do not use --ink here) */
+    .page.cover .cover-eyebrow {
+      color: #d4b896 !important;
+      font-size: 8.5pt !important;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
+    }
+    .page.cover .cover-brand {
+      color: #ffffff !important;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+    }
+    .page.cover .cover-brand em {
+      color: #d4b896 !important;
+    }
+    .page.cover .cover-title {
+      color: rgba(255, 255, 255, 0.95) !important;
+      font-size: 18pt !important;
+      text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
+    }
+    .page.cover .cover-client {
+      color: #ffffff !important;
+      font-size: 13pt !important;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
+    }
+    .page.cover .cover-detail label {
+      color: rgba(212, 184, 150, 0.95) !important;
+    }
+    .page.cover .cover-detail p {
+      color: #ffffff !important;
+      font-size: 11pt !important;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+    }
+    .page.cover .cover-hero::after {
+      background:
+        linear-gradient(180deg, rgba(10, 10, 8, 0.62) 0%, rgba(10, 10, 8, 0.28) 32%, rgba(10, 10, 8, 0.88) 100%),
+        linear-gradient(90deg, rgba(10, 10, 8, 0.62) 0%, transparent 58%) !important;
+    }
+    .page.cover .page-header .brand,
+    .page.cover .page-footer,
+    .page.cover .ft-left,
+    .page.cover .ft-mid,
+    .page.cover .ft-right {
+      color: rgba(255, 255, 255, 0.85) !important;
+    }
+    .page.cover .page-header .meta {
+      color: rgba(255, 255, 255, 0.55) !important;
+    }
+    .letter-greeting,
+    .letter-sign .name { color: var(--ink); }
+    /* —— Page 3 pricing: must fit A4 above footer —— */
+    .page-pricing .page-body {
+      padding-top: 5mm !important;
+      padding-bottom: 3mm !important;
+      overflow: hidden !important;
+    }
+    .page-pricing .section-label { margin-bottom: 1.5mm !important; font-size: 8pt !important; }
+    .page-pricing .page-heading {
+      font-size: 22pt !important;
+      margin-bottom: 1mm !important;
+      line-height: 1.1 !important;
+    }
+    .page-pricing .page-sub {
+      font-size: 10pt !important;
+      margin-bottom: 3.5mm !important;
+      max-width: none !important;
+    }
+    .page-pricing .price-hero {
+      margin: 0 0 3.5mm !important;
+      padding: 5mm 6mm !important;
+      align-items: center;
+    }
+    .page-pricing .price-hero .amount {
+      color: #ffffff !important;
+      font-size: 28pt !important;
+      line-height: 1.05 !important;
+    }
+    .page-pricing .price-hero .label {
+      color: var(--gold-light) !important;
+      font-size: 7.5pt !important;
+      margin-bottom: 1mm !important;
+    }
+    .page-pricing .price-hero .note {
+      color: rgba(255, 255, 255, 0.75) !important;
+      font-size: 8.5pt !important;
+      max-width: 62mm !important;
+      line-height: 1.35 !important;
+    }
+    .page-pricing .per-head {
+      margin-bottom: 3.5mm !important;
+      gap: 3mm !important;
+    }
+    .page-pricing .per-head-item {
+      padding: 3mm 3.5mm !important;
+    }
+    .page-pricing .per-head-item label {
+      color: var(--charcoal);
+      font-size: 7.5pt !important;
+      margin-bottom: 1mm !important;
+    }
+    .page-pricing .per-head-item .value {
+      color: var(--ink);
+      font-size: 18pt !important;
+      line-height: 1.1 !important;
+      margin-bottom: 1mm !important;
+    }
+    .page-pricing .per-head-item .sub {
+      color: var(--ink-soft);
+      font-size: 8.5pt !important;
+      line-height: 1.35 !important;
+    }
+    .page-pricing .docs-row {
+      margin-bottom: 3mm !important;
+      gap: 3mm !important;
+    }
+    .page-pricing .closing-block {
+      padding: 3mm 3.5mm !important;
+    }
+    .page-pricing .closing-block h3 {
+      font-size: 11pt !important;
+      margin-bottom: 1.5mm !important;
+      padding-bottom: 1mm !important;
+    }
+    .page-pricing .closing-block li {
+      font-size: 8.5pt !important;
+      line-height: 1.35 !important;
+      padding: 0.6mm 0 0.6mm 3mm !important;
+      color: var(--ink-soft) !important;
+    }
+    .page-pricing .validity-box {
+      margin: 0 !important;
+      padding: 3mm 4mm !important;
+      background: #f4f1ec !important;
+      color: var(--ink) !important;
+      border: 0.5pt solid var(--line);
+    }
+    .page-pricing .validity-box .v-text {
+      font-size: 10pt !important;
+      line-height: 1.4 !important;
+      color: var(--ink) !important;
+      font-family: 'Outfit', sans-serif !important;
+    }
+
+    /* price-hero on other pages too */
+    .price-hero .amount {
+      color: #ffffff !important;
+    }
+    .price-hero .label { color: var(--gold-light) !important; }
+    .price-hero .note { color: rgba(255, 255, 255, 0.72) !important; }
+    .price-card h3,
+    .price-card .value { color: var(--ink); }
+    .ft-left, .ft-mid, .ft-right { color: var(--charcoal); }
+
+    .simple-intro { font-size: 11pt; line-height: 1.55; color: var(--ink-soft); margin-bottom: 4mm; }
+    .day-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-bottom: 3.5mm; color: var(--ink); }
+    .day-table th, .day-table td {
+      border: 0.5pt solid var(--line); padding: 1.8mm 2mm; text-align: left; vertical-align: top; line-height: 1.35;
+    }
+    .day-table thead th {
+      background: var(--mist); font-weight: 600; font-size: 8.5pt; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--ink);
+    }
+    .day-table td:first-child { white-space: nowrap; font-weight: 600; width: 16mm; }
+    .day-table td:nth-child(2) { width: 28mm; color: var(--charcoal); }
+    .hotel-block { margin-bottom: 3mm; page-break-inside: avoid; }
+    .hotel-block-head {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 4mm;
+      margin-bottom: 1mm; padding-bottom: 1mm; border-bottom: 0.5pt solid var(--gold-pale);
+    }
+    .hotel-block-head h3 { font-family: 'Cormorant Garamond', serif; font-size: 14pt; font-weight: 600; color: var(--ink); }
+    .hotel-block-head .nights {
+      font-size: 8pt; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); white-space: nowrap;
+    }
+    .hotel-block-meta { font-size: 9.5pt; color: var(--charcoal); margin-bottom: 1mm; line-height: 1.4; }
+    .hotel-block-meta a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 1.5px; }
+    .why-pick { font-size: 10pt; color: var(--ink-soft); line-height: 1.45; margin: 0; }
+    .summary-table { width: 100%; border-collapse: collapse; font-size: 12pt; margin: 3mm 0 4mm; color: var(--ink); }
+    .summary-table th, .summary-table td {
+      border-bottom: 0.5pt solid var(--line); padding: 3.2mm 2.5mm; text-align: left; vertical-align: middle;
+    }
+    .summary-table th { font-weight: 500; color: var(--ink); width: 68%; }
+    .summary-table td { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+    .summary-table tr.total th, .summary-table tr.total td {
+      border-top: 1.2pt solid var(--ink); border-bottom: none; font-weight: 600;
+      font-family: 'Cormorant Garamond', serif; font-size: 17pt; padding-top: 3.5mm;
+    }
+    .flight-row { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin-bottom: 3mm; }
+    .place-fact {
+      font-size: 10pt; line-height: 1.5; color: var(--ink-soft);
+      border-left: 1.5pt solid var(--gold-pale); padding-left: 2.5mm; margin: 2mm 0 0;
+    }
+    .page-closing .page-body {
+      padding-bottom: 6mm;
+    }
+  </style>
+</head>
+<body class="itinerary-sheet">
+
+  <!-- 01 COVER -->
+  <section class="page cover">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="cover-hero">
+      <img src="images/paro_tigers_nest.jpg" alt="Tiger's Nest Monastery, Paro Bhutan" />
+    </div>
+    <div class="page-body">
+      <div class="cover-content">
+        <p class="cover-eyebrow">Kingdom of Bhutan · 10 Days · 9 Nights · Solo · Land via Bagdogra</p>
+        <h1 class="cover-brand">Silverpine <em>Tours</em></h1>
+        <p class="cover-title">West to Heartland · Bumthang Flight · Tiger’s Nest</p>
+        <div class="cover-rule"></div>
+        <p class="cover-client">Prepared for Luana · Brazil · +55 19 99615-9449</p>
+        <div class="cover-details">
+          <div class="cover-detail"><label>Group</label><p>1 adult · solo private</p></div>
+          <div class="cover-detail"><label>Gateway</label><p>Bagdogra (IXB) ↔ Phuentsholing</p></div>
+          <div class="cover-detail"><label>Air to India</label><p>Georgia or Kazakhstan → Delhi → IXB</p></div>
+          <div class="cover-detail"><label>Route</label><p>Pling · Thimphu · Punakha · Bumthang · Paro</p></div>
+          <div class="cover-detail"><label>Signature</label><p>Domestic flight + Tiger’s Nest</p></div>
+          <div class="cover-detail"><label>Style</label><p>Private · family farmstays</p></div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Luana · Solo · Brazil</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">01 / 16</span>
+    </footer>
+  </section>
+
+  <!-- 02 LETTER -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Correspondence</p>
+      <h2 class="page-heading">A note of welcome</h2>
+      <p class="page-sub">A personal reply · solo Bhutan · from our home to yours</p>
+
+      <p class="letter-date">Issue date · 8 September 2026</p>
+      <p class="letter-greeting">Dear Luana,</p>
+
+      <div class="letter-body">
+        <p>
+          What a joy to hear from you in <strong>Brazil</strong> — thank you for trusting us with your
+          first steps toward Bhutan. We would be truly happy to host you.
+          This <strong>10-day / 9-night</strong> private journey is shaped around the places that stay
+          with travellers long after they leave: the capital’s quiet rhythm, Punakha’s river valleys,
+          the sacred heartland of <strong>Bumthang</strong>, a scenic
+          <strong>Drukair hop</strong> west, and the climb to <strong>Tiger’s Nest</strong> when you are ready.
+        </p>
+        <p>
+          You enter through <strong>Bagdogra (IXB)</strong>. We meet you there, cross into Bhutan at
+          <strong>Phuentsholing</strong>, and travel with care:
+          Pling → Thimphu → Punakha → Bumthang → (flight) Paro → Tiger’s Nest → Pling → Bagdogra.
+          For your flights into India we have outlined clear options from
+          <strong>Georgia (Tbilisi)</strong> or <strong>Kazakhstan (Almaty)</strong> via
+          <strong>Delhi</strong>, then on to Bagdogra — with booking links you can use yourself.
+        </p>
+        <p>
+          Along the way you will sleep close to Bhutanese life: in Punakha at
+          <strong>Happiness Field Village Farmstay</strong>
+          (<a href="https://www.hfvf.bt" target="_blank" rel="noopener">www.hfvf.bt</a>) or similar,
+          and in Bumthang with an <strong>English-speaking family</strong> who welcome conversation
+          as warmly as they welcome guests. In Thimphu you stay with us at
+          <strong>Pelbu Suites</strong>. Pricing is kept clear — one package total, with the government
+          <strong>SDF</strong> shown separately — so you can plan with confidence.
+          We only ask that Day 7 (Bumthang → Paro) fall on a <strong>Tuesday or Thursday</strong>
+          when the domestic flight normally operates.
+        </p>
+        <p>
+          Whenever you are ready, write to us with your preferred month and whether you fly from
+          Tbilisi or Almaty. We will hold the dates and look after the rest.
+          <strong>Silverpine Tours</strong> — Rajiv Pradhan &amp; Tshering Lhamo since <strong>2012</strong>.
+          WhatsApp <strong>+975-17649720</strong> · <strong>www.silverpinebhutan.com</strong>.
+        </p>
+      </div>
+
+      <div class="letter-sign">
+        <img class="letter-photo" src="images/Rajiv_Tshering.jpg" alt="Rajiv Pradhan and Tshering Lhamo" />
+        <div>
+          <p class="closing">With warm regards from Bhutan,</p>
+          <p class="name">Rajiv Pradhan &amp; Tshering Lhamo</p>
+          <p class="role">Proprietors · Silverpine Tours</p>
+          <p class="since">Hosting travellers as a couple since 2012</p>
+        </div>
+      </div>
+
+      <div class="letter-contact">
+        <div><label>Website</label><a href="https://www.silverpinebhutan.com">www.silverpinebhutan.com</a></div>
+        <div><label>WhatsApp</label><p>+975-17649720</p></div>
+        <div><label>Prepared for</label><p>Luana · +55 19 99615-9449 · Brazil</p></div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Luana · Solo · Brazil</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">02 / 16</span>
+    </footer>
+  </section>
+
+  <!-- 03 COST -->
+  <section class="page page-pricing">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Quote</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Investment · Luana · Brazil</p>
+      <h2 class="page-heading">Your tour cost</h2>
+      <p class="page-sub">Solo private · 10 days / 9 nights · all figures <strong>USD</strong>.</p>
+
+      <div class="price-hero">
+        <div>
+          <p class="label">Total payable · 1 adult</p>
+          <p class="amount">USD 2,650</p>
+        </div>
+        <p class="note">Package + SDF. Flights to Bagdogra are separate (next page).</p>
+      </div>
+
+      <div class="per-head">
+        <div class="per-head-item">
+          <label>Tour package</label>
+          <p class="value">USD 1,750</p>
+          <p class="sub">Hotels (BF + dinner) · car · guide · entry fees · domestic flight</p>
+        </div>
+        <div class="per-head-item">
+          <label>SDF</label>
+          <p class="value">USD 900</p>
+          <p class="sub">Sustainable Development Fee · Bhutan government</p>
+        </div>
+      </div>
+
+      <div class="docs-row">
+        <div class="closing-block dos">
+          <h3>Package covers</h3>
+          <ul>
+            <li>9 nights single · breakfast &amp; dinner included</li>
+            <li>Guide, private car, Bagdogra pickup &amp; drop</li>
+            <li>Entry fees · Drukair Bumthang → Paro</li>
+            <li>Visa / permit help at land border</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>Pay separately</h3>
+          <ul>
+            <li>Flights to / from Bagdogra via Delhi
+              (<a href="https://www.yatra.com" target="_blank" rel="noopener">Yatra</a>
+              /
+              <a href="https://www.makemytrip.com" target="_blank" rel="noopener">MakeMyTrip</a>)
+            </li>
+            <li>Lunch only (breakfast &amp; dinner at hotel)</li>
+            <li>Insurance · tips · shopping</li>
+            <li>Optional spa / pony</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="validity-box">
+        <p class="v-text">
+          <strong>USD 1,750</strong> package + <strong>USD 900</strong> SDF =
+          <strong>USD 2,650</strong> total · quote valid <strong>15 days</strong> ·
+          WhatsApp <strong>+975-17649720</strong>
+        </p>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Luana · Solo · Brazil</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">03 / 16</span>
+    </footer>
+  </section>
+
+  <!-- 04 FLIGHTS + AIRFARE TO IXB -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Access · book yourself</p>
+      <h2 class="page-heading">Flights to Delhi &amp; Bagdogra</h2>
+      <p class="page-sub">
+        Not in the Bhutan package. Book online and share e-tickets for pickup timing.
+      </p>
+
+      <div class="highlight-note" style="margin-bottom: 3.5mm;">
+        <strong>Where to book (Delhi + Bagdogra):</strong>
+        <a href="https://www.yatra.com" target="_blank" rel="noopener">www.yatra.com</a>
+        ·
+        <a href="https://www.makemytrip.com" target="_blank" rel="noopener">www.makemytrip.com</a>
+        · or airline sites (IndiGo / Air Astana).
+        Search <strong>Tbilisi (TBS) or Almaty (ALA) → Delhi (DEL) → Bagdogra (IXB)</strong> and the return.
+      </div>
+
+      <div class="flight-row">
+        <div class="price-card">
+          <p class="num">Option A · Georgia</p>
+          <h3>Tbilisi → Delhi → Bagdogra</h3>
+          <p class="value" style="font-size: 13pt;">IndiGo 6E1808 + DEL→IXB</p>
+          <p class="hint">
+            TBS→DEL ≈ 01:20 → 07:35 · then afternoon DEL→IXB<br />
+            <strong>One-way planning ≈ USD 280–400</strong><br />
+            <strong>Return via same route ≈ USD 600–850</strong>
+          </p>
+        </div>
+        <div class="price-card">
+          <p class="num">Option B · Kazakhstan</p>
+          <h3>Almaty → Delhi → Bagdogra</h3>
+          <p class="value" style="font-size: 13pt;">Air Astana KC907 + DEL→IXB</p>
+          <p class="hint">
+            ALA→DEL ≈ 06:40 → 10:35 · then afternoon DEL→IXB<br />
+            <strong>One-way planning ≈ USD 220–320</strong><br />
+            <strong>Return via same route ≈ USD 500–700</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="price-card" style="margin-bottom: 3mm;">
+        <p class="num">Delhi ↔ Bagdogra (both options)</p>
+        <h3>IndiGo / SpiceJet / Akasa</h3>
+        <p class="value" style="font-size: 13pt;">≈ USD 45–80 each way</p>
+        <p class="hint">
+          Book on
+          <a href="https://www.yatra.com" target="_blank" rel="noopener">Yatra</a>
+          or
+          <a href="https://www.makemytrip.com" target="_blank" rel="noopener">MakeMyTrip</a>
+          · example: 6E6378 ≈ 14:50 → 16:40 · ≈ 2 hrs<br />
+          Already folded into the Georgia / Kazakhstan totals above.
+        </p>
+      </div>
+
+      <div class="per-head" style="margin-bottom: 3mm;">
+        <div class="per-head-item">
+          <label>Bhutan package + SDF</label>
+          <p class="value">USD 2,650</p>
+          <p class="sub">This quote · land + domestic BUT→PBH</p>
+        </div>
+        <div class="per-head-item">
+          <label>Air to Bagdogra (return)</label>
+          <p class="value">≈ USD 500–850</p>
+          <p class="sub">Book on Yatra / MakeMyTrip · pay yourself</p>
+        </div>
+      </div>
+
+      <div class="price-includes" style="margin-bottom: 0;">
+        <h4>Booking tips</h4>
+        <ul>
+          <li>Preferred sites:
+            <a href="https://www.yatra.com" target="_blank" rel="noopener">yatra.com</a>
+            ·
+            <a href="https://www.makemytrip.com" target="_blank" rel="noopener">makemytrip.com</a>
+          </li>
+          <li>Allow buffer in Delhi for international → domestic transfer · share e-tickets for IXB pickup</li>
+          <li>Return: IXB → DEL morning · then DEL → TBS or DEL → ALA</li>
+          <li>Inside Bhutan (included): Drukair KB011 Bumthang → Paro · Tue / Thu ·
+            <a href="https://www.drukair.com.bt" target="_blank" rel="noopener">drukair.com.bt</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Luana · Solo · Brazil</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">04 / 16</span>
+    </footer>
+  </section>
+
+  <!-- 05 ROUTE + HOTELS -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">At a glance</p>
+      <h2 class="page-heading">Route &amp; stays</h2>
+      <p class="simple-intro">
+        Overland entry via Bagdogra, then the classic western valleys and the sacred heartland —
+        with a short domestic flight home to Paro so Tiger’s Nest comes with rested legs.
+      </p>
+
+      <table class="day-table">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Focus</th>
+            <th>Route / stay</th>
+            <th>Stay</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>01</td><td>Arrival</td><td>Bagdogra → Phuentsholing</td><td>Central Point / similar</td></tr>
+          <tr><td>02</td><td>Travel</td><td>Pling → Thimphu</td><td>Pelbu Suites</td></tr>
+          <tr><td>03</td><td>Capital</td><td>Thimphu sightseeing</td><td>Pelbu Suites</td></tr>
+          <tr><td>04</td><td>Valley</td><td>Thimphu → Punakha</td><td>Happiness Field Village Farmstay</td></tr>
+          <tr><td>05</td><td>Long drive</td><td>Punakha → Bumthang</td><td>Family farmstay</td></tr>
+          <tr><td>06</td><td>Heartland</td><td>Bumthang valleys</td><td>Family farmstay</td></tr>
+          <tr><td>07</td><td>Flight</td><td>Bumthang → Paro</td><td>Farmstay / Gakidiana</td></tr>
+          <tr><td>08</td><td>Icon</td><td>Tiger’s Nest</td><td>Farmstay / Gakidiana</td></tr>
+          <tr><td>09</td><td>South</td><td>Paro → Phuentsholing</td><td>Central Point / similar</td></tr>
+          <tr><td>10</td><td>Exit</td><td>Pling → Bagdogra → onward</td><td>— · depart</td></tr>
+        </tbody>
+      </table>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Phuentsholing · Central Point (or similar)</h3>
+          <span class="nights">2 nights · Day 1 &amp; Day 9</span>
+        </div>
+        <p class="hotel-block-meta">Border town · comfortable room · easy restaurants nearby</p>
+        <p class="why-pick">A calm first and last night inside the Kingdom.</p>
+      </div>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Thimphu · Pelbu Suites</h3>
+          <span class="nights">2 nights · Day 2 &amp; Day 3</span>
+        </div>
+        <p class="hotel-block-meta">
+          Our hotel ·
+          <a href="https://www.pelbusuites.bt" target="_blank" rel="noopener">www.pelbusuites.bt</a>
+        </p>
+        <p class="why-pick">Quiet suites in the capital — you stay with us.</p>
+      </div>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Punakha · Happiness Field Village Farmstay</h3>
+          <span class="nights">1 night · Day 4</span>
+        </div>
+        <p class="hotel-block-meta">
+          Gubjithang · fields by the Pho Chhu ·
+          <a href="https://www.hfvf.bt" target="_blank" rel="noopener">www.hfvf.bt</a>
+          · or similar family farmstay
+        </p>
+        <p class="why-pick">Home warmth near the dzong — suspension-bridge approach, garden, local cooking.</p>
+      </div>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Bumthang · English-speaking family farmstay</h3>
+          <span class="nights">2 nights · Day 5 &amp; Day 6</span>
+        </div>
+        <p class="hotel-block-meta">Jakar / Choekor · hosts who can converse in English · hearth &amp; home meals</p>
+        <p class="why-pick">Chosen for family touch — conversation, not only a room key.</p>
+      </div>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Paro · farmstay / Gakidiana (or similar)</h3>
+          <span class="nights">2 nights · Day 7 &amp; Day 8</span>
+        </div>
+        <p class="hotel-block-meta">Valley stay · early start for Tiger’s Nest</p>
+        <p class="why-pick">Clean, local, close enough to the trailhead.</p>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Luana · Solo · Brazil</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">05 / 16</span>
+    </footer>
+  </section>
+
+  <!-- DAY 01 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 01</p>
+          <h2 class="day-route">Bagdogra → Phuentsholing</h2>
+          <dl class="day-meta">
+            <div><dt>Location</dt><dd>IXB → Phuentsholing (Pling)</dd></div>
+            <div><dt>Drive</dt><dd>≈ 4–5 hrs</dd></div>
+            <div><dt>Stay</dt><dd>Central Point / similar</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Land Bagdogra · meet driver</li>
+              <li>Drive toward the Bhutan gate</li>
+              <li>Immigration at Phuentsholing</li>
+              <li>Permit / SDF formalities</li>
+              <li>Check-in · rest · light walk</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            Bhutan’s southern gate — subtropical air and the first glimpse of Bhutanese architecture after the plains.
+          </p>
+          <p class="place-fact">
+            Most overland visitors clear immigration here before the mountain highway to Thimphu.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/bhutan_green_valley.jpg" alt="Entering Bhutan" />
+            <span>Southern gateway</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/thimphu_mountain_highway.jpg" alt="Road north" />
+              <figcaption>Road toward the hills</figcaption>
+            </figure>
+            <figure>
+              <img src="images/bhutan_prayer_flags.jpg" alt="Prayer flags" />
+              <figcaption>First prayer flags</figcaption>
+            </figure>
+            <figure>
+              <img src="images/punakha_location.jpg" alt="Map context" />
+              <figcaption>Kingdom ahead</figcaption>
+            </figure>
+            <figure>
+              <img src="images/bhutan_prayer_mountains.jpg" alt="Hills" />
+              <figcaption>Hills ahead</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Luana · Solo · Brazil</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">06 / 16</span>
+    </footer>
+  </section>
+
+  <!-- DAY 02 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 02</p>
+          <h2 class="day-route">Phuentsholing → Thimphu</h2>
+          <dl class="day-meta">
+            <div><dt>Route</dt><dd>Pling → Chukha → Thimphu</dd></div>
+            <div><dt>Drive</dt><dd>≈ 5–6 hrs</dd></div>
+            <div><dt>Stay</dt><dd>Pelbu Suites</dd></div>
+            <div><dt>Altitude</dt><dd>Thimphu ≈ 2,300 m</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Early departure after breakfast</li>
+              <li>Climb through Chukha forests &amp; gorges</li>
+              <li>Photo / tea stops as needed</li>
+              <li>Arrive Thimphu · check-in Pelbu Suites</li>
+              <li>Gentle evening stroll if energy allows</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            Leave the plains for the Himalayan road — switchbacks, mist, and the first sense of height.
+          </p>
+          <p class="place-fact">
+            Thimphu is the world’s only capital without traffic lights. Pace yourself with water on the climb.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/thimphu_capital.jpg" alt="Thimphu capital" />
+            <span>Thimphu · capital</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/hotel_pelbu_suite.jpg" alt="Pelbu suite" />
+              <figcaption>Pelbu Suites</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_pelbu_room_double.jpg" alt="Room" />
+              <figcaption>Your room</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_pelbu_dining.jpg" alt="Dining" />
+              <figcaption>Dining</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_pelbu_spa.jpg" alt="Lobby" />
+              <figcaption>Quiet corners</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Luana · Solo · Brazil</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">07 / 16</span>
+    </footer>
+  </section>
+
+  <!-- DAY 03 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 03</p>
+          <h2 class="day-route">Thimphu — capital day</h2>
+          <dl class="day-meta">
+            <div><dt>Location</dt><dd>Thimphu valley</dd></div>
+            <div><dt>Stay</dt><dd>Pelbu Suites</dd></div>
+            <div><dt>Focus</dt><dd>Buddha Point · Chorten · local life</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Buddha Point (Buddha Dordenma)</li>
+              <li>Memorial Chorten · walk with devotees</li>
+              <li>Folk Heritage or Simply Bhutan (time permitting)</li>
+              <li>Market / craft stalls if open</li>
+              <li>Evening at leisure</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            A proper capital day — time to understand why Thimphu feels different from every other Himalayan city.
+          </p>
+          <p class="place-fact">
+            <strong>Buddha Dordenma:</strong> construction began in <strong>2006</strong> and finished
+            <strong>25 September 2015</strong> — about nine years — marking the Fourth King’s 60th birth anniversary.
+            At roughly <strong>51–54 m</strong> it is one of the world’s tallest sitting Buddhas; the halls hold
+            tens of thousands of smaller gilded images.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/thimphu_buddha_point.jpg" alt="Buddha Point" />
+            <span>Buddha Dordenma</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/thimphu_buddha_gate.jpg" alt="Buddha gate" />
+              <figcaption>Approach gate</figcaption>
+            </figure>
+            <figure>
+              <img src="images/thimphu_memorial_chorten.jpg" alt="Memorial Chorten" />
+              <figcaption>Memorial Chorten</figcaption>
+            </figure>
+            <figure>
+              <img src="images/thimphu_farmers_market.jpg" alt="Market" />
+              <figcaption>Local market</figcaption>
+            </figure>
+            <figure>
+              <img src="images/buddhist_temple.jpg" alt="Temple detail" />
+              <figcaption>Temple detail</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Luana · Solo · Brazil</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">08 / 16</span>
+    </footer>
+  </section>
+
+  <!-- DAY 04 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 04</p>
+          <h2 class="day-route">Thimphu → Punakha</h2>
+          <dl class="day-meta">
+            <div><dt>Route</dt><dd>Thimphu → Dochula → Punakha</dd></div>
+            <div><dt>Drive</dt><dd>≈ 3–3.5 hrs + stops</dd></div>
+            <div><dt>Stay</dt><dd>Happiness Field Village Farmstay</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Dochula Pass · 108 Druk Wangyal chortens</li>
+              <li>Descend into Punakha valley</li>
+              <li>Chimi Lhakhang · short walk</li>
+              <li>Punakha Dzong (timing allowing)</li>
+              <li>Farmstay check-in · home evening</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            High pass, then a soft green valley — and a night in a family home among the fields.
+          </p>
+          <p class="place-fact">
+            <strong>Punakha Dzong</strong> was built in <strong>1637–38</strong> by Zhabdrung Ngawang Namgyal
+            at the Pho Chhu–Mo Chhu confluence.
+            <strong>Chimi Lhakhang</strong> (1499) honours Drukpa Kunley, the Divine Madman.
+            Farmstay:
+            <a href="https://www.hfvf.bt" target="_blank" rel="noopener">www.hfvf.bt</a>.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/punakha_dzong.jpg" alt="Punakha Dzong" />
+            <span>Punakha Dzong</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/dochula_pass.jpg" alt="Dochula Pass" />
+              <figcaption>Dochula · 108 chortens</figcaption>
+            </figure>
+            <figure>
+              <img src="images/punakha_valley.jpg" alt="Punakha valley" />
+              <figcaption>Punakha valley</figcaption>
+            </figure>
+            <figure>
+              <img src="images/punakha_suspension_bridge.jpg" alt="Suspension bridge" />
+              <figcaption>Suspension bridge</figcaption>
+            </figure>
+            <figure>
+              <img src="images/punakha_valley_alt.jpg" alt="Rice fields" />
+              <figcaption>Rice terraces</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Luana · Solo · Brazil</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">09 / 16</span>
+    </footer>
+  </section>
+
+  <!-- DAY 05 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 05</p>
+          <h2 class="day-route">Punakha → Bumthang</h2>
+          <dl class="day-meta">
+            <div><dt>Route</dt><dd>Punakha → Trongsa → Bumthang</dd></div>
+            <div><dt>Drive</dt><dd>≈ 7–9 hrs · early start</dd></div>
+            <div><dt>Stay</dt><dd>English-speaking family farmstay</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Very early departure</li>
+              <li>High passes · forest &amp; gorge views</li>
+              <li>Trongsa Dzong viewpoint if time allows</li>
+              <li>Arrive Choekor / Jakar</li>
+              <li>Farmstay welcome · simple dinner · early rest</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            The long scenic day that earns Bumthang — then a home with hosts who can talk with you in English.
+          </p>
+          <p class="place-fact">
+            <strong>Trongsa Dzong</strong> above the Mangde Chhu was the power seat of the royal ancestors.
+            Beyond it, Bumthang’s valleys hold some of Bhutan’s oldest temples.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/bhutan_prayer_mountains.jpg" alt="Central mountains" />
+            <span>Toward Bumthang</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/hotel_dewachen_05.jpg" alt="Highland stay feel" />
+              <figcaption>Highland character</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_dhensa_cottages.jpg" alt="Valley cottages" />
+              <figcaption>Valley stays</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_dhensa_view.jpg" alt="Valley view" />
+              <figcaption>Open valley light</figcaption>
+            </figure>
+            <figure>
+              <img src="images/thimphu_pelbu_suites.jpg" alt="Farmhouse style" />
+              <figcaption>Family farmhouse feel</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Luana · Solo · Brazil</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">10 / 16</span>
+    </footer>
+  </section>
+
+  <!-- DAY 06 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 06</p>
+          <h2 class="day-route">Bumthang — sacred valleys</h2>
+          <dl class="day-meta">
+            <div><dt>Location</dt><dd>Choekor / Jakar</dd></div>
+            <div><dt>Stay</dt><dd>Family farmstay</dd></div>
+            <div><dt>Focus</dt><dd>Jambay · Kurjey · Jakar Dzong</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Jambay Lhakhang — 7th-century foundations</li>
+              <li>Kurjey Lhakhang — Guru Rinpoche legend</li>
+              <li>Jakar Dzong viewpoint</li>
+              <li>Optional bakery / cheese stop</li>
+              <li>Farmstay evening · conversation with hosts</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            Red rice fields, whitewashed temples, and a slower rhythm — Bhutan’s spiritual heartland.
+          </p>
+          <p class="place-fact">
+            <strong>Jambay</strong> is among Bhutan’s oldest temples (traditionally 7th century).
+            <strong>Kurjey</strong> (“body imprint”) marks Guru Rinpoche’s 8th-century meditation site.
+            Walk clockwise and dress modestly inside sacred courtyards.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/paro_kyichu_lhakhang.jpg" alt="Temple courtyard" />
+            <span>Temple courtyards</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/hotel_dhensa_exterior.jpg" alt="Rural stay" />
+              <figcaption>Rural hospitality</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_dhensa_room.jpg" alt="Simple room" />
+              <figcaption>Simple comfort</figcaption>
+            </figure>
+            <figure>
+              <img src="images/bhutan_green_valley.jpg" alt="Valley farms" />
+              <figcaption>Valley farms</figcaption>
+            </figure>
+            <figure>
+              <img src="images/bhutan_prayer_flags.jpg" alt="Flags" />
+              <figcaption>Prayer flags</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Luana · Solo · Brazil</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">11 / 16</span>
+    </footer>
+  </section>
+
+  <!-- DAY 07 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 07 · Tue or Thu</p>
+          <h2 class="day-route">Bumthang → Paro · flight</h2>
+          <dl class="day-meta">
+            <div><dt>Flight</dt><dd>Drukair KB011 · BUT → PBH</dd></div>
+            <div><dt>Times</dt><dd>Typical ≈ 11:10 → 11:45</dd></div>
+            <div><dt>Stay</dt><dd>Farmstay / Gakidiana</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Transfer to Bumthang Airport</li>
+              <li>Scenic hop west · ≈ 35 min</li>
+              <li>Arrive Paro · meet driver</li>
+              <li>Kyichu Lhakhang if timing allows</li>
+              <li>Settle in · rest for Tiger’s Nest</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            One short flight instead of another punishing road day — wake in Paro ready for Taktsang.
+          </p>
+          <p class="place-fact">
+            Confirm on
+            <a href="https://www.drukair.com.bt" target="_blank" rel="noopener">drukair.com.bt</a>.
+            <strong>Kyichu Lhakhang</strong> is among Paro’s oldest temples — a gentle first stop in the valley.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/paro_airport_arrive.jpg" alt="Drukair at Paro" />
+            <span>Domestic flight · Paro</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/paro_kyichu_lhakhang.jpg" alt="Kyichu Lhakhang" />
+              <figcaption>Kyichu Lhakhang</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_shaba_river.jpg" alt="Paro river valley" />
+              <figcaption>Paro valley</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_location.jpg" alt="Paro Dzong" />
+              <figcaption>Paro Dzong</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_ta_dzong.jpg" alt="Ta Dzong ridge" />
+              <figcaption>Ta Dzong ridge</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Luana · Solo · Brazil</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">12 / 16</span>
+    </footer>
+  </section>
+
+  <!-- DAY 08 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 08</p>
+          <h2 class="day-route">Tiger’s Nest · Paro</h2>
+          <dl class="day-meta">
+            <div><dt>Location</dt><dd>Paro Taktsang</dd></div>
+            <div><dt>Hike</dt><dd>≈ 4–6 hrs round trip</dd></div>
+            <div><dt>Stay</dt><dd>Farmstay / Gakidiana</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Early transfer to trailhead</li>
+              <li>Hike to viewpoint · tea stop</li>
+              <li>Continue to the monastery</li>
+              <li>Descend · late lunch in the valley</li>
+              <li>Optional hot-stone bath (extra)</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            The image that brought you to Bhutan — earned on foot, with pine forest and prayer flags.
+          </p>
+          <p class="place-fact">
+            <strong>Taktsang</strong> clings ≈ 900 m above the valley. Legend: Guru Rinpoche flew here on a tigress
+            in the 8th century. The monastery was founded in <strong>1692</strong>; rebuilt after the 1998 fire.
+            Start early, carry water, go steady.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/paro_tigers_nest_viewpoint.jpg" alt="Tiger's Nest viewpoint" />
+            <span>Taktsang</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/paro_tigers_nest_trek.jpg" alt="Trail through pines" />
+              <figcaption>Forest trail</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_chelela_pass.jpg" alt="High ridge light" />
+              <figcaption>High ridge light</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_lemontree_cafe.jpg" alt="Tea after the hike" />
+              <figcaption>Tea after the hike</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_lemontree_porch.jpg" alt="Quiet evening rest" />
+              <figcaption>Quiet evening rest</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Luana · Solo · Brazil</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">13 / 16</span>
+    </footer>
+  </section>
+
+  <!-- DAY 09 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 09</p>
+          <h2 class="day-route">Paro → Phuentsholing</h2>
+          <dl class="day-meta">
+            <div><dt>Route</dt><dd>Paro → Chuzom → Pling</dd></div>
+            <div><dt>Drive</dt><dd>≈ 4–5 hrs</dd></div>
+            <div><dt>Stay</dt><dd>Central Point / similar</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Leisurely breakfast after the hike</li>
+              <li>Optional short Paro town / dzong stop</li>
+              <li>Drive south via Chuzom</li>
+              <li>Arrive Phuentsholing · check-in</li>
+              <li>Last Bhutan evening</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            A descending day — valleys open, air warms, one last night inside the Kingdom.
+          </p>
+          <p class="place-fact">
+            Chuzom is where the Paro and Thimphu rivers meet. Keep passport ready for morning exit.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/thimphu_mountain_highway.jpg" alt="Southbound mountain road" />
+            <span>Paro → Phuentsholing</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/paro_location.jpg" alt="Optional morning dzong stop" />
+              <figcaption>Optional morning stop</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_shaba_river.jpg" alt="Leaving Paro valley" />
+              <figcaption>Leaving the valley</figcaption>
+            </figure>
+            <figure>
+              <img src="images/bhutan_green_valley.jpg" alt="Lower hills toward the south" />
+              <figcaption>Lower hills south</figcaption>
+            </figure>
+            <figure>
+              <img src="images/bhutan_prayer_mountains.jpg" alt="Last highland views" />
+              <figcaption>Last highland views</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Luana · Solo · Brazil</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">14 / 16</span>
+    </footer>
+  </section>
+
+  <!-- DAY 10 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 10</p>
+          <h2 class="day-route">Phuentsholing → Bagdogra → onward</h2>
+          <dl class="day-meta">
+            <div><dt>Exit</dt><dd>Bhutan immigration · Pling</dd></div>
+            <div><dt>Drive</dt><dd>Pling → IXB · ≈ 4–5 hrs</dd></div>
+            <div><dt>Flight</dt><dd>IXB → DEL → TBS / ALA</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Breakfast · Bhutan exit formalities</li>
+              <li>Cross into India · drive to Bagdogra</li>
+              <li>Drop at IXB Airport</li>
+              <li>Fly onward via Delhi to Georgia or Kazakhstan</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            We time the morning exit to your Bagdogra departure. Share the e-ticket once booked.
+          </p>
+          <p class="place-fact">
+            Prefer a morning IXB → DEL flight so you can connect same day. If tight, overnight Delhi is safer.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/bhutan_prayer_mountains.jpg" alt="Farewell to the hills" />
+            <span>Pling → Bagdogra</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/thimphu_mountain_highway.jpg" alt="Drive to Bagdogra" />
+              <figcaption>Drive to Bagdogra</figcaption>
+            </figure>
+            <figure>
+              <img src="images/bhutan_prayer_flags.jpg" alt="Leaving Bhutan" />
+              <figcaption>Leaving Bhutan</figcaption>
+            </figure>
+            <figure>
+              <img src="images/bhutan_green_valley.jpg" alt="Toward the plains" />
+              <figcaption>Toward the plains</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_chelela_pass.jpg" alt="Last mountain light" />
+              <figcaption>Last mountain light</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Luana · Solo · Brazil</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">15 / 16</span>
+    </footer>
+  </section>
+
+  <!-- 16 CLOSING — slim to avoid footer overlap -->
+  <section class="page page-closing">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Before you travel</p>
+      <h2 class="page-heading">Essentials &amp; next step</h2>
+      <p class="page-sub">Solo traveller · Brazil · land entry via Bagdogra.</p>
+
+      <div class="closing-grid">
+        <div class="closing-block dos">
+          <h3>Dos</h3>
+          <ul>
+            <li>Dress modestly at temples &amp; dzongs</li>
+            <li>Walk clockwise around chortens</li>
+            <li>Carry small cash for tea &amp; markets</li>
+            <li>Layer for Bumthang nights · start Taktsang early</li>
+            <li>Keep passport ready on border days</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>Don’ts</h3>
+          <ul>
+            <li>Do not touch murals or ritual objects</li>
+            <li>No smoking on temple grounds</li>
+            <li>Do not book Day 7 off Tue / Thu</li>
+            <li>Do not cut Delhi connection buffers thin</li>
+            <li>No drones without permits</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="docs-row" style="margin-top: 3mm;">
+        <div class="closing-block">
+          <h3>Bring</h3>
+          <ul>
+            <li>Passport (6+ months) · scan for permits</li>
+            <li>IXB e-tickets · travel insurance</li>
+            <li>Walking / trekking shoes · warm layer</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>Useful links</h3>
+          <ul>
+            <li><a href="https://www.silverpinebhutan.com" target="_blank" rel="noopener">www.silverpinebhutan.com</a></li>
+            <li><a href="https://www.yatra.com" target="_blank" rel="noopener">www.yatra.com</a> · flights</li>
+            <li><a href="https://www.makemytrip.com" target="_blank" rel="noopener">www.makemytrip.com</a> · flights</li>
+            <li><a href="https://www.hfvf.bt" target="_blank" rel="noopener">www.hfvf.bt</a> · Punakha farmstay</li>
+            <li><a href="https://www.drukair.com.bt" target="_blank" rel="noopener">drukair.com.bt</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="validity-box" style="margin-top: 3mm;">
+        <p class="v-text">
+          <strong>Next step:</strong> share month + Tbilisi or Almaty.
+          WhatsApp <strong>+975-17649720</strong> · Luana · <strong>+55 19 99615-9449</strong>.
+        </p>
+      </div>
+
+      <div class="letter-sign" style="margin-top: 4mm;">
+        <img class="letter-photo" src="images/Rajiv_Tshering.jpg" alt="Rajiv and Tshering" />
+        <div>
+          <p class="closing">We look forward to hosting you,</p>
+          <p class="name">Rajiv Pradhan &amp; Tshering Lhamo</p>
+          <p class="role">Silverpine Tours</p>
+          <p class="since">www.silverpinebhutan.com</p>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Luana · Solo · Brazil</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">16 / 16</span>
+    </footer>
+  </section>
+
+</body>
+</html>

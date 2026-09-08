@@ -41,7 +41,7 @@ function CityHotelAutocomplete({
   }, [selected?.name, selectedId]);
 
   return (
-    <div className="max-w-md space-y-2">
+    <div className="w-full space-y-2">
       <Autocomplete
         items={hotels}
         value={query}
@@ -115,7 +115,7 @@ export function RouteHotelPicker({
 
   return (
     <div className="space-y-6">
-      <p className="text-center text-sm text-[var(--muted-foreground)]">
+      <p className="text-sm text-[var(--muted-foreground)]">
         Type to find a hotel for each overnight — nothing is pre-selected.
       </p>
       {choices.map((cityBlock) => {
@@ -151,9 +151,9 @@ export function RouteHotelPicker({
         );
       })}
       {allPicked ? (
-        <p className="text-center text-xs text-[var(--muted-foreground)]">All towns selected.</p>
+        <p className="text-xs text-[var(--muted-foreground)]">All towns selected.</p>
       ) : (
-        <p className="text-center text-xs text-amber-800">
+        <p className="text-xs text-amber-800">
           Select a hotel in every town to continue.
         </p>
       )}

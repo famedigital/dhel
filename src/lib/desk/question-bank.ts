@@ -8,7 +8,14 @@ export type QuestionBankKey =
   | "entry_point"
   | "travel_dates"
   | "budget_tier"
-  | "language";
+  | "language"
+  | "client_name"
+  | "room_avg"
+  | "guide_day"
+  | "car_day"
+  | "transfer_trip"
+  | "sdf"
+  | "cost_confirm";
 
 export const QUESTION_BANK: Record<
   QuestionBankKey,
@@ -59,6 +66,41 @@ export const QUESTION_BANK: Record<
     prompt: "Proposal language?",
     options: ["English", "Chinese (中文)"],
     allowFreeText: false,
+  },
+  client_name: {
+    prompt: "Guest / cover name?",
+    options: [],
+    allowFreeText: true,
+  },
+  room_avg: {
+    prompt: "Avg room rate per night (ops)?",
+    options: ["Use 4500", "3500", "5500", "6500"],
+    allowFreeText: true,
+  },
+  guide_day: {
+    prompt: "Guide rate per day?",
+    options: ["Use 2500", "2000", "3000"],
+    allowFreeText: true,
+  },
+  car_day: {
+    prompt: "Car / vehicle rate per day?",
+    options: ["Use 5000", "4000", "6000", "7000"],
+    allowFreeText: true,
+  },
+  transfer_trip: {
+    prompt: "Pickup + drop for this gateway (per trip)?",
+    options: ["Use 5000", "0 (Paro airport only)", "3500", "8000"],
+    allowFreeText: true,
+  },
+  sdf: {
+    prompt: "SDF on this package?",
+    options: ["Include SDF (nationality rules)", "No SDF", "SDF 100 USD/pp/night"],
+    allowFreeText: true,
+  },
+  cost_confirm: {
+    prompt: "Confirm these cost lines for the guest PDF pricing?",
+    options: ["Yes — compute sell from these rates", "I'll type a locked USD total"],
+    allowFreeText: true,
   },
 };
 

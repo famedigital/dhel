@@ -16,9 +16,8 @@ import {
   computePackages,
   buildCompareTable,
   DEFAULT_MARKUP,
-  findBriefGaps,
   findFormGaps,
-  isFormReady,
+  findPreHotelGaps,
   resolveCatalogHotels,
   loadPlatformConfig,
   listHotelChoicesForRoute,
@@ -28,6 +27,10 @@ import {
   loadCatalogActivitiesFromDb,
   loadCatalogHotelImages,
   loadCatalogGuidesFromDb,
+  ensureStayPlan,
+  mergeTripCostsFromBrief,
+  findCostGaps,
+  formatCostSummary,
   type AgencyMarkupSettings,
   type BriefIntent,
 } from "@/lib/catalog";
@@ -69,6 +72,20 @@ const briefIntentOverrideSchema = z
     client_name: z.string().optional(),
     stay_plan: z
       .array(z.object({ city: z.string(), nights: z.number().int().positive() }))
+      .optional(),
+    trip_costs: z
+      .object({
+        currency: z.enum(["USD", "INR", "BTN"]).optional(),
+        room_avg_per_night: z.number().optional(),
+        guide_per_day: z.number().optional(),
+        car_per_day: z.number().optional(),
+        transfer_per_trip: z.number().optional(),
+        sdf_per_person_per_day: z.number().optional(),
+        include_sdf: z.boolean().optional(),
+        sell_total_locked: z.number().optional(),
+        sell_currency: z.enum(["USD", "INR", "BTN"]).optional(),
+        confirmed: z.boolean().optional(),
+      })
       .optional(),
     raw_brief: z.string(),
   })
@@ -174,17 +191,41 @@ export async function POST(request: Request) {
     useAiParse: false,
   });
 
-  const briefIntent: BriefIntent = parsed.data.confirmedIntent
-    ? { ...parsed.data.confirmedIntent }
-    : parsedBrief.intent;
+  const briefIntent: BriefIntent = ensureStayPlan(
+    mergeTripCostsFromBrief(
+      parsed.data.confirmedIntent
+        ? ({
+            ...parsed.data.confirmedIntent,
+            trip_costs: parsed.data.confirmedIntent.trip_costs
+              ? {
+                  currency: parsed.data.confirmedIntent.trip_costs.currency ?? "INR",
+                  ...parsed.data.confirmedIntent.trip_costs,
+                }
+              : undefined,
+          } as BriefIntent)
+        : parsedBrief.intent,
+    ),
+  );
 
-  const pasteGaps = findBriefGaps(rawBrief, briefIntent);
+  const COST_GAPS = new Set([
+    "room_avg",
+    "guide_day",
+    "car_day",
+    "transfer_trip",
+    "sdf",
+    "cost_confirm",
+  ]);
   const formGaps = findFormGaps(briefIntent);
+  const tripFormGaps = formGaps.filter((g) => !COST_GAPS.has(g));
+  const tripPasteGaps = findPreHotelGaps(rawBrief, briefIntent);
   // Prefer form gaps when agent sent confirmedIntent; else paste gaps for first parse
-  const gaps = parsed.data.confirmedIntent ? formGaps : pasteGaps;
+  const gaps = parsed.data.confirmedIntent ? tripFormGaps : tripPasteGaps;
   const ready =
     parsed.data.skipGapCheck ||
-    (parsed.data.confirmedIntent ? isFormReady(briefIntent) : pasteGaps.length === 0);
+    (parsed.data.confirmedIntent ? tripFormGaps.length === 0 : tripPasteGaps.length === 0);
+  const costGaps = findCostGaps(rawBrief, briefIntent);
+  const costsReady =
+    parsed.data.skipGapCheck || costGaps.length === 0 || Boolean(briefIntent.trip_costs?.confirmed);
 
   if (parsed.data.action === "parse" && !ready && !parsed.data.confirmedIntent) {
     const questions = buildClarifyingQuestions(gaps);
@@ -205,7 +246,7 @@ export async function POST(request: Request) {
     return NextResponse.json({
       status: ready ? "needs_brief_confirm" : "needs_clarification",
       brief: briefIntent,
-      gaps: formGaps.length ? formGaps : pasteGaps,
+      gaps: ready ? undefined : gaps,
       questions: ready ? undefined : buildClarifyingQuestions(gaps),
       assistantMessage: ready
         ? "I extracted the trip details locally — confirm or edit them, then pick hotels."
@@ -217,13 +258,13 @@ export async function POST(request: Request) {
   }
 
   if (!ready) {
-    const questions = buildClarifyingQuestions(formGaps);
+    const questions = buildClarifyingQuestions(gaps);
     return NextResponse.json({
       status: "needs_clarification",
       brief: briefIntent,
-      gaps: formGaps,
+      gaps,
       questions,
-      assistantMessage: buildAssistantMessage(briefIntent, formGaps, questions),
+      assistantMessage: buildAssistantMessage(briefIntent, gaps, questions),
       aiProvider: "local",
       parseSource: "local",
     });
@@ -310,7 +351,34 @@ export async function POST(request: Request) {
       hotelChoices,
       aiProvider: "local",
       parseSource: "local",
-      assistantMessage: "Choose hotels before generating the itinerary draft.",
+      assistantMessage:
+        hotelChoices.length === 0 && options.length === 0
+          ? "No hotel options in catalog for this route — check stay plan cities."
+          : "Choose hotels before generating the itinerary draft.",
+    });
+  }
+
+  // Cost lines required before narrative (ask if not written)
+  if (!costsReady && parsed.data.action === "full") {
+    const questions = buildClarifyingQuestions(costGaps);
+    const nights =
+      briefIntent.stay_plan?.reduce((s, x) => s + x.nights, 0) ??
+      Math.max(briefIntent.days - 1, 1);
+    const hint = briefIntent.trip_costs
+      ? formatCostSummary(briefIntent.trip_costs, briefIntent.days, nights)
+      : "room / guide / car / pickup-drop / SDF";
+    return NextResponse.json({
+      status: "needs_clarification",
+      brief: briefIntent,
+      gaps: costGaps,
+      questions,
+      options,
+      compare,
+      hotelChoices,
+      selected,
+      assistantMessage: `Hotels locked. Cost lines still needed (${hint}). ${buildAssistantMessage(briefIntent, costGaps, questions)}`,
+      aiProvider: "local",
+      parseSource: "local",
     });
   }
 
@@ -318,8 +386,18 @@ export async function POST(request: Request) {
   const brandName = brand?.display_name ?? "Dhel";
   const finalBrief = composeFinalBrief(briefIntent);
 
-  // Narrative + reply + catalog enrichments in parallel (was sequential → felt "super slow")
-  const [narrative, reply, activities, guides, hotelImageUrls] = await Promise.all([
+  const stayHotels =
+    selected.hotel.stays?.length
+      ? selected.hotel.stays
+      : [
+          {
+            hotel_name: selected.hotel.hotel_name,
+            city: selected.hotel.city,
+          },
+        ];
+
+  // Narrative + reply + catalog enrichments in parallel
+  const [narrative, reply, activities, guides, hotelImageBatches] = await Promise.all([
     generateItineraryContent({
       apiKey,
       provider,
@@ -354,60 +432,93 @@ export async function POST(request: Request) {
     }),
     loadCatalogActivitiesFromDb(catalogAdmin).catch(() => []),
     loadCatalogGuidesFromDb(catalogAdmin).catch(() => []),
-    loadCatalogHotelImages(
-      catalogAdmin,
-      selected.hotel.hotel_name,
-      selected.hotel.city,
-    ).catch(() => []),
+    Promise.all(
+      stayHotels.map((h) =>
+        loadCatalogHotelImages(catalogAdmin, h.hotel_name, h.city).catch(() => [] as string[]),
+      ),
+    ),
   ]);
+
+  if (narrative.source === "stub") {
+    return NextResponse.json(
+      {
+        error:
+          "AI narrative unavailable (stub). Check Gemini/Cursor API keys — refusing to ship a template as a finished guest PDF.",
+        status: "error",
+        source: "stub",
+        warning: narrative.warning,
+      },
+      { status: 503 },
+    );
+  }
+
+  const hotelImageByStay = stayHotels.map((h, i) => ({
+    hotel: h.hotel_name,
+    city: h.city,
+    image_urls: hotelImageBatches[i] ?? [],
+  }));
+  const hotelImageUrls = hotelImageByStay.flatMap((x) => x.image_urls);
+
+  const hotelOptionsFromStays = stayHotels.map((h, i) => ({
+    id: `${selected.id}-stay-${i}`,
+    label: `${h.city} · ${h.hotel_name}`,
+    hotel: h.hotel_name,
+    city: h.city,
+    room: selected.hotel.room_type,
+    nights: selected.hotel.stays?.[i]?.nights ?? selected.hotel.nights,
+    total_pp: selected.sell_per_person,
+    currency: selected.currency,
+    recommended: true,
+    image_urls: hotelImageByStay[i]?.image_urls ?? [],
+  }));
 
   let content = enrichItineraryContent({
     content: {
       ...narrative.content,
-      hotel_options: compare.length
-        ? compare.map((row) => ({
-            id: row.id,
-            label: options.find((o) => o.id === row.id)?.label ?? selected.label,
-            hotel: row.hotel,
-            city: row.city,
-            room: row.room,
-            nights: row.nights,
-            total_pp: row.total_pp,
-            currency: row.currency,
-            recommended: row.id === selected.id,
-          }))
-        : [
-            {
-              id: selected.id,
-              label: selected.label,
-              hotel: selected.hotel.hotel_name,
-              city: selected.hotel.city,
-              room: selected.hotel.room_type,
-              nights: selected.hotel.nights,
-              total_pp: selected.sell_per_person,
-              currency: selected.currency,
-              recommended: true,
-            },
-          ],
+      hotel_options: hotelOptionsFromStays.length
+        ? hotelOptionsFromStays
+        : compare.length
+          ? compare.map((row) => ({
+              id: row.id,
+              label: options.find((o) => o.id === row.id)?.label ?? selected.label,
+              hotel: row.hotel,
+              city: row.city,
+              room: row.room,
+              nights: row.nights,
+              total_pp: row.total_pp,
+              currency: row.currency,
+              recommended: row.id === selected.id,
+            }))
+          : [
+              {
+                id: selected.id,
+                label: selected.label,
+                hotel: selected.hotel.hotel_name,
+                city: selected.hotel.city,
+                room: selected.hotel.room_type,
+                nights: selected.hotel.nights,
+                total_pp: selected.sell_per_person,
+                currency: selected.currency,
+                recommended: true,
+              },
+            ],
       selected_option_id: selected.id,
       vehicle_type: rateDefaults.default_vehicle_type ?? narrative.content.vehicle_type,
       vehicle_options: formatVehicleRatesList(rateDefaults, selected.currency as DisplayCurrency),
+      pricing: {
+        ...narrative.content.pricing,
+        currency: selected.currency,
+        total: selected.sell_total,
+        per_person: selected.sell_per_person,
+        pax: briefIntent.pax,
+      },
     },
     packageOption: selected,
     activities,
     guides,
     hotelImageUrls,
+    hotelImagesByStay: hotelImageByStay,
   });
-
-  // Ensure selected package hotel images are on the selected option
-  if (hotelImageUrls.length && content.hotel_options?.length) {
-    content = {
-      ...content,
-      hotel_options: content.hotel_options.map((o) =>
-        o.id === selected.id ? { ...o, image_urls: hotelImageUrls, recommended: true } : o,
-      ),
-    };
-  }
 
   const warnings: string[] = [];
   if (narrative.warning) warnings.push(narrative.warning);
@@ -436,6 +547,8 @@ export async function POST(request: Request) {
       compare,
       clientReply: reply.text,
       warnings: warnings.map((w) => friendlyAiWarning(w) ?? w),
+      stayPlan: briefIntent.stay_plan,
+      tripCosts: briefIntent.trip_costs as unknown as Record<string, unknown>,
     }),
   });
 }

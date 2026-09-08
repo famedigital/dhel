@@ -96,7 +96,7 @@ function AutocompletePositioner({
   return (
     <AutocompletePrimitive.Positioner
       data-slot="autocomplete-positioner"
-      className={cn("z-50 outline-none", className)}
+      className={cn("z-[100] outline-none", className)}
       {...props}
     />
   )

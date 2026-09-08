@@ -3,8 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Input } from "@/components/ui/input";
 import { Alert } from "@/components/ui/alert";
@@ -17,15 +16,28 @@ import {
 } from "@/components/ui/chat-bubble";
 import type { BriefIntent, CityHotelChoices, PackageOption } from "@/lib/catalog";
 import { findFormGaps } from "@/lib/catalog/gap-checker";
+import { applyCostAnswerToIntent } from "@/lib/catalog/trip-costs";
 import type { ItineraryContent } from "@/lib/types";
 import type { ClarifyingQuestion } from "@/lib/desk/question-bank";
-import { friendlyAiWarning } from "@/lib/ai/friendly-warning";
 import { TripWizard } from "@/components/dhel/TripWizard";
-import { HotelCompareTable } from "@/components/dhel/HotelCompareTable";
-import { ProposalReviewPanel } from "@/components/dhel/ProposalReviewPanel";
+import { HotelPickModal } from "@/components/dhel/HotelPickModal";
+import { DraftItineraryPreview } from "@/components/dhel/DraftItineraryPreview";
 import { BriefIntentForm } from "@/components/dhel/BriefIntentForm";
-import { RouteHotelPicker, routeHotelsComplete, type HotelSelection } from "@/components/dhel/RouteHotelPicker";
+import { routeHotelsComplete, type HotelSelection } from "@/components/dhel/RouteHotelPicker";
 import { stashItineraryClient } from "@/lib/offline/stash-client";
+import { cn } from "@/lib/utils";
+
+const COST_QUESTION_IDS = new Set([
+  "room_avg",
+  "guide_day",
+  "car_day",
+  "transfer_trip",
+  "sdf",
+  "cost_confirm",
+]);
+
+type MobileLayout = "tabs" | "stacked";
+const MOBILE_LAYOUT_KEY = "proposal-mobile-layout";
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
 
@@ -110,12 +122,34 @@ export function ProposalComposer({
   const [reviewMode, setReviewMode] = useState(false);
   const [saving, setSaving] = useState(false);
   const [draftAnswers, setDraftAnswers] = useState<Record<string, string>>({});
+  const [hotelModalOpen, setHotelModalOpen] = useState(false);
+  const [mobileLayout, setMobileLayout] = useState<MobileLayout>("tabs");
+  const [mobileTab, setMobileTab] = useState<"chat" | "itinerary">("chat");
+  const [awaitingCosts, setAwaitingCosts] = useState(false);
   const threadEndRef = useRef<HTMLDivElement>(null);
 
-  const formGaps = useMemo(
-    () => (editIntent ? findFormGaps(editIntent) : []),
-    [editIntent],
-  );
+  const formGaps = useMemo(() => {
+    if (!editIntent) return [];
+    return findFormGaps(editIntent).filter((g) => !COST_QUESTION_IDS.has(g));
+  }, [editIntent]);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(MOBILE_LAYOUT_KEY) as MobileLayout | null;
+      if (stored === "tabs" || stored === "stacked") setMobileLayout(stored);
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
+  function setMobileLayoutPersist(next: MobileLayout) {
+    setMobileLayout(next);
+    try {
+      localStorage.setItem(MOBILE_LAYOUT_KEY, next);
+    } catch {
+      /* ignore */
+    }
+  }
 
   const routeComplete = routeHotelsComplete(result?.hotelChoices ?? [], hotelSelections);
   const canGenerate = Boolean(
@@ -256,6 +290,17 @@ export function ProposalComposer({
       });
       if (data.status === "needs_clarification" || data.status === "needs_brief_confirm") {
         setResult(data);
+        if (data.questions?.some((q) => COST_QUESTION_IDS.has(q.id))) {
+          setAwaitingCosts(true);
+          setDeskReady(true);
+          setBriefConfirm(false);
+          setReviewMode(false);
+          if (data.brief) setEditIntent(data.brief);
+          if (data.assistantMessage) {
+            setMessages((prev) => [...prev, { role: "assistant", content: data.assistantMessage! }]);
+          }
+          return;
+        }
         setBriefConfirm(true);
         setDeskReady(false);
         setReviewMode(false);
@@ -265,13 +310,25 @@ export function ProposalComposer({
       if (data.status === "needs_hotel") {
         setResult(data);
         setDeskReady(true);
+        setAwaitingCosts(false);
         return;
       }
       setResult(data);
+      setAwaitingCosts(false);
       if (data.content) {
         setReviewContent(JSON.parse(JSON.stringify(data.content)) as ItineraryContent);
         setReviewMode(true);
         setDeskReady(false);
+        setMobileTab("itinerary");
+        if (data.clientReply) {
+          setMessages((prev) => [
+            ...prev,
+            {
+              role: "assistant",
+              content: `Draft ready — live guest PDF is on the right. ${data.clientReply}`,
+            },
+          ]);
+        }
       }
     } catch (e) {
       setResult({ error: e instanceof Error ? e.message : "Failed" });
@@ -306,7 +363,11 @@ export function ProposalComposer({
           entryPoint: result?.brief?.entry_point,
           travelDates: content.travel_dates,
           messages,
-          generationMeta: result?.generationMeta,
+          generationMeta: {
+            ...(result?.generationMeta ?? {}),
+            stay_plan: result?.brief?.stay_plan,
+            trip_costs: result?.brief?.trip_costs as unknown as Record<string, unknown>,
+          },
         }),
       });
       const saved = await saveRes.json();
@@ -348,10 +409,56 @@ export function ProposalComposer({
     const next = { ...draftAnswers, [questionId]: option };
     setDraftAnswers(next);
 
+    if (editIntent && COST_QUESTION_IDS.has(questionId)) {
+      setEditIntent(applyCostAnswerToIntent(editIntent, questionId, option));
+    }
+
     if (questions.length > 0 && questions.every((q) => next[q.id]?.trim())) {
       const combined = questions
         .map((q) => `${q.prompt.replace(/\?$/, "")}: ${next[q.id]}`)
         .join("\n");
+      if (awaitingCosts && editIntent) {
+        let intent = editIntent;
+        for (const q of questions) {
+          intent = applyCostAnswerToIntent(intent, q.id, next[q.id]!);
+        }
+        intent = {
+          ...intent,
+          trip_costs: { ...intent.trip_costs!, currency: intent.trip_costs?.currency ?? "INR", confirmed: true },
+        };
+        setEditIntent(intent);
+        setMessages((prev) => [...prev, { role: "user", content: combined }]);
+        setDraftAnswers({});
+        setFreeText("");
+        void (async () => {
+          setGenerating(true);
+          try {
+            const data = await callProposal("full", {
+              optionId: selectedId ?? undefined,
+              hotelSelections: result?.hotelChoices?.length ? hotelSelections : undefined,
+              confirmedIntent: intent,
+              skipGapCheck: usedDefaults,
+              extraMessages: [...messages, { role: "user", content: combined }],
+            });
+            setResult(data);
+            if (data.content) {
+              setReviewContent(JSON.parse(JSON.stringify(data.content)) as ItineraryContent);
+              setReviewMode(true);
+              setDeskReady(false);
+              setAwaitingCosts(false);
+              setMobileTab("itinerary");
+            } else if (data.status === "needs_clarification") {
+              setAwaitingCosts(true);
+              if (data.brief) setEditIntent(data.brief);
+            }
+          } catch (e) {
+            setResult({ error: e instanceof Error ? e.message : "Failed" });
+          } finally {
+            setGenerating(false);
+          }
+        })();
+        return;
+      }
       void submitUserMessage(combined);
     }
   }
@@ -363,11 +470,62 @@ export function ProposalComposer({
       .map((q) => `${q.prompt.replace(/\?$/, "")}: ${draftAnswers[q.id]}`);
     if (freeText.trim()) parts.push(freeText.trim());
     if (!parts.length) return;
+
+    if (awaitingCosts && editIntent) {
+      let intent = editIntent;
+      for (const q of questions) {
+        if (draftAnswers[q.id]) {
+          intent = applyCostAnswerToIntent(intent, q.id, draftAnswers[q.id]!);
+        }
+      }
+      if (freeText.trim()) {
+        intent = applyCostAnswerToIntent(intent, "cost_confirm", freeText.trim());
+      }
+      intent = {
+        ...intent,
+        trip_costs: {
+          currency: intent.trip_costs?.currency ?? "INR",
+          ...intent.trip_costs,
+          confirmed: true,
+        },
+      };
+      setEditIntent(intent);
+      const combined = parts.join("\n");
+      setMessages((prev) => [...prev, { role: "user", content: combined }]);
+      setDraftAnswers({});
+      setFreeText("");
+      void (async () => {
+        setGenerating(true);
+        try {
+          const data = await callProposal("full", {
+            optionId: selectedId ?? undefined,
+            hotelSelections: result?.hotelChoices?.length ? hotelSelections : undefined,
+            confirmedIntent: intent,
+            skipGapCheck: usedDefaults,
+          });
+          setResult(data);
+          if (data.content) {
+            setReviewContent(JSON.parse(JSON.stringify(data.content)) as ItineraryContent);
+            setReviewMode(true);
+            setDeskReady(false);
+            setAwaitingCosts(false);
+            setMobileTab("itinerary");
+          }
+        } catch (e) {
+          setResult({ error: e instanceof Error ? e.message : "Failed" });
+        } finally {
+          setGenerating(false);
+        }
+      })();
+      return;
+    }
+
     void submitUserMessage(parts.join("\n"));
   }
 
   const awaitingQuestions =
-    result?.status === "needs_clarification" && result.questions?.length && !editIntent;
+    (result?.status === "needs_clarification" && result.questions?.length && !editIntent) ||
+    (awaitingCosts && Boolean(result?.questions?.length));
   const hasThread = messages.length > 0 || loading;
   const answeredCount = result?.questions?.filter((q) => draftAnswers[q.id]?.trim()).length ?? 0;
   const allQuestionsAnswered =
@@ -376,14 +534,27 @@ export function ProposalComposer({
   const showHotelStep =
     deskReady &&
     !reviewMode &&
+    !awaitingCosts &&
     (Boolean(result?.hotelChoices?.length) || Boolean(result?.options?.length));
 
-  const isB2c = rateTier === "b2c";
+  useEffect(() => {
+    if (showHotelStep) setHotelModalOpen(true);
+    else setHotelModalOpen(false);
+  }, [showHotelStep]);
 
-  return (
+  const isB2c = rateTier === "b2c";
+  const showLivePreview = Boolean(reviewMode && reviewContent);
+  const showSplitDesktop = showLivePreview;
+
+  const chatColumn = (
     <div className="desk-chat flex min-h-0 flex-1 flex-col">
       <div className="min-h-0 flex-1 overflow-y-auto">
-        <div className="mx-auto flex min-h-full w-full max-w-[760px] flex-col px-4 sm:px-6">
+        <div
+          className={cn(
+            "mx-auto flex min-h-full w-full flex-col px-4 sm:px-6",
+            showSplitDesktop ? "max-w-none" : "max-w-[760px]",
+          )}
+        >
           {!hasThread ? (
             <div className="flex flex-1 flex-col items-center justify-center gap-3 px-2 pb-8 pt-10 text-center">
               <p className="text-xs font-medium uppercase tracking-[0.14em] text-[var(--muted-foreground)]">
@@ -395,7 +566,7 @@ export function ProposalComposer({
               <p className="max-w-md text-sm text-[var(--muted-foreground)]">
                 {isB2c
                   ? "Tell us your dates, group size, and what you love — we shape a private journey and hotels around you."
-                  : "Paste WhatsApp or email — we extract details locally, you confirm, pick hotels, then Gemini drafts the template."}
+                  : "Paste WhatsApp or email — clarify gaps, pick hotels per city, confirm cost lines, then see the live guest PDF."}
               </p>
             </div>
           ) : (
@@ -403,7 +574,7 @@ export function ProposalComposer({
               <p className="mb-4 text-center text-xs text-[var(--muted-foreground)]">
                 {isB2c
                   ? "Your brief · hotels · draft itinerary"
-                  : "Local brief · your hotels · AI narrative"}
+                  : "Brief · hotels · cost lines · live PDF"}
               </p>
               {messages.map((m, i) => {
                 const variant = m.role === "user" ? "sent" : "received";
@@ -416,7 +587,7 @@ export function ProposalComposer({
                   </ChatBubble>
                 );
               })}
-              {loading ? (
+              {loading || generating ? (
                 <ChatBubble variant="received">
                   <ChatBubbleAvatar fallback="AI" />
                   <ChatBubbleMessage isLoading />
@@ -426,20 +597,22 @@ export function ProposalComposer({
               {awaitingQuestions ? (
                 <div className="ml-10 mt-2 space-y-4 rounded-2xl bg-muted/50 px-4 py-3">
                   <p className="text-xs text-[var(--muted-foreground)]">
-                    Pick an answer for each question — or edit the form below.
+                    {awaitingCosts
+                      ? "Confirm cost lines for this trip (room, guide, car, pickup+drop, SDF)."
+                      : "Pick an answer for each question — or edit the form below."}
                   </p>
-                  {result.questions!.map((q) => (
+                  {result!.questions!.map((q) => (
                     <div key={q.id} className="space-y-2">
                       <p className="text-sm font-medium">{q.prompt}</p>
                       <div className="flex flex-wrap gap-2">
-                        {q.options.map((opt) => {
+                        {q.options.map((opt: string) => {
                           const selected = draftAnswers[q.id] === opt;
                           return (
                             <Button
                               key={opt}
                               variant={selected ? "default" : "outline"}
                               size="sm"
-                              disabled={loading}
+                              disabled={loading || generating}
                               onClick={() => selectQuestionOption(q.id, opt)}
                             >
                               {opt}
@@ -461,7 +634,7 @@ export function ProposalComposer({
                       }}
                     />
                     <Button
-                      disabled={loading || (!freeText.trim() && answeredCount === 0)}
+                      disabled={loading || generating || (!freeText.trim() && answeredCount === 0)}
                       onClick={submitDraftAnswers}
                     >
                       {allQuestionsAnswered || freeText.trim() ? "Send" : "Send answers"}
@@ -498,54 +671,29 @@ export function ProposalComposer({
                       onConfirm={() => void confirmBriefAndLoadHotels()}
                     />
                   </motion.div>
-                ) : reviewMode && reviewContent ? (
-                  <motion.div
-                    key="review"
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="mt-6"
-                  >
-                    <ProposalReviewPanel
-                      content={reviewContent}
-                      clientReply={result?.clientReply}
-                      aiProvider={result?.aiProvider}
-                      source={result?.source}
-                      warning={result?.warning}
-                      saving={saving}
-                      onChange={setReviewContent}
-                      onBack={backToOptions}
-                      onSave={saveReviewedDraft}
-                    />
-                  </motion.div>
                 ) : showHotelStep ? (
                   <motion.div
                     key="hotels"
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mt-6 space-y-6"
+                    className="mt-6"
                   >
-                    {result?.brief ? (
-                      <div className="flex flex-wrap justify-center gap-2 text-xs text-[var(--muted-foreground)]">
-                        {usedDefaults ? <Badge variant="outline">Used defaults</Badge> : null}
-                        <Badge variant="outline">Local parse</Badge>
-                        {result.brief.currency ? (
-                          <Badge variant="outline">{result.brief.currency} quote</Badge>
-                        ) : null}
-                        {result.brief.nationalities?.map((n) => (
-                          <Badge key={n} variant="outline">
-                            {n}
-                          </Badge>
-                        ))}
-                        {result.brief.entry_point ? (
-                          <Badge variant="outline">{result.brief.entry_point} entry</Badge>
-                        ) : null}
-                        <Badge variant="outline">
-                          {result.brief.days} days · {result.brief.pax ?? 2} pax
-                        </Badge>
+                    <Card className="border-border">
+                      <CardHeader className="pb-2">
+                        <CardTitle className="text-base">Hotels ready to choose</CardTitle>
+                        <CardDescription>
+                          Pick a hotel for each city — then confirm cost lines and generate the live
+                          PDF.
+                        </CardDescription>
+                      </CardHeader>
+                      <CardFooter className="flex flex-wrap gap-2 pt-2">
+                        <Button type="button" onClick={() => setHotelModalOpen(true)}>
+                          Open hotel picker
+                        </Button>
                         <Button
+                          type="button"
                           variant="ghost"
                           size="sm"
-                          className="h-6 text-xs"
                           onClick={() => {
                             setBriefConfirm(true);
                             setDeskReady(false);
@@ -553,83 +701,30 @@ export function ProposalComposer({
                         >
                           Edit trip details
                         </Button>
-                      </div>
-                    ) : null}
-
-                    {result?.hotelChoices?.length ? (
-                      <RouteHotelPicker
-                        choices={result.hotelChoices}
-                        selections={hotelSelections}
-                        onChange={setHotelSelections}
-                      />
-                    ) : result?.options?.length ? (
-                      <>
-                        <p className="text-center text-sm text-[var(--muted-foreground)]">
-                          Pick a package — nothing is pre-selected.
-                        </p>
-                        <div className="grid gap-4 md:grid-cols-3">
-                          {result.options.map((opt) => (
-                            <Card
-                              key={opt.id}
-                              className={`cursor-pointer transition-shadow ${
-                                selectedId === opt.id ? "ring-2 ring-[var(--primary)]" : ""
-                              }`}
-                              onClick={() => setSelectedId(opt.id)}
-                            >
-                              <CardHeader>
-                                <CardTitle className="text-base">{opt.label}</CardTitle>
-                                <CardDescription>
-                                  {opt.hotel.hotel_name} · {opt.hotel.city}
-                                </CardDescription>
-                              </CardHeader>
-                              <CardContent>
-                                <p className="text-2xl font-semibold">
-                                  {opt.currency} {opt.sell_per_person.toLocaleString()}
-                                  <span className="text-sm font-normal text-[var(--muted-foreground)]">
-                                    {" "}
-                                    / person
-                                  </span>
-                                </p>
-                                <p className="mt-1 text-xs text-[var(--muted-foreground)]">
-                                  {opt.hotel.room_type} · {opt.hotel.nights} nights
-                                </p>
-                              </CardContent>
-                              <CardFooter>
-                                <Button
-                                  className="w-full"
-                                  variant={selectedId === opt.id ? "default" : "secondary"}
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    setSelectedId(opt.id);
-                                  }}
-                                >
-                                  Use this
-                                </Button>
-                              </CardFooter>
-                            </Card>
-                          ))}
-                        </div>
-                        {result.compare ? <HotelCompareTable rows={result.compare} /> : null}
-                      </>
-                    ) : (
-                      <Alert>No hotel options in catalog for this route.</Alert>
-                    )}
-
-                    {friendlyAiWarning(result?.warning) ? (
-                      <p className="text-center text-xs text-[#e8a838]">
-                        Note: {friendlyAiWarning(result?.warning)}
-                      </p>
-                    ) : null}
-
-                    <div className="flex flex-wrap justify-center gap-3 pb-4">
-                      <Button size="lg" disabled={!canGenerate} onClick={() => void runFullGenerate()}>
-                        {generating ? "Generating draft…" : "Generate draft for review"}
-                      </Button>
-                      <p className="w-full text-center text-xs text-[var(--muted-foreground)]">
-                        Gemini only fills the itinerary template from your confirmed brief and hotels.
-                        Photos come from Cloudinary catalog.
-                      </p>
-                    </div>
+                      </CardFooter>
+                    </Card>
+                  </motion.div>
+                ) : showLivePreview ? (
+                  <motion.div
+                    key="live-hint"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mt-4"
+                  >
+                    <Card className="border-border">
+                      <CardHeader className="pb-2">
+                        <CardTitle className="text-base">Draft ready</CardTitle>
+                        <CardDescription>
+                          Live guest itinerary is open beside this chat. Ask for tweaks, or save to
+                          print.
+                        </CardDescription>
+                      </CardHeader>
+                      <CardFooter className="flex flex-wrap gap-2 pt-2 lg:hidden">
+                        <Button type="button" size="sm" onClick={() => setMobileTab("itinerary")}>
+                          View itinerary
+                        </Button>
+                      </CardFooter>
+                    </Card>
                   </motion.div>
                 ) : null}
               </AnimatePresence>
@@ -646,9 +741,14 @@ export function ProposalComposer({
         </div>
       </div>
 
-      {!reviewMode && !briefConfirm ? (
+      {!briefConfirm ? (
         <div className="desk-chat-dock relative shrink-0">
-          <div className="mx-auto w-full max-w-[760px] space-y-3">
+          <div
+            className={cn(
+              "mx-auto w-full space-y-3",
+              showSplitDesktop ? "max-w-none px-3" : "max-w-[760px]",
+            )}
+          >
             {!awaitingQuestions ? (
               <>
                 <PromptInput
@@ -658,34 +758,163 @@ export function ProposalComposer({
                   value={input}
                   onChange={setInput}
                   placeholder={
-                    isB2c
-                      ? "Describe your ideal Bhutan trip…"
-                      : "Paste client WhatsApp or email…"
+                    showLivePreview
+                      ? "Ask to tweak the draft (e.g. warmer letter, Day 3 focus)…"
+                      : isB2c
+                        ? "Describe your ideal Bhutan trip…"
+                        : "Paste client WhatsApp or email…"
                   }
                   onSubmit={(message) => {
-                    if (loading) return;
+                    if (loading || generating) return;
                     void submitUserMessage(message);
                   }}
                 />
                 <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 pb-1 text-xs text-[var(--muted-foreground)]">
-                  <button
-                    type="button"
-                    className="underline-offset-2 hover:text-foreground hover:underline"
-                    onClick={() => setWizardOpen(true)}
-                  >
-                    {isB2c ? "Prefer guided questions?" : "No message? Use wizard"}
-                  </button>
+                  {!showLivePreview ? (
+                    <button
+                      type="button"
+                      className="underline-offset-2 hover:text-foreground hover:underline"
+                      onClick={() => setWizardOpen(true)}
+                    >
+                      {isB2c ? "Prefer guided questions?" : "No message? Use wizard"}
+                    </button>
+                  ) : null}
                   <span>Enter to send · Shift+Enter for a new line</span>
                 </div>
               </>
             ) : (
               <p className="text-center text-xs text-[var(--muted-foreground)]">
-                Tap an answer above, or use the trip details form.
+                Tap an answer above to continue.
               </p>
             )}
           </div>
         </div>
       ) : null}
+    </div>
+  );
+
+  const previewColumn =
+    showLivePreview && reviewContent ? (
+      <DraftItineraryPreview
+        content={reviewContent}
+        language={result?.brief?.language ?? "en"}
+        clientName={result?.brief?.client_name}
+        saving={saving}
+        onBack={backToOptions}
+        onSavePreview={() => void saveReviewedDraft("preview")}
+        onSaveEditor={() => void saveReviewedDraft("editor")}
+      />
+    ) : (
+      <div className="flex h-full flex-col items-center justify-center gap-2 bg-[#c8c4bc]/90 p-6 text-center">
+        <p className="text-sm font-medium text-foreground/80">Guest itinerary preview</p>
+        <p className="max-w-xs text-xs text-muted-foreground">
+          After hotels and cost lines, the Classic Luxury PDF appears here live.
+        </p>
+      </div>
+    );
+
+  return (
+    <div className="proposal-workspace flex min-h-0 flex-1 flex-col">
+      {/* Mobile controls */}
+      <div className="flex shrink-0 items-center justify-between gap-2 border-b border-border bg-card px-3 py-2 lg:hidden">
+        <div className="flex rounded-lg border border-border p-0.5">
+          <button
+            type="button"
+            className={cn(
+              "rounded-md px-3 py-1 text-xs font-medium",
+              mobileTab === "chat" ? "bg-primary text-primary-foreground" : "text-muted-foreground",
+            )}
+            onClick={() => setMobileTab("chat")}
+          >
+            Chat
+          </button>
+          <button
+            type="button"
+            className={cn(
+              "rounded-md px-3 py-1 text-xs font-medium",
+              mobileTab === "itinerary"
+                ? "bg-primary text-primary-foreground"
+                : "text-muted-foreground",
+            )}
+            onClick={() => setMobileTab("itinerary")}
+            disabled={!showLivePreview}
+          >
+            Itinerary
+          </button>
+        </div>
+        <div className="flex rounded-lg border border-border p-0.5">
+          <button
+            type="button"
+            className={cn(
+              "rounded-md px-2 py-1 text-[10px] font-medium uppercase tracking-wide",
+              mobileLayout === "tabs" ? "bg-muted text-foreground" : "text-muted-foreground",
+            )}
+            onClick={() => setMobileLayoutPersist("tabs")}
+          >
+            Tabs
+          </button>
+          <button
+            type="button"
+            className={cn(
+              "rounded-md px-2 py-1 text-[10px] font-medium uppercase tracking-wide",
+              mobileLayout === "stacked" ? "bg-muted text-foreground" : "text-muted-foreground",
+            )}
+            onClick={() => setMobileLayoutPersist("stacked")}
+          >
+            Stacked
+          </button>
+        </div>
+      </div>
+
+      {/* Desktop: full chat until draft, then 30/70 */}
+      <div
+        className={cn(
+          "hidden min-h-0 flex-1 lg:grid",
+          showSplitDesktop ? "lg:grid-cols-[3fr_7fr]" : "lg:grid-cols-1",
+        )}
+      >
+        <div className={cn("min-h-0", showSplitDesktop && "border-r border-border")}>
+          {chatColumn}
+        </div>
+        {showSplitDesktop ? <div className="min-h-0">{previewColumn}</div> : null}
+      </div>
+
+      {/* Mobile tabs */}
+      {mobileLayout === "tabs" ? (
+        <div className="flex min-h-0 flex-1 flex-col lg:hidden">
+          {mobileTab === "chat" ? chatColumn : previewColumn}
+        </div>
+      ) : (
+        <div className="flex min-h-0 flex-1 flex-col lg:hidden">
+          <div className="min-h-0 flex-[0.48] overflow-hidden border-b border-border">
+            {previewColumn}
+          </div>
+          <div className="min-h-0 flex-[0.52] overflow-hidden">{chatColumn}</div>
+        </div>
+      )}
+
+      <HotelPickModal
+        open={hotelModalOpen && showHotelStep}
+        brief={result?.brief}
+        usedDefaults={usedDefaults}
+        hotelChoices={result?.hotelChoices}
+        options={result?.options}
+        compare={result?.compare}
+        warning={result?.warning}
+        selections={hotelSelections}
+        selectedId={selectedId}
+        canGenerate={canGenerate}
+        generating={generating}
+        onSelectionsChange={setHotelSelections}
+        onSelectPackage={setSelectedId}
+        onEditBrief={() => {
+          setHotelModalOpen(false);
+          setBriefConfirm(true);
+          setDeskReady(false);
+        }}
+        onGenerate={() => void runFullGenerate()}
+        onClose={() => setHotelModalOpen(false)}
+      />
 
       <TripWizard
         open={wizardOpen}

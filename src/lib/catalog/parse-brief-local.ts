@@ -1,5 +1,7 @@
 import type { BriefIntent, DisplayCurrency } from "./types";
 import { enrichBriefIntent } from "./brief-enrichment";
+import { mergeTripCostsFromBrief } from "./trip-costs";
+import { ensureStayPlan } from "./default-stay-plan";
 
 const MONTH_OR_DATE =
   /\b((jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|jun(?:e)?|jul(?:y)?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)[a-z]*\.?\s+\d{1,2}(?:\s*[-–]\s*\d{1,2})?(?:,?\s*\d{2,4})?|\d{1,2}[\/\-]\d{1,2}(?:[\/\-]\d{2,4})?|(?:spring|summer|autumn|fall|winter)\s+\d{4}|flexible)\b/i;
@@ -142,17 +144,21 @@ export function parseBriefLocal(rawBrief: string): BriefIntent {
   const currency = extractCurrency(raw);
   const days = extractDaysSeed(raw);
 
-  return enrichBriefIntent(raw, {
-    pax,
-    adults,
-    children,
-    days,
-    nationalities,
-    entry_point,
-    budget_tier,
-    language,
-    currency,
-    travel_dates,
-    client_name,
-  });
+  return ensureStayPlan(
+    mergeTripCostsFromBrief(
+      enrichBriefIntent(raw, {
+        pax,
+        adults,
+        children,
+        days,
+        nationalities,
+        entry_point,
+        budget_tier,
+        language,
+        currency,
+        travel_dates,
+        client_name,
+      }),
+    ),
+  );
 }

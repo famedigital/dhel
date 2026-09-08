@@ -38,7 +38,7 @@
       border-bottom: 1.5pt solid var(--gold);
     }
     .cmp-table tbody th {
-      width: 22%;
+      width: 18%;
       font-weight: 500;
       color: var(--charcoal);
       background: #faf8f5;
@@ -130,6 +130,134 @@
     }
     .hotel-shots figure:first-child { grid-row: 1 / span 2; }
     .hotel-shots.sm { grid-template-rows: 22mm 22mm; }
+    .page-body:has(> .bento-page) {
+      display: flex;
+      flex-direction: column;
+    }
+    .page-body:has(> .bento-page) > .section-label {
+      flex-shrink: 0;
+      font-size: 8.5pt;
+      color: var(--ink-soft);
+      font-weight: 600;
+    }
+    .page-body:has(> .bento-page) > .page-heading {
+      flex-shrink: 0;
+      font-size: 28pt;
+      font-weight: 600;
+    }
+    .page-body:has(> .bento-page) > .page-sub {
+      flex-shrink: 0;
+      font-size: 11pt;
+      color: var(--ink-soft);
+      margin-bottom: 3mm;
+      font-weight: 500;
+    }
+    .bento-page {
+      display: flex;
+      flex-direction: column;
+      gap: 4mm;
+      flex: 1;
+      min-height: 0;
+      margin-top: 2mm;
+    }
+    .bento-hotel {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5mm;
+    }
+    .bento-hotel .bh-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 3mm;
+      flex-shrink: 0;
+    }
+    .bento-hotel .bh-head h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15.5pt;
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+    .bento-hotel .bh-head .nights {
+      font-size: 8.5pt;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .bento-hotel .bh-meta {
+      font-size: 9pt;
+      line-height: 1.4;
+      color: var(--ink-soft);
+      flex-shrink: 0;
+    }
+    .bento-hotel .bh-meta a {
+      color: var(--ink);
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 1.5px;
+    }
+    .bento {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      gap: 2mm;
+    }
+    .bento figure {
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+      background: var(--cream);
+      min-height: 0;
+    }
+    .bento img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .bento figcaption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 2.5mm 3mm;
+      font-size: 8pt;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(14, 14, 12, 0.82));
+    }
+    /* Pelbu + Lemon Tree shared row — asymmetric */
+    .bento.b-two {
+      grid-template-columns: 1.35fr 1fr 1fr;
+      grid-template-rows: 1fr 0.72fr;
+    }
+    .bento.b-two .span-tall { grid-row: 1 / span 2; }
+    .bento.b-two .span-wide { grid-column: 2 / span 2; }
+    /* Gangtey — wide hero + two squares */
+    .bento.b-gang {
+      grid-template-columns: 1.6fr 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
+    /* Dhensa — 2x2 uneven */
+    .bento.b-dh {
+      grid-template-columns: 1.4fr 1fr;
+      grid-template-rows: 1.15fr 0.85fr;
+    }
+    .bento.b-dh .span-hero { grid-row: 1 / span 2; }
+    /* Le Méridien — big left + mosaic */
+    .bento.b-lm {
+      grid-template-columns: 1.5fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+    .bento.b-lm .span-hero {
+      grid-row: 1 / span 2;
+    }
+    .bento.b-lm .span-top { grid-column: 2 / span 2; }
     .place-grid.sm figure { height: 30mm; }
     .hotel-shots img {
       width: 100%;
@@ -221,6 +349,14 @@
       line-height: 1.45;
       color: var(--ink-soft);
     }
+    .page-terms .page-heading { font-size: 22pt; margin-bottom: 1mm; }
+    .page-terms .page-sub { margin-bottom: 3mm; font-size: 9pt; }
+    .page-terms .simple-intro { margin: 2.5mm 0 3mm; font-size: 8.5pt; line-height: 1.4; }
+    .page-terms .cmp-table th,
+    .page-terms .cmp-table td { padding: 2mm 2.5mm; font-size: 8.5pt; }
+    .page-terms .callout { padding: 3mm 3.5mm; }
+    .page-terms .callout h4 { font-size: 11.5pt; margin-bottom: 1mm; }
+    .page-terms .callout p { font-size: 8pt; line-height: 1.4; }
   </style>
 </head>
 <body>
@@ -238,7 +374,7 @@
       <div class="cover-content">
         <p class="cover-eyebrow">Kingdom of Bhutan · 10 Days · 9 Nights · Nature · Family</p>
         <h1 class="cover-brand">Silverpine <em>Tours</em></h1>
-        <p class="cover-title">Paro · Thimphu · Phobjikha · Punakha</p>
+        <p class="cover-title">Thimphu · Phobjikha · Punakha · Paro</p>
         <div class="cover-rule"></div>
         <p class="cover-client">Prepared for Neha Kumar &amp; family</p>
         <div class="cover-details">
@@ -264,7 +400,7 @@
           </div>
           <div class="cover-detail">
             <label>Stay</label>
-            <p>Le Méridien · Dhensa · your Phobjikha pick · Pelbu</p>
+            <p>Pelbu · Lemon Tree · Gangtey Tent · Dhensa · Le Méridien</p>
           </div>
         </div>
       </div>
@@ -272,7 +408,7 @@
     <footer class="page-footer">
       <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
       <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">01 / 20</span>
+      <span class="ft-right">01 / 18</span>
     </footer>
   </section>
 
@@ -285,36 +421,39 @@
     <div class="page-body">
       <p class="section-label">Correspondence</p>
       <h2 class="page-heading">A note of welcome</h2>
-      <p class="page-sub">Your houses and totals first · a suggestion from us after</p>
+      <p class="page-sub">Your route and houses are locked · rates confirmed 31 Aug</p>
 
-      <p class="letter-date">Issue date · 19 August 2026</p>
+      <p class="letter-date">Issue date · 31 August 2026</p>
       <p class="letter-greeting">Dear Neha,</p>
 
       <div class="letter-body">
         <p>
-          Thank you. We can run the journey you designed:
+          Thank you — we have locked the journey as you confirmed:
           <strong>30 December 2026 – 8 January 2027</strong>,
           Delhi → Paro → Delhi, nine nights, two adults and your son (12).
         </p>
         <p>
-          <strong>Your stays:</strong> Paro 4 at <strong>Le Méridien</strong>
-          (or Zhiwa Ling / Dawa), Punakha 2 at <strong>Dhensa</strong>,
-          Phobjikha 2 at <strong>Dewachen</strong> or <strong>Gangtey Tent</strong>,
-          Thimphu 1 at <strong>Pelbu Suites</strong>.
-          Page 4 is two figures: <strong>what the houses you named actually cost</strong>,
-          and your stated room band (₹ 25,000–30,000 / night).
-          Named mix, Le Méridien + Gangtey Tent: <strong>₹ 5,11,000</strong>.
-          Zhiwa Ling + Dewachen: <strong>₹ 5,88,000</strong>.
+          <strong>Route:</strong>
+          <strong>Paro → Thimphu (3 nights) → Phobjikha (2) → Punakha (2) → Paro (2 last)</strong>.
+          Three days in Thimphu; Tiger’s Nest and the flight from Paro at the end.
         </p>
         <p>
-          Pages 5–6 are <strong>a suggestion from our side</strong>, rebuilt inside
-          your ₹ 25,000–30,000 per-room band: Naksel in Paro, Meri Puensum in Punakha
-          (your Dhensa backup), Gangtey Tent, three nights Thimphu.
-          Route: <strong>Paro → Thimphu → Phobjikha → Punakha → Paro</strong>, Paro last.
-          That mix is <strong>₹ 3,53,000</strong>. Your version stands until you tell us to switch.
+          <strong>Your stays:</strong>
+          <strong>Pelbu Suites</strong> 1 night ·
+          <strong>Lemon Tree Resort</strong> 2 nights ·
+          <strong>Gangtey Tent</strong> 2 nights ·
+          <strong>Dhensa</strong> 2 nights ·
+          <strong>Le Méridien Paro</strong> 2 nights last.
+          Family total: <strong>₹ 3,89,900</strong>.
         </p>
         <p>
-          WhatsApp <strong>+975-17649720</strong> ·
+          Thimphu mountain day is locked as <strong>Pumola</strong> — the gentler ridge for a 12-year-old before Tiger’s Nest.
+          Tiger’s Nest itself is an <strong>early start</strong> on 7 Jan; we set the hotel pickup once your Delhi flight time is confirmed.
+          Winter note: Phobjikha tents and Dochula can be cold and foggy in January — heated floors at Gangtey; we do not linger on the pass in a gale.
+        </p>
+        <p>
+          To lock the file: WhatsApp passport scans, your son’s date of birth, and Delhi–Paro flight drafts to
+          <strong>+975-17649720</strong> ·
           <strong>www.silverpinebhutan.com</strong>.
         </p>
       </div>
@@ -347,36 +486,36 @@
     <footer class="page-footer">
       <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
       <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">02 / 20</span>
+      <span class="ft-right">02 / 18</span>
     </footer>
   </section>
 
-  <!-- 03 APPROACH -->
+  <!-- 03 DAYS -->
   <section class="page">
     <header class="page-header">
       <div class="brand">Silverpine <span>Tours</span></div>
       <div class="meta">Private Tour Itinerary</div>
     </header>
     <div class="page-body">
-      <p class="section-label">Part 1 · your itinerary</p>
+      <p class="section-label">Your locked itinerary</p>
       <h2 class="page-heading">Your 10 days</h2>
-      <p class="page-sub">As you designed it · nature first · full Tiger’s Nest · quiet New Year</p>
+      <p class="page-sub">Thimphu first · Pumola · Phobjikha · Punakha · early Tiger’s Nest · Paro last</p>
 
       <table class="day-table">
         <thead>
-          <tr><th>Day</th><th>Date</th><th>Your plan</th><th>Sleep</th></tr>
+          <tr><th>Day</th><th>Date</th><th>Plan</th><th>Sleep</th></tr>
         </thead>
         <tbody>
-          <tr><td>01</td><td>Wed 30 Dec</td><td>Delhi → Paro · acclimatise · town · Rinpung · Ta Dzong</td><td>Paro</td></tr>
-          <tr><td>02</td><td>Thu 31 Dec</td><td>Chele La (weather) · quiet New Year’s Eve</td><td>Paro</td></tr>
-          <tr><td>03</td><td>Fri 1 Jan</td><td>Tiger’s Nest — full trail</td><td>Paro</td></tr>
-          <tr><td>04</td><td>Sat 2 Jan</td><td>Paro → Dochula → Punakha Dzong · bridge</td><td>Punakha</td></tr>
-          <tr><td>05</td><td>Sun 3 Jan</td><td>Khamsum hike · optional rafting · farmhouse + hot stone</td><td>Punakha</td></tr>
-          <tr><td>06</td><td>Mon 4 Jan</td><td>Drive Phobjikha · Gangtey Nature Trail · cranes</td><td>Phobjikha</td></tr>
-          <tr><td>07</td><td>Tue 5 Jan</td><td>Full valley · monastery · walks</td><td>Phobjikha</td></tr>
-          <tr><td>08</td><td>Wed 6 Jan</td><td>To Thimphu · Buddha · Tashichho · market</td><td>Thimphu · 1 night</td></tr>
-          <tr><td>09</td><td>Thu 7 Jan</td><td>Thimphu → Paro · Kila / valley</td><td>Paro</td></tr>
-          <tr><td>10</td><td>Fri 8 Jan</td><td>Paro → Delhi</td><td>—</td></tr>
+          <tr><td>01</td><td>Wed 30 Dec</td><td>Land Paro · drive Thimphu · town, easy</td><td>Pelbu</td></tr>
+          <tr><td>02</td><td>Thu 31 Dec</td><td>Buddha Point → Changangkha on foot · quiet NYE</td><td>Lemon Tree</td></tr>
+          <tr><td>03</td><td>Fri 1 Jan</td><td>Pumola ridge (family pace)</td><td>Lemon Tree</td></tr>
+          <tr><td>04</td><td>Sat 2 Jan</td><td>Thimphu → Phobjikha · nature trail if light</td><td>Gangtey Tent</td></tr>
+          <tr><td>05</td><td>Sun 3 Jan</td><td>Full valley · cranes · monastery</td><td>Gangtey Tent</td></tr>
+          <tr><td>06</td><td>Mon 4 Jan</td><td>Phobjikha → Punakha · dzong · bridge</td><td>Dhensa</td></tr>
+          <tr><td>07</td><td>Tue 5 Jan</td><td>Khamsum · farmhouse + hot stone</td><td>Dhensa</td></tr>
+          <tr><td>08</td><td>Wed 6 Jan</td><td>Punakha → Paro via Dochula · Kyichu / river easy</td><td>Le Méridien</td></tr>
+          <tr><td>09</td><td>Thu 7 Jan</td><td>Tiger’s Nest — early start · full trail</td><td>Le Méridien</td></tr>
+          <tr><td>10</td><td>Fri 8 Jan</td><td>Paro → Delhi · pickup timed to your flight</td><td>—</td></tr>
         </tbody>
       </table>
 
@@ -388,256 +527,89 @@
           </tr>
         </thead>
         <tbody>
-          <tr><th>Paro · 4</th><td>Le Méridien (your choice) · or Zhiwa Ling · or Dawa Hilltop</td></tr>
-          <tr><th>Punakha · 2</th><td>Dhensa</td></tr>
-          <tr><th>Phobjikha · 2</th><td>Dewachen or Gangtey Tent</td></tr>
-          <tr><th>Thimphu · 1</th><td>Pelbu Suites</td></tr>
+          <tr><th>Thimphu · 1</th><td>Pelbu Suites · 30 Dec</td></tr>
+          <tr><th>Thimphu · 2</th><td>Lemon Tree Resort, Taba · 31 Dec &amp; 1 Jan</td></tr>
+          <tr><th>Phobjikha · 2</th><td>Gangtey Tent Resort · 2–3 Jan</td></tr>
+          <tr><th>Punakha · 2</th><td>Dhensa · 4–5 Jan</td></tr>
+          <tr><th>Paro · 2</th><td>Le Méridien, Riverfront · 6–7 Jan (last)</td></tr>
         </tbody>
       </table>
       <p class="note-line">
-        Full Tiger’s Nest, not the café viewpoint. Quiet NYE — no gala unless you ask.
-        Bumdra overnight in January we do not recommend with a 12-year-old.
+        Full Tiger’s Nest on Day 09, not the café viewpoint — early hotel start.
+        Quiet NYE — no gala unless you ask. Bumdra overnight in January we do not recommend with a 12-year-old.
+        Winter: Phobjikha and Dochula can be cold or foggy; heated tents; we shorten the pass stop if needed.
         Totals on the next page.
       </p>
     </div>
     <footer class="page-footer">
       <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
       <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">03 / 20</span>
+      <span class="ft-right">03 / 18</span>
     </footer>
   </section>
 
-  <!-- 04 PRICE · HER CHOICES -->
+  <!-- 04 PRICE -->
   <section class="page">
     <header class="page-header">
       <div class="brand">Silverpine <span>Tours</span></div>
       <div class="meta">Private Tour Quote</div>
     </header>
     <div class="page-body">
-      <p class="section-label">Part 1 · your amount</p>
-      <h2 class="page-heading">What your named houses cost</h2>
+      <p class="section-label">Locked amount</p>
+      <h2 class="page-heading">Family total</h2>
       <p class="page-sub">
-        Your brief asked ₹ 25,000–30,000 per room per night · the properties you named sit above that · totals below are those houses
+        One family room (double + extra bed) throughout · nine nights
       </p>
-
-      <p class="simple-intro" style="margin-bottom: 3mm;">
-        Zhiwa Ling, Dawa, Le Méridien and Dhensa are ₹ 35,000–46,000 a night for the double — not the 25–30k band.
-        Dewachen, Gangtey Tent and Pelbu do sit in (or under) the band.
-        One family room (double + extra bed). Apart from hotels, every mix has the same
-        <strong>guide · car · entries (₹ 1,02,300)</strong> and <strong>SDF (₹ 27,000)</strong>,
-        plus the farmhouse dinner.
-      </p>
-
-      <table class="cmp-table">
-        <thead>
-          <tr>
-            <th>Family total</th>
-            <th>A · Zhiwa Ling</th>
-            <th>B · Dawa Hilltop</th>
-            <th class="rec">C · Le Méridien</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>with Dewachen</th>
-            <td><span class="price">₹ 5,88,000</span></td>
-            <td>₹ 5,04,000</td>
-            <td class="rec"><span class="price">₹ 5,48,000</span></td>
-          </tr>
-          <tr>
-            <th>with Gangtey Tent</th>
-            <td>₹ 5,51,000</td>
-            <td>₹ 4,67,000</td>
-            <td class="rec"><span class="price">₹ 5,11,000</span></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p class="simple-intro" style="margin-bottom: 3mm;">
-        Named mix you later asked for (Le Méridien + Gangtey Tent): <strong>₹ 5,11,000</strong>.
-        If Paro is Zhiwa Ling and Phobjikha is Dewachen — the houses on your first brief: <strong>₹ 5,88,000</strong>.
-      </p>
-
-      <table class="day-table">
-        <thead>
-          <tr><th></th><th>C + Gangtey Tent</th><th>C + Dewachen</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Paro · Le Méridien 4 × (46,200 + 13,200 extra)</td><td>₹ 2,37,600</td><td>₹ 2,37,600</td></tr>
-          <tr><td>Punakha · Dhensa 2 × (38,500 + 7,700)</td><td>₹ 92,400</td><td>₹ 92,400</td></tr>
-          <tr><td>Phobjikha · Tent 2 × (11,000 + 4,400) / Dewachen 2 × (27,500 + 6,600)</td><td>₹ 30,800</td><td>₹ 68,200</td></tr>
-          <tr><td>Thimphu · Pelbu 1 × (5,500 + 3,300)</td><td>₹ 8,800</td><td>₹ 8,800</td></tr>
-          <tr><td><strong>Hotels</strong></td><td><strong>₹ 3,69,600</strong></td><td><strong>₹ 4,07,000</strong></td></tr>
-          <tr><td>Guide · car · entries</td><td>₹ 1,02,300</td><td>₹ 1,02,300</td></tr>
-          <tr><td>SDF (2 adults 1,200 + son 600) × 9</td><td>₹ 27,000</td><td>₹ 27,000</td></tr>
-          <tr><td>Farmhouse dinner + hot stone</td><td>₹ 12,000</td><td>₹ 12,000</td></tr>
-          <tr><td><strong>Family total</strong></td><td><strong>₹ 5,11,000</strong></td><td><strong>₹ 5,48,000</strong></td></tr>
-        </tbody>
-      </table>
-      <p class="note-line">
-        Our suggestion inside your ₹ 25–30k room band is page 6: <strong>₹ 3,53,000</strong>.
-        If immigration treats age 12 as adult SDF, + ₹ 5,400.
-        Lunch, mules, rafting, flights not included.
-      </p>
-    </div>
-    <footer class="page-footer">
-      <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
-      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">04 / 20</span>
-    </footer>
-  </section>
-
-  <!-- 05 OUR REC · THIMPHU -->
-  <section class="page">
-    <header class="page-header">
-      <div class="brand">Silverpine <span>Tours</span></div>
-      <div class="meta">Private Tour Itinerary</div>
-    </header>
-    <div class="page-body">
-      <p class="section-label">Part 2 · a suggestion from us</p>
-      <h2 class="page-heading">Not every night a five-star</h2>
-      <p class="page-sub">From Rajiv &amp; Tshering · inside your ₹ 25,000–30,000 per-room band</p>
-
-      <div class="callout">
-        <h4>Why we suggest a mix</h4>
-        <p>
-          The houses you named are good — they are also above the room budget you wrote.
-          We have rebuilt a mix that stays at or under ₹ 30,000 for the double:
-          forest boutique and heated tents, not a five-star every night.
-          Same heating, dinner, extra bed. Take it, take part of it, or stay with page 4.
-        </p>
-      </div>
 
       <table class="cmp-table">
         <thead>
           <tr>
             <th></th>
-            <th>Your plan</th>
-            <th class="rec">Our suggestion</th>
+            <th class="rec">Amount</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th>Route</th>
-            <td>Paro → Punakha → Phobjikha → Thimphu → Paro</td>
-            <td class="rec">Paro → Thimphu → Phobjikha → Punakha → Paro</td>
+            <th>Hotels</th>
+            <td class="rec">
+              <span class="price">₹ 2,60,600</span><br />
+              <span class="small">All stays MAP + extras · farmhouse dinner &amp; hot stone</span>
+            </td>
           </tr>
           <tr>
-            <th>Nights</th>
-            <td>Paro 4 · Punakha 2 · Phobjikha 2 · Thimphu 1</td>
-            <td class="rec">Thimphu 3 · Phobjikha 2 · Punakha 2 · Paro 2 (last)</td>
+            <th>Guide · car · entries</th>
+            <td class="rec">
+              <span class="price">₹ 1,02,300</span><br />
+              <span class="small">Licensed guide · Toyota Cross · monument fees</span>
+            </td>
           </tr>
           <tr>
-            <th>Thimphu</th>
-            <td>Pelbu · one afternoon</td>
-            <td class="rec">Pelbu 1 night · plus 2 at Lemon Tree or Happiness Kingdom (you choose)</td>
+            <th>SDF</th>
+            <td class="rec">
+              <span class="price">₹ 27,000</span><br />
+              <span class="small">Confirmed child rate · 2 adults 1,200 + son 600 × 9 nights</span>
+            </td>
           </tr>
           <tr>
-            <th>Paro</th>
-            <td>Le Méridien from night one, including NYE</td>
-            <td class="rec">Paro last · Naksel (₹ 28,000) — Taktsang when acclimatised, then the flight</td>
+            <th>Family total</th>
+            <td class="rec"><span class="price">₹ 3,89,900</span></td>
           </tr>
-        </tbody>
-      </table>
-
-      <div class="two-col">
-        <div class="rec-stay">
-          <p class="tag">Thimphu · one night · always</p>
-          <h4>Pelbu Suites</h4>
-          <p>
-            Our house — town, lift, kitchen we know. The capital night that is not a chain hotel.
-            ₹ 5,500 + extra ₹ 3,300.
-          </p>
-        </div>
-        <div class="rec-stay">
-          <p class="tag">Thimphu · the other two nights · you pick</p>
-          <h4>Lemon Tree or Happiness Kingdom</h4>
-          <p>
-            Lemon Tree Resort, Taba — easy family resort. Or Happiness Kingdom — heated glamping, quiet NYE.
-            Same working band: ₹ 13,200 + extra ₹ 4,400 a night. Mix one and one, or two at either.
-          </p>
-        </div>
-      </div>
-
-      <p class="simple-intro" style="margin-bottom: 2mm; margin-top: 3mm;">
-        <strong>Three Thimphu days:</strong>
-        town (market, Tashichho, no rush) ·
-        <strong>Buddha Point → Changangkha</strong> on foot ·
-        <strong>Phajoding or Pumola</strong> (the mountain day — pick one, not both).
-        Punakha: <strong>Meri Puensum</strong> (your Dhensa backup, ₹ 27,500 — in band).
-        Phobjikha: <strong>Gangtey Tent</strong> (under band, heated canvas).
-        Paro last two nights: <strong>Naksel</strong> (₹ 28,000 — forest, spa after Taktsang).
-        Photos of these houses: pages 12–13.
-      </p>
-    </div>
-    <footer class="page-footer">
-      <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
-      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">05 / 20</span>
-    </footer>
-  </section>
-
-  <!-- 06 OUR REC · DAYS -->
-  <section class="page">
-    <header class="page-header">
-      <div class="brand">Silverpine <span>Tours</span></div>
-      <div class="meta">Private Tour Itinerary</div>
-    </header>
-    <div class="page-body">
-      <p class="section-label">Part 2 · a suggestion from us</p>
-      <h2 class="page-heading">Paro last · the days</h2>
-      <p class="page-sub">Same dates · we change the order · fly from Paro on the morning of 8 Jan</p>
-
-      <table class="day-table">
-        <thead>
-          <tr><th>Day</th><th>Date</th><th>Our suggestion</th><th>Sleep</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>01</td><td>Wed 30 Dec</td><td>Land Paro · drive Thimphu · town, easy</td><td>Pelbu</td></tr>
-          <tr><td>02</td><td>Thu 31 Dec</td><td>Buddha Point → Changangkha on foot · quiet NYE</td><td>Lemon Tree or glamping</td></tr>
-          <tr><td>03</td><td>Fri 1 Jan</td><td>Phajoding or Pumola (pick one)</td><td>Lemon Tree or glamping</td></tr>
-          <tr><td>04</td><td>Sat 2 Jan</td><td>Thimphu → Phobjikha · nature trail if light</td><td>Gangtey Tent</td></tr>
-          <tr><td>05</td><td>Sun 3 Jan</td><td>Full valley · cranes · monastery</td><td>Gangtey Tent</td></tr>
-          <tr><td>06</td><td>Mon 4 Jan</td><td>Phobjikha → Punakha · dzong · bridge</td><td>Meri Puensum</td></tr>
-          <tr><td>07</td><td>Tue 5 Jan</td><td>Khamsum · farmhouse + hot stone</td><td>Meri Puensum</td></tr>
-          <tr><td>08</td><td>Wed 6 Jan</td><td>Punakha → Paro via Dochula</td><td>Naksel</td></tr>
-          <tr><td>09</td><td>Thu 7 Jan</td><td>Tiger’s Nest — full trail · last night Paro</td><td>Naksel</td></tr>
-          <tr><td>10</td><td>Fri 8 Jan</td><td>Paro → Delhi</td><td>—</td></tr>
-        </tbody>
-      </table>
-
-      <table class="day-table">
-        <thead>
-          <tr><th>Suggested mix · working</th><th>Nights</th><th>Family / night</th><th>Hotels</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Thimphu · Pelbu</td><td>1</td><td>5,500 + 3,300</td><td>₹ 8,800</td></tr>
-          <tr><td>Thimphu · Lemon Tree or Happiness Kingdom</td><td>2</td><td>13,200 + 4,400</td><td>₹ 35,200</td></tr>
-          <tr><td>Phobjikha · Gangtey Tent</td><td>2</td><td>11,000 + 4,400</td><td>₹ 30,800</td></tr>
-          <tr><td>Punakha · Meri Puensum (working)</td><td>2</td><td>27,500 + 6,000</td><td>₹ 67,000</td></tr>
-          <tr><td>Paro · Naksel (working)</td><td>2</td><td>28,000 + 7,000</td><td>₹ 70,000</td></tr>
-          <tr><td>Hotels</td><td></td><td></td><td>₹ 2,11,800</td></tr>
-          <tr><td>Guide · car · entries</td><td></td><td></td><td>₹ 1,02,300</td></tr>
-          <tr><td>SDF</td><td></td><td></td><td>₹ 27,000</td></tr>
-          <tr><td>Farmhouse dinner + hot stone</td><td></td><td></td><td>₹ 12,000</td></tr>
-          <tr><td><strong>Suggested family total</strong></td><td></td><td></td><td><strong>₹ 3,53,000</strong></td></tr>
         </tbody>
       </table>
       <p class="note-line">
-        Every double on this mix is at or under ₹ 30,000. Extra bed is extra, as on your brief.
-        Naksel and Meri Puensum MAP to confirm before hold.
-        Those houses: pages 12–13. Photo days from page 15 remain your itinerary until you say to switch.
+        Hotels: Pelbu · Lemon Tree · Gangtey Tent · Dhensa · Le Méridien — one family room throughout (MAP).
+        <strong>SDF:</strong> child rate for age 12 is confirmed — ₹ 27,000 (2 adults 1,200 + son 600 × 9 nights).
       </p>
     </div>
     <footer class="page-footer">
       <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
       <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">06 / 20</span>
+      <span class="ft-right">04 / 18</span>
     </footer>
   </section>
 
-  <!-- 07 TERMS -->
-  <section class="page">
+  <!-- 05 TERMS -->
+  <section class="page page-terms">
     <header class="page-header">
       <div class="brand">Silverpine <span>Tours</span></div>
       <div class="meta">Private Tour Quote</div>
@@ -645,45 +617,39 @@
     <div class="page-body">
       <p class="section-label">To book</p>
       <h2 class="page-heading">What is in · how to pay</h2>
-      <p class="page-sub">INR · card is not reliable in Bhutan · name your mix or our suggestion</p>
+      <p class="page-sub">INR · card is not reliable in Bhutan · locked mix</p>
 
       <table class="cmp-table">
         <thead>
           <tr>
-            <th>Advance · 50%</th>
-            <th>A · Zhiwa Ling</th>
-            <th>B · Dawa</th>
-            <th class="rec">C · Le Méridien</th>
+            <th></th>
+            <th class="rec">Locked mix</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th>with Dewachen</th>
-            <td>₹ 2,94,000</td>
-            <td>₹ 2,52,000</td>
-            <td class="rec">₹ 2,74,000</td>
+            <th>Family total</th>
+            <td class="rec"><span class="price">₹ 3,89,900</span></td>
           </tr>
           <tr>
-            <th>with Gangtey Tent</th>
-            <td>₹ 2,75,500</td>
-            <td>₹ 2,33,500</td>
-            <td class="rec">₹ 2,55,500</td>
+            <th>Advance · 50%</th>
+            <td class="rec">₹ 1,94,950</td>
           </tr>
         </tbody>
       </table>
 
       <p class="simple-intro">
-        Send passport scans (or voter ID) for all three, your son’s date of birth, Paro house and Phobjikha house with the advance.
-        Balance is the other half — cash on arrival or NEFT. We then place holds and file permits.
+        Send passport scans (or voter ID) for all three, your son’s date of birth, and Delhi–Paro flight drafts with the advance.
+        Balance cash on arrival or NEFT. We place holds and file permits.
+        WhatsApp <strong>+975-17649720</strong> for flight drafts so we time Nest start and Day 10 pickup.
       </p>
 
       <div class="two-col">
         <div class="callout" style="margin: 0;">
           <h4>Included</h4>
           <p>
-            SDF · entry permits · licensed guide · Toyota Cross or similar ·
-            hotels MAP (breakfast &amp; dinner) · extra bed for your son ·
-            monument fees as per itinerary · Paro airport pickup &amp; drop ·
+            SDF (child rate confirmed) · permits · licensed guide · Toyota Cross or similar ·
+            hotels MAP · extra bed · monument fees · Paro airport pickup &amp; drop ·
             Punakha farmhouse dinner with hot-stone bath.
           </p>
         </div>
@@ -692,12 +658,12 @@
           <p>
             Delhi ⇄ Paro tickets · lunch (paid as you go) ·
             Taktsang mules if used · optional Mo Chhu rafting ·
-            optional Bumdra (day or camp) · tips · laundry · insurance · shopping.
+            tips · laundry · insurance · shopping.
           </p>
         </div>
       </div>
 
-      <table class="cmp-table" style="margin-top: 5mm;">
+      <table class="cmp-table" style="margin-top: 3mm;">
         <thead>
           <tr><th colspan="2">If plans change</th></tr>
         </thead>
@@ -713,21 +679,21 @@
         </tbody>
       </table>
 
-      <div class="two-col" style="margin-top: 4mm;">
+      <div class="two-col" style="margin-top: 3mm;">
         <div class="callout" style="margin: 0;">
           <h4>Rooms · son age 12</h4>
           <p>
-            We book <strong>one double + extra bed</strong> throughout.
-            Le Méridien deluxe rooms have a sofa bed — often the cleanest fit for a 12-year-old.
-            If Zhiwa Ling, LM, Dhensa or Dewachen require a second room, we tell you before the hold.
+            One double + extra bed throughout.
+            Le Méridien deluxe often has a sofa bed — clean fit for a 12-year-old.
+            If LM or Dhensa need a second room, we tell you before the hold.
           </p>
         </div>
         <div class="callout" style="margin: 0;">
-          <h4>Guide &amp; car</h4>
+          <h4>Guide · car · winter</h4>
           <p>
-            TCB-licensed English-speaking guide used to families and winter trails.
-            Toyota Cross or similar — private, not a coaster.
-            Profiles sent for your consent before we lock names.
+            TCB-licensed English-speaking guide · Toyota Cross or similar.
+            Profiles for your consent before we lock names.
+            Phobjikha is colder (heated tents); Dochula may be foggy — we shorten the pass stop if needed.
           </p>
         </div>
       </div>
@@ -735,488 +701,162 @@
     <footer class="page-footer">
       <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
       <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">07 / 20</span>
+      <span class="ft-right">05 / 18</span>
     </footer>
   </section>
 
-  <!-- 06 HOTELS PARO -->
+
+  <!-- 06 HOTELS · THIMPHU + PHOBJIKHA -->
   <section class="page">
     <header class="page-header">
       <div class="brand">Silverpine <span>Tours</span></div>
       <div class="meta">Private Tour Itinerary</div>
     </header>
     <div class="page-body">
-      <p class="section-label">Stay · your houses</p>
-      <h2 class="page-heading">Hotels · Paro</h2>
-      <p class="page-sub">Four nights · 30 Dec, 31 Dec, 1 Jan, 7 Jan · C is the house you asked for</p>
+      <p class="section-label">Stay · locked · 1 of 2</p>
+      <h2 class="page-heading">Thimphu · Phobjikha</h2>
+      <p class="page-sub">Pelbu · Lemon Tree · Gangtey Tent · MAP</p>
 
-      <div class="hotel-block">
-        <div class="hotel-block-head">
-          <h3>Paro · Le Méridien, Riverfront</h3>
-          <span class="nights">Option C · 4 nights · ₹ 46,200 working</span>
+      <div class="bento-page">
+        <div class="bento-hotel" style="flex: 1.15;">
+          <div class="bh-head">
+            <h3>Thimphu · Pelbu Suites &amp; Lemon Tree, Taba</h3>
+            <span class="nights">Pelbu 30 Dec · Lemon Tree 31 Dec–1 Jan</span>
+          </div>
+          <p class="bh-meta">
+            Pelbu — our house, lift, spa ·
+            <a href="https://www.pelbusuites.bt" target="_blank" rel="noopener">pelbusuites.bt</a>
+            · Lemon Tree — family resort, NYE base ·
+            <a href="https://www.lemontreehotels.com/lemon-tree-hotel/thimphu/resorts/" target="_blank" rel="noopener">lemontreehotels.com</a>
+          </p>
+          <div class="bento b-two">
+            <figure class="span-tall">
+              <img src="images/hotel_pelbu_suite.jpg" alt="Pelbu suite" />
+              <figcaption>Pelbu · suite</figcaption>
+            </figure>
+            <figure class="span-wide">
+              <img src="images/hotel_lemontree_exterior.jpg" alt="Lemon Tree hillside" />
+              <figcaption>Lemon Tree · Taba hillside</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_pelbu_room_double.jpg" alt="Pelbu room" />
+              <figcaption>Pelbu · room</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_lemontree_king.jpg" alt="Lemon Tree room" />
+              <figcaption>Lemon Tree · room</figcaption>
+            </figure>
+          </div>
         </div>
-        <p class="hotel-block-meta">
-          5★ Marriott · Shaba · Paro Chhu · heated pool · Explore Spa · deluxe rooms with sofa bed ·
-          10 minutes from the airport ·
-          <a href="https://www.marriott.com/en-us/hotels/pbhpr-le-meridien-paro-riverfront/overview/" target="_blank" rel="noopener">marriott.com</a>
-          · MAP and any New Year’s Eve dinner supplement confirmed before hold. Quiet NYE in-house if you do not want the gala.
-        </p>
-        <div class="hotel-shots">
-          <figure>
-            <img src="images/hotel_lm_exterior.jpg" alt="Le Méridien Paro courtyard" />
-            <figcaption>Courtyard · dusk</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_lm_property.jpg" alt="Le Méridien Paro night facade" />
-            <figcaption>Night facade</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_lm_room.jpg" alt="Le Méridien deluxe room" />
-            <figcaption>Deluxe room</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_lm_spa.jpg" alt="Le Méridien spa" />
-            <figcaption>Explore Spa</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_lm_fitness.jpg" alt="Le Méridien fitness" />
-            <figcaption>Fitness</figcaption>
-          </figure>
-        </div>
-      </div>
 
-      <div class="hotel-block">
-        <div class="hotel-block-head">
-          <h3>Paro · Zhiwa Ling Heritage</h3>
-          <span class="nights">Option A · 4 nights · ₹ 49,500</span>
-        </div>
-        <p class="hotel-block-meta">
-          5★ Bhutanese-owned · Satsam Chorten · temple on the grounds · near Kyichu · extra bed ₹ 19,800 ·
-          <a href="https://www.zhiwalingheritage.com/" target="_blank" rel="noopener">zhiwalingheritage.com</a>
-        </p>
-        <div class="hotel-shots sm">
-          <figure>
-            <img src="images/hotel_zhiwa_exterior.jpg" alt="Zhiwa Ling Heritage grounds" />
-            <figcaption>Grounds</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_zhiwa_grounds.jpg" alt="Zhiwa Ling facade" />
-            <figcaption>Stone facade</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_zhiwa_suite.jpg" alt="Zhiwa Ling suite" />
-            <figcaption>Suite</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_zhiwa_junior.jpg" alt="Zhiwa Ling junior suite" />
-            <figcaption>Junior suite</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_zhiwa_dining.jpg" alt="Zhiwa Ling dining" />
-            <figcaption>Lingka restaurant</figcaption>
-          </figure>
+        <div class="bento-hotel" style="flex: 0.85;">
+          <div class="bh-head">
+            <h3>Phobjikha · Gangtey Tent Resort</h3>
+            <span class="nights">2 nights · 2–3 Jan · underfloor heating</span>
+          </div>
+          <p class="bh-meta">
+            Heated luxury tents · winter valley ·
+            <a href="https://www.gangteytentresort.com/" target="_blank" rel="noopener">gangteytentresort.com</a>
+          </p>
+          <div class="bento b-gang">
+            <figure>
+              <img src="images/hotel_gangtey_tent_row.jpg" alt="Gangtey Tent hillside" />
+              <figcaption>Tents on the hillside</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_gangtey_tent_interior.jpg" alt="Tent interior" />
+              <figcaption>Heated interior</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_gangtey_tent_deck.jpg" alt="Tent deck" />
+              <figcaption>Private deck</figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </div>
     <footer class="page-footer">
       <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
       <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">08 / 20</span>
+      <span class="ft-right">06 / 18</span>
     </footer>
   </section>
 
-  <!-- 06b DAWA -->
+  <!-- 07 HOTELS · PUNAKHA + PARO -->
   <section class="page">
     <header class="page-header">
       <div class="brand">Silverpine <span>Tours</span></div>
       <div class="meta">Private Tour Itinerary</div>
     </header>
     <div class="page-body">
-      <p class="section-label">Stay · your houses</p>
-      <h2 class="page-heading">Hotels · Paro · Dawa</h2>
-      <p class="page-sub">Option B · same four Paro nights if you prefer the hilltop house</p>
+      <p class="section-label">Stay · locked · 2 of 2</p>
+      <h2 class="page-heading">Punakha · Paro</h2>
+      <p class="page-sub">Dhensa · Le Méridien · MAP</p>
 
-      <div class="hotel-block">
-        <div class="hotel-block-head">
-          <h3>Paro · Dawa at Hilltop</h3>
-          <span class="nights">Option B · 4 nights · ₹ 39,600</span>
+      <div class="bento-page">
+        <div class="bento-hotel" style="flex: 0.95;">
+          <div class="bh-head">
+            <h3>Punakha · Dhensa</h3>
+            <span class="nights">2 nights · 4–5 Jan</span>
+          </div>
+          <p class="bh-meta">
+            Valley cottages · private balconies · Kibu Spa ·
+            <a href="https://dhensa.com/" target="_blank" rel="noopener">dhensa.com</a>
+          </p>
+          <div class="bento b-dh">
+            <figure class="span-hero">
+              <img src="images/hotel_dhensa_exterior.jpg" alt="Dhensa cottages" />
+              <figcaption>Cottages at dusk</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_dhensa_view.jpg" alt="Dhensa valley view" />
+              <figcaption>Suite · valley</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_dhensa_room.jpg" alt="Dhensa bedroom" />
+              <figcaption>Bedroom</figcaption>
+            </figure>
+          </div>
         </div>
-        <p class="hotel-block-meta">
-          Contemporary hilltop by Heeton · valley views · infinity pool · Chelela Spa ·
-          extra bed ₹ 8,800 working ·
-          <a href="https://dawaathilltop.com/" target="_blank" rel="noopener">dawaathilltop.com</a>
-        </p>
-        <div class="hotel-shots">
-          <figure>
-            <img src="images/hotel_dawa_view.jpg" alt="Dawa at Hilltop lobby" />
-            <figcaption>Lobby · prayer wheel</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_dawa_exterior.jpg" alt="Dawa at Hilltop entrance" />
-            <figcaption>Entrance</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_dawa_room.jpg" alt="Dawa deluxe room" />
-            <figcaption>Deluxe · forest view</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_dawa_suite.jpg" alt="Dawa suite" />
-            <figcaption>Suite</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_dawa_pool.jpg" alt="Dawa spa" />
-            <figcaption>Chelela Spa</figcaption>
-          </figure>
-        </div>
-      </div>
 
-      <div class="place-grid" style="margin-top: 5mm;">
-        <figure>
-          <img src="images/hotel_dawa_dining.jpg" alt="Dawa dining" />
-          <figcaption>Cypress restaurant</figcaption>
-        </figure>
-        <figure>
-          <img src="images/hotel_dawa_twin.jpg" alt="Dawa twin room" />
-          <figcaption>Premium twin</figcaption>
-        </figure>
-        <figure>
-          <img src="images/hotel_dawa_suite.jpg" alt="Dawa suite" />
-          <figcaption>Dawa suite</figcaption>
-        </figure>
-      </div>
-    </div>
-    <footer class="page-footer">
-      <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
-      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">09 / 20</span>
-    </footer>
-  </section>
-
-  <!-- 07 HOTELS VALLEY -->
-  <section class="page">
-    <header class="page-header">
-      <div class="brand">Silverpine <span>Tours</span></div>
-      <div class="meta">Private Tour Itinerary</div>
-    </header>
-    <div class="page-body">
-      <p class="section-label">Stay · your houses</p>
-      <h2 class="page-heading">Punakha · Phobjikha · Thimphu</h2>
-      <p class="page-sub">Dhensa is fixed · Phobjikha is Dewachen or Gangtey Tent · Pelbu one night</p>
-
-      <div class="hotel-block">
-        <div class="hotel-block-head">
-          <h3>Punakha · Dhensa</h3>
-          <span class="nights">2 nights · 2–3 Jan · ₹ 38,500</span>
-        </div>
-        <p class="hotel-block-meta">
-          4★ valley lodge · 24 suites in six cottages · private balconies · Kibu Spa ·
-          <a href="https://dhensa.com/" target="_blank" rel="noopener">dhensa.com</a>
-          · backup: Meri Puensum, same band, confirmed before we switch.
-        </p>
-        <div class="hotel-shots">
-          <figure>
-            <img src="images/hotel_dhensa_exterior.jpg" alt="Dhensa Punakha exterior" />
-            <figcaption>Cottages at dusk</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_dhensa_view.jpg" alt="Dhensa suite valley view" />
-            <figcaption>Suite · valley view</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_dhensa_room.jpg" alt="Dhensa bedroom" />
-            <figcaption>Bedroom</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_dhensa_cottages.jpg" alt="Dhensa restaurant" />
-            <figcaption>Restaurant</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_dhensa_spa.jpg" alt="Dhensa spa" />
-            <figcaption>Kibu Spa</figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <div class="hotel-block">
-        <div class="hotel-block-head">
-          <h3>Phobjikha · Gangtey Tent Resort</h3>
-          <span class="nights">2 nights · 4–5 Jan · ₹ 11,000 MAP</span>
-        </div>
-        <p class="hotel-block-meta">
-          Heated luxury tents · underfloor heating · ensuite · valley views · 10 tents only · extra mattress ₹ 4,400 ·
-          <a href="https://www.gangteytentresort.com/" target="_blank" rel="noopener">gangteytentresort.com</a>
-        </p>
-        <div class="hotel-shots sm">
-          <figure>
-            <img src="images/hotel_gangtey_tent_row.jpg" alt="Gangtey Tent Resort hillside" />
-            <figcaption>Tents on the hillside</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_gangtey_tent_deck.jpg" alt="Gangtey Tent decks" />
-            <figcaption>Private decks</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_gangtey_tent_interior.jpg" alt="Gangtey Tent sitting room" />
-            <figcaption>Sitting room</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_gangtey_tent_exterior.jpg" alt="Gangtey Tent valley view" />
-            <figcaption>Valley light</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_dewachen_05.jpg" alt="Phobjikha in winter snow" />
-            <figcaption>January in the valley</figcaption>
-          </figure>
+        <div class="bento-hotel" style="flex: 1.15;">
+          <div class="bh-head">
+            <h3>Paro · Le Méridien, Riverfront</h3>
+            <span class="nights">2 nights last · 6–7 Jan</span>
+          </div>
+          <p class="bh-meta">
+            5★ Marriott · heated pool · Explore Spa · sofa bed · ~10 min to airport ·
+            <a href="https://www.marriott.com/en-us/hotels/pbhpr-le-meridien-paro-riverfront/overview/" target="_blank" rel="noopener">marriott.com</a>
+          </p>
+          <div class="bento b-lm">
+            <figure class="span-hero">
+              <img src="images/hotel_lm_exterior.jpg" alt="Le Méridien courtyard" />
+              <figcaption>Courtyard · dusk</figcaption>
+            </figure>
+            <figure class="span-top">
+              <img src="images/hotel_lm_property.jpg" alt="Le Méridien night" />
+              <figcaption>Night facade</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_lm_room.jpg" alt="Le Méridien room" />
+              <figcaption>Deluxe room</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_lm_spa.jpg" alt="Le Méridien spa" />
+              <figcaption>Explore Spa</figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </div>
     <footer class="page-footer">
       <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
       <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">10 / 20</span>
+      <span class="ft-right">07 / 18</span>
     </footer>
   </section>
 
-  <!-- 07b DEWACHEN + PELBU -->
-  <section class="page">
-    <header class="page-header">
-      <div class="brand">Silverpine <span>Tours</span></div>
-      <div class="meta">Private Tour Itinerary</div>
-    </header>
-    <div class="page-body">
-      <p class="section-label">Stay · your houses</p>
-      <h2 class="page-heading">Phobjikha · Dewachen · Thimphu</h2>
-      <p class="page-sub">Dewachen as the lodge alternative · Pelbu one night in the capital</p>
-
-      <div class="hotel-block">
-        <div class="hotel-block-head">
-          <h3>Phobjikha · Dewachen Hotel &amp; Spa</h3>
-          <span class="nights">2 nights · 4–5 Jan · ₹ 27,500 working</span>
-        </div>
-        <p class="hotel-block-meta">
-          Crane-season lodge · bukhari rooms · Aru Spa · hot-stone bath · extra ₹ 6,600 working ·
-          <a href="https://dewachenhospitality.com/dewachen-hotel-spa/" target="_blank" rel="noopener">dewachenhospitality.com</a>
-        </p>
-        <div class="hotel-shots">
-          <figure>
-            <img src="images/hotel_dewachen_01.jpg" alt="Dewachen Hotel exterior" />
-            <figcaption>Lodge in the pines</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_dewachen_03.jpg" alt="Dewachen main house" />
-            <figcaption>Main house</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_dewachen_02.jpg" alt="Dewachen wings" />
-            <figcaption>Guest wings</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_dewachen_07.jpg" alt="Dewachen spa" />
-            <figcaption>Spa · hot stone</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_dewachen_08.jpg" alt="Dewachen bar" />
-            <figcaption>Bar · dining</figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <div class="hotel-block">
-        <div class="hotel-block-head">
-          <h3>Thimphu · Pelbu Suites</h3>
-          <span class="nights">1 night · 6 Jan · ₹ 5,500</span>
-        </div>
-        <p class="hotel-block-meta">
-          Our hotel · Rajiv &amp; Tshering · lift · spa · best rooms · extra ₹ 3,300 ·
-          <a href="https://www.pelbusuites.bt" target="_blank" rel="noopener">pelbusuites.bt</a>
-        </p>
-        <div class="hotel-shots sm">
-          <figure>
-            <img src="images/hotel_pelbu_exterior.jpg" alt="Pelbu Suites exterior" />
-            <figcaption>Exterior</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_pelbu_suite.jpg" alt="Pelbu suite" />
-            <figcaption>Suite</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_pelbu_room_double.jpg" alt="Pelbu guest room" />
-            <figcaption>Guest room</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_pelbu_dining.jpg" alt="Pelbu dining" />
-            <figcaption>Dining</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_pelbu_spa.jpg" alt="Pelbu spa" />
-            <figcaption>Spa</figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-    <footer class="page-footer">
-      <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
-      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">11 / 20</span>
-    </footer>
-  </section>
-
-  <!-- 12 SUGGESTION · THIMPHU -->
-  <section class="page">
-    <header class="page-header">
-      <div class="brand">Silverpine <span>Tours</span></div>
-      <div class="meta">Private Tour Itinerary</div>
-    </header>
-    <div class="page-body">
-      <p class="section-label">Stay · our suggestion</p>
-      <h2 class="page-heading">Thimphu · Lemon Tree Resort</h2>
-      <p class="page-sub">Two nights · you pick this or Happiness Kingdom glamping · Pelbu is the other Thimphu night (page 11)</p>
-
-      <div class="hotel-block">
-        <div class="hotel-block-head">
-          <h3>Thimphu · Lemon Tree Resort, Taba</h3>
-          <span class="nights">2 nights · ₹ 13,200 working</span>
-        </div>
-        <p class="hotel-block-meta">
-          Family resort on the Taba hillside · rooms with sofa / extra bed · Citrus Café · terrace ·
-          easy for NYE with a 12-year-old · extra bed ₹ 4,400 ·
-          <a href="https://www.lemontreehotels.com/lemon-tree-hotel/thimphu/resorts/" target="_blank" rel="noopener">lemontreehotels.com</a>
-          · MAP to confirm before hold.
-          Happiness Kingdom is the quieter heated-glamping alternative in the same band — we send those stills once the exact camp is locked.
-        </p>
-        <div class="hotel-shots">
-          <figure>
-            <img src="images/hotel_lemontree_exterior.jpg" alt="Lemon Tree Resort Thimphu hillside lodges" />
-            <figcaption>Hillside lodges · Taba</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_lemontree_night.jpg" alt="Lemon Tree Resort Thimphu at dusk" />
-            <figcaption>Dusk</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_lemontree_lobby.jpg" alt="Lemon Tree Resort Thimphu lobby" />
-            <figcaption>Lobby</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_lemontree_king.jpg" alt="Lemon Tree Resort deluxe king room" />
-            <figcaption>Deluxe king</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_lemontree_porch.jpg" alt="Lemon Tree Resort main porch" />
-            <figcaption>Main porch</figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <div class="place-grid sm">
-        <figure>
-          <img src="images/hotel_lemontree_cafe.jpg" alt="Lemon Tree Citrus Cafe" />
-          <figcaption>Citrus Café</figcaption>
-        </figure>
-        <figure>
-          <img src="images/hotel_lemontree_path.jpg" alt="Lemon Tree Resort pathway" />
-          <figcaption>Pathway</figcaption>
-        </figure>
-        <figure>
-          <img src="images/hotel_lemontree_villa.jpg" alt="Lemon Tree Resort villa room" />
-          <figcaption>Villa room</figcaption>
-        </figure>
-      </div>
-    </div>
-    <footer class="page-footer">
-      <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
-      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">12 / 20</span>
-    </footer>
-  </section>
-
-  <!-- 13 SUGGESTION · PUNAKHA PARO -->
-  <section class="page">
-    <header class="page-header">
-      <div class="brand">Silverpine <span>Tours</span></div>
-      <div class="meta">Private Tour Itinerary</div>
-    </header>
-    <div class="page-body">
-      <p class="section-label">Stay · our suggestion</p>
-      <h2 class="page-heading">Punakha · Paro last</h2>
-      <p class="page-sub">Meri Puensum in your Dhensa backup band · Naksel after Taktsang · Gangtey Tent is on page 10</p>
-
-      <div class="hotel-block">
-        <div class="hotel-block-head">
-          <h3>Punakha · Meri Puensum Resort</h3>
-          <span class="nights">2 nights · ₹ 27,500 working</span>
-        </div>
-        <p class="hotel-block-meta">
-          Family-run · Wolakha–Talo road · valley and river view · heated rooms · extra bed ₹ 6,000 ·
-          <a href="https://www.mpr.bt/" target="_blank" rel="noopener">mpr.bt</a>
-          · your named backup to Dhensa · MAP to confirm before hold.
-        </p>
-        <div class="hotel-shots">
-          <figure>
-            <img src="images/hotel_meri_building.png" alt="Meri Puensum Resort main house" />
-            <figcaption>Main house</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_meri_night.png" alt="Meri Puensum Resort at dusk" />
-            <figcaption>Dusk</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_meri_room.jpg" alt="Meri Puensum twin room" />
-            <figcaption>Room</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_meri_reception.png" alt="Meri Puensum reception" />
-            <figcaption>Reception</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_meri_cafe.png" alt="Meri Puensum cafe" />
-            <figcaption>Café</figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <div class="hotel-block">
-        <div class="hotel-block-head">
-          <h3>Paro · Naksel Boutique Hotel &amp; Spa</h3>
-          <span class="nights">2 nights last · ₹ 28,000 working</span>
-        </div>
-        <p class="hotel-block-meta">
-          Forest hillside · spa after Taktsang · extra bed ₹ 7,000 ·
-          <a href="https://www.naksel.com/" target="_blank" rel="noopener">naksel.com</a>
-          · in your ₹ 30,000 double band · MAP to confirm before hold.
-        </p>
-        <div class="hotel-shots sm">
-          <figure>
-            <img src="images/hotel_naksel_exterior.jpg" alt="Naksel Boutique Hotel exterior at dusk" />
-            <figcaption>House at dusk</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_naksel_view.jpg" alt="Naksel hillside buildings" />
-            <figcaption>Hillside</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_naksel_room.jpg" alt="Naksel deluxe room" />
-            <figcaption>Room</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_naksel_suite.jpg" alt="Naksel suite bedroom" />
-            <figcaption>Suite</figcaption>
-          </figure>
-          <figure>
-            <img src="images/hotel_naksel_fireplace.jpg" alt="Naksel lounge fireplace" />
-            <figcaption>Forest lounge</figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-    <footer class="page-footer">
-      <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
-      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">13 / 20</span>
-    </footer>
-  </section>
-
-  <!-- 14 SUMMARY -->
+  <!-- 08 SUMMARY -->
   <section class="page">
     <header class="page-header">
       <div class="brand">Silverpine <span>Tours</span></div>
@@ -1225,103 +865,144 @@
     <div class="page-body">
       <p class="section-label">The journey</p>
       <h2 class="page-heading">10-day · day-by-day summary</h2>
-      <p class="page-sub">Your itinerary as designed · photo days follow</p>
+      <p class="page-sub">Locked itinerary · detailed day pages follow (what you do · what to expect)</p>
 
       <table class="day-table">
         <thead>
           <tr><th>Day</th><th>Date</th><th>Plan</th><th>Sleep</th></tr>
         </thead>
         <tbody>
-          <tr><td>01</td><td>Wed 30 Dec</td><td>Delhi → Paro · acclimatise · town walk · Rinpung exterior · Ta Dzong</td><td>Paro</td></tr>
-          <tr><td>02</td><td>Thu 31 Dec</td><td>Chele La Pass (weather) · quiet New Year’s Eve</td><td>Paro</td></tr>
-          <tr><td>03</td><td>Fri 1 Jan</td><td>Tiger’s Nest — full trail · gauge for Bumdra</td><td>Paro</td></tr>
-          <tr><td>04</td><td>Sat 2 Jan</td><td>Paro → Dochula → Punakha Dzong · suspension bridge</td><td>Punakha</td></tr>
-          <tr><td>05</td><td>Sun 3 Jan</td><td>Khamsum hike · optional rafting · farmhouse dinner &amp; hot stone</td><td>Punakha</td></tr>
-          <tr><td>06</td><td>Mon 4 Jan</td><td>Drive Phobjikha · crane season · Gangtey Nature Trail</td><td>Phobjikha</td></tr>
-          <tr><td>07</td><td>Tue 5 Jan</td><td>Full valley day · Gangtey Monastery · cranes · open walks</td><td>Phobjikha</td></tr>
-          <tr><td>08</td><td>Wed 6 Jan</td><td>Return via Dochula · Buddha Dordenma · Tashichho Dzong · market</td><td>Thimphu</td></tr>
-          <tr><td>09</td><td>Thu 7 Jan</td><td>Thimphu → Paro · Kila Nunnery / valley · Bumdra only if Taktsang was easy</td><td>Paro</td></tr>
-          <tr><td>10</td><td>Fri 8 Jan</td><td>Paro → Delhi</td><td>—</td></tr>
+          <tr><td>01</td><td>Wed 30 Dec</td><td>Land Paro · drive Thimphu · town, easy</td><td>Pelbu</td></tr>
+          <tr><td>02</td><td>Thu 31 Dec</td><td>Buddha Point → Changangkha on foot · quiet NYE</td><td>Lemon Tree</td></tr>
+          <tr><td>03</td><td>Fri 1 Jan</td><td>Pumola ridge (family pace)</td><td>Lemon Tree</td></tr>
+          <tr><td>04</td><td>Sat 2 Jan</td><td>Thimphu → Phobjikha · nature trail if light</td><td>Gangtey Tent</td></tr>
+          <tr><td>05</td><td>Sun 3 Jan</td><td>Full valley · cranes · monastery</td><td>Gangtey Tent</td></tr>
+          <tr><td>06</td><td>Mon 4 Jan</td><td>Phobjikha → Punakha · dzong · bridge</td><td>Dhensa</td></tr>
+          <tr><td>07</td><td>Tue 5 Jan</td><td>Khamsum · farmhouse + hot stone</td><td>Dhensa</td></tr>
+          <tr><td>08</td><td>Wed 6 Jan</td><td>Punakha → Paro via Dochula · Kyichu / river easy</td><td>Le Méridien</td></tr>
+          <tr><td>09</td><td>Thu 7 Jan</td><td>Tiger’s Nest — early start · full trail</td><td>Le Méridien</td></tr>
+          <tr><td>10</td><td>Fri 8 Jan</td><td>Paro → Delhi · pickup timed to your flight</td><td>—</td></tr>
         </tbody>
       </table>
       <p class="note-line">
-        Drives: Paro–Punakha via Dochula ≈ 3–3.5 hrs · Punakha–Phobjikha ≈ 3–4 hrs ·
-        Phobjikha–Thimphu ≈ 4–5 hrs · Thimphu–Paro ≈ 1.5 hrs.
-        Chele La and Bumdra are weather calls. Direct Delhi–Paro; we match pickup to your confirmed flight.
-        Bumdra is not in the base plan — Kila Nunnery is Day 09 unless Taktsang was easy.
-        Optional suggestion from us (Paro last, more Thimphu): pages 5–6.
-        Suggestion houses (Lemon Tree, Meri Puensum, Naksel): pages 12–13.
+        Drives: Thimphu–Phobjikha ≈ 4–5 hrs · Phobjikha–Punakha ≈ 3–4 hrs ·
+        Punakha–Paro via Dochula ≈ 3–3.5 hrs · Paro–Thimphu ≈ 1.5 hrs.
+        Winter fog/cold possible at Phobjikha and Dochula — heated tents; pass stop shortened if needed.
+        Direct Delhi–Paro; we match Day 10 pickup and Day 09 Nest start to your confirmed flight.
+        Hotels: pages 6–7.
       </p>
     </div>
     <footer class="page-footer">
       <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
       <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">14 / 20</span>
+      <span class="ft-right">08 / 18</span>
     </footer>
   </section>
 
-  <!-- DAYS 01–02 -->
+
+  <!-- DAY 01 -->
   <section class="page">
     <header class="page-header">
       <div class="brand">Silverpine <span>Tours</span></div>
       <div class="meta">Private Tour Itinerary</div>
     </header>
     <div class="page-body">
-      <p class="section-label">Days 01–02 · Paro</p>
-      <h2 class="page-heading">Arrive · Chele La · quiet New Year</h2>
-
-      <table class="day-table">
-        <thead>
-          <tr><th>Day</th><th>Date</th><th>Plan</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>01</td>
-            <td>Wed 30 Dec</td>
-            <td>
-              Land Paro on the direct Delhi flight. Airport meet, permits, hotel.
-              Afternoon only: a walk in Paro town, the exterior of Rinpung Dzong,
-              Ta Dzong (National Museum) if energy is there. Early dinner. Acclimatise —
-              Paro is ≈ 2,200 m; Chele La tomorrow is much higher.
-            </td>
-          </tr>
-          <tr>
-            <td>02</td>
-            <td>Thu 31 Dec</td>
-            <td>
-              Day excursion to <strong>Chele La Pass (3,988 m)</strong> if the road is open —
-              Himalayan views, a walk among prayer flags, and a quieter ridge beyond
-              the standard stop if the pass is busy. If snow or ice closes it, we walk
-              a Paro valley trail instead and keep the day outdoors. Evening:
-              <strong>quiet New Year’s Eve in Paro</strong> — no gala unless you ask.
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="place-grid">
-        <figure>
-          <img src="images/paro_airport_arrive.jpg" alt="Paro airport" />
-          <figcaption>Paro · arrival</figcaption>
-        </figure>
-        <figure>
-          <img src="images/paro_ta_dzong.jpg" alt="Ta Dzong" />
-          <figcaption>Ta Dzong</figcaption>
-        </figure>
-        <figure>
-          <img src="images/paro_chelela_pass.jpg" alt="Chele La" />
-          <figcaption>Chele La · if open</figcaption>
-        </figure>
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 01 · Wednesday 30 December 2026</p>
+          <h2 class="day-route">Paro arrive · drive Thimphu</h2>
+          <dl class="day-meta">
+            <div><dt>Focus</dt><dd>Landing · permits · easy first afternoon</dd></div>
+            <div><dt>Hotel</dt><dd>Pelbu Suites</dd></div>
+            <div><dt>Meals</dt><dd>Lunch as you go · dinner at Pelbu</dd></div>
+            <div><dt>Expect</dt><dd>Cool clear air · ~2,300 m · no rush</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>What you do</h4>
+            <ul>
+              <li>Land Paro on the Delhi flight — the approach is the famous valley descent</li>
+              <li>Guide and driver meet you at arrivals · permits · bags · short briefing</li>
+              <li>Drive Paro → Thimphu (~1.5 hrs) along the Wang Chhu — toilet stop if needed</li>
+              <li>Check-in <strong>Pelbu Suites</strong> · rest · hydrate</li>
+              <li>Afternoon easy only: short town walk or craft market if energy is there — no monuments forced</li>
+              <li>Early dinner · early sleep — tomorrow is New Year’s Eve in the capital</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            Day one is arrival and settling, not sightseeing. Paro airport sits at ~2,200 m; Thimphu a little higher. Expect dry winter air, cool evenings, and a slower pace so your son adjusts before any climb. We do not squeeze Chele La or Tiger’s Nest today.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/paro_airport_arrive.jpg" alt="Paro · arrival" />
+            <span>Paro · arrival</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/thimphu_mountain_highway.jpg" alt="Road to Thimphu" /><figcaption>Road to Thimphu</figcaption></figure>
+            <figure><img src="images/thimphu_capital.jpg" alt="Capital evening" /><figcaption>Capital evening</figcaption></figure>
+            <figure><img src="images/thimphu_farmers_market.jpg" alt="Market if open" /><figcaption>Market if open</figcaption></figure>
+            <figure><img src="images/thimphu_memorial_chorten.jpg" alt="Town landmark" /><figcaption>Town landmark</figcaption></figure>
+          </div>
+        </div>
       </div>
-      <p class="note-line">
-        Chele La is the highest motorable pass in Bhutan. In late December it can ice over.
-        We do not force the height on a 12-year-old if the wind or the road says no.
-      </p>
     </div>
     <footer class="page-footer">
       <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
       <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">15 / 20</span>
+      <span class="ft-right">09 / 18</span>
+    </footer>
+  </section>
+
+  <!-- DAY 02 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 02 · Thursday 31 December 2026</p>
+          <h2 class="day-route">Buddha Point · Changangkha · quiet NYE</h2>
+          <dl class="day-meta">
+            <div><dt>Focus</dt><dd>Capital on foot · New Year’s Eve without a gala</dd></div>
+            <div><dt>Hotel</dt><dd>Lemon Tree Resort, Taba</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · lunch café / local · dinner at Lemon Tree</dd></div>
+            <div><dt>Expect</dt><dd>Cold morning · festive evening · family pace</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>What you do</h4>
+            <ul>
+              <li>Breakfast · check out Pelbu · bags move to <strong>Lemon Tree Resort, Taba</strong></li>
+              <li><strong>Buddha Dordenma (Buddha Point)</strong> — giant sitting Buddha, prayer wheels, valley view; short walk around the platform</li>
+              <li>On foot where paths allow toward <strong>Changangkha Lhakhang</strong> (older hillside temple; blessing often available for children) — guide times the climb</li>
+              <li>Tashichho Dzong courtyard if timing and security allow — exterior / grounds, not a long museum circuit</li>
+              <li>Return to Lemon Tree · rest · optional spa / pool if open</li>
+              <li><strong>Quiet New Year’s Eve</strong> — dinner in-house, no hotel gala unless you ask; fireworks in town are not guaranteed</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            This is your full capital day: views, one temple with character, and a calm NYE. Expect winter sun, cold shade, and a 12-year-old who may want cocoa more than another dzong. We leave the mountain day for tomorrow so tonight stays easy.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/thimphu_buddha_point.jpg" alt="Buddha Dordenma" />
+            <span>Buddha Dordenma</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/thimphu_buddha_gate.jpg" alt="Buddha Point" /><figcaption>Buddha Point</figcaption></figure>
+            <figure><img src="images/thimphu_memorial_chorten.jpg" alt="Memorial chorten" /><figcaption>Memorial chorten</figcaption></figure>
+            <figure><img src="images/thimphu_farmers_market.jpg" alt="Town stalls" /><figcaption>Town stalls</figcaption></figure>
+            <figure><img src="images/thimphu_capital.jpg" alt="Thimphu light" /><figcaption>Thimphu light</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">10 / 18</span>
     </footer>
   </section>
 
@@ -1335,37 +1016,37 @@
       <div class="day-layout">
         <div class="day-left">
           <p class="day-number">Day 03 · Friday 1 January 2027</p>
-          <h2 class="day-route">Tiger’s Nest · full trail</h2>
+          <h2 class="day-route">Pumola ridge · family pace</h2>
           <dl class="day-meta">
-            <div><dt>Focus</dt><dd>Paro Taktsang · 4–5 hrs round trip</dd></div>
-            <div><dt>Hotel</dt><dd>Le Méridien · Zhiwa Ling · or Dawa</dd></div>
+            <div><dt>Focus</dt><dd>Locked Thimphu mountain day · gentler than Phajoding</dd></div>
+            <div><dt>Hotel</dt><dd>Lemon Tree Resort</dd></div>
             <div><dt>Meals</dt><dd>Breakfast · packed / café lunch · dinner</dd></div>
-            <div><dt>Gauge</dt><dd>Taktsang decides whether Day 09 stays easy</dd></div>
+            <div><dt>Expect</dt><dd>Cold ridge · prayer flags · ~3–4 hrs walking</dd></div>
           </dl>
           <div class="day-activities">
-            <h4>Activities</h4>
+            <h4>What you do</h4>
             <ul>
-              <li>Early start · trail from the base, not a viewpoint drop-off</li>
-              <li>Full walk to the monastery — not the cafeteria turnaround</li>
-              <li>Mules available partway for your son if he wants them (pay on the day)</li>
-              <li>Time at the cliffs · descent · quiet evening in Paro</li>
+              <li>Early breakfast · layers, gloves, water, sunscreen — January ridge air bites</li>
+              <li><strong>Pumola</strong> — quieter ridge above the capital; prayer flags, valley views if clear; less traffic than Phajoding</li>
+              <li>Chosen for a 12-year-old before Tiger’s Nest — real height without burning the legs for Day 09</li>
+              <li>Guide sets pace and turnaround; if ice or wind is severe we shorten — we do not force the top for photos</li>
+              <li>Descend · hot drinks · evening at Lemon Tree · pack for tomorrow’s long drive east</li>
             </ul>
           </div>
           <p class="day-desc">
-            This is the day’s work. If it feels like enough mountain for your son, Day 09 stays
-            Kila Nunnery or valley time. We do not push Bumdra on a 12-year-old in January.
+            This is the capital’s mountain day — locked, not left open. Expect uneven paths, cold fingers, and a sense of height without being Tiger’s Nest. Saving legs here means Taktsang later still feels good for your son.
           </p>
         </div>
         <div class="day-right">
           <div class="day-loc">
-            <img src="images/paro_tigers_nest.jpg" alt="Tiger's Nest" />
-            <span>Paro Taktsang</span>
+            <img src="images/bhutan_prayer_mountains.jpg" alt="Thimphu ridge" />
+            <span>Thimphu ridge</span>
           </div>
           <div class="day-acts">
-            <figure><img src="images/paro_tigers_nest_trek.jpg" alt="Trail" /><figcaption>The trail</figcaption></figure>
-            <figure><img src="images/paro_tigers_nest_viewpoint.jpg" alt="Viewpoint" /><figcaption>We go beyond this</figcaption></figure>
-            <figure><img src="images/paro_tigers_nest_alt.jpg" alt="Cliffs" /><figcaption>Cliff monastery</figcaption></figure>
-            <figure><img src="images/bhutan_prayer_flags.jpg" alt="Flags" /><figcaption>Flags on the path</figcaption></figure>
+            <figure><img src="images/bhutan_prayer_flags.jpg" alt="Flags on the path" /><figcaption>Flags on the path</figcaption></figure>
+            <figure><img src="images/bhutan_green_valley.jpg" alt="Valley below" /><figcaption>Valley below</figcaption></figure>
+            <figure><img src="images/buddhist_temple.jpg" alt="Highland temple" /><figcaption>Highland temple</figcaption></figure>
+            <figure><img src="images/thimphu_buddha_point.jpg" alt="Capital below" /><figcaption>Capital below</figcaption></figure>
           </div>
         </div>
       </div>
@@ -1373,198 +1054,333 @@
     <footer class="page-footer">
       <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
       <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">16 / 20</span>
+      <span class="ft-right">11 / 18</span>
     </footer>
   </section>
 
-  <!-- DAYS 04–05 -->
+  <!-- DAY 04 -->
   <section class="page">
     <header class="page-header">
       <div class="brand">Silverpine <span>Tours</span></div>
       <div class="meta">Private Tour Itinerary</div>
     </header>
     <div class="page-body">
-      <p class="section-label">Days 04–05 · the warm valley</p>
-      <h2 class="page-heading">Dochula · Punakha · Khamsum</h2>
-
-      <table class="day-table">
-        <thead>
-          <tr><th>Day</th><th>Date</th><th>Plan</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>04</td>
-            <td>Sat 2 Jan</td>
-            <td>
-              Paro → Punakha via <strong>Dochula Pass</strong> (108 chortens, Himalayan range if the sky is clear).
-              Short walk — weather-dependent, held loosely. If Dochula is crowded, the guide takes a quieter
-              nearby viewpoint, then we drop to the valley. Punakha Dzong at a decent hour,
-              suspension-bridge walk, check-in Dhensa.
-            </td>
-          </tr>
-          <tr>
-            <td>05</td>
-            <td>Sun 3 Jan</td>
-            <td>
-              Rice-field and riverside hike to <strong>Khamsum Yulley Namgyal Chorten</strong> — a real walk, not a drive-up.
-              Afternoon: optional gentle rafting on the Mo Chhu if the stretch is running in January
-              (cold water; we only go if you still want it — extra, paid if you do).
-              Evening: <strong>traditional farmhouse dinner with hot-stone bath</strong> — local house, not a hotel restaurant.
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="place-grid">
-        <figure>
-          <img src="images/dochula_pass.jpg" alt="Dochula" />
-          <figcaption>Dochula · short stop</figcaption>
-        </figure>
-        <figure>
-          <img src="images/punakha_dzong.jpg" alt="Punakha Dzong" />
-          <figcaption>Punakha Dzong</figcaption>
-        </figure>
-        <figure>
-          <img src="images/punakha_suspension_bridge.jpg" alt="Bridge" />
-          <figcaption>Suspension bridge</figcaption>
-        </figure>
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 04 · Saturday 2 January 2027</p>
+          <h2 class="day-route">Thimphu → Phobjikha</h2>
+          <dl class="day-meta">
+            <div><dt>Focus</dt><dd>Long scenic drive · crane valley · first tent night</dd></div>
+            <div><dt>Hotel</dt><dd>Gangtey Tent Resort</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · packed / roadside lunch · dinner at Gangtey Tent</dd></div>
+            <div><dt>Expect</dt><dd>4–5 hrs driving · colder air near 3,000 m</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>What you do</h4>
+            <ul>
+              <li>Breakfast · check out · drive east toward Wangdue / Phobjikha (≈ 4–5 hrs with photo stops)</li>
+              <li>Road climbs and opens into the glacial bowl — black-necked crane wintering ground</li>
+              <li>Check-in <strong>Gangtey Tent Resort</strong> · we confirm <strong>underfloor heating</strong> is on before you settle</li>
+              <li>If light and energy remain: short stretch of the <strong>Gangtey Nature Trail</strong> — open meadow, pine edge, prayer flags; not a forced full loop</li>
+              <li>Evening: quiet tent, valley dark, early dinner — temperatures drop fast after sunset</li>
+              <li>Hot water bottles / extra blankets on request — tell the guide if anyone feels the cold</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            Expect a travel day with a big landscape payoff. Phobjikha is colder and often foggy or windy in January —
+            dry bright midday, sharp after sunset. The tent is canvas outside, heated floor inside; it should feel snug if heating is live.
+            Pack layers; ask for hot water bottles if anyone feels the cold. Tomorrow is the full valley day without a long drive.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/bhutan_green_valley.jpg" alt="Phobjikha bowl" />
+            <span>Phobjikha bowl</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/thimphu_mountain_highway.jpg" alt="Eastbound road" /><figcaption>Eastbound road</figcaption></figure>
+            <figure><img src="images/bhutan_prayer_mountains.jpg" alt="Highland light" /><figcaption>Highland light</figcaption></figure>
+            <figure><img src="images/hotel_gangtey_tent_row.jpg" alt="Tent hillside" /><figcaption>Tent hillside</figcaption></figure>
+            <figure><img src="images/hotel_gangtey_tent_interior.jpg" alt="Heated tent" /><figcaption>Heated tent</figcaption></figure>
+          </div>
+        </div>
       </div>
-      <p class="note-line">
-        Punakha sits much lower than Paro and Phobjikha — a warmer night after Chele La and Taktsang.
-        Farmhouse dinner and hot stone are in the package. Rafting is not.
-      </p>
     </div>
     <footer class="page-footer">
       <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
       <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">17 / 20</span>
+      <span class="ft-right">12 / 18</span>
     </footer>
   </section>
 
-  <!-- DAYS 06–07 -->
+  <!-- DAY 05 -->
   <section class="page">
     <header class="page-header">
       <div class="brand">Silverpine <span>Tours</span></div>
       <div class="meta">Private Tour Itinerary</div>
     </header>
     <div class="page-body">
-      <p class="section-label">Days 06–07 · the glacial valley</p>
-      <h2 class="page-heading">Phobjikha · cranes · nature trail</h2>
-
-      <table class="day-table">
-        <thead>
-          <tr><th>Day</th><th>Date</th><th>Plan</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>06</td>
-            <td>Mon 4 Jan</td>
-            <td>
-              Drive to the Phobjikha glacial valley — this is black-necked crane season.
-              Check-in Dewachen or Gangtey Tent Resort. Evening on the <strong>Gangtey Nature Trail</strong>:
-              open bowl, pine edge, prayer flags, no rush to a viewpoint car park.
-            </td>
-          </tr>
-          <tr>
-            <td>07</td>
-            <td>Tue 5 Jan</td>
-            <td>
-              Full day in the valley. Gangtey Monastery, more of the nature trail,
-              crane-watching from a quiet hide or field edge, unhurried valley walks.
-              Two nights here so this is not a drive-through.
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="place-grid">
-        <figure>
-          <img src="images/bhutan_green_valley.jpg" alt="Phobjikha" />
-          <figcaption>Phobjikha bowl</figcaption>
-        </figure>
-        <figure>
-          <img src="images/bhutan_prayer_mountains.jpg" alt="High flags" />
-          <figcaption>Highland flags</figcaption>
-        </figure>
-        <figure>
-          <img src="images/buddhist_temple.jpg" alt="Gangtey" />
-          <figcaption>Gangtey Goemba</figcaption>
-        </figure>
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 05 · Sunday 3 January 2027</p>
+          <h2 class="day-route">Phobjikha · cranes · monastery</h2>
+          <dl class="day-meta">
+            <div><dt>Focus</dt><dd>Full day in the glacial valley · no long drive</dd></div>
+            <div><dt>Hotel</dt><dd>Gangtey Tent Resort</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · picnic / lodge lunch · dinner</dd></div>
+            <div><dt>Expect</dt><dd>Cold clear air · slow walks · crane season</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>What you do</h4>
+            <ul>
+              <li>Leisurely breakfast · warm layers for the bowl</li>
+              <li><strong>Gangtey Goemba (monastery)</strong> — visit respectfully; courtyard, views over the valley</li>
+              <li>Crane-watching from a quiet field edge or hide — January is black-necked crane season; binoculars help; silence matters</li>
+              <li>Continue or complete the <strong>Gangtey Nature Trail</strong> at your son’s pace — pine, meadow, flags; sit when you want</li>
+              <li>Optional: Black-Necked Crane Information Centre if open and useful for the family</li>
+              <li>Afternoon free at the tent · tea · rest · second night in the valley</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            This is why you sleep two nights here — not a drive-through. Expect frost on grass, bright midday light when clear, and quiet.
+            Fog and cold are normal in January; we stay flexible — more walking if energy is high, more tea and viewing if the cold wins.
+            No forced shopping circuit.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/buddhist_temple.jpg" alt="Gangtey Goemba" />
+            <span>Gangtey Goemba</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/bhutan_green_valley.jpg" alt="Valley floor" /><figcaption>Valley floor</figcaption></figure>
+            <figure><img src="images/bhutan_prayer_flags.jpg" alt="Trail flags" /><figcaption>Trail flags</figcaption></figure>
+            <figure><img src="images/hotel_gangtey_tent_deck.jpg" alt="Tent deck" /><figcaption>Tent deck</figcaption></figure>
+            <figure><img src="images/bhutan_prayer_mountains.jpg" alt="Ridge light" /><figcaption>Ridge light</figcaption></figure>
+          </div>
+        </div>
       </div>
-      <p class="note-line">
-        Phobjikha sits near 3,000 m and is cold in January — layers.
-        Gangtey Tent has underfloor heating; Dewachen has bukhari. Both work in crane season.
-      </p>
     </div>
     <footer class="page-footer">
       <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
       <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">18 / 20</span>
+      <span class="ft-right">13 / 18</span>
     </footer>
   </section>
 
-  <!-- DAYS 08–09 -->
+  <!-- DAY 06 -->
   <section class="page">
     <header class="page-header">
       <div class="brand">Silverpine <span>Tours</span></div>
       <div class="meta">Private Tour Itinerary</div>
     </header>
     <div class="page-body">
-      <p class="section-label">Days 08–09 · return west</p>
-      <h2 class="page-heading">Thimphu · then an easy last day</h2>
-
-      <table class="day-table">
-        <thead>
-          <tr><th>Day</th><th>Date</th><th>Plan</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>08</td>
-            <td>Wed 6 Jan</td>
-            <td>
-              Phobjikha → Thimphu via Dochula — a second look, different light.
-              Buddha Dordenma, Tashichho Dzong (timing for the courtyard), weekend market
-              if the day still has it. Night at Pelbu Suites — our house.
-            </td>
-          </tr>
-          <tr>
-            <td>09</td>
-            <td>Thu 7 Jan</td>
-            <td>
-              Short drive Thimphu → Paro.
-              Default: <strong>Kila Nunnery walk</strong> or unhurried time in the valley — you fly the next morning.
-              <strong>Bumdra day hike</strong> only if Tiger’s Nest on Day 03 was clearly easy for your son
-              and the ridge is clear. Overnight Bumdra camp in January we do not recommend with a 12-year-old
-              (sub-zero, tents, then a flight the next day). Extra, quoted only if you commit.
-              Last night at the same Paro house as the first stay.
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="place-grid">
-        <figure>
-          <img src="images/thimphu_buddha_point.jpg" alt="Buddha Dordenma" />
-          <figcaption>Buddha Dordenma</figcaption>
-        </figure>
-        <figure>
-          <img src="images/thimphu_farmers_market.jpg" alt="Market" />
-          <figcaption>Market if timing allows</figcaption>
-        </figure>
-        <figure>
-          <img src="images/paro_location.jpg" alt="Paro" />
-          <figcaption>Last night · Paro</figcaption>
-        </figure>
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 06 · Monday 4 January 2027</p>
+          <h2 class="day-route">Phobjikha → Punakha</h2>
+          <dl class="day-meta">
+            <div><dt>Focus</dt><dd>Drop in altitude · dzong · suspension bridge</dd></div>
+            <div><dt>Hotel</dt><dd>Dhensa</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · lunch en route / valley · dinner at Dhensa</dd></div>
+            <div><dt>Expect</dt><dd>Warmer valley · 3–4 hrs drive · afternoon monuments</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>What you do</h4>
+            <ul>
+              <li>Breakfast · check out · drive Phobjikha → Punakha (≈ 3–4 hrs)</li>
+              <li>You feel the climate change — Punakha sits much lower; jackets come off by midday if the sun is out</li>
+              <li>Check-in <strong>Dhensa</strong> · settle · lunch timing as the day allows</li>
+              <li><strong>Punakha Dzong</strong> at a sensible hour — fortress at the rivers’ meeting; courtyard, temple rooms as permitted; shoes off where required</li>
+              <li>Walk the long <strong>suspension bridge</strong> across the Po Chhu — fun for a 12-year-old; photos; wind can pick up</li>
+              <li>Evening at Dhensa — quieter, warmer night after Phobjikha</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            Expect a “relief day” after the cold bowl: greener fields, wider river, softer air. Dzong visits mean security rules and modest dress — guide briefs you. We keep the afternoon monument time, not a packed checklist, so Khamsum tomorrow stays a real walk.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/punakha_dzong.jpg" alt="Punakha Dzong" />
+            <span>Punakha Dzong</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/punakha_suspension_bridge.jpg" alt="Suspension bridge" /><figcaption>Suspension bridge</figcaption></figure>
+            <figure><img src="images/punakha_valley.jpg" alt="Warm valley" /><figcaption>Warm valley</figcaption></figure>
+            <figure><img src="images/punakha_valley_alt.jpg" alt="River light" /><figcaption>River light</figcaption></figure>
+            <figure><img src="images/punakha_location.jpg" alt="Valley setting" /><figcaption>Valley setting</figcaption></figure>
+          </div>
+        </div>
       </div>
-      <p class="note-line">
-        Chele La, Taktsang, Khamsum and the Gangtey trail already give this trip its mountain days.
-        Bumdra is a maybe, not a plan. Overnight camp is a no for this family in January.
-      </p>
     </div>
     <footer class="page-footer">
       <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
       <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">19 / 20</span>
+      <span class="ft-right">14 / 18</span>
+    </footer>
+  </section>
+
+  <!-- DAY 07 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 07 · Tuesday 5 January 2027</p>
+          <h2 class="day-route">Khamsum · farmhouse · hot stone</h2>
+          <dl class="day-meta">
+            <div><dt>Focus</dt><dd>Rice-field walk · local evening</dd></div>
+            <div><dt>Hotel</dt><dd>Dhensa</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · picnic / café · farmhouse dinner included</dd></div>
+            <div><dt>Expect</dt><dd>Gentle hike · optional rafting · village night</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>What you do</h4>
+            <ul>
+              <li>Morning walk through fields and riverside to <strong>Khamsum Yulley Namgyal Chorten</strong> — climb the internal floors for the view; this is a walk, not a drive-up</li>
+              <li>Pace set for the family — shade breaks, water, photos of the Mo Chhu</li>
+              <li>Afternoon: optional gentle <strong>Mo Chhu rafting</strong> only if the stretch is running in January and you still want it (cold water; pay on the day; easy to skip)</li>
+              <li>Return to Dhensa to freshen up</li>
+              <li>Evening: <strong>traditional farmhouse dinner with hot-stone bath</strong> — local house, not a hotel restaurant; bath is shared family timing; guide arranges</li>
+              <li>Back to Dhensa for the night · pack for tomorrow’s westbound drive to Paro</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            Expect the warmest, most “village Bhutan” day of the trip. Khamsum rewards slow walking. The farmhouse evening is included — smoky kitchen smells, local dishes, hot stone soak. Rafting is optional and often skipped in January cold; say no without guilt.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/bhutan_green_valley.jpg" alt="Fields toward Khamsum" />
+            <span>Fields toward Khamsum</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/buddhist_temple.jpg" alt="Khamsum chorten" /><figcaption>Khamsum · climb</figcaption></figure>
+            <figure><img src="images/hotel_dhensa_spa.jpg" alt="Hot stone soak" /><figcaption>Hot stone soak</figcaption></figure>
+            <figure><img src="images/hotel_dhensa_cottages.jpg" alt="Farmhouse evening" /><figcaption>Farmhouse evening</figcaption></figure>
+            <figure><img src="images/hotel_dhensa_view.jpg" alt="Back at Dhensa" /><figcaption>Back at Dhensa</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">15 / 18</span>
+    </footer>
+  </section>
+
+  <!-- DAY 08 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 08 · Wednesday 6 January 2027</p>
+          <h2 class="day-route">Punakha → Paro · Dochula · Kyichu</h2>
+          <dl class="day-meta">
+            <div><dt>Focus</dt><dd>Pass · Le Méridien · soft Paro evening before Nest</dd></div>
+            <div><dt>Hotel</dt><dd>Le Méridien, Riverfront</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · lunch en route · dinner at Le Méridien</dd></div>
+            <div><dt>Expect</dt><dd>3–3.5 hrs · pass stop · easy afternoon · early night</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>What you do</h4>
+            <ul>
+              <li>Breakfast · check out · drive west via <strong>Dochula Pass</strong> (108 chortens; Himalayan panorama if clear)</li>
+              <li>Short stop at the pass — January wind and ice possible; we do not linger in a gale or white-out fog</li>
+              <li>Continue to Paro · check-in <strong>Le Méridien</strong> · settle · pool / spa if you want</li>
+              <li>Soft evening: <strong>Kyichu Lhakhang</strong> (oldest temple feel, short visit) and/or a quiet riverside walk — <strong>no big hike</strong></li>
+              <li>Early dinner · early sleep — Tiger’s Nest is tomorrow’s full day</li>
+              <li>Guide confirms trail conditions and <strong>early hotel start</strong> for Taktsang (usually ~7:30–8:00)</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            Expect a scenic transfer day with a gentle Paro landing — not a sightseeing marathon.
+            Dochula can be spectacular or socked in; both are normal. Kyichu and the river keep Day 08 from feeling like “only a drive.”
+            Saving legs tonight matters: Taktsang is 4–5 hours round trip. You sleep by the Paro Chhu and fly the morning after the climb.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/dochula_pass.jpg" alt="Dochula Pass" />
+            <span>Dochula Pass</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/punakha_valley.jpg" alt="Leaving Punakha" /><figcaption>Leaving Punakha</figcaption></figure>
+            <figure><img src="images/paro_location.jpg" alt="Paro valley" /><figcaption>Paro valley</figcaption></figure>
+            <figure><img src="images/paro_shaba_river.jpg" alt="Riverfront" /><figcaption>Riverfront</figcaption></figure>
+            <figure><img src="images/paro_kyichu_lhakhang.jpg" alt="Kyichu Lhakhang" /><figcaption>Kyichu Lhakhang</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">16 / 18</span>
+    </footer>
+  </section>
+
+  <!-- DAY 09 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 09 · Thursday 7 January 2027</p>
+          <h2 class="day-route">Tiger’s Nest · full trail</h2>
+          <dl class="day-meta">
+            <div><dt>Focus</dt><dd>Paro Taktsang — the trip’s climax</dd></div>
+            <div><dt>Hotel</dt><dd>Le Méridien</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · café / packed on trail · dinner</dd></div>
+            <div><dt>Expect</dt><dd>4–5 hrs round trip · steep · early start</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>What you do</h4>
+            <ul>
+              <li><strong>Early start</strong> from Le Méridien — typically leave ~7:30–8:00 (exact time set the night before with your guide)</li>
+              <li>Full trail to the monastery: forest path, cafeteria terrace (rest, tea, photos), then the steeper final stretch and cliff steps</li>
+              <li>We go <strong>beyond the café viewpoint</strong> to the monastery itself when the group can</li>
+              <li>Mules available partway for your son if he wants them (pay on the day) — still some walking remains</li>
+              <li>Time at the cliffs · quiet · descent at a safe pace — knees and dust matter more than speed</li>
+              <li>Return to Le Méridien · stretch · early dinner · bags ready; Day 10 airport pickup is timed to your confirmed Delhi flight</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            This is the day’s work — and why Paro is last. You are acclimatised after Thimphu ridges and Phobjikha.
+            Expect dust, steps, prayer flags, and a 12-year-old who may need encouragement and snacks.
+            Overnight Bumdra camp in January we do not recommend with a child this age. You fly tomorrow morning.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/paro_tigers_nest.jpg" alt="Paro Taktsang" />
+            <span>Paro Taktsang</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/paro_tigers_nest_trek.jpg" alt="The trail" /><figcaption>The trail</figcaption></figure>
+            <figure><img src="images/paro_tigers_nest_viewpoint.jpg" alt="We go beyond this" /><figcaption>We go beyond this</figcaption></figure>
+            <figure><img src="images/paro_tigers_nest_alt.jpg" alt="Cliff monastery" /><figcaption>Cliff monastery</figcaption></figure>
+            <figure><img src="images/bhutan_prayer_flags.jpg" alt="Flags on the path" /><figcaption>Flags on the path</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">17 / 18</span>
     </footer>
   </section>
 
@@ -1575,48 +1391,71 @@
       <div class="meta">Private Tour Quote</div>
     </header>
     <div class="page-body">
-      <p class="section-label">Day 10 · close</p>
-      <h2 class="page-heading">Departure · next step</h2>
+      <p class="section-label">Day 10 · Friday 8 January 2027</p>
+      <h2 class="page-heading">Paro → Delhi · next step</h2>
+      <p class="page-sub">Airport pickup timed to your confirmed flight · WhatsApp to lock</p>
 
-      <table class="day-table">
+      <table class="day-table" style="table-layout: fixed;">
+        <colgroup>
+          <col style="width: 18%;" />
+          <col style="width: 82%;" />
+        </colgroup>
         <thead>
-          <tr><th>Day</th><th>Date</th><th>Plan</th></tr>
+          <tr><th></th><th>What happens</th></tr>
         </thead>
         <tbody>
           <tr>
-            <td>10</td>
-            <td>Fri 8 Jan</td>
+            <th>Morning</th>
             <td>
-              Transfer for the direct Paro → Delhi flight. We match the pickup to your confirmed departure.
+              Once your Delhi flight is confirmed, we set Le Méridien pickup so you reach Paro airport with a calm buffer
+              (~10 min transfer). Breakfast timing follows the flight. Guide and driver stay through check-in if useful.
+            </td>
+          </tr>
+          <tr>
+            <th>Expect</th>
+            <td>
+              Winter morning cold at the airport · allow buffer for security · no sightseeing today.
+              If the flight moves, we move with it.
             </td>
           </tr>
         </tbody>
       </table>
 
-      <table class="cmp-table" style="margin-top: 4mm;">
+      <table class="cmp-table" style="margin-top: 4mm; table-layout: fixed;">
+        <colgroup>
+          <col style="width: 18%;" />
+          <col style="width: 82%;" />
+        </colgroup>
         <thead><tr><th colspan="2">To confirm this journey</th></tr></thead>
         <tbody>
           <tr>
             <th>Package</th>
             <td>
-              Named houses: C · Le Méridien + Gangtey Tent <strong>₹ 5,11,000</strong> ·
-              Zhiwa + Dewachen <strong>₹ 5,88,000</strong>.<br />
-              Our suggestion inside your ₹ 25–30k room band (pages 5–6): <strong>₹ 3,53,000</strong>.
+              Locked mix · Pelbu · Lemon Tree · Gangtey Tent · Dhensa · Le Méridien —
+              <strong>₹ 3,89,900</strong>.
+              SDF child rate for age 12 confirmed (₹ 27,000).
             </td>
           </tr>
           <tr>
             <th>Send</th>
-            <td>Passport / voter ID scans · son’s date of birth · your mix or our Paro-last suggestion · Delhi–Paro flight drafts</td>
+            <td>Passport / voter ID scans · son’s date of birth · Delhi–Paro flight drafts (arrival + departure)</td>
           </tr>
           <tr>
             <th>Pay</th>
             <td>
-              50% of the mix you choose (page 7). Balance cash on arrival or NEFT.
+              50% advance <strong>₹ 1,94,950</strong>. Balance cash on arrival or NEFT.
             </td>
           </tr>
           <tr>
             <th>We send</th>
             <td>Guide and driver profiles for your consent · hotel confirmation · permit file</td>
+          </tr>
+          <tr>
+            <th>WhatsApp</th>
+            <td>
+              <strong>+975-17649720</strong> — reply here with scans + flight drafts to lock Nest start and Day 10 pickup.
+              Web: <a href="https://www.silverpinebhutan.com">www.silverpinebhutan.com</a>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -1637,7 +1476,7 @@
     <footer class="page-footer">
       <span class="ft-left">Neha Kumar · 2 Adults + son 12</span>
       <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
-      <span class="ft-right">20 / 20</span>
+      <span class="ft-right">18 / 18</span>
     </footer>
   </section>
 

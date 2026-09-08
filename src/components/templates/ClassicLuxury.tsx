@@ -102,9 +102,11 @@ export function ClassicLuxuryDocument({
   const stays = ops?.stays || [];
   const hasStays = stays.length > 0;
   const hotelOptions = c.hotel_options ?? [];
-  const hasCmpTable = hotelOptions.length > 1 && !hasStays;
-  const hotelPhotoOption = hotelOptions.find((o) => o.image_urls?.length) ?? hotelOptions.find((o) => o.recommended);
-  const hasHotelPhotos = Boolean(hotelPhotoOption?.image_urls?.length);
+  const hasCmpTable = hotelOptions.length > 1 && !hasStays && hotelOptions.every((o) => o.total_pp != null) && hotelOptions.length <= 3 && !hotelOptions.some((o) => o.image_urls?.length);
+  const hotelPhotoOptions = hotelOptions.filter((o) => o.image_urls?.length);
+  const hasHotelPhotos = hotelPhotoOptions.length > 0;
+  const hotelBlocksForPhotos = hotelPhotoOptions;
+  const photoHotelCount = Math.max(1, hotelBlocksForPhotos.length);
   const hasClosing =
     Boolean(c.closing?.dos?.length) ||
     Boolean(c.closing?.donts?.length) ||
@@ -116,7 +118,7 @@ export function ClassicLuxuryDocument({
   const totalPages =
     4 +
     (hasCmpTable ? 1 : 0) +
-    (hasHotelPhotos ? 1 : 0) +
+    (hasHotelPhotos ? photoHotelCount : 0) +
     (hasStays ? 1 : 0) +
     (hotelOptions.length && !hasStays && !hasCmpTable ? 1 : 0) +
     (hasClosing ? 1 : 0) +
@@ -425,56 +427,64 @@ export function ClassicLuxuryDocument({
         </PageChrome>
       ) : null}
 
-      {hasHotelPhotos && hotelPhotoOption ? (
-        <PageChrome it={itinerary} brand={b} page={page++} total={totalPages}>
-          <div className="page-body">
-            <p className="section-label">{zh ? "住宿 · 实景" : "Stay · with photographs"}</p>
-            <h2 className="page-heading">
-              {zh ? "推荐酒店 · 实景照片" : "Hotels · recommended stay"}
-            </h2>
-            <p className="page-sub">
-              {zh
-                ? "以下为推荐方案匹配的示意酒店与实景照片。"
-                : "Photographs for the recommended hotel option."}
-            </p>
-            <div className="hotel-block">
-              <div className="hotel-block-head">
-                <h3>
-                  {hotelPhotoOption.city} · {hotelPhotoOption.hotel}
-                </h3>
-                <span className="nights">
-                  {hotelPhotoOption.nights}n · {hotelPhotoOption.room}
-                </span>
+      {hasHotelPhotos
+        ? hotelBlocksForPhotos.map((hotelPhotoOption) => (
+            <PageChrome
+              key={hotelPhotoOption.id}
+              it={itinerary}
+              brand={b}
+              page={page++}
+              total={totalPages}
+            >
+              <div className="page-body">
+                <p className="section-label">{zh ? "住宿 · 实景" : "Stay · with photographs"}</p>
+                <h2 className="page-heading">
+                  {zh ? "推荐酒店 · 实景照片" : "Hotels · recommended stay"}
+                </h2>
+                <p className="page-sub">
+                  {zh
+                    ? "以下为推荐方案匹配的示意酒店与实景照片。"
+                    : "Photographs for the selected hotel stay."}
+                </p>
+                <div className="hotel-block">
+                  <div className="hotel-block-head">
+                    <h3>
+                      {hotelPhotoOption.city} · {hotelPhotoOption.hotel}
+                    </h3>
+                    <span className="nights">
+                      {hotelPhotoOption.nights}n · {hotelPhotoOption.room}
+                    </span>
+                  </div>
+                  <p className="hotel-block-meta">
+                    {hotelPhotoOption.label}
+                    {hotelPhotoOption.recommended ? (zh ? " · 推荐" : " · Recommended") : ""}
+                  </p>
+                  <div className="hotel-shots">
+                    {(hotelPhotoOption.image_urls ?? []).slice(0, 5).map((url, i) => (
+                      <figure key={i}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={resolveImage({ explicit: url, kind: "hotel" })} alt="" />
+                        <figcaption>
+                          {i === 0
+                            ? zh
+                              ? "外观"
+                              : "Exterior"
+                            : i === 1
+                              ? zh
+                                ? "客房"
+                                : "Room"
+                              : zh
+                                ? "实景"
+                                : "View"}
+                        </figcaption>
+                      </figure>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <p className="hotel-block-meta">
-                {hotelPhotoOption.label}
-                {hotelPhotoOption.recommended ? (zh ? " · 推荐" : " · Recommended") : ""}
-              </p>
-              <div className="hotel-shots">
-                {(hotelPhotoOption.image_urls ?? []).slice(0, 5).map((url, i) => (
-                  <figure key={i}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={resolveImage({ explicit: url, kind: "hotel" })} alt="" />
-                    <figcaption>
-                      {i === 0
-                        ? zh
-                          ? "外观"
-                          : "Exterior"
-                        : i === 1
-                          ? zh
-                            ? "客房"
-                            : "Room"
-                          : zh
-                            ? "实景"
-                            : "View"}
-                    </figcaption>
-                  </figure>
-                ))}
-              </div>
-            </div>
-          </div>
-        </PageChrome>
-      ) : null}
+            </PageChrome>
+          ))
+        : null}
 
       {hasStays ? (
         <PageChrome it={itinerary} brand={b} page={page++} total={totalPages}>

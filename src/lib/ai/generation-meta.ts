@@ -12,11 +12,14 @@ export function buildGenerationMeta(opts: {
   clientReply?: string;
   warnings?: string[];
   clarificationsAsked?: string[];
+  stayPlan?: Array<{ city: string; nights: number }>;
+  tripCosts?: Record<string, unknown>;
 }): GenerationMeta {
   const ref = findBestHtmlReference({
     days: opts.packageOption?.hotel.nights ? opts.packageOption.hotel.nights + 1 : 7,
     language: "en",
     brief: opts.rawBrief,
+    stayPlan: opts.stayPlan,
   });
 
   return {
@@ -31,5 +34,7 @@ export function buildGenerationMeta(opts: {
     client_reply: opts.clientReply,
     warnings: opts.warnings,
     generated_at: new Date().toISOString(),
+    stay_plan: opts.stayPlan,
+    trip_costs: opts.tripCosts,
   };
 }

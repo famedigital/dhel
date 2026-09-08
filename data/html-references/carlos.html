@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Silverpine Tours — Wellness &amp; Heartland · Carlos · October 2028</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .simple-intro { font-size: 10pt; line-height: 1.55; color: var(--ink-soft); margin-bottom: 5mm; }
+    .cmp-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-bottom: 4mm; }
+    .cmp-table th, .cmp-table td {
+      border: 0.5pt solid var(--line); padding: 2.2mm 2.5mm; text-align: left; vertical-align: top; line-height: 1.4;
+    }
+    .cmp-table thead th {
+      background: var(--mist); font-family: 'Cormorant Garamond', serif; font-size: 11pt; font-weight: 600; color: var(--ink);
+    }
+    .cmp-table thead th.rec { background: #ebe4d6; border-bottom: 1.5pt solid var(--gold); }
+    .cmp-table tbody th { width: 26%; font-weight: 500; color: var(--charcoal); background: #faf8f5; }
+    .cmp-table td.rec { background: #fbf9f5; }
+    .cmp-table .price { font-family: 'Cormorant Garamond', serif; font-size: 16pt; font-weight: 600; }
+    .cmp-table .small { font-size: 8pt; color: var(--stone); }
+    .day-table { width: 100%; border-collapse: collapse; font-size: 8.5pt; margin-bottom: 4mm; }
+    .day-table th, .day-table td {
+      border: 0.5pt solid var(--line); padding: 1.8mm 2mm; text-align: left; vertical-align: top; line-height: 1.35;
+    }
+    .day-table thead th {
+      background: var(--mist); font-weight: 500; font-size: 8pt; letter-spacing: 0.06em; text-transform: uppercase; color: var(--charcoal);
+    }
+    .day-table td:first-child { white-space: nowrap; font-weight: 500; width: 18mm; }
+    .day-table td:nth-child(2) { width: 26mm; color: var(--stone); }
+    .note-line { font-size: 8.5pt; color: var(--ink-soft); line-height: 1.45; margin-top: 2mm; }
+    .hotel-block { margin-bottom: 4mm; page-break-inside: avoid; }
+    .hotel-block-head {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 4mm;
+      margin-bottom: 1.5mm; padding-bottom: 1mm; border-bottom: 0.5pt solid var(--gold-pale);
+    }
+    .hotel-block-head h3 { font-family: 'Cormorant Garamond', serif; font-size: 14pt; font-weight: 500; }
+    .hotel-block-head .nights {
+      font-size: 7.5pt; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); white-space: nowrap;
+    }
+    .hotel-block-meta { font-size: 8pt; color: var(--stone); margin-bottom: 1.8mm; line-height: 1.4; }
+    .why-pick { font-size: 8.5pt; color: var(--ink-soft); line-height: 1.45; margin: 0 0 2mm; }
+    .hotel-shots {
+      display: grid; grid-template-columns: 1.35fr 1fr 1fr; grid-template-rows: 34mm 34mm; gap: 1.8mm;
+    }
+    .hotel-shots figure { position: relative; overflow: hidden; margin: 0; background: var(--cream); }
+    .hotel-shots figure:first-child { grid-row: 1 / span 2; }
+    .hotel-shots img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hotel-shots figcaption {
+      position: absolute; left: 0; right: 0; bottom: 0; padding: 1.5mm 2mm;
+      font-size: 5.5pt; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #fff;
+      background: linear-gradient(transparent, rgba(14, 14, 12, 0.78));
+    }
+    .hotel-shots.compact { grid-template-rows: 28mm 28mm; }
+    .place-grid {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2.5mm; margin-top: 2mm;
+    }
+    .place-grid figure {
+      margin: 0; position: relative; overflow: hidden; height: 40mm; background: var(--cream);
+    }
+    .place-grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .place-grid figcaption {
+      position: absolute; left: 0; right: 0; bottom: 0; padding: 2mm;
+      font-size: 7pt; color: #fff; background: linear-gradient(transparent, rgba(14, 14, 12, 0.75));
+    }
+    .callout {
+      border: 0.5pt solid var(--gold-pale);
+      background: linear-gradient(135deg, #faf8f5 0%, #f0ebe3 100%);
+      padding: 3.5mm 4.5mm; margin-bottom: 3.5mm;
+    }
+    .callout h4 {
+      font-family: 'Cormorant Garamond', serif; font-size: 13pt; font-weight: 500; margin-bottom: 1.2mm;
+    }
+    .callout p { font-size: 8.5pt; line-height: 1.5; color: var(--ink-soft); margin: 0; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm; }
+    .tier-tag {
+      display: inline-block; font-size: 7pt; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold); border: 0.5pt solid var(--gold-pale); padding: 0.6mm 1.8mm; margin-left: 2mm;
+      vertical-align: middle;
+    }
+    .breakdown { width: 100%; border-collapse: collapse; font-size: 8.5pt; margin: 2mm 0 3mm; }
+    .breakdown th, .breakdown td {
+      border-bottom: 0.5pt solid var(--line); padding: 1.8mm 2mm; text-align: left;
+    }
+    .breakdown th { font-weight: 500; color: var(--charcoal); width: 55%; }
+    .breakdown td { text-align: right; font-variant-numeric: tabular-nums; }
+    .breakdown tr.total th, .breakdown tr.total td {
+      border-top: 1.2pt solid var(--ink); border-bottom: none; font-weight: 600;
+      font-family: 'Cormorant Garamond', serif; font-size: 12pt; padding-top: 2.5mm;
+    }
+  </style>
+</head>
+<body class="itinerary-sheet">
+
+  <!-- 01 COVER -->
+  <section class="page cover">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="cover-hero">
+      <img src="images/paro_tigers_nest.jpg" alt="Tiger's Nest Monastery, Paro Bhutan" />
+    </div>
+    <div class="page-body">
+      <div class="cover-content">
+        <p class="cover-eyebrow">Kingdom of Bhutan · 10 Days · Wellness · Heartland · Couple</p>
+        <h1 class="cover-brand">Silverpine <em>Tours</em></h1>
+        <p class="cover-title">Himalayan Wellness · East Circuit · Birthday Retreat</p>
+        <div class="cover-rule"></div>
+        <p class="cover-client">Prepared for Carlos &amp; wife · Miami</p>
+        <div class="cover-details">
+          <div class="cover-detail"><label>Travel window</label><p>October 2028 · around 21 Oct</p></div>
+          <div class="cover-detail"><label>Group</label><p>2 adults · 1 double</p></div>
+          <div class="cover-detail"><label>Gateway</label><p>Paro via BKK / SIN / DEL / CCU</p></div>
+          <div class="cover-detail"><label>Route</label><p>Thimphu · Punakha · Phobjikha · Bumthang · Paro</p></div>
+          <div class="cover-detail"><label>Signature</label><p>Hot stone · meditation · Tiger’s Nest</p></div>
+          <div class="cover-detail"><label>Rates shown</label><p>2026 indicative USD</p></div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Carlos · Couple · Miami</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">01 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 02 LETTER -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Correspondence</p>
+      <h2 class="page-heading">A note of welcome</h2>
+      <p class="page-sub">Reply to your enquiry · wellness · October 2028 · 4★ &amp; 5★ compare</p>
+
+      <p class="letter-date">Issue date · 3 September 2026</p>
+      <p class="letter-greeting">Dear Carlos,</p>
+
+      <div class="letter-body">
+        <p>
+          Thank you for writing — and for the thoughtful questions. You asked when we can share
+          <strong>pricing</strong>, how <strong>4-star and 5-star</strong> hotels compare, how we can
+          honour your wife’s birthday on <strong>21 October</strong>, and whether we can help with a
+          <strong>scenic Everest flight after</strong> the Bhutan retreat. You also referenced our
+          <strong>10-day Himalayan Wellness Retreat</strong> on the website
+          (<a href="https://silverpinebhutan.com/en/tours/wellness-retreat/" target="_blank" rel="noopener">silverpinebhutan.com/en/tours/wellness-retreat</a>)
+          — massages, spa, meditation, and traditional hot-stone baths.
+        </p>
+        <p>
+          Yes — we can help with all of this. For your <strong>October 2028</strong> window we do not yet
+          have locked 2028 hotel contracts, so the figures in this document are
+          <strong>2026 rates for the same shape of journey</strong>. Use them to compare comfort vs luxury;
+          we will re-quote with live 2028 tariffs when you are ready to hold rooms (usually 10–14 months out).
+        </p>
+        <p>
+          Inside you will find: (1) the website wellness product as Option A, (2) our recommended
+          <strong>Option B — 10-day heartland circuit</strong> with Phobjikha, three nights in sacred
+          Bumthang, a scenic <strong>domestic flight Bumthang → Paro</strong>, and Tiger’s Nest once you are
+          fully acclimatised, (3) clear <strong>4★ vs 5★</strong> hotel menus and a transparent cost stack
+          (SDF · hotels · guide/car/entries · wellness activities · flights), plus Miami gateway routes
+          and an Everest mountain-flight add-on via Kathmandu.
+        </p>
+        <p>
+          <strong>Silverpine Tours</strong> — Rajiv Pradhan &amp; Tshering Lhamo since <strong>2012</strong>.
+          WhatsApp <strong>+975-17649720</strong> · <strong>www.silverpinebhutan.com</strong>.
+        </p>
+      </div>
+
+      <div class="letter-sign">
+        <img class="letter-photo" src="images/Rajiv_Tshering.jpg" alt="Rajiv Pradhan and Tshering Lhamo" />
+        <div>
+          <p class="closing">With warm regards,</p>
+          <p class="name">Rajiv Pradhan &amp; Tshering Lhamo</p>
+          <p class="role">Proprietors · Silverpine Tours</p>
+          <p class="since">Managing Silverpine Tours as a couple since 2012</p>
+        </div>
+      </div>
+
+      <div class="letter-contact">
+        <div><label>Website</label><a href="https://www.silverpinebhutan.com">www.silverpinebhutan.com</a></div>
+        <div><label>WhatsApp</label><p>+975-17649720</p></div>
+        <div><label>Prepared for</label><p>Carlos &amp; wife · Miami · Oct 2028</p></div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Carlos · Couple · Miami</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">02 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 03 TWO OPTIONS -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Quote</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Choose your shape</p>
+      <h2 class="page-heading">Two 10-day paths · side by side</h2>
+      <p class="simple-intro">
+        Both include meditation, hot-stone therapy, and spa time. Option B adds the eastern heartland,
+        a domestic scenic flight, and places Tiger’s Nest on Day 9 when you are fully settled.
+      </p>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>A · Website Wellness</th>
+            <th class="rec">B · Heartland Wellness ★</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Reference</th>
+            <td>
+              <a href="https://silverpinebhutan.com/en/tours/wellness-retreat/" target="_blank" rel="noopener">Himalayan Wellness Retreat</a>
+            </td>
+            <td class="rec"><strong>Private custom · this brochure</strong></td>
+          </tr>
+          <tr>
+            <th>Length</th>
+            <td>10 days · 9 nights</td>
+            <td class="rec">10 days · 9 nights</td>
+          </tr>
+          <tr>
+            <th>Route</th>
+            <td>Paro · Thimphu · Punakha · Paro (west focus)</td>
+            <td class="rec">Thimphu · Punakha · Phobjikha · <strong>Bumthang</strong> · Paro</td>
+          </tr>
+          <tr>
+            <th>Wellness</th>
+            <td>Yoga · meditation · hot stone · massage · spa days</td>
+            <td class="rec">Same wellness core + valley quiet + birthday design</td>
+          </tr>
+          <tr>
+            <th>Domestic flight</th>
+            <td>None</td>
+            <td class="rec"><strong>Bumthang → Paro</strong> · scenic mountain sector</td>
+          </tr>
+          <tr>
+            <th>Tiger’s Nest</th>
+            <td>Earlier in the west circuit</td>
+            <td class="rec"><strong>Day 9</strong> · fully acclimatised</td>
+          </tr>
+          <tr>
+            <th>Best for</th>
+            <td>Spa-first · shorter drives · classic west</td>
+            <td class="rec"><strong>Depth · culture · Everest-after add-on</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <h4>Our recommendation for you</h4>
+        <p>
+          Option <strong>B</strong> — the heartland circuit detailed from page 06 onward. It keeps everything you liked
+          on the wellness page (meditation, hot stone, massage), adds Phobjikha’s crane valley and sacred Bumthang,
+          returns west on a short domestic flight (beautiful on a clear day), and saves Tiger’s Nest for Day 9.
+          We will place a <strong>private birthday evening on 21 October</strong> (cake, special dinner, optional
+          blessing or spa) wherever that date falls in your final lock — usually Paro after the domestic flight,
+          or Bumthang if you prefer a quieter temple birthday.
+        </p>
+      </div>
+
+      <p class="note-line">
+        Your own birthday is <strong>29 June</strong> — noted. If this October retreat is also your celebration,
+        we can weave a second quiet moment (e.g. private meditation at Kyichu or a farmhouse dinner) without crowding the wife’s day.
+      </p>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Carlos · Couple · Miami</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">03 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 04 PRICING -->
+  <section class="page page-pricing">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Quote</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Investment · 2026 rates</p>
+      <h2 class="page-heading">4-star vs 5-star · clear numbers</h2>
+      <p class="page-sub">
+        Option B · 2 adults · 1 double · 10 days / 9 nights · MAP (breakfast &amp; dinner) · USD ·
+        <strong>2026 tariffs</strong> for the same journey shape. 2028 hotel rates are not known yet.
+      </p>
+
+      <div class="highlight-note">
+        <strong>High-side 2026 planning quote</strong> — we prefer not to under-quote boutique / October peak.
+        SDF and guide/car/entries are the same on both columns; hotels + wellness drive the gap.
+        Domestic Bumthang → Paro is <strong>USD 260 per person</strong> (USD 520 for two). Final 2028 tariffs may differ; we reconfirm before deposit.
+      </div>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Comfort 4★</th>
+            <th class="rec">Luxury 5★ mix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Stay character</th>
+            <td>Pelbu / Lemon Tree · Dhensa · Gangtey Tent · Jakar Lodge · Tenzinling / Olathang</td>
+            <td class="rec">Le Méridien / Pemako · Dhensa villa · Gangtey Tent · Jakar Lodge · Le Méridien Paro</td>
+          </tr>
+          <tr>
+            <th>SDF</th>
+            <td colspan="2">USD 1,800 · USD 100 / person / night × 9 nights × 2</td>
+          </tr>
+          <tr>
+            <th>Hotels · MAP · 1 double</th>
+            <td>USD 3,000</td>
+            <td class="rec">USD 6,000</td>
+          </tr>
+          <tr>
+            <th>Entry + guide + private SUV</th>
+            <td colspan="2">USD 2,500 · licensed English guide · Santa Fe / Creta · monument fees on this circuit</td>
+          </tr>
+          <tr>
+            <th>Activities · wellness</th>
+            <td>USD 680 · 3× hot stone · 2× massage · daily meditation</td>
+            <td class="rec">USD 1,180 · hot stone · massage · spa · meditation · birthday dinner setup</td>
+          </tr>
+          <tr>
+            <th>Land subtotal (couple)</th>
+            <td><span class="price">USD 7,980</span><br /><span class="small">≈ USD 3,990 / person</span></td>
+            <td class="rec"><span class="price">USD 11,480</span><br /><span class="small">≈ USD 5,740 / person</span></td>
+          </tr>
+          <tr>
+            <th>Domestic · BUTU → PBH</th>
+            <td colspan="2">USD 520 · USD 260 × 2 · Drukair / Bhutan Airlines · scenic sector</td>
+          </tr>
+          <tr>
+            <th>Land + domestic</th>
+            <td><span class="price">USD 8,500</span><br /><span class="small">≈ USD 4,250 / person</span></td>
+            <td class="rec"><span class="price">USD 12,000</span><br /><span class="small">≈ USD 6,000 / person</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="two-col" style="margin-top: 2mm;">
+        <div>
+          <p class="section-label" style="margin-bottom: 1.5mm;">Comfort 4★ stack</p>
+          <table class="breakdown">
+            <tr><th>SDF</th><td>1,800</td></tr>
+            <tr><th>Hotels</th><td>3,000</td></tr>
+            <tr><th>Entry + guide + car</th><td>2,500</td></tr>
+            <tr><th>Meditation · hot stone · massage</th><td>680</td></tr>
+            <tr><th>Domestic flight × 2</th><td>520</td></tr>
+            <tr class="total"><th>Total</th><td>USD 8,500</td></tr>
+          </table>
+        </div>
+        <div>
+          <p class="section-label" style="margin-bottom: 1.5mm;">Luxury 5★ stack</p>
+          <table class="breakdown">
+            <tr><th>SDF</th><td>1,800</td></tr>
+            <tr><th>Hotels</th><td>6,000</td></tr>
+            <tr><th>Entry + guide + car</th><td>2,500</td></tr>
+            <tr><th>Wellness + birthday setup</th><td>1,180</td></tr>
+            <tr><th>Domestic flight × 2</th><td>520</td></tr>
+            <tr class="total"><th>Total</th><td>USD 12,000</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <p class="note-line">
+        Visa facilitation (USD 40 / person) is included inside the land figure. International Miami ↔ hub ↔ Paro
+        tickets are <strong>not</strong> included — see next page. These are <strong>safe high-side 2026</strong> planning
+        figures · we reconfirm live 2028 rates before deposit.
+      </p>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Carlos · Couple · Miami</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">04 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 05 FLIGHTS -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Access · Miami</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Getting to Bhutan</p>
+      <h2 class="page-heading">From Miami (MIA) · best hubs into Paro</h2>
+      <p class="page-sub">You ticket long-haul to the hub; we arrange or advise the final sector into Paro (PBH).</p>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th>Hub</th>
+            <th>Why it works</th>
+            <th>Paro sector · indicative 2026</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Via Bangkok (BKK)</th>
+            <td>Most popular · seamless · frequent Drukair / Bhutan Airlines</td>
+            <td>BKK ↔ PBH ≈ <strong>USD 850–1,000</strong> / person round-trip</td>
+          </tr>
+          <tr>
+            <th>Via Singapore (SIN)</th>
+            <td>Highly comfortable transit at Changi · excellent lounges</td>
+            <td>SIN ↔ PBH ≈ <strong>USD 900–1,100</strong> / person round-trip</td>
+          </tr>
+          <tr>
+            <th>Via New Delhi (DEL)</th>
+            <td>Direct South Asia routing · good long-haul from US East</td>
+            <td>DEL ↔ PBH ≈ <strong>USD 600–750</strong> / person round-trip</td>
+          </tr>
+          <tr>
+            <th>Via Kolkata (CCU)</th>
+            <td>Shorter final hop · useful if you overnight in India</td>
+            <td>CCU ↔ PBH ≈ <strong>USD 450–550</strong> / person round-trip</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="two-col">
+        <div class="callout" style="margin: 0;">
+          <h4>Domestic · Day 8</h4>
+          <p>
+            <strong>Bumthang (BUTU) → Paro (PBH)</strong><br />
+            USD <strong>260 per person</strong> · USD 520 for two · already in the land+domestic total.
+            Clear mornings are magical — valley folds, high ridges, then the Paro approach.
+          </p>
+        </div>
+        <div class="callout" style="margin: 0;">
+          <h4>After Bhutan · Everest scenic flight</h4>
+          <p>
+            Yes — we can help. Typical plan: fly Paro → <strong>Kathmandu (KTM)</strong>, overnight,
+            next morning take a <strong>mountain / Everest experience flight</strong> (≈ 1 hour),
+            then continue home via your hub. We coordinate hotels, transfers, and the mountain-flight ticket
+            as an add-on (quoted closer to travel; usually a few hundred USD per person for the scenic sector alone).
+          </p>
+        </div>
+      </div>
+
+      <div class="docs-row" style="margin-top: 4mm;">
+        <div class="closing-block dos">
+          <h3>Included in land</h3>
+          <ul>
+            <li>SDF &amp; visa facilitation</li>
+            <li>Hotels · breakfast &amp; dinner (MAP)</li>
+            <li>Licensed English guide · private SUV</li>
+            <li>Monument entries on this circuit</li>
+            <li>Meditation · hot stone · massage as quoted</li>
+            <li>Airport pickup &amp; drop in Bhutan</li>
+            <li>Bumthang → Paro domestic tickets (when selected)</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>Not included</h3>
+          <ul>
+            <li>Miami ↔ hub long-haul</li>
+            <li>Hub ↔ Paro international tickets</li>
+            <li>Lunch daily (guide recommends local)</li>
+            <li>Everest scenic flight &amp; KTM nights</li>
+            <li>Travel / medical insurance</li>
+            <li>Tips · shopping · extra spa · alcohol</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Carlos · Couple · Miami</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">05 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 06 HOTELS THIMPHU -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Where you stay</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Hotel menu · Thimphu · 2 nights</p>
+      <h2 class="page-heading">Capital base · choose your tier</h2>
+      <p class="page-sub">Days 1–2 · spa &amp; meditation start here · pick one property for both nights.</p>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Pelbu Suites <span class="tier-tag">4★ comfort</span></h3>
+          <span class="nights">Our house · Olakha</span>
+        </div>
+        <p class="why-pick">Lift · spa · suite option · quiet after city days · excellent for first acclimatisation.</p>
+        <div class="hotel-shots compact">
+          <figure><img src="images/hotel_pelbu_exterior.jpg" alt="Pelbu" /><figcaption>Exterior</figcaption></figure>
+          <figure><img src="images/hotel_pelbu_suite.jpg" alt="Suite" /><figcaption>Suite</figcaption></figure>
+          <figure><img src="images/hotel_pelbu_spa.jpg" alt="Spa" /><figcaption>Spa</figcaption></figure>
+          <figure><img src="images/hotel_pelbu_dining.jpg" alt="Dining" /><figcaption>Dining</figcaption></figure>
+          <figure><img src="images/hotel_pelbu_room_double.jpg" alt="Room" /><figcaption>Room</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Lemon Tree Resort · Taba <span class="tier-tag">4★ comfort</span></h3>
+          <span class="nights">Hillside · gardens</span>
+        </div>
+        <p class="why-pick">Resort pace · porch light · good for morning meditation outdoors.</p>
+        <div class="hotel-shots compact">
+          <figure><img src="images/hotel_lemontree_exterior.jpg" alt="Lemon Tree" /><figcaption>Exterior</figcaption></figure>
+          <figure><img src="images/hotel_lemontree_villa.jpg" alt="Villa" /><figcaption>Villa</figcaption></figure>
+          <figure><img src="images/hotel_lemontree_king.jpg" alt="Room" /><figcaption>King room</figcaption></figure>
+          <figure><img src="images/hotel_lemontree_porch.jpg" alt="Porch" /><figcaption>Porch</figcaption></figure>
+          <figure><img src="images/hotel_lemontree_cafe.jpg" alt="Cafe" /><figcaption>Café</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-bottom: 0;">
+        <h4>Also on your Thimphu shortlist</h4>
+        <p>
+          <strong>Pema Realm</strong> (boutique comfort) ·
+          <strong>Le Méridien Thimphu</strong> / <strong>Pemako</strong> (5★ luxury international) —
+          we place you in the best available double when you choose the luxury column.
+          Photos for Pelbu, Lemon Tree and Le Méridien are above / next page; Pema Realm &amp; Pemako confirmed on hold.
+        </p>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Carlos · Couple · Miami</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">06 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 07 HOTELS WEST + EAST -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Where you stay</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Hotel menu · valleys · east · Paro</p>
+      <h2 class="page-heading">Punakha · Phobjikha · Bumthang · Paro</h2>
+      <p class="page-sub">Same-tier substitute if a named property is full at lock time.</p>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Punakha · Dhensa <span class="tier-tag">4★ boutique</span></h3>
+          <span class="nights">1 night · Day 3</span>
+        </div>
+        <p class="hotel-block-meta">River valley · cottages · spa · also: <strong>Dhumra Farm House Villa</strong> for organic farm character</p>
+        <div class="hotel-shots compact">
+          <figure><img src="images/hotel_dhensa_exterior.jpg" alt="Dhensa" /><figcaption>Dhensa</figcaption></figure>
+          <figure><img src="images/hotel_dhensa_view.jpg" alt="View" /><figcaption>Valley view</figcaption></figure>
+          <figure><img src="images/hotel_dhensa_room.jpg" alt="Room" /><figcaption>Room</figcaption></figure>
+          <figure><img src="images/hotel_dhensa_spa.jpg" alt="Spa" /><figcaption>Spa</figcaption></figure>
+          <figure><img src="images/hotel_dhensa_cottages.jpg" alt="Cottages" /><figcaption>Cottages</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Phobjikha · Gangtey Tent Resort <span class="tier-tag">premium tent</span></h3>
+          <span class="nights">1 night · Day 4</span>
+        </div>
+        <p class="why-pick">Heated tents · deck light over the crane valley · one of Bhutan’s most atmospheric stays.</p>
+        <div class="hotel-shots compact">
+          <figure><img src="images/hotel_gangtey_tent_exterior.jpg" alt="Gangtey" /><figcaption>Tent row</figcaption></figure>
+          <figure><img src="images/hotel_gangtey_tent_interior.jpg" alt="Interior" /><figcaption>Interior</figcaption></figure>
+          <figure><img src="images/hotel_gangtey_tent_deck.jpg" alt="Deck" /><figcaption>Deck</figcaption></figure>
+          <figure><img src="images/hotel_gangtey_tent_row.jpg" alt="Hillside" /><figcaption>Hillside</figcaption></figure>
+          <figure><img src="images/bhutan_green_valley.jpg" alt="Valley" /><figcaption>Valley</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top: 1mm;">
+        <div class="callout" style="margin: 0;">
+          <h4>Bumthang · Jakar Lodge</h4>
+          <p>3 nights · Days 5–7 · Choekor valley base for temples, meditation, and your deepest quiet of the journey.</p>
+        </div>
+        <div class="callout" style="margin: 0;">
+          <h4>Paro · final nights</h4>
+          <p>
+            <strong>Tenzinling Villa Tent</strong> · <strong>Olathang Cottages</strong> (comfort) ·
+            <strong>Le Méridien Paro</strong> (5★) · Days 8–9 before Tiger’s Nest and departure.
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Carlos · Couple · Miami</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">07 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 08 LE MERIDIEN + OVERVIEW -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Luxury option · overview</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">5★ sample · Le Méridien</p>
+      <h2 class="page-heading">International luxury when you want it</h2>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Le Méridien <span class="tier-tag">5★</span></h3>
+          <span class="nights">Thimphu and / or Paro</span>
+        </div>
+        <p class="why-pick">Spa · fitness · polished rooms · pairs well with Pemako or boutique nights elsewhere.</p>
+        <div class="hotel-shots">
+          <figure><img src="images/hotel_lm_exterior.jpg" alt="Le Meridien" /><figcaption>Property</figcaption></figure>
+          <figure><img src="images/hotel_lm_room.jpg" alt="Room" /><figcaption>Room</figcaption></figure>
+          <figure><img src="images/hotel_lm_spa.jpg" alt="Spa" /><figcaption>Spa</figcaption></figure>
+          <figure><img src="images/hotel_lm_property.jpg" alt="Grounds" /><figcaption>Grounds</figcaption></figure>
+          <figure><img src="images/hotel_lm_fitness.jpg" alt="Fitness" /><figcaption>Fitness</figcaption></figure>
+        </div>
+      </div>
+
+      <p class="section-label" style="margin-top: 3mm;">Option B · run sheet</p>
+      <h2 class="page-heading" style="font-size: 18pt; margin-bottom: 2mm;">10 days at a glance</h2>
+      <p class="page-sub">Sample lock around 21 October 2028 — we shift 1–2 days either side to match your flights.</p>
+
+      <table class="day-table">
+        <thead>
+          <tr><th>Day</th><th>Sample date</th><th>Plan</th><th>Sleep</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>01</td><td>14 Oct</td><td>Land Paro · drive Thimphu · gentle · spa intro</td><td>Thimphu</td></tr>
+          <tr><td>02</td><td>15 Oct</td><td>Thimphu · Buddha · Chorten · meditation · massage</td><td>Thimphu</td></tr>
+          <tr><td>03</td><td>16 Oct</td><td>Dochula · Punakha Dzong · hot stone</td><td>Punakha</td></tr>
+          <tr><td>04</td><td>17 Oct</td><td>Punakha → Phobjikha · Gangtey · valley light</td><td>Gangtey Tent</td></tr>
+          <tr><td>05</td><td>18 Oct</td><td>Phobjikha → Bumthang via high passes</td><td>Jakar Lodge</td></tr>
+          <tr><td>06</td><td>19 Oct</td><td>Bumthang temples · meditation</td><td>Jakar Lodge</td></tr>
+          <tr><td>07</td><td>20 Oct</td><td>Bumthang · quiet · optional short walk</td><td>Jakar Lodge</td></tr>
+          <tr><td>08</td><td><strong>21 Oct</strong></td><td><strong>Birthday</strong> · domestic flight → Paro · celebration dinner</td><td>Paro</td></tr>
+          <tr><td>09</td><td>22 Oct</td><td><strong>Tiger’s Nest</strong> · fully acclimatised</td><td>Paro</td></tr>
+          <tr><td>10</td><td>23 Oct</td><td>Depart Paro · optional continue to KTM for Everest flight</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Carlos · Couple · Miami</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">08 / 18</span>
+    </footer>
+  </section>
+
+  <!-- DAY 01 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 01 · sample 14 October</p>
+          <h2 class="day-route">Paro arrival · drive to Thimphu</h2>
+          <dl class="day-meta">
+            <div><dt>Location</dt><dd>Paro (PBH) → Thimphu</dd></div>
+            <div><dt>Drive</dt><dd>≈ 1–1.5 hrs</dd></div>
+            <div><dt>Hotel</dt><dd>Thimphu · your chosen property</dd></div>
+            <div><dt>Meals</dt><dd>Dinner</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Meet guide &amp; driver after immigration</li>
+              <li>Scenic drive into the capital</li>
+              <li>Check-in · hydrate · rest</li>
+              <li>Evening wellness introduction · light meditation</li>
+              <li>Dinner at hotel</li>
+            </ul>
+          </div>
+          <p class="day-desc">Soft landing. No rushing — Bhutan begins with breath and valley light.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/thimphu_capital.jpg" alt="Thimphu" />
+            <span>Thimphu</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/paro_airport_arrive.jpg" alt="Arrival" /><figcaption>Paro arrival</figcaption></figure>
+            <figure><img src="images/thimphu_mountain_highway.jpg" alt="Highway" /><figcaption>Drive</figcaption></figure>
+            <figure><img src="images/bhutan_prayer_flags.jpg" alt="Flags" /><figcaption>Prayer flags</figcaption></figure>
+            <figure><img src="images/hotel_pelbu_exterior.jpg" alt="Hotel" /><figcaption>First night</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Carlos · Couple · Miami</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">09 / 18</span>
+    </footer>
+  </section>
+
+  <!-- DAY 02 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 02 · sample 15 October</p>
+          <h2 class="day-route">Thimphu · spiritual &amp; spa</h2>
+          <dl class="day-meta">
+            <div><dt>Location</dt><dd>Thimphu valley</dd></div>
+            <div><dt>Pace</dt><dd>Easy · wellness first</dd></div>
+            <div><dt>Hotel</dt><dd>Thimphu · 2nd night</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · dinner</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Morning meditation / mindfulness</li>
+              <li>Buddha Dordenma · Memorial Chorten</li>
+              <li>Optional craft / quiet town time</li>
+              <li>Afternoon traditional massage or spa</li>
+              <li>Early night — tomorrow’s pass day</li>
+            </ul>
+          </div>
+          <p class="day-desc">The capital as a wellness base — temples for the mind, spa for the body.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/thimphu_buddha_point.jpg" alt="Buddha Point" />
+            <span>Buddha Dordenma</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/thimphu_memorial_chorten.jpg" alt="Chorten" /><figcaption>Memorial Chorten</figcaption></figure>
+            <figure><img src="images/thimphu_buddha_gate.jpg" alt="Gate" /><figcaption>Buddha gate</figcaption></figure>
+            <figure><img src="images/hotel_pelbu_spa.jpg" alt="Spa" /><figcaption>Spa</figcaption></figure>
+            <figure><img src="images/buddhist_temple.jpg" alt="Temple" /><figcaption>Temple quiet</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Carlos · Couple · Miami</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">10 / 18</span>
+    </footer>
+  </section>
+
+  <!-- DAY 03 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 03 · sample 16 October</p>
+          <h2 class="day-route">Thimphu → Punakha</h2>
+          <dl class="day-meta">
+            <div><dt>Route</dt><dd>Dochula Pass · Punakha valley</dd></div>
+            <div><dt>Drive</dt><dd>≈ 3–3.5 hrs with stops</dd></div>
+            <div><dt>Hotel</dt><dd>Dhensa or Dhumra Villa</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · dinner</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Dochula · 108 chortens · short meditation if clear</li>
+              <li>Punakha Dzong at the river confluence</li>
+              <li>Suspension bridge walk</li>
+              <li>Evening <strong>hot-stone bath</strong></li>
+            </ul>
+          </div>
+          <p class="day-desc">Cross the spine of the west — then drop into warmer rice country and heat the stones.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/punakha_dzong.jpg" alt="Punakha Dzong" />
+            <span>Punakha Dzong</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/dochula_pass.jpg" alt="Dochula" /><figcaption>Dochula</figcaption></figure>
+            <figure><img src="images/punakha_suspension_bridge.jpg" alt="Bridge" /><figcaption>Bridge</figcaption></figure>
+            <figure><img src="images/punakha_valley.jpg" alt="Valley" /><figcaption>Valley</figcaption></figure>
+            <figure><img src="images/hotel_dhensa_view.jpg" alt="Dhensa" /><figcaption>Dhensa</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Carlos · Couple · Miami</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">11 / 18</span>
+    </footer>
+  </section>
+
+  <!-- DAY 04 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 04 · sample 17 October</p>
+          <h2 class="day-route">Punakha → Phobjikha</h2>
+          <dl class="day-meta">
+            <div><dt>Location</dt><dd>Gangtey · crane valley</dd></div>
+            <div><dt>Drive</dt><dd>≈ 3–4 hrs</dd></div>
+            <div><dt>Hotel</dt><dd>Gangtey Tent Resort</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · dinner</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Scenic drive into the glacial valley</li>
+              <li>Gangtey Goemba if timing allows</li>
+              <li>Short nature-trail stretch at your pace</li>
+              <li>Sunset from the tent deck · quiet dinner</li>
+            </ul>
+          </div>
+          <p class="day-desc">Open meadow, pine edge, prayer flags — Phobjikha is where the journey softens.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/bhutan_green_valley.jpg" alt="Phobjikha" />
+            <span>Phobjikha</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/hotel_gangtey_tent_exterior.jpg" alt="Tents" /><figcaption>Gangtey tents</figcaption></figure>
+            <figure><img src="images/hotel_gangtey_tent_deck.jpg" alt="Deck" /><figcaption>Deck</figcaption></figure>
+            <figure><img src="images/hotel_gangtey_tent_interior.jpg" alt="Interior" /><figcaption>Interior</figcaption></figure>
+            <figure><img src="images/bhutan_prayer_mountains.jpg" alt="Mountains" /><figcaption>High light</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Carlos · Couple · Miami</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">12 / 18</span>
+    </footer>
+  </section>
+
+  <!-- DAY 05 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 05 · sample 18 October</p>
+          <h2 class="day-route">Phobjikha → Bumthang</h2>
+          <dl class="day-meta">
+            <div><dt>Route</dt><dd>East via Pele / Yotongla · Choekor</dd></div>
+            <div><dt>Drive</dt><dd>Long day · daylight arrival</dd></div>
+            <div><dt>Hotel</dt><dd>Jakar Lodge · night 1/3</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · dinner</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Early start · pass views · photo stops</li>
+              <li>Arrive Jakar before dark</li>
+              <li>Settle · short evening walk if energy remains</li>
+              <li>Meditation optional before sleep</li>
+            </ul>
+          </div>
+          <p class="day-desc">The road east is the story — then three nights in Bhutan’s spiritual heartland.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/punakha_valley_alt.jpg" alt="High valley" />
+            <span>Toward the east</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/dochula_pass.jpg" alt="Pass" /><figcaption>High pass light</figcaption></figure>
+            <figure><img src="images/bhutan_prayer_mountains.jpg" alt="Peaks" /><figcaption>Ridges</figcaption></figure>
+            <figure><img src="images/thimphu_mountain_highway.jpg" alt="Road" /><figcaption>Mountain highway</figcaption></figure>
+            <figure><img src="images/bhutan_green_valley.jpg" alt="Arrival" /><figcaption>Valley arrival</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Carlos · Couple · Miami</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">13 / 18</span>
+    </footer>
+  </section>
+
+  <!-- DAY 06–07 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Days 06 &amp; 07 · sample 19–20 October</p>
+      <h2 class="page-heading">Bumthang · temples · meditation · quiet</h2>
+      <p class="page-sub">Two full days in Choekor · Jakar Lodge · the deepest wellness stretch of the journey.</p>
+
+      <div class="two-col" style="margin-bottom: 3mm;">
+        <div class="callout" style="margin: 0;">
+          <h4>Day 06 · sacred circuit</h4>
+          <p>
+            Kurjey · Jambay · Tamshing at a respectful pace. Morning meditation with your guide.
+            Afternoon free for spa rest or a riverside sit. No packing the day — this is absorption, not ticking boxes.
+          </p>
+        </div>
+        <div class="callout" style="margin: 0;">
+          <h4>Day 07 · soft day</h4>
+          <p>
+            Optional short valley walk or farm visit. Second hot-stone or massage if you wish.
+            Pack lightly for tomorrow’s domestic flight. Early night — birthday eve if locked to 21 Oct.
+          </p>
+        </div>
+      </div>
+
+      <div class="place-grid">
+        <figure><img src="images/buddhist_temple.jpg" alt="Temple" /><figcaption>Temple courtyard</figcaption></figure>
+        <figure><img src="images/bhutan_prayer_flags.jpg" alt="Flags" /><figcaption>Prayer flags</figcaption></figure>
+        <figure><img src="images/bhutan_green_valley.jpg" alt="Valley" /><figcaption>Choekor valley</figcaption></figure>
+      </div>
+
+      <p class="day-desc" style="margin-top: 3mm;">
+        Bumthang is why Option B exists — space to feel the retreat, not only schedule it.
+        October light here is excellent for quiet photography and unhurried temple time.
+      </p>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Carlos · Couple · Miami</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">14 / 18</span>
+    </footer>
+  </section>
+
+  <!-- DAY 08 BIRTHDAY -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 08 · <strong>21 October</strong> · birthday</p>
+          <h2 class="day-route">Bumthang → Paro · scenic flight</h2>
+          <dl class="day-meta">
+            <div><dt>Flight</dt><dd>BUTU → PBH · ≈ USD 260 / person</dd></div>
+            <div><dt>Hotel</dt><dd>Paro · Tenzinling / Olathang / Le Méridien</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · <strong>celebration dinner</strong></dd></div>
+            <div><dt>Focus</dt><dd>Wife’s birthday · soft landing</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Morning domestic flight — window seats if available</li>
+              <li>Meet driver in Paro · check-in · rest</li>
+              <li>Optional Kyichu blessing for the birthday</li>
+              <li>Cake / flowers / private dinner as arranged</li>
+              <li>Early sleep for Tiger’s Nest</li>
+            </ul>
+          </div>
+          <p class="day-desc">A mountain flight as a gift — then Paro light and a table set just for her.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/paro_location.jpg" alt="Paro" />
+            <span>Paro valley</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/paro_airport_arrive.jpg" alt="Flight" /><figcaption>Into Paro</figcaption></figure>
+            <figure><img src="images/paro_kyichu_lhakhang.jpg" alt="Kyichu" /><figcaption>Kyichu</figcaption></figure>
+            <figure><img src="images/paro_shaba_river.jpg" alt="River" /><figcaption>Valley evening</figcaption></figure>
+            <figure><img src="images/hotel_lm_spa.jpg" alt="Spa" /><figcaption>Optional spa</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Carlos · Couple · Miami</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">15 / 18</span>
+    </footer>
+  </section>
+
+  <!-- DAY 09 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 09 · sample 22 October</p>
+          <h2 class="day-route">Tiger’s Nest · fully acclimatised</h2>
+          <dl class="day-meta">
+            <div><dt>Hike</dt><dd>Taktsang · moderate · early start</dd></div>
+            <div><dt>Altitude</dt><dd>You have had 8 nights in Bhutan</dd></div>
+            <div><dt>Hotel</dt><dd>Paro · final night</dd></div>
+            <div><dt>Meals</dt><dd>Breakfast · dinner</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Activities</h4>
+            <ul>
+              <li>Trail to the café viewpoint · then monastery if energy allows</li>
+              <li>Guided quiet / short meditation at a suitable spot</li>
+              <li>Descend · lunch · optional spa</li>
+              <li>Farewell dinner · pack for departure</li>
+            </ul>
+          </div>
+          <p class="day-desc">Saved for Day 9 on purpose — legs and lungs ready, mind already tuned by the retreat.</p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/paro_tigers_nest.jpg" alt="Tiger's Nest" />
+            <span>Taktsang</span>
+          </div>
+          <div class="day-acts">
+            <figure><img src="images/paro_tigers_nest_trek.jpg" alt="Trek" /><figcaption>Trail</figcaption></figure>
+            <figure><img src="images/paro_tigers_nest_viewpoint.jpg" alt="Viewpoint" /><figcaption>Viewpoint</figcaption></figure>
+            <figure><img src="images/paro_tigers_nest_alt.jpg" alt="Nest" /><figcaption>Monastery</figcaption></figure>
+            <figure><img src="images/paro_ta_dzong.jpg" alt="Ta Dzong" /><figcaption>Paro valley</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Carlos · Couple · Miami</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">16 / 18</span>
+    </footer>
+  </section>
+
+  <!-- DAY 10 + EVEREST -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Departure · add-on</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Day 10 · sample 23 October</p>
+      <h2 class="page-heading">Depart Paro · or continue to Everest</h2>
+      <p class="page-sub">Morning transfer to PBH · two exit paths.</p>
+
+      <div class="two-col" style="margin-bottom: 4mm;">
+        <div class="callout" style="margin: 0;">
+          <h4>Path 1 · home via hub</h4>
+          <p>
+            Paro → Bangkok / Singapore / Delhi / Kolkata → Miami.
+            We time hotel pickup to your international departure (Paro mornings are weather-sensitive — we build buffer).
+          </p>
+        </div>
+        <div class="callout" style="margin: 0;">
+          <h4>Path 2 · Everest scenic flight</h4>
+          <p>
+            Paro → <strong>Kathmandu</strong> · overnight · next-day <strong>mountain / Everest experience flight</strong>
+            (~1 hour) · then onward to your hub. Yes — we arrange flights, hotel, transfers, and the scenic ticket
+            as a packaged add-on after the retreat.
+          </p>
+        </div>
+      </div>
+
+      <div class="place-grid">
+        <figure><img src="images/paro_airport_arrive.jpg" alt="Airport" /><figcaption>Paro airport</figcaption></figure>
+        <figure><img src="images/bhutan_prayer_mountains.jpg" alt="Himalaya" /><figcaption>Toward the high peaks</figcaption></figure>
+        <figure><img src="images/paro_chelela_pass.jpg" alt="Pass" /><figcaption>Himalayan light</figcaption></figure>
+      </div>
+
+      <div class="highlight-note" style="margin-top: 4mm;">
+        <strong>Next step:</strong> tell us whether you lean <strong>Comfort 4★</strong> or <strong>Luxury 5★</strong>,
+        and preferred hub (<strong>BKK</strong> or <strong>SIN</strong> are our top recommendations from Miami).
+        We will hold a provisional October 2028 window and refresh numbers when 2028 contracts open.
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Carlos · Couple · Miami</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">17 / 18</span>
+    </footer>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Summary</p>
+      <h2 class="page-heading">What we are offering you</h2>
+
+      <div class="price-hero" style="margin-bottom: 4mm;">
+        <div>
+          <p class="label">High-side 2026 planning · couple · Option B</p>
+          <p class="amount">USD 8,500 · 4★ &nbsp;|&nbsp; USD 12,000 · 5★</p>
+        </div>
+        <p class="note">
+          High-side 2026 planning · land + domestic Bumthang→Paro · SDF · hotels MAP · guide · SUV · entries · wellness.
+          International flights &amp; Everest add-on extra. 2028 rates to be confirmed later.
+        </p>
+      </div>
+
+      <div class="docs-row">
+        <div class="closing-block dos">
+          <h3>Locked into this design</h3>
+          <ul>
+            <li>Website wellness DNA — meditation · hot stone · massage</li>
+            <li>Heartland depth — Phobjikha · Bumthang · scenic domestic flight</li>
+            <li>Tiger’s Nest on Day 9 · fully acclimatised</li>
+            <li>21 October birthday evening · cake / dinner / blessing</li>
+            <li>Everest scenic flight help after Bhutan via KTM</li>
+            <li>Miami hubs: BKK · SIN · DEL · CCU</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>How to reply</h3>
+          <ul>
+            <li>Comfort 4★ or Luxury 5★?</li>
+            <li>Preferred hub into Paro?</li>
+            <li>Everest add-on: yes / maybe / no?</li>
+            <li>Exact October 2028 arrival flexibility?</li>
+          </ul>
+          <p style="margin-top: 3mm; font-size: 9pt; color: var(--ink-soft);">
+            WhatsApp <strong>+975-17649720</strong><br />
+            <a href="https://www.silverpinebhutan.com">www.silverpinebhutan.com</a><br />
+            Wellness page:
+            <a href="https://silverpinebhutan.com/en/tours/wellness-retreat/" target="_blank" rel="noopener">/en/tours/wellness-retreat</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="letter-sign" style="margin-top: 6mm;">
+        <img class="letter-photo" src="images/Rajiv_Tshering.jpg" alt="Rajiv and Tshering" />
+        <div>
+          <p class="closing">Looking forward to hosting you both in Bhutan,</p>
+          <p class="name">Rajiv Pradhan &amp; Tshering Lhamo</p>
+          <p class="role">Proprietors · Silverpine Tours</p>
+          <p class="since">Licensed · Tourism Council of Bhutan · ABTO</p>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Carlos · Couple · Miami</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">18 / 18</span>
+    </footer>
+  </section>
+
+</body>
+</html>

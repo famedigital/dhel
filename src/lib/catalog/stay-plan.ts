@@ -10,6 +10,9 @@ const CITY_ALIASES: Record<string, string> = {
   punakha: "Punakha",
   wangdue: "Wangdue Phodrang",
   "wangdue phodrang": "Wangdue Phodrang",
+  gangtey: "Wangdue Phodrang",
+  phobjikha: "Wangdue Phodrang",
+  "phobjikha valley": "Wangdue Phodrang",
   bumthang: "Bumthang",
   trg: "Trongsa",
   trongsa: "Trongsa",
@@ -50,7 +53,13 @@ export function cityMatches(hotelCity: string, stayCity: string): boolean {
   const h = hotelCity.toLowerCase().trim();
   const s = stayCity.toLowerCase().trim();
   if (h === s || h.includes(s) || s.includes(h)) return true;
-  if (s.startsWith("wangdu") && h.includes("wangdue")) return true;
+  if (s.startsWith("wangdu") && (h.includes("wangdue") || h.includes("gangtey") || h.includes("phobjikha"))) {
+    return true;
+  }
+  if ((s.includes("gangtey") || s.includes("phobjikha")) && (h.includes("wangdue") || h.includes("gangtey"))) {
+    return true;
+  }
+  if (s.includes("trongsa") && h.includes("trongsa")) return true;
   return false;
 }
 

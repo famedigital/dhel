@@ -20,8 +20,18 @@ export {
   type PlatformConfig,
 } from "./db-catalog-ext";
 export { enrichItineraryContent } from "./enrich-content";
-export { findBriefGaps, isBriefReady, findFormGaps, isFormReady, type GapField } from "./gap-checker";
+export { findBriefGaps, isBriefReady, findFormGaps, isFormReady, findPreHotelGaps, type GapField } from "./gap-checker";
 export { parseStayPlan, formatStayRoute, type StaySegment } from "./stay-plan";
+export { ensureStayPlan, defaultStayPlan } from "./default-stay-plan";
+export {
+  parseTripCostsFromText,
+  findCostGaps,
+  mergeTripCostsFromBrief,
+  formatCostSummary,
+  applyCostAnswerToIntent,
+  SUGGESTED_TRIP_COSTS,
+  type TripCostLines,
+} from "./trip-costs";
 export {
   getCatalogHotels,
   getFestivals,

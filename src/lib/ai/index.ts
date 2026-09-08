@@ -93,6 +93,22 @@ function narrativePrompt(opts: {
     ? `Use EXACT pricing: currency ${opts.packageOption.currency}, total ${opts.packageOption.sell_total}, per_person ${opts.packageOption.sell_per_person}, pax from brief. Do NOT invent other totals.`
     : "Pricing is indicative land package in USD.";
 
+  const stayLines =
+    opts.packageOption?.hotel.stays?.length
+      ? opts.packageOption.hotel.stays
+          .map((s) => `${s.nights}N ${s.city}: overnight exactly "${s.city} · ${s.hotel_name}"`)
+          .join("\n")
+      : opts.stayPlan?.length
+        ? opts.stayPlan.map((s) => `${s.nights}N ${s.city}`).join(" → ")
+        : null;
+
+  const overnightBlock = stayLines
+    ? `HOTELS / OVERNIGHTS (multi-city — match nights to stay plan):\n${stayLines}\n- Each overnight night must use the hotel for that city only — never join all hotels into one string.\n- Do NOT invent hotel names.`
+    : `HOTELS (code-prepared only):
+- Do NOT invent hotel names, room numbers, guide names, driver names, or image URLs.
+- Overnight must be exactly "${opts.packageOption?.hotel.hotel_name ?? "TBD overnight — assign in Ops"}" (or per-city from package stays when multi-city).
+- If no package hotel was provided, use "TBD overnight — assign in Ops" for every overnight.`;
+
   const ref = findBestHtmlReference({
     days: opts.days,
     language: opts.language,
@@ -116,10 +132,7 @@ Return a COMPLETE itinerary JSON with ALL sections populated:
 
 ${pricingBlock}
 Include Tiger's Nest (Paro) on a suitable day if days >= 5.
-HOTELS (code-prepared only):
-- Do NOT invent hotel names, room numbers, guide names, driver names, or image URLs.
-- Overnight must be exactly "${opts.packageOption?.hotel.hotel_name ?? "TBD overnight — assign in Ops"}" (or per-city from package stays when multi-city).
-- If no package hotel was provided, use "TBD overnight — assign in Ops" for every overnight.
+${overnightBlock}
 - Photos are attached by the app from Cloudinary — never invent image URLs or filenames.
 
 CRITICAL — vehicle and guide fields:

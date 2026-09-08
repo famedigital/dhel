@@ -9,7 +9,7 @@ import type { BriefIntent, GapField } from "@/lib/catalog";
 
 const ENTRY_OPTIONS = ["Paro", "Hasimara", "Bagdogra", "Phuentsholing"];
 const BUDGET_OPTIONS: BriefIntent["budget_tier"][] = ["economy", "mid", "comfort", "luxury", "unknown"];
-const GAP_LABELS: Record<GapField, string> = {
+const GAP_LABELS: Partial<Record<GapField, string>> = {
   pax: "Group size",
   days: "Trip length",
   stay_plan: "Stay plan (nights per town)",
@@ -17,6 +17,14 @@ const GAP_LABELS: Record<GapField, string> = {
   entry_point: "Entry point",
   travel_dates: "Travel dates",
   budget_tier: "Budget",
+  client_name: "Guest name",
+  language: "Language",
+  room_avg: "Room rate",
+  guide_day: "Guide rate",
+  car_day: "Car rate",
+  transfer_trip: "Pickup/drop",
+  sdf: "SDF",
+  cost_confirm: "Cost confirm",
 };
 
 export function BriefIntentForm({
@@ -52,7 +60,7 @@ export function BriefIntentForm({
           <div className="flex flex-wrap gap-2 pt-2">
             {gaps.map((g) => (
               <Badge key={g} variant="outline" className="border-amber-600/40 text-amber-800">
-                Need: {GAP_LABELS[g]}
+                Need: {GAP_LABELS[g] ?? g}
               </Badge>
             ))}
           </div>

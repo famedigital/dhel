@@ -48,17 +48,35 @@ export async function POST(request: Request) {
   if (!parsed.success) return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
 
   const { data: brand } = await supabase.from("brands").select("*").eq("agency_id", membership.agency_id).maybeSingle();
-  const stayPlan = parseStayPlan(parsed.data.brief);
+  const stayPlan =
+    (parsed.data.generationMeta as GenerationMeta | undefined)?.stay_plan ??
+    parseStayPlan(parsed.data.brief);
   const packageOption = parsed.data.packageOption as PackageOption | undefined;
 
   const catalogClient = createAdminClient() ?? supabase;
-  const [activities, guides, hotelImages] = await Promise.all([
+  const stayHotels =
+    packageOption?.hotel.stays?.length
+      ? packageOption.hotel.stays
+      : packageOption
+        ? [{ hotel_name: packageOption.hotel.hotel_name, city: packageOption.hotel.city }]
+        : [];
+
+  const [activities, guides, hotelImageBatches] = await Promise.all([
     loadCatalogActivitiesFromDb(catalogClient).catch(() => []),
     loadCatalogGuidesFromDb(catalogClient).catch(() => []),
-    packageOption
-      ? loadCatalogHotelImages(catalogClient, packageOption.hotel.hotel_name, packageOption.hotel.city).catch(() => [])
-      : Promise.resolve([]),
+    Promise.all(
+      stayHotels.map((h) =>
+        loadCatalogHotelImages(catalogClient, h.hotel_name, h.city).catch(() => [] as string[]),
+      ),
+    ),
   ]);
+
+  const hotelImagesByStay = stayHotels.map((h, i) => ({
+    hotel: h.hotel_name,
+    city: h.city,
+    image_urls: hotelImageBatches[i] ?? [],
+  }));
+  const hotelImages = hotelImagesByStay.flatMap((x) => x.image_urls);
 
   let content = prepareFromBriefContext({
     raw: parsed.data.content,
@@ -82,6 +100,7 @@ export async function POST(request: Request) {
     activities,
     guides,
     hotelImageUrls: hotelImages,
+    hotelImagesByStay,
   });
 
   const generation_meta: GenerationMeta = {
@@ -89,6 +108,7 @@ export async function POST(request: Request) {
     messages: parsed.data.messages ?? (parsed.data.generationMeta as GenerationMeta)?.messages,
     final_brief: parsed.data.brief,
     generated_at: new Date().toISOString(),
+    stay_plan: stayPlan,
   };
 
   const title = parsed.data.clientName
