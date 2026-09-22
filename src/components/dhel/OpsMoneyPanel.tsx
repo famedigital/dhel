@@ -1,6 +1,7 @@
 "use client";
 
-import { ArrowDownLeft, ArrowUpRight, Trash2 } from "lucide-react";
+import Link from "next/link";
+import { ArrowDownLeft, ArrowUpRight, Receipt, Trash2 } from "lucide-react";
 import { addPayment, deletePayment, updatePaymentStatus } from "@/app/actions/ops";
 import { EmvQr } from "@/components/pay/emv-qr";
 import { Badge } from "@/components/ui/badge";
@@ -86,9 +87,17 @@ export function OpsMoneyPanel({
           <h2 className="text-sm font-semibold tracking-tight">Payments</h2>
           <p className="text-xs text-muted-foreground">Client in · supplier out</p>
         </div>
-        <Badge variant="secondary" className="shrink-0">
-          {payments.length} rows
-        </Badge>
+        <div className="flex items-center gap-2">
+          <Button asChild variant="outline" size="sm">
+            <Link href={`/preview/${itineraryId}?pack=receipt`}>
+              <Receipt className="size-3.5" />
+              Print receipt
+            </Link>
+          </Button>
+          <Badge variant="secondary" className="shrink-0">
+            {payments.length} rows
+          </Badge>
+        </div>
       </div>
 
       <div className="grid grid-cols-2 gap-2 lg:grid-cols-4">

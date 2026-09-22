@@ -1,0 +1,289 @@
+[
+  {
+    "dzongkhag": "Paro",
+    "site": "Taktsang (Tiger's Nest)",
+    "fee_nu": 1000,
+    "fee_usd": 12,
+    "slug": "taktsang"
+  },
+  {
+    "dzongkhag": "Paro",
+    "site": "National Museum (Ta Dzong)",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "ta-dzong"
+  },
+  {
+    "dzongkhag": "Paro",
+    "site": "Kyichu Lhakhang",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "kyichu"
+  },
+  {
+    "dzongkhag": "Paro",
+    "site": "Dungtse / Dumtse Lhakhang",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "dungtse"
+  },
+  {
+    "dzongkhag": "Paro",
+    "site": "Paro Rinpung Dzong",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "rinpung-dzong"
+  },
+  {
+    "dzongkhag": "Thimphu",
+    "site": "Tashichho Dzong",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "tashichho-dzong"
+  },
+  {
+    "dzongkhag": "Thimphu",
+    "site": "Simtokha Dzong",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "simtokha-dzong"
+  },
+  {
+    "dzongkhag": "Thimphu",
+    "site": "Changangkha Lhakhang",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "changangkha"
+  },
+  {
+    "dzongkhag": "Thimphu",
+    "site": "National Memorial Chorten",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "memorial-chorten"
+  },
+  {
+    "dzongkhag": "Thimphu",
+    "site": "Buddha Dordenma",
+    "fee_nu": 300,
+    "fee_usd": 3.6,
+    "slug": "buddha-dordenma"
+  },
+  {
+    "dzongkhag": "Thimphu",
+    "site": "Royal Textile Academy",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "textile-academy"
+  },
+  {
+    "dzongkhag": "Thimphu",
+    "site": "Zorig Chusum (Painting School)",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "zorig-chusum-thimphu"
+  },
+  {
+    "dzongkhag": "Thimphu",
+    "site": "Institute of Traditional Medicine",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "traditional-medicine"
+  },
+  {
+    "dzongkhag": "Thimphu",
+    "site": "Folk Heritage Museum",
+    "fee_nu": 300,
+    "fee_usd": 3.6,
+    "slug": "folk-heritage"
+  },
+  {
+    "dzongkhag": "Thimphu",
+    "site": "Simply Bhutan",
+    "fee_nu": 1000,
+    "fee_usd": 12,
+    "slug": "simply-bhutan"
+  },
+  {
+    "dzongkhag": "Thimphu",
+    "site": "Choki Traditional Art School",
+    "fee_nu": 1000,
+    "fee_usd": 12,
+    "slug": "choki-art"
+  },
+  {
+    "dzongkhag": "Thimphu",
+    "site": "Postal Museum",
+    "fee_nu": 250,
+    "fee_usd": 2.9,
+    "slug": "postal-museum"
+  },
+  {
+    "dzongkhag": "Thimphu",
+    "site": "Motithang Takin Preserve",
+    "fee_nu": 300,
+    "fee_usd": 3.6,
+    "slug": "takin-preserve"
+  },
+  {
+    "dzongkhag": "Thimphu",
+    "site": "Changyul Park",
+    "fee_nu": 100,
+    "fee_usd": 1.2,
+    "slug": "changyul-park"
+  },
+  {
+    "dzongkhag": "Thimphu",
+    "site": "Tachogang Lhakhang",
+    "fee_nu": 300,
+    "fee_usd": 3.6,
+    "slug": "tachogang"
+  },
+  {
+    "dzongkhag": "Thimphu",
+    "site": "Serbithang Botanical Park",
+    "fee_nu": 100,
+    "fee_usd": 1.2,
+    "slug": "serbithang"
+  },
+  {
+    "dzongkhag": "Lamperi",
+    "site": "Royal Botanical Gardens",
+    "fee_nu": 100,
+    "fee_usd": 1.2,
+    "slug": "lamperi-gardens"
+  },
+  {
+    "dzongkhag": "Punakha",
+    "site": "Punakha Dzong",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "punakha-dzong"
+  },
+  {
+    "dzongkhag": "Punakha",
+    "site": "Chimi Lhakhang",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "chimi-lhakhang"
+  },
+  {
+    "dzongkhag": "Punakha",
+    "site": "Khamsum Yulley Namgyal Chorten",
+    "fee_nu": 100,
+    "fee_usd": 1.2,
+    "slug": "khamsum"
+  },
+  {
+    "dzongkhag": "Punakha",
+    "site": "Sangchen Dorji Lhendrup Nunnery",
+    "fee_nu": 200,
+    "fee_usd": 2.4,
+    "slug": "sangchen-nunnery"
+  },
+  {
+    "dzongkhag": "Wangdue Phodrang",
+    "site": "Wangduephodrang Dzong",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "wangdue-dzong"
+  },
+  {
+    "dzongkhag": "Phobjikha",
+    "site": "Black-Necked Crane Centre",
+    "fee_nu": 200,
+    "fee_usd": 2.4,
+    "slug": "crane-centre"
+  },
+  {
+    "dzongkhag": "Trongsa",
+    "site": "Trongsa Dzong",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "trongsa-dzong"
+  },
+  {
+    "dzongkhag": "Trongsa",
+    "site": "Ta Dzong Museum",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "trongsa-ta-dzong"
+  },
+  {
+    "dzongkhag": "Bumthang",
+    "site": "Jambay Lhakhang",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "jambay-lhakhang"
+  },
+  {
+    "dzongkhag": "Bumthang",
+    "site": "Wangdicholing Palace Museum",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "wangdicholing"
+  },
+  {
+    "dzongkhag": "Bumthang",
+    "site": "Ogyen Choling Museum",
+    "fee_nu": 400,
+    "fee_usd": 4.8,
+    "slug": "ogyen-choling"
+  },
+  {
+    "dzongkhag": "Trashi Yangtse",
+    "site": "Zorig Chusum Institute",
+    "fee_nu": 100,
+    "fee_usd": 1.2,
+    "slug": "zorig-yangtse"
+  },
+  {
+    "dzongkhag": "Trashigang",
+    "site": "Trashigang Dzong",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "trashigang-dzong"
+  },
+  {
+    "dzongkhag": "Mongar",
+    "site": "Mongar Dzong",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "mongar-dzong"
+  },
+  {
+    "dzongkhag": "Lhuentse",
+    "site": "Lhuentse Dzong",
+    "fee_nu": 500,
+    "fee_usd": 6,
+    "slug": "lhuentse-dzong"
+  },
+  {
+    "dzongkhag": "Border",
+    "site": "Phuentsholing immigration gate",
+    "fee_nu": 0,
+    "fee_usd": 0,
+    "slug": "phuentsholing-gate"
+  },
+  {
+    "dzongkhag": "Border",
+    "site": "Paro International Airport (PBH)",
+    "fee_nu": 0,
+    "fee_usd": 0,
+    "slug": "paro-airport"
+  },
+  {
+    "dzongkhag": "Border",
+    "site": "Gelephu land entry",
+    "fee_nu": 0,
+    "fee_usd": 0,
+    "slug": "gelephu-entry"
+  },
+  {
+    "dzongkhag": "Border",
+    "site": "Samdrup Jongkhar land entry",
+    "fee_nu": 0,
+    "fee_usd": 0,
+    "slug": "samdrup-jongkhar-entry"
+  }
+]

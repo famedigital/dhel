@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
+import { BRAND_NAME } from "@/lib/brand";
 import {
   generateClientReplySafe,
   generateItineraryContent,
@@ -40,6 +41,10 @@ import { friendlyAiWarning } from "@/lib/ai/friendly-warning";
 import { mergeRateDefaults, formatVehicleRatesList } from "@/lib/agency/rate-defaults";
 import type { DisplayCurrency } from "@/lib/catalog/types";
 import type { Brand } from "@/lib/types";
+import {
+  buildTemplateClientReply,
+  buildTemplateItineraryContent,
+} from "@/lib/generate/template-itinerary";
 
 async function resolveRateDefaults(supabase: Awaited<ReturnType<typeof createClient>>, agencyId: string) {
   const { data } = await supabase
@@ -112,6 +117,8 @@ const bodySchema = z.object({
       }),
     )
     .optional(),
+  /** When true, try Gemini/Cursor polish; default is deterministic template (no AI). */
+  polish: z.boolean().optional(),
 });
 
 async function resolveMarkup(
@@ -130,6 +137,9 @@ async function resolveMarkup(
 }
 
 function resolveRawBrief(body: z.infer<typeof bodySchema>): string {
+  if (body.confirmedIntent?.raw_brief?.trim()) {
+    return body.confirmedIntent.raw_brief.trim();
+  }
   if (body.messages?.length) {
     const fromMessages = buildBriefFromMessages(body.messages);
     if (fromMessages.length >= 10) return fromMessages;
@@ -383,8 +393,9 @@ export async function POST(request: Request) {
   }
 
   const lang = parsed.data.language ?? briefIntent.language ?? "en";
-  const brandName = brand?.display_name ?? "Dhel";
+  const brandName = brand?.display_name ?? BRAND_NAME;
   const finalBrief = composeFinalBrief(briefIntent);
+  const wantPolish = Boolean(parsed.data.polish);
 
   const stayHotels =
     selected.hotel.stays?.length
@@ -396,40 +407,7 @@ export async function POST(request: Request) {
           },
         ];
 
-  // Narrative + reply + catalog enrichments in parallel
-  const [narrative, reply, activities, guides, hotelImageBatches] = await Promise.all([
-    generateItineraryContent({
-      apiKey,
-      provider,
-      geminiKey,
-      cursorKey,
-      brief: finalBrief,
-      clientName: briefIntent.client_name,
-      days: briefIntent.days,
-      language: lang,
-      brand,
-      packageOption: selected,
-      stayPlan: briefIntent.stay_plan,
-      pax: briefIntent.pax,
-      adults: briefIntent.adults,
-      children: briefIntent.children,
-      entryPoint: briefIntent.entry_point,
-      travelDates: briefIntent.travel_dates,
-      defaultVehicleType: rateDefaults.default_vehicle_type,
-      vehicleRates: rateDefaults.vehicle_rates,
-    }),
-    generateClientReplySafe({
-      apiKey,
-      provider,
-      geminiKey,
-      cursorKey,
-      brief: finalBrief,
-      language: lang,
-      sellPerPerson: selected.sell_per_person,
-      currency: selected.currency,
-      days: briefIntent.days,
-      brandName,
-    }),
+  const [activities, guides, hotelImageBatches] = await Promise.all([
     loadCatalogActivitiesFromDb(catalogAdmin).catch(() => []),
     loadCatalogGuidesFromDb(catalogAdmin).catch(() => []),
     Promise.all(
@@ -439,17 +417,74 @@ export async function POST(request: Request) {
     ),
   ]);
 
-  if (narrative.source === "stub") {
-    return NextResponse.json(
-      {
-        error:
-          "AI narrative unavailable (stub). Check Gemini/Cursor API keys — refusing to ship a template as a finished guest PDF.",
-        status: "error",
-        source: "stub",
-        warning: narrative.warning,
-      },
-      { status: 503 },
-    );
+  let narrativeContent = buildTemplateItineraryContent({
+    intent: briefIntent,
+    packageOption: selected,
+    brand,
+    language: lang,
+    defaultVehicleType: rateDefaults.default_vehicle_type,
+  });
+  let clientReply = buildTemplateClientReply({
+    intent: briefIntent,
+    packageOption: selected,
+    brandName,
+    language: lang,
+  });
+  let narrativeSource: "gemini" | "cursor" | "stub" | "template" = "template";
+  const warnings: string[] = [];
+
+  if (wantPolish) {
+    const [narrative, reply] = await Promise.all([
+      generateItineraryContent({
+        apiKey,
+        provider,
+        geminiKey,
+        cursorKey,
+        brief: finalBrief,
+        clientName: briefIntent.client_name,
+        days: briefIntent.days,
+        language: lang,
+        brand,
+        packageOption: selected,
+        stayPlan: briefIntent.stay_plan,
+        pax: briefIntent.pax,
+        adults: briefIntent.adults,
+        children: briefIntent.children,
+        entryPoint: briefIntent.entry_point,
+        travelDates: briefIntent.travel_dates,
+        defaultVehicleType: rateDefaults.default_vehicle_type,
+        vehicleRates: rateDefaults.vehicle_rates,
+      }),
+      generateClientReplySafe({
+        apiKey,
+        provider,
+        geminiKey,
+        cursorKey,
+        brief: finalBrief,
+        language: lang,
+        sellPerPerson: selected.sell_per_person,
+        currency: selected.currency,
+        days: briefIntent.days,
+        brandName,
+      }),
+    ]);
+
+    if (narrative.source === "stub") {
+      warnings.push(
+        narrative.warning ||
+          "AI polish unavailable — kept deterministic template draft.",
+      );
+    } else {
+      // Keep locked pricing / hotel_options from template path after enrich
+      narrativeContent = {
+        ...narrative.content,
+        pricing: narrativeContent.pricing,
+      };
+      narrativeSource = narrative.source;
+      if (narrative.warning) warnings.push(narrative.warning);
+    }
+    if (reply.warning) warnings.push(reply.warning);
+    if (reply.text) clientReply = reply.text;
   }
 
   const hotelImageByStay = stayHotels.map((h, i) => ({
@@ -474,7 +509,7 @@ export async function POST(request: Request) {
 
   let content = enrichItineraryContent({
     content: {
-      ...narrative.content,
+      ...narrativeContent,
       hotel_options: hotelOptionsFromStays.length
         ? hotelOptionsFromStays
         : compare.length
@@ -503,10 +538,10 @@ export async function POST(request: Request) {
               },
             ],
       selected_option_id: selected.id,
-      vehicle_type: rateDefaults.default_vehicle_type ?? narrative.content.vehicle_type,
+      vehicle_type: rateDefaults.default_vehicle_type ?? narrativeContent.vehicle_type,
       vehicle_options: formatVehicleRatesList(rateDefaults, selected.currency as DisplayCurrency),
       pricing: {
-        ...narrative.content.pricing,
+        ...narrativeContent.pricing,
         currency: selected.currency,
         total: selected.sell_total,
         per_person: selected.sell_per_person,
@@ -520,9 +555,6 @@ export async function POST(request: Request) {
     hotelImagesByStay: hotelImageByStay,
   });
 
-  const warnings: string[] = [];
-  if (narrative.warning) warnings.push(narrative.warning);
-  if (reply.warning) warnings.push(reply.warning);
   if (parsed.data.skipGapCheck) warnings.push("Generated with default/missing brief fields.");
 
   return NextResponse.json({
@@ -533,19 +565,19 @@ export async function POST(request: Request) {
     hotelChoices,
     selected,
     content,
-    clientReply: reply.text,
-    source: narrative.source,
-    aiProvider: provider,
+    clientReply,
+    source: narrativeSource,
+    aiProvider: wantPolish ? provider : "template",
     parseSource: "local",
     warning: friendlyAiWarning(warnings.length ? warnings.join(" ") : undefined),
     rawBrief: finalBrief,
     generationMeta: buildGenerationMeta({
       rawBrief: finalBrief,
       messages: parsed.data.messages,
-      aiProvider: provider,
+      aiProvider: wantPolish ? provider : "template",
       packageOption: selected,
       compare,
-      clientReply: reply.text,
+      clientReply,
       warnings: warnings.map((w) => friendlyAiWarning(w) ?? w),
       stayPlan: briefIntent.stay_plan,
       tripCosts: briefIntent.trip_costs as unknown as Record<string, unknown>,

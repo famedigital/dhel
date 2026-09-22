@@ -1,5 +1,6 @@
 import seed from "./seed.json";
 import festivals from "./festivals.json";
+import masterHotelsFile from "./master-hotels.generated.json";
 
 export type RateTier = "agent" | "b2c";
 export type DisplayCurrency = "USD" | "INR" | "BTN";
@@ -98,7 +99,26 @@ export interface FestivalWarning {
 }
 
 export function getCatalogHotels(): CatalogHotel[] {
-  return seed.hotels as CatalogHotel[];
+  const fromMaster = (masterHotelsFile as { hotels?: CatalogHotel[] }).hotels ?? [];
+  const seedHotels = seed.hotels as CatalogHotel[];
+  const byKey = new Map<string, CatalogHotel>();
+
+  for (const h of fromMaster) {
+    byKey.set(`${h.name}::${h.city}`.toLowerCase(), {
+      ...h,
+      source: (h.source as CatalogHotel["source"]) || "catalog",
+    });
+  }
+  // Seed wins for live-linked Innora properties (e.g. Pelbu Suites)
+  for (const h of seedHotels) {
+    const key = `${h.name}::${h.city}`.toLowerCase();
+    if (h.pelbu_property_id || !byKey.has(key)) {
+      byKey.set(key, h);
+    }
+  }
+
+  const merged = [...byKey.values()];
+  return merged.length ? merged : seedHotels;
 }
 
 export function getFestivals() {

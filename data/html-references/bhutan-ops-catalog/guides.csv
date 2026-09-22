@@ -1,0 +1,101 @@
+name,gender,gender_confidence,languages,group_chinese,group_english,guide_type,license_no,city,phone,cost_per_day_inr,cost_per_day_usd
+Tshewang Jatsho,unknown,needs_gms_lookup,English,false,true,Cultural Guide,DOT/TG(C)-24/3841,Thimphu,17742321,2500.00,35.00
+Mohan Prasad Bhatta,unknown,needs_gms_lookup,English,false,true,Cultural & Trekking,TCB/TG( C/T )-15/0317,Thimphu,16923718,2500.00,35.00
+Sonam Tobgay,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG (C )- 18/2733,Thimphu,16923282,2500.00,35.00
+Namgay Wangchuk,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,DOT/TG(C)-24/3932,Thimphu,17280983,2500.00,35.00
+Phub Tshering,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG ( C)-17/0407,Thimphu,17843483,2500.00,35.00
+Tenzin Gyeltshen,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C) 21/3503,Thimphu,77728031,2500.00,35.00
+Tashi Wangchuk,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-15/1715,Thimphu,77383925,2500.00,35.00
+Namgyal,unknown,needs_gms_lookup,English,false,true,Cultural Guide,TCB/TG (C) - 04/0270,Thimphu,17112426,2500.00,35.00
+Kelzang Jigme,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-18/2902,Thimphu,17840990,2500.00,35.00
+Thuji,unknown,needs_gms_lookup,English,false,true,Cultural Guide,TCB/TG(C)-18/2891,Thimphu,17597272,2500.00,35.00
+Chencho Dorji,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-14/0106,Thimphu,17381449,2500.00,35.00
+Tashi Wangdi,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG ( C)-18/3075,Thimphu,17637904,2500.00,35.00
+Sonam Gyeltshen,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C/T)-12/1826,Thimphu,17470174,2500.00,35.00
+Ugyen Chophel,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-18/3031,Thimphu,17522387,2500.00,35.00
+Ashis Rai,unknown,needs_gms_lookup,English,false,true,Cultural Guide,DOT/TG(C)-23/3669,Thimphu,17467931,2500.00,35.00
+Pema Rinchen,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,DOT/TG (C/T)-08/2371,Thimphu,77615496,2500.00,35.00
+Nima Wangdi Gyeltsh,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,DOT/TG(C)-24/3734,Thimphu,17372728,2500.00,35.00
+Sangay Dorji,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-19/3203,Thimphu,17886448,2500.00,35.00
+Kuenzang Tobgay,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,TCB/TG( C/T)-17/2026,Thimphu,17835408,2500.00,35.00
+Sangay Nima,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,TCB/TG(C/T)-12/0110,Thimphu,17353726,2500.00,35.00
+Pema Wangda,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-13/0536,Thimphu,17502316,2500.00,35.00
+Tshering Penjor,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG( C )-14/0170,Thimphu,17378889,2500.00,35.00
+Kuenga Tenzin,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-07/0683,Thimphu,17787707,2500.00,35.00
+Jigme Yoezer,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-16/1077,Thimphu,17709343,2500.00,35.00
+Dechen Tshering,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-22/3599,Thimphu,17748195,2500.00,35.00
+Jamyang Kuenley,unknown,needs_gms_lookup,English,false,true,Cultural Guide,TCB/TG(C)-16/3535,Thimphu,77259274,2500.00,35.00
+Tshering Penjor,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-15-0077,Thimphu,17933566,2500.00,35.00
+Yonten Wangchuk,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C )- 15/0447,Thimphu,17939236,2500.00,35.00
+Sonam Tshering,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(c)-14/2300,Thimphu,77263463,2500.00,35.00
+Kinlay Wangchuk,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-14/0084,Thimphu,17492489,2500.00,35.00
+Kinley Tenzin,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-17/1426,Thimphu,77400920,2500.00,35.00
+Utam kumar Ghalley,unknown,needs_gms_lookup,English,false,true,Cultural Guide,TCB/TG(C)-99/0493,Thimphu,17607897,2500.00,35.00
+Sonam Tshering,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,DOT/TG(C)-23/3664,Thimphu,17754795,2500.00,35.00
+Pema Tshering,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,DOT/TG(C)-24/3747,Thimphu,17425697,2500.00,35.00
+Kezang Dawa,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,TCB/TG ( C/T)-11/0367,Thimphu,17534506,2500.00,35.00
+Jigme Norbu,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-05/2024,Thimphu,17614238,2500.00,35.00
+Sangay Dorji,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)20-3463,Thimphu,17893745,2500.00,35.00
+Bijay Bajgai,unknown,needs_gms_lookup,English,false,true,Cultural Guide,TCB/TG(C)-16/0279,Thimphu,17586380,2500.00,35.00
+Namgay Rinchen,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,TCB/TG( C/T )-17/0082,Thimphu,17473455,2500.00,35.00
+Ugyen Tshomo,female,name_lexicon,English,false,true,Cultural Guide,TCB/TG(C)-20/3410,Thimphu,17579672,2500.00,35.00
+Yeshi Wangdi,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,TCB/TG(C/T)-17/2956,Thimphu,17544808,2500.00,35.00
+Tashila,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-14/1252,Thimphu,77833243,2500.00,35.00
+Lungten,unknown,needs_gms_lookup,English,false,true,Cultural & Trekking,TCB/TG(C/T)-08/1601,Thimphu,17580411,2500.00,35.00
+Tashi Dorji,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,TCB/TG(C/T)-00/1635,Thimphu,17119644,2500.00,35.00
+Nima Tshering,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,TCB/TG ( C/T)-16/0612,Thimphu,17324434,2500.00,35.00
+Kinley Wangchuk,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG ( C)-18/2685,Thimphu,17718533,2500.00,35.00
+Sonam Dhendup,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,TCB/TG (C/T)-12/0017,Thimphu,17607858,2500.00,35.00
+Thinley Phuntsho,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,DOT/TG(C)-24/3933,Thimphu,17590779,2500.00,35.00
+Khandu,unknown,needs_gms_lookup,English,false,true,Cultural Guide,DOT/TG(C)-24/4000,Thimphu,77350780,2500.00,35.00
+Yeshi Penjor,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,TCB/TG(C/T)-12/0047,Thimphu,17614926,2500.00,35.00
+Ugyen Lhendup,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG( C )-17/1214,Thimphu,17325958,2500.00,35.00
+Tshering Wangchuk,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,DOT/TG(C)-23/3684,Thimphu,77404010,2500.00,35.00
+Chhimi Dorji,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)- 18/2779,Thimphu,77351940,2500.00,35.00
+Dorji Wangchuk,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,TCB/TG(C/T)-16/0700,Thimphu,77213757,2500.00,35.00
+Yeshi Dorji,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,TCB/TG(C/T)-15/1013,Thimphu,77237448,2500.00,35.00
+Ugyen Dorji,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,TCB/TG(C/T)-05/0438,Thimphu,17114727,2500.00,35.00
+Jigme Wangchuk,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-20/3426,Thimphu,17436883,2500.00,35.00
+Dawa Dakpa,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG( C )-19/3238,Thimphu,77287523,2500.00,35.00
+Karma Dendup,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,TCB/TG(C/T)-08/2063,Thimphu,17640428,2500.00,35.00
+Namgay Tshering,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG (C) -06/0188,Thimphu,77777151,2500.00,35.00
+Kencho Chophel,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(c) - 15/0772,Thimphu,77939599,2500.00,35.00
+Chencho Dorji,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,TCB/TG(C/T)-15/0149,Thimphu,17306360,2500.00,35.00
+Ngawang Dorji,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,TCB/TG(C/T)-15/1306,Thimphu,17448709,2500.00,35.00
+Dawa Yoezer,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,DOT/TG(C)-24/3770,Thimphu,17743868,2500.00,35.00
+Bali Man Saru,unknown,needs_gms_lookup,English,false,true,Cultural Guide,TCB/TG(C)-21/3621,Thimphu,17920322,2500.00,35.00
+Tashi Dendup,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-22/3613,Thimphu,17360604,2500.00,35.00
+Kiliya,unknown,needs_gms_lookup,English,false,true,Cultural & Trekking,TCB/TG(C/T)-07/2277,Thimphu,17636425,2500.00,35.00
+Phuntsho Dendup,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-15/1621,Thimphu,17861065,2500.00,35.00
+Gyenden Jamtsho,unknown,needs_gms_lookup,English,false,true,Cultural & Trekking,TCB/TG(C/T)-13/1765,Thimphu,17329148,2500.00,35.00
+Ngawang Tashi,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-18/3093,Thimphu,17765243,2500.00,35.00
+Kinley Dorji,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG (C)-17/1053,Thimphu,17869044,2500.00,35.00
+Sonam Choden,female,name_lexicon,English,false,true,Cultural Guide,TCB/TG(C)-19/3331,Thimphu,77657766,2500.00,35.00
+Tashi Penjor,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,TCB/TG(C/T)-17/0765,Thimphu,17677887,2500.00,35.00
+Tandin Choki,female,name_lexicon,English,false,true,Cultural & Trekking,TCB/TG(C/T)-19/3212,Thimphu,17252047,2500.00,35.00
+Arjun Kumar Rai,unknown,needs_gms_lookup,English,false,true,Cultural Guide,DOT/TG(C)-24/3736,Thimphu,77251173,2500.00,35.00
+Sonam wangyel,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-13/1819,Thimphu,17634331,2500.00,35.00
+Tshewang Tandin,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,DOT/TG(C)-24/3840,Thimphu,17939673,2500.00,35.00
+Chimi Dem,female,name_lexicon,English,false,true,Cultural Guide,TCB/TG ( C)-99/1642,Thimphu,17601664,2500.00,35.00
+Ajesh Mongar,unknown,needs_gms_lookup,English,false,true,Cultural Guide,TCB/TG(C)-22/3615,Thimphu,17591624,2500.00,35.00
+Kinley Wangchuk,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG (C )- 08/2503,Thimphu,17119808,2500.00,35.00
+Yeshey Saydee,unknown,needs_gms_lookup,English,false,true,Cultural & Trekking,TCB/TG(C/T)-18/2831,Thimphu,17583838,2500.00,35.00
+Yeshi Namgay,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-19/3309,Thimphu,77332076,2500.00,35.00
+Bumpa Tenzin,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-15/2010,Thimphu,17912228,2500.00,35.00
+Karma Zangmo,female,name_lexicon,English,false,true,Cultural Guide,DOT/TG(C)-24/3744,Thimphu,17832998,2500.00,35.00
+Tara Nidhi Dahal,unknown,needs_gms_lookup,English,false,true,Cultural Guide,TCB/TG(C)-08/1455,Thimphu,17983440,2500.00,35.00
+Sonam lhamo,female,name_lexicon,English,false,true,Cultural Guide,TCB/TG(C)-08/0682,Thimphu,17646612,2500.00,35.00
+Bhim Bdr Gurung,unknown,needs_gms_lookup,English,false,true,Cultural Guide,TCB/TG(C)-18/2946,Thimphu,77415377,2500.00,35.00
+Dendup Norbu,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,TCB/TG(C/T)-06-1497,Thimphu,17667195,2500.00,35.00
+Mindu Wangdi,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-22/3624,Thimphu,17480932,2500.00,35.00
+Tshering Penjor,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-15/1688,Thimphu,17892181,2500.00,35.00
+Tashi Dorji,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG( C)-08/1952,Thimphu,17747001,2500.00,35.00
+Nob Tshering,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,DOT/TG(C)-24/3749,Thimphu,77281216,2500.00,35.00
+Tashi Tobgay,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG (C)-16/1341,Thimphu,17536429,2500.00,35.00
+Wangchuk,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-18/2756,Thimphu,17803515,2500.00,35.00
+Kuenzang Namgyel,unknown,needs_gms_lookup,English,false,true,Cultural Guide,TCB/TG(C)-22/3594,Thimphu,77457842,2500.00,35.00
+Kinley Dorji,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,TCB/TG(C/T)-08/0542,Thimphu,17608284,2500.00,35.00
+Tashi Phuntsho,male,name_heuristic_unconfirmed,English,false,true,Cultural & Trekking,TCB/TG ( C/T)-00/2140,Thimphu,17610079,2500.00,35.00
+Kharka Bahadur Rai,unknown,needs_gms_lookup,English,false,true,Cultural Guide,TCB/TG(C)-17/0775,Thimphu,77439994,2500.00,35.00
+Yangchen Pem,female,name_lexicon,English,false,true,Cultural Guide,DOT/TG(C)-24/4010,Thimphu,17991370,2500.00,35.00
+Sangay Dorji,male,name_heuristic_unconfirmed,English,false,true,Cultural Guide,TCB/TG(C)-15/0243,Thimphu,17885473,2500.00,35.00

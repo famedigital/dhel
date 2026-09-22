@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { PlatformShell } from "@/components/platform/PlatformShell";
 import { CmsBlockEditor } from "@/components/platform/CmsBlockEditor";
 import { getSessionContext } from "@/lib/agency";
+import { BRAND_NAME, BRAND_TAGLINE, BRAND_TITLE, BRAND_URL } from "@/lib/brand";
 import { isPlatformAdmin } from "@/lib/platform/admin";
 import { createClient } from "@/lib/supabase/server";
 
@@ -12,9 +13,9 @@ const DEFAULT_BLOCKS = [
     block_type: "hero",
     status: "draft",
     content: {
-      kicker: "Bhutan travel desk",
+      kicker: BRAND_TAGLINE,
       headline: "Paste WhatsApp → compare hotels → client PDF",
-      subhead: "Agent vertical SaaS for private tours.",
+      subhead: "Tour operator OS for Bhutan FIT trips.",
       primary_cta: { label: "Agent sign in", href: "/desk/login" },
       secondary_cta: { label: "Plan my trip", href: "/build" },
     },
@@ -25,9 +26,9 @@ const DEFAULT_BLOCKS = [
     block_type: "seo",
     status: "draft",
     content: {
-      meta_title: "Dhel — Bhutan travel desk",
-      meta_description: "Build Bhutan trip quotes with real hotel rates.",
-      canonical_url: "https://dhel.app",
+      meta_title: BRAND_TITLE,
+      meta_description: "Build Bhutan trip quotes with live hotel, guide, and driver inventory.",
+      canonical_url: BRAND_URL,
     },
   },
   {

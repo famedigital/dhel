@@ -1,11 +1,13 @@
 {
-  "name": "dhel",
+  "name": "luma-trips",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "build:references": "node scripts/build-html-reference-corpus.mjs",
+    "ingest:catalog": "node scripts/ingest-master-catalog.mjs",
+    "ingest:catalog:db": "node scripts/ingest-master-catalog.mjs --db",
     "start": "next start",
     "lint": "eslint"
   },

@@ -1,0 +1,1271 @@
+{
+  "component": "Search/Show",
+  "props": {
+    "errors": {},
+    "auth": {
+      "user": null
+    },
+    "ziggy": {
+      "url": "https://services.bhutan.travel",
+      "port": null,
+      "defaults": [],
+      "routes": {
+        "debugbar.openhandler": {
+          "uri": "_debugbar/open",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "debugbar.clockwork": {
+          "uri": "_debugbar/clockwork/{id}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "debugbar.assets.css": {
+          "uri": "_debugbar/assets/stylesheets",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "debugbar.assets.js": {
+          "uri": "_debugbar/assets/javascript",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "debugbar.cache.delete": {
+          "uri": "_debugbar/cache/{key}/{tags?}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "key",
+            "tags"
+          ]
+        },
+        "sanctum.csrf-cookie": {
+          "uri": "sanctum/csrf-cookie",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "ignition.healthCheck": {
+          "uri": "_ignition/health-check",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "ignition.executeSolution": {
+          "uri": "_ignition/execute-solution",
+          "methods": [
+            "POST"
+          ]
+        },
+        "ignition.updateConfig": {
+          "uri": "_ignition/update-config",
+          "methods": [
+            "POST"
+          ]
+        },
+        "home": {
+          "uri": "/",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "about": {
+          "uri": "about",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "registration.index": {
+          "uri": "registration",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "registration.create": {
+          "uri": "registration/{slug}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "slug": "tour-operator|guide|hotel|homestay|restaurant|handicraft|other"
+          },
+          "parameters": [
+            "slug"
+          ]
+        },
+        "registration.success": {
+          "uri": "registration/success",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "tour-operator.register": {
+          "uri": "tour-operator-registration",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.register": {
+          "uri": "guide-registration",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.register": {
+          "uri": "hotel-registration",
+          "methods": [
+            "POST"
+          ]
+        },
+        "homestay.register": {
+          "uri": "homestay-registration",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.register": {
+          "uri": "restaurant-registration",
+          "methods": [
+            "POST"
+          ]
+        },
+        "handicraft.register": {
+          "uri": "handicraft-registration",
+          "methods": [
+            "POST"
+          ]
+        },
+        "other-service-providers.register": {
+          "uri": "other-service-providers",
+          "methods": [
+            "POST"
+          ]
+        },
+        "registration.track-status": {
+          "uri": "track-registration-status",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "search.dashboard": {
+          "uri": "search/dashboard",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "search.index": {
+          "uri": "search/{slug}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "slug"
+          ]
+        },
+        "search.show": {
+          "uri": "search/{registrationType}/{slug}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "registrationType",
+            "slug"
+          ]
+        },
+        "external.user.dashboard": {
+          "uri": "user/dashboard",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "external.user.profile-photo": {
+          "uri": "user/profile-photo",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "external.user.profile-photo-update": {
+          "uri": "user/profile-photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "external.user.cover-photo": {
+          "uri": "user/cover-photo",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "external.user.cover-photo-update": {
+          "uri": "user/cover-photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "external.user.page-type": {
+          "uri": "user/{pageType}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "tour-operator.page-type.edit": {
+          "uri": "tour-operator/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|social-media|language|tour-types|itinerary|photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "tour-operator.profile.update": {
+          "uri": "tour-operator/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.social-media.update": {
+          "uri": "tour-operator/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.tour-location.update": {
+          "uri": "tour-operator/tour-location/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.tour-type.update": {
+          "uri": "tour-operator/tour-types/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.language.update": {
+          "uri": "tour-operator/language/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.itinerary.update": {
+          "uri": "tour-operator/itinerary/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.photo.update": {
+          "uri": "tour-operator/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.guest-review.update": {
+          "uri": "tour-operator/guest-review/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.delete.data": {
+          "uri": "tour-operator/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|social-media|language|tour-types|itinerary|photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "guide.page-type.edit": {
+          "uri": "guide/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|social-media|language|tour-types|photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "guide.profile.update": {
+          "uri": "guide/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.social-media.update": {
+          "uri": "guide/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.tour-location.update": {
+          "uri": "guide/tour-location/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.language.update": {
+          "uri": "guide/language/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.tour-type.update": {
+          "uri": "guide/tour-types/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.photo.update": {
+          "uri": "guide/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.delete.data": {
+          "uri": "guide/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|social-media|language|tour-types|photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "hotel.page-type.edit": {
+          "uri": "hotel/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|language|social-media|facility|photo|experience-photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "hotel.profile.update": {
+          "uri": "hotel/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.language.update": {
+          "uri": "hotel/language/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.social-media.update": {
+          "uri": "hotel/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.facility.update": {
+          "uri": "hotel/facility/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.photo.update": {
+          "uri": "hotel/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.experience-photo.update": {
+          "uri": "hotel/experience-photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.delete.data": {
+          "uri": "hotel/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|language|social-media|facility|photo|experience-photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "other-service-provider.page-type.edit": {
+          "uri": "other-service-provider/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|service|social-media|photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "other-service-provider.profile.update": {
+          "uri": "other-service-provider/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "other-service-provider.service.update": {
+          "uri": "other-service-provider/service/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "other-service-provider.social-media.update": {
+          "uri": "other-service-provider/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "other-service-provider.photo.update": {
+          "uri": "other-service-provider/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "other-service-provider.delete.data": {
+          "uri": "other-service-provider/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|service|social-media|photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "homestay.page-type.edit": {
+          "uri": "homestay/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|social-media|facility|photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "homestay.profile.update": {
+          "uri": "homestay/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "homestay.social-media.update": {
+          "uri": "homestay/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "homestay.facility.update": {
+          "uri": "homestay/facility/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "homestay.photo.update": {
+          "uri": "homestay/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "homestay.delete.data": {
+          "uri": "homestay/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|social-media|facility|photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "restaurant.page-type.edit": {
+          "uri": "restaurant/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|cuisines|opening-hours|social-media|menu|photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "restaurant.profile.update": {
+          "uri": "restaurant/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.social-media.update": {
+          "uri": "restaurant/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.opening-hours.update": {
+          "uri": "restaurant/opening-hours/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.menu.update": {
+          "uri": "restaurant/menu/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.photo.update": {
+          "uri": "restaurant/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.cuisine.update": {
+          "uri": "restaurant/cuisines/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.delete.data": {
+          "uri": "restaurant/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|cuisines|opening-hours|social-media|menu|photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "handicraft.page-type.edit": {
+          "uri": "handicraft/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|opening-hours|social-media|photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "handicraft.profile.update": {
+          "uri": "handicraft/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "handicraft.social-media.update": {
+          "uri": "handicraft/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "handicraft.opening-hours.update": {
+          "uri": "handicraft/opening-hours/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "handicraft.photo.update": {
+          "uri": "handicraft/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "handicraft.delete.data": {
+          "uri": "handicraft/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|opening-hours|social-media|photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "profile.change-password": {
+          "uri": "change-password",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "dashboard": {
+          "uri": "dashboard",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "preview.license-copy": {
+          "uri": "preview-license-copy/{registrationType}/{registrationId}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "registrationType": "1|2|3|4|5|6|7"
+          },
+          "parameters": [
+            "registrationType",
+            "registrationId"
+          ]
+        },
+        "preview.star-rating-certificate": {
+          "uri": "preview-star-rating-certificate/{registrationId}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "registrationId"
+          ]
+        },
+        "masters.index": {
+          "uri": "masters",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "masters.create": {
+          "uri": "masters/create",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "masters.store": {
+          "uri": "masters",
+          "methods": [
+            "POST"
+          ]
+        },
+        "masters.show": {
+          "uri": "masters/{master}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "master"
+          ]
+        },
+        "masters.edit": {
+          "uri": "masters/{master}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "master"
+          ]
+        },
+        "masters.update": {
+          "uri": "masters/{master}",
+          "methods": [
+            "PUT",
+            "PATCH"
+          ],
+          "parameters": [
+            "master"
+          ]
+        },
+        "masters.destroy": {
+          "uri": "masters/{master}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "master"
+          ]
+        },
+        "users.update.password": {
+          "uri": "users/update/password/{id}",
+          "methods": [
+            "POST"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "users.index": {
+          "uri": "users",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "users.create": {
+          "uri": "users/create",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "users.store": {
+          "uri": "users",
+          "methods": [
+            "POST"
+          ]
+        },
+        "users.show": {
+          "uri": "users/{user}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "user"
+          ]
+        },
+        "users.edit": {
+          "uri": "users/{user}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "user"
+          ]
+        },
+        "users.update": {
+          "uri": "users/{user}",
+          "methods": [
+            "PUT",
+            "PATCH"
+          ],
+          "parameters": [
+            "user"
+          ]
+        },
+        "users.destroy": {
+          "uri": "users/{user}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "user"
+          ]
+        },
+        "verify.registration.dashboard": {
+          "uri": "verify/registration/dashboard",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "verify.registration.list": {
+          "uri": "verify/registration/{type}/list",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "type"
+          ]
+        },
+        "verify.registration.show": {
+          "uri": "verify/{type}/registration/{id}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "type",
+            "id"
+          ]
+        },
+        "verify.registration.update": {
+          "uri": "verify/registration/{type}/{id}",
+          "methods": [
+            "POST"
+          ],
+          "parameters": [
+            "type",
+            "id"
+          ]
+        },
+        "service-provider.dashboard": {
+          "uri": "service-providers/dashboard",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "service-provider.index": {
+          "uri": "service-providers/{type}/list",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "type"
+          ]
+        },
+        "service-provider.show": {
+          "uri": "service-providers/{type}/{id}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "type",
+            "id"
+          ]
+        },
+        "service-provider.export-to-excel": {
+          "uri": "service-providers-export/{type}/excel",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "type"
+          ]
+        },
+        "service-provider.tour-operator.delete": {
+          "uri": "service-providers/tour-operator/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "service-provider.guide.delete": {
+          "uri": "service-providers/guuide/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "service-provider.hotel.delete": {
+          "uri": "service-providers/hotel/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "service-provider.homestay.delete": {
+          "uri": "service-providers/homestay/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "service-provider.restaurant.delete": {
+          "uri": "service-providers/restaurant/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "service-provider.handicraft.delete": {
+          "uri": "service-providers/handicraft/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "service-provider.others.delete": {
+          "uri": "service-providers/others/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "register": {
+          "uri": "register",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "login": {
+          "uri": "login",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "password.request": {
+          "uri": "forgot-password",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "password.email": {
+          "uri": "forgot-password",
+          "methods": [
+            "POST"
+          ]
+        },
+        "password.reset": {
+          "uri": "reset-password/{token}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "token"
+          ]
+        },
+        "password.store": {
+          "uri": "reset-password",
+          "methods": [
+            "POST"
+          ]
+        },
+        "verification.notice": {
+          "uri": "verify-email",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "verification.verify": {
+          "uri": "verify-email/{id}/{hash}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "id",
+            "hash"
+          ]
+        },
+        "verification.send": {
+          "uri": "email/verification-notification",
+          "methods": [
+            "POST"
+          ]
+        },
+        "password.confirm": {
+          "uri": "confirm-password",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "password.update": {
+          "uri": "password",
+          "methods": [
+            "PUT"
+          ]
+        },
+        "logout": {
+          "uri": "logout",
+          "methods": [
+            "POST"
+          ]
+        }
+      },
+      "location": "https://services.bhutan.travel/search/homestay"
+    },
+    "flash": {
+      "success": null,
+      "error": null,
+      "registration_success": null
+    },
+    "registrationTypes": [
+      {
+        "label": "Tour Operators",
+        "value": 1,
+        "slug": "tour-operator"
+      },
+      {
+        "label": "Guides",
+        "value": 2,
+        "slug": "guide"
+      },
+      {
+        "label": "Hotels",
+        "value": 3,
+        "slug": "hotel"
+      },
+      {
+        "label": "Homestays",
+        "value": 4,
+        "slug": "homestay"
+      },
+      {
+        "label": "Restaurants",
+        "value": 5,
+        "slug": "restaurant"
+      },
+      {
+        "label": "Handicrafts",
+        "value": 6,
+        "slug": "handicraft"
+      },
+      {
+        "label": "Other Service Providers",
+        "value": 7,
+        "slug": "other"
+      }
+    ],
+    "registrationTypeSlug": "homestay",
+    "filters": {
+      "locations": [
+        {
+          "id": 11,
+          "value": "Bumthang"
+        },
+        {
+          "id": 4,
+          "value": "Chhukha"
+        },
+        {
+          "id": 7,
+          "value": "Dagana"
+        },
+        {
+          "id": 8,
+          "value": "Gasa"
+        },
+        {
+          "id": 5,
+          "value": "Haa"
+        },
+        {
+          "id": 15,
+          "value": "Lhuntse"
+        },
+        {
+          "id": 16,
+          "value": "Mongar"
+        },
+        {
+          "id": 2,
+          "value": "Paro"
+        },
+        {
+          "id": 17,
+          "value": "Pema Gatshel"
+        },
+        {
+          "id": 3,
+          "value": "Punakha"
+        },
+        {
+          "id": 18,
+          "value": "Samdrup Jongkhar"
+        },
+        {
+          "id": 6,
+          "value": "Samtse"
+        },
+        {
+          "id": 12,
+          "value": "Sarpang"
+        },
+        {
+          "id": 1,
+          "value": "Thimphu"
+        },
+        {
+          "id": 20,
+          "value": "Trashi Yangtse"
+        },
+        {
+          "id": 19,
+          "value": "Trashigang"
+        },
+        {
+          "id": 13,
+          "value": "Trongsa"
+        },
+        {
+          "id": 9,
+          "value": "Tsirang"
+        },
+        {
+          "id": 10,
+          "value": "Wangdue Phodrang"
+        },
+        {
+          "id": 14,
+          "value": "Zhemgang"
+        }
+      ],
+      "facilities": [
+        {
+          "id": 100,
+          "value": "24/7 Hot Water"
+        },
+        {
+          "id": 96,
+          "value": "Cooking Classes Available"
+        },
+        {
+          "id": 94,
+          "value": "Ensuite Bathrooms"
+        },
+        {
+          "id": 103,
+          "value": "Guest Experiences Available"
+        },
+        {
+          "id": 91,
+          "value": "Hot Stone Bath"
+        },
+        {
+          "id": 95,
+          "value": "In-room heating"
+        },
+        {
+          "id": 97,
+          "value": "Private Rooms"
+        },
+        {
+          "id": 99,
+          "value": "Western Toilet with seat, lid and toilet paper"
+        },
+        {
+          "id": 98,
+          "value": "Wifi"
+        }
+      ]
+    },
+    "serviceProviderType": {
+      "id": 4,
+      "display_order": 3,
+      "slug": "homestay",
+      "label": "Homestays",
+      "excerpt": "Homestays registered with DOT can register and share the basic and special amenities they provide",
+      "description": "For a more immersive experience, consider homestays. Homestays offers a range of unique accommodations hosted by locals",
+      "cover": "/images/cover-one.jpeg"
+    },
+    "results": {
+      "current_page": 1,
+      "data": [
+        {
+          "id": 78,
+          "name": "KARMA WANGMO HOMESTAY",
+          "email": "karmawangmohomestay@gmail.com",
+          "contact": 17683831,
+          "description": "Karma Wangmo Homestay stands out for its authentic Bhutanese hospitality, offering guests a unique and immersive cultural experience in the heart of Phobjikha Valley. Unlike conventional hotels, our homestay provides a warm, family-like atmosphere where visitors can engage with local traditions and customs. Our five cozy, well-furnished rooms ensure a comfortable stay while maintaining the charm of a traditional Bhutanese home.\n\nWhat truly sets us apart is our commitment to offering genuine Bhutanese experiences—our traditional cuisine is made with fresh, locally sourced ingredients, providing a true taste of Bhutan. Guests can also enjoy a revitalizing hotstone bath, an ancient Bhutanese wellness practice known for its therapeutic benefits. Additionally, our location in Phobjikha Valley provides breathtaking panoramic views, perfect for those seeking tranquility, nature, and a break from modern distractions. Whether you’re here for the serene landscapes, rich culture, or a peaceful retreat, Karma Wangmo Homestay ensures an unforgettable experience.",
+          "website": "https://wa.me/97517683831",
+          "slug": "karma-wangmo-village-homestay-1",
+          "description_excerpt": "Karma Wangmo Homestay stands out for its authentic Bhutanese hospitality, offering guests a unique and immersive cultural experience in the heart of P...",
+          "cover_photo": null
+        }
+      ],
+      "first_page_url": "https://services.bhutan.travel/search/homestay?page=1",
+      "from": 1,
+      "last_page": 1,
+      "last_page_url": "https://services.bhutan.travel/search/homestay?page=1",
+      "links": [
+        {
+          "url": null,
+          "label": "&laquo; Previous",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/homestay?page=1",
+          "label": "1",
+          "active": true
+        },
+        {
+          "url": null,
+          "label": "Next &raquo;",
+          "active": false
+        }
+      ],
+      "next_page_url": null,
+      "path": "https://services.bhutan.travel/search/homestay",
+      "per_page": 30,
+      "prev_page_url": null,
+      "to": 1,
+      "total": 1
+    }
+  },
+  "url": "/search/homestay?page=1",
+  "version": "00a82b5f0dcc58101a94d6f7c25a2542"
+}

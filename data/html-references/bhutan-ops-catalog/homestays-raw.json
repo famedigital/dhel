@@ -1,0 +1,142 @@
+{
+  "source": "https://services.bhutan.travel/search/homestay",
+  "scraped_at": "2026-09-20T07:19:07.095Z",
+  "portal_total": 1,
+  "fetched": 1,
+  "unique": 1,
+  "filters": {
+    "locations": [
+      {
+        "id": 11,
+        "value": "Bumthang"
+      },
+      {
+        "id": 4,
+        "value": "Chhukha"
+      },
+      {
+        "id": 7,
+        "value": "Dagana"
+      },
+      {
+        "id": 8,
+        "value": "Gasa"
+      },
+      {
+        "id": 5,
+        "value": "Haa"
+      },
+      {
+        "id": 15,
+        "value": "Lhuntse"
+      },
+      {
+        "id": 16,
+        "value": "Mongar"
+      },
+      {
+        "id": 2,
+        "value": "Paro"
+      },
+      {
+        "id": 17,
+        "value": "Pema Gatshel"
+      },
+      {
+        "id": 3,
+        "value": "Punakha"
+      },
+      {
+        "id": 18,
+        "value": "Samdrup Jongkhar"
+      },
+      {
+        "id": 6,
+        "value": "Samtse"
+      },
+      {
+        "id": 12,
+        "value": "Sarpang"
+      },
+      {
+        "id": 1,
+        "value": "Thimphu"
+      },
+      {
+        "id": 20,
+        "value": "Trashi Yangtse"
+      },
+      {
+        "id": 19,
+        "value": "Trashigang"
+      },
+      {
+        "id": 13,
+        "value": "Trongsa"
+      },
+      {
+        "id": 9,
+        "value": "Tsirang"
+      },
+      {
+        "id": 10,
+        "value": "Wangdue Phodrang"
+      },
+      {
+        "id": 14,
+        "value": "Zhemgang"
+      }
+    ],
+    "facilities": [
+      {
+        "id": 100,
+        "value": "24/7 Hot Water"
+      },
+      {
+        "id": 96,
+        "value": "Cooking Classes Available"
+      },
+      {
+        "id": 94,
+        "value": "Ensuite Bathrooms"
+      },
+      {
+        "id": 103,
+        "value": "Guest Experiences Available"
+      },
+      {
+        "id": 91,
+        "value": "Hot Stone Bath"
+      },
+      {
+        "id": 95,
+        "value": "In-room heating"
+      },
+      {
+        "id": 97,
+        "value": "Private Rooms"
+      },
+      {
+        "id": 99,
+        "value": "Western Toilet with seat, lid and toilet paper"
+      },
+      {
+        "id": 98,
+        "value": "Wifi"
+      }
+    ]
+  },
+  "rows": [
+    {
+      "id": 78,
+      "name": "KARMA WANGMO HOMESTAY",
+      "email": "karmawangmohomestay@gmail.com",
+      "contact": 17683831,
+      "description": "Karma Wangmo Homestay stands out for its authentic Bhutanese hospitality, offering guests a unique and immersive cultural experience in the heart of Phobjikha Valley. Unlike conventional hotels, our homestay provides a warm, family-like atmosphere where visitors can engage with local traditions and customs. Our five cozy, well-furnished rooms ensure a comfortable stay while maintaining the charm of a traditional Bhutanese home.\n\nWhat truly sets us apart is our commitment to offering genuine Bhutanese experiences—our traditional cuisine is made with fresh, locally sourced ingredients, providing a true taste of Bhutan. Guests can also enjoy a revitalizing hotstone bath, an ancient Bhutanese wellness practice known for its therapeutic benefits. Additionally, our location in Phobjikha Valley provides breathtaking panoramic views, perfect for those seeking tranquility, nature, and a break from modern distractions. Whether you’re here for the serene landscapes, rich culture, or a peaceful retreat, Karma Wangmo Homestay ensures an unforgettable experience.",
+      "website": "https://wa.me/97517683831",
+      "slug": "karma-wangmo-village-homestay-1",
+      "description_excerpt": "Karma Wangmo Homestay stands out for its authentic Bhutanese hospitality, offering guests a unique and immersive cultural experience in the heart of P...",
+      "cover_photo": null
+    }
+  ]
+}

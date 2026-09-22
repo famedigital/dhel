@@ -1628,3 +1628,237 @@ body.itinerary-sheet {
     margin-bottom: 0.65rem;
   }
 }
+
+/* ---------- Official receipt / invoice pack ---------- */
+.receipt-pack .page {
+  padding: 0;
+}
+.receipt-sheet {
+  position: relative;
+  height: 100%;
+  padding: 14mm 16mm 12mm;
+}
+.receipt-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8mm;
+  padding-bottom: 4mm;
+  border-bottom: 1.2pt solid var(--ink, #1a1916);
+}
+.receipt-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20pt;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.receipt-co {
+  font-size: 8pt;
+  line-height: 1.45;
+  color: var(--stone, #6b655c);
+  margin-top: 2mm;
+  max-width: 95mm;
+}
+.receipt-doc-meta {
+  text-align: right;
+  font-size: 9pt;
+  line-height: 1.5;
+}
+.receipt-doc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16pt;
+  font-weight: 600;
+  margin-bottom: 1mm;
+}
+.receipt-doc-sub {
+  font-size: 9pt;
+  color: var(--gold, #8a6a3a);
+  font-weight: 600;
+  margin-bottom: 2mm;
+}
+.receipt-badge {
+  display: inline-block;
+  margin-top: 2mm;
+  font-size: 7.5pt;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 0.6pt solid var(--gold, #8a6a3a);
+  color: var(--gold, #8a6a3a);
+  padding: 1.2mm 2.5mm;
+  font-weight: 600;
+}
+.receipt-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18pt;
+  font-weight: 600;
+  margin: 5mm 0 1mm;
+}
+.receipt-lead {
+  font-size: 9.5pt;
+  color: var(--stone, #6b655c);
+  margin-bottom: 4mm;
+  line-height: 1.45;
+}
+.receipt-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5mm 8mm;
+  margin-bottom: 4mm;
+}
+.receipt-grid label {
+  display: block;
+  font-size: 6.5pt;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold, #8a6a3a);
+  margin-bottom: 0.6mm;
+}
+.receipt-grid p {
+  font-size: 10pt;
+  line-height: 1.35;
+  font-weight: 500;
+}
+.receipt-hero {
+  margin: 3mm 0 4mm;
+  padding: 3.5mm 4.5mm;
+  border: 0.8pt solid var(--gold, #8a6a3a);
+  background: #f3efe6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6mm;
+}
+.receipt-hero label {
+  display: block;
+  font-size: 7pt;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold, #8a6a3a);
+  margin-bottom: 1.2mm;
+}
+.receipt-sum {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26pt;
+  font-weight: 600;
+  line-height: 1;
+}
+.receipt-hero-side {
+  text-align: right;
+  font-size: 9pt;
+  line-height: 1.45;
+  color: var(--stone, #6b655c);
+}
+.receipt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9pt;
+  margin: 1mm 0 3mm;
+}
+.receipt-table th,
+.receipt-table td {
+  border-bottom: 0.4pt solid rgba(26, 25, 22, 0.18);
+  padding: 2.2mm 1.8mm;
+  text-align: left;
+  vertical-align: top;
+}
+.receipt-table th {
+  font-size: 7pt;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stone, #6b655c);
+  font-weight: 500;
+  border-bottom-color: rgba(26, 25, 22, 0.35);
+}
+.receipt-table .amt {
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.receipt-table td .en {
+  display: block;
+  font-size: 7.5pt;
+  color: var(--stone, #6b655c);
+  margin-top: 0.5mm;
+  font-weight: 400;
+}
+.receipt-table tr.section td {
+  padding-top: 3mm;
+  border-bottom: none;
+  font-size: 7.5pt;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold, #8a6a3a);
+}
+.receipt-table tr.total td {
+  border-bottom: none;
+  border-top: 1pt solid var(--ink, #1a1916);
+  font-weight: 600;
+  font-size: 10pt;
+  padding-top: 2.5mm;
+}
+.receipt-table tr.highlight td {
+  background: #f3efe6;
+  font-weight: 600;
+  font-size: 10pt;
+  border-bottom: 0.8pt solid var(--gold, #8a6a3a);
+}
+.receipt-note {
+  font-size: 8.5pt;
+  line-height: 1.5;
+  color: var(--stone, #6b655c);
+  padding: 2.5mm 3mm;
+  border-left: 2pt solid var(--gold, #8a6a3a);
+  background: #fff;
+  margin-bottom: 5mm;
+}
+.receipt-signs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4mm;
+}
+.receipt-sign {
+  min-height: 28mm;
+  border: 0.4pt dashed rgba(26, 25, 22, 0.28);
+  padding: 2.5mm;
+  position: relative;
+}
+.receipt-sign label {
+  display: block;
+  font-size: 7pt;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold, #8a6a3a);
+  margin-bottom: 1.5mm;
+}
+.receipt-sign .hint {
+  position: absolute;
+  bottom: 2.5mm;
+  left: 2.5mm;
+  right: 2.5mm;
+  font-size: 7.5pt;
+  color: #9a948a;
+  border-top: 0.4pt solid rgba(26, 25, 22, 0.2);
+  padding-top: 1.2mm;
+}
+.receipt-sign.stamp {
+  border-style: solid;
+  border-color: rgba(138, 106, 58, 0.45);
+  background: rgba(243, 239, 230, 0.45);
+}
+.receipt-sign.stamp .hint {
+  color: var(--gold, #8a6a3a);
+  font-weight: 500;
+}
+.receipt-foot {
+  position: absolute;
+  left: 16mm;
+  right: 16mm;
+  bottom: 8mm;
+  display: flex;
+  justify-content: space-between;
+  font-size: 7pt;
+  color: var(--stone, #6b655c);
+  border-top: 0.4pt solid rgba(26, 25, 22, 0.12);
+  padding-top: 2mm;
+}

@@ -1,19 +1,21 @@
+import { BRAND_NAME } from "@/lib/brand";
+
 export type LegalSlug = "terms" | "privacy" | "cookies" | "agent-agreement";
 
 export const LEGAL_FALLBACKS: Record<
   LegalSlug,
-  { title: string; version: string; body: string }
+  { title: string; body: string; version: string }
 > = {
   terms: {
     title: "Terms of Service",
     version: "2026-08-22",
     body: `# Terms of Service
 
-Dhel provides a trip builder and indicative quote tool for Bhutan travel. Quotes are **not confirmed bookings** until a licensed travel agent contacts you.
+${BRAND_NAME} provides a trip builder and indicative quote tool for Bhutan travel. Quotes are **not confirmed bookings** until a licensed travel agent contacts you.
 
 Prices reflect catalog rates at the time of quote. SDF, visa, and festival rules may change.
 
-Dhel is a technology platform — not a tour operator unless explicitly stated.`,
+${BRAND_NAME} is a technology platform — not a tour operator unless explicitly stated.`,
   },
   privacy: {
     title: "Privacy Policy",
@@ -44,12 +46,12 @@ You can control cookies through your browser settings. Disabling cookies may lim
     version: "2026-08-22",
     body: `# Agent Agreement
 
-By using Dhel you agree to accurate client quotes, licensed operation in Bhutan, and subscription terms (Pilot, Starter, Pro, Network).
+By using ${BRAND_NAME} you agree to accurate client quotes, licensed operation in Bhutan, and subscription terms (Pilot, Starter, Pro, Network).
 
 **Billing:** Plans are activated after bank QR payment and screenshot verification — no Stripe in v1.
 
 **Network commission:** 3% on Pelbu-network hotel and guide bookings where applicable.
 
-You own client relationships. Dhel provides software only. Data is isolated per agency (RLS).`,
+You own client relationships. ${BRAND_NAME} provides software only. Data is isolated per agency (RLS).`,
   },
 };

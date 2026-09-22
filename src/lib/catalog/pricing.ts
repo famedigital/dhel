@@ -198,6 +198,7 @@ export type HotelChoiceRow = {
   net_usd: number;
   meal: string;
   source: string;
+  pelbu_property_id?: string;
 };
 
 export type CityHotelChoices = {
@@ -232,6 +233,7 @@ export function listHotelChoicesForRoute(
         net_usd: room?.net_usd ?? avgNightlyUsd(h),
         meal: room?.meal ?? "BB",
         source: h.source,
+        pelbu_property_id: h.pelbu_property_id,
       };
     });
 

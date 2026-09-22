@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Official Receipt · 正式收据 | Tracy · USD 2,360</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Sans+SC:wght@400;500;600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    @page { size: A4 portrait; margin: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans SC', 'Outfit', sans-serif;
+      color: #1a1916;
+      background: #c8c4bc;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .sheet {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: #faf8f5;
+      padding: 16mm 18mm 14mm;
+      position: relative;
+    }
+    @media screen {
+      body { padding: 24px 0 48px; }
+      .sheet { box-shadow: 0 12px 40px rgba(0,0,0,.18); }
+    }
+    @media print {
+      body { background: none; }
+      .sheet { box-shadow: none; }
+      .print-fab { display: none !important; }
+    }
+    .print-fab {
+      position: fixed; top: 1.25rem; right: 1.25rem; z-index: 10;
+    }
+    .print-fab button {
+      appearance: none; border: none; cursor: pointer;
+      font-family: Outfit, sans-serif; font-size: 0.95rem; font-weight: 500;
+      color: #faf8f5; background: #141412; padding: 0.7rem 1.15rem;
+      box-shadow: 0 4px 18px rgba(0,0,0,.22);
+    }
+    .top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 8mm; padding-bottom: 5mm;
+      border-bottom: 1.2pt solid #1a1916;
+    }
+    .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22pt; font-weight: 600; line-height: 1.1;
+    }
+    .brand span { font-style: italic; font-weight: 500; color: #8a6a3a; }
+    .co {
+      font-size: 8.5pt; line-height: 1.45; color: #5c574f; margin-top: 2mm;
+      max-width: 95mm;
+    }
+    .doc-meta { text-align: right; font-size: 9pt; line-height: 1.5; }
+    .doc-meta .title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18pt; font-weight: 600; margin-bottom: 2mm;
+    }
+    .doc-meta .zh-title {
+      font-size: 11pt; font-weight: 600; color: #8a6a3a; margin-bottom: 3mm;
+    }
+    .badge {
+      display: inline-block; margin-top: 2mm;
+      font-size: 8pt; letter-spacing: 0.08em; text-transform: uppercase;
+      border: 0.6pt solid #8a6a3a; color: #8a6a3a;
+      padding: 1.5mm 3mm; font-weight: 600;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20pt; font-weight: 600; margin: 6mm 0 1.5mm;
+    }
+    .lead { font-size: 10pt; color: #5c574f; margin-bottom: 5mm; line-height: 1.5; }
+    .grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 8mm;
+      margin-bottom: 5mm;
+    }
+    .grid label {
+      display: block; font-size: 7pt; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #8a6a3a; margin-bottom: 0.8mm;
+    }
+    .grid p { font-size: 10.5pt; line-height: 1.35; font-weight: 500; }
+    table {
+      width: 100%; border-collapse: collapse; font-size: 9.5pt;
+      margin: 2mm 0 4mm;
+    }
+    th, td {
+      border-bottom: 0.4pt solid rgba(26,25,22,.18);
+      padding: 2.4mm 2mm; text-align: left; vertical-align: top;
+    }
+    th {
+      font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase;
+      color: #6b655c; font-weight: 500; border-bottom-color: rgba(26,25,22,.35);
+    }
+    td.amt, th.amt { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    td.en { font-size: 8pt; color: #6b655c; display: block; margin-top: 0.6mm; font-weight: 400; }
+    tr.section td {
+      padding-top: 3.5mm; border-bottom: none;
+      font-size: 8pt; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; color: #8a6a3a;
+    }
+    tr.total td {
+      border-bottom: none; border-top: 1pt solid #1a1916;
+      font-weight: 600; font-size: 11pt; padding-top: 3mm;
+    }
+    tr.highlight td {
+      background: #f3efe6; font-weight: 600; font-size: 11pt;
+      border-bottom: 0.8pt solid #8a6a3a;
+    }
+    .hero {
+      margin: 4mm 0 5mm; padding: 4mm 5mm;
+      border: 0.8pt solid #8a6a3a; background: #f3efe6;
+      display: flex; justify-content: space-between; align-items: center; gap: 6mm;
+    }
+    .hero label {
+      display: block; font-size: 7.5pt; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #8a6a3a; margin-bottom: 1.5mm;
+    }
+    .hero .sum {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28pt; font-weight: 600; line-height: 1;
+    }
+    .hero .side { text-align: right; font-size: 9.5pt; line-height: 1.45; color: #5c574f; }
+    .note {
+      font-size: 9pt; line-height: 1.55; color: #5c574f;
+      padding: 3mm 3.5mm; border-left: 2pt solid #8a6a3a; background: #fff;
+      margin-bottom: 6mm;
+    }
+    .signs {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5mm;
+      margin-top: 4mm;
+    }
+    .sign-box {
+      min-height: 32mm; border: 0.4pt dashed rgba(26,25,22,.28);
+      padding: 3mm; position: relative;
+    }
+    .sign-box label {
+      display: block; font-size: 7.5pt; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #8a6a3a; margin-bottom: 2mm;
+    }
+    .sign-box .hint {
+      position: absolute; bottom: 3mm; left: 3mm; right: 3mm;
+      font-size: 8pt; color: #9a948a; border-top: 0.4pt solid rgba(26,25,22,.2);
+      padding-top: 1.5mm;
+    }
+    .stamp-box {
+      border-style: solid; border-color: rgba(138,106,58,.45);
+      background: rgba(243,239,230,.45);
+    }
+    .stamp-box .hint { color: #8a6a3a; font-weight: 500; }
+    .foot {
+      position: absolute; left: 18mm; right: 18mm; bottom: 10mm;
+      display: flex; justify-content: space-between;
+      font-size: 7.5pt; color: #6b655c;
+      border-top: 0.4pt solid rgba(26,25,22,.12); padding-top: 2.5mm;
+    }
+  </style>
+</head>
+<body>
+  <div class="print-fab">
+    <button type="button" onclick="window.print()">Print A4</button>
+  </div>
+
+  <article class="sheet">
+    <div class="top">
+      <div>
+        <div class="brand">Silverpine <span>Tours</span></div>
+        <p class="co">
+          Bhutan Silverpine Tours &amp; Treks<br />
+          Pelbu Suites, Thimphu, Bhutan<br />
+          WhatsApp +975-17649720 · www.silverpinebhutan.com<br />
+          USD A/C 640007313 · Bhutan National Bank
+        </p>
+      </div>
+      <div class="doc-meta">
+        <div class="title">Official Receipt</div>
+        <div class="zh-title">正式收据 · 盖章件</div>
+        <p>No. <strong>SP-TRACY-2026-0923</strong></p>
+        <p>Date · 日期 <strong>23 Sep 2026</strong></p>
+        <span class="badge">Paid in full · 已结清</span>
+      </div>
+    </div>
+
+    <h1>Balance payment received</h1>
+    <p class="lead">尾款收讫证明 · Cash received at Pelbu Suites, Thimphu</p>
+
+    <div class="grid">
+      <div>
+        <label>Received from · 付款人</label>
+        <p>Liu Zhong · 刘忠<br />Zhu Yiyong · 朱一勇</p>
+      </div>
+      <div>
+        <label>Booking / guest · 预订</label>
+        <p>Tracy · 2 adults · private tour<br />23 Sep – 2 Oct 2026 · Scheme C</p>
+      </div>
+      <div>
+        <label>Method · 支付方式</label>
+        <p>USD cash · 美元现金</p>
+      </div>
+      <div>
+        <label>Place · 收款地点</label>
+        <p>Pelbu Suites office · Thimphu</p>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div>
+        <label>Amount received today · 本日实收尾款</label>
+        <p class="sum">USD 2,360.00</p>
+      </div>
+      <div class="side">
+        Two thousand three hundred sixty<br />
+        US dollars only<br />
+        贰仟叁佰陆拾美元整
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Item · 项目</th>
+          <th>Detail · 说明</th>
+          <th class="amt">USD</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="section"><td colspan="3">Trip total · 行程总价（方案 B）</td></tr>
+        <tr>
+          <td>Land package<span class="en">陆地套餐 · 双人</span></td>
+          <td>Guide · vehicle · hotels · meals · entries · SDF facilitation</td>
+          <td class="amt">5,380.00</td>
+        </tr>
+        <tr>
+          <td>Flights<span class="en">机票 · Drukair · 2 pax</span></td>
+          <td>PNR 121NCE · KTM ⇄ PBH</td>
+          <td class="amt">943.00</td>
+        </tr>
+        <tr class="total">
+          <td colspan="2">Grand total · 合计</td>
+          <td class="amt">6,323.00</td>
+        </tr>
+
+        <tr class="section"><td colspan="3">Already received · 此前已收（银行电汇）</td></tr>
+        <tr>
+          <td>Advance<span class="en">预付电汇</span></td>
+          <td>Flights 943 + hotels 820 + SDF/visa 1,880</td>
+          <td class="amt">3,643.00</td>
+        </tr>
+        <tr>
+          <td>SDF top-up<span class="en">SDF 补汇</span></td>
+          <td>Bank transfer</td>
+          <td class="amt">320.00</td>
+        </tr>
+        <tr class="total">
+          <td colspan="2">Banked before arrival · 抵境前已到账</td>
+          <td class="amt">3,963.00</td>
+        </tr>
+
+        <tr class="section"><td colspan="3">This receipt · 本收据</td></tr>
+        <tr class="highlight">
+          <td>Balance cash<span class="en">廷布尾款 · 美元现金</span></td>
+          <td>6,323 − 3,643 − 320 · Pelbu Suites</td>
+          <td class="amt">2,360.00</td>
+        </tr>
+        <tr class="total">
+          <td colspan="2">Account status · 账款状态</td>
+          <td class="amt">PAID IN FULL · 已结清</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="note">
+      This receipt confirms that the balance of <strong>USD 2,360.00</strong> has been received in cash,
+      and that with prior bank transfers of <strong>USD 3,643.00</strong> and <strong>USD 320.00</strong>,
+      the full tour package of <strong>USD 6,323.00</strong> for Liu Zhong &amp; Zhu Yiyong is settled.
+      本收据确认尾款 <strong>USD 2,360.00</strong> 已以美元现金收讫；连同此前电汇
+      <strong>USD 3,643.00</strong> 与 SDF 补汇 <strong>USD 320.00</strong>，
+      刘忠与朱一勇二人行程总价 <strong>USD 6,323.00</strong> 已全部结清。
+      Please keep this stamped original. 请保留本盖章原件。
+    </p>
+
+    <div class="signs">
+      <div class="sign-box">
+        <label>Guest · 客人签收</label>
+        <p class="hint">Signature / 签名</p>
+      </div>
+      <div class="sign-box">
+        <label>Received by · 收款人</label>
+        <p class="hint">Rajiv / Tshering · date</p>
+      </div>
+      <div class="sign-box stamp-box">
+        <label>Company stamp · 公司盖章</label>
+        <p class="hint">Official seal here · 请盖公章</p>
+      </div>
+    </div>
+
+    <footer class="foot">
+      <span>SP-TRACY-2026-0923 · balance receipt</span>
+      <span>www.silverpinebhutan.com</span>
+      <span>1 / 1</span>
+    </footer>
+  </article>
+</body>
+</html>

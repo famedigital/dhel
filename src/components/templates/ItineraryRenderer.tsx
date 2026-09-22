@@ -5,6 +5,7 @@ import { CompactDocument } from "@/components/templates/CompactShell";
 import { EditorialDocument } from "@/components/templates/EditorialShell";
 import { FieldPackDocument } from "@/components/templates/FieldPack";
 import { OpsPackDocument } from "@/components/templates/OpsPack";
+import { ReceiptPackDocument } from "@/components/templates/ReceiptPack";
 
 export function ItineraryRenderer({
   itinerary,
@@ -17,7 +18,7 @@ export function ItineraryRenderer({
   brand?: Partial<Brand> | null;
   templateId?: TemplateId;
   ops?: ItineraryOpsBundle | null;
-  pack?: "guest" | "ops" | "field";
+  pack?: "guest" | "ops" | "field" | "receipt";
 }) {
   if (pack === "field" && ops) {
     return <FieldPackDocument itinerary={itinerary} brand={brand} ops={ops} />;
@@ -25,6 +26,10 @@ export function ItineraryRenderer({
 
   if (pack === "ops" && ops) {
     return <OpsPackDocument itinerary={itinerary} brand={brand} ops={ops} />;
+  }
+
+  if (pack === "receipt" && ops) {
+    return <ReceiptPackDocument itinerary={itinerary} brand={brand} ops={ops} />;
   }
 
   const t = templateId || itinerary.template_id || "classic-luxury";

@@ -1,0 +1,1289 @@
+{
+  "generated_at": "2026-09-22T19:59:15.948Z",
+  "count": 100,
+  "guides": [
+    {
+      "id": "07e25add-7ac0-4636-9d31-e2c054311ae2",
+      "name": "Ajesh Mongar",
+      "phone": "17591624",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-22/3615",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "074b6c38-2813-49cf-a401-cb2f6292ecb5",
+      "name": "Arjun Kumar Rai",
+      "phone": "77251173",
+      "languages": [
+        "English"
+      ],
+      "license_no": "DOT/TG(C)-24/3736",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "01ea4a4f-8fd1-441e-8757-900f1e283af3",
+      "name": "Ashis Rai",
+      "phone": "17467931",
+      "languages": [
+        "English"
+      ],
+      "license_no": "DOT/TG(C)-23/3669",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0642822d-704e-45da-bb93-201e5d2ae4c8",
+      "name": "Bali Man Saru",
+      "phone": "17920322",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-21/3621",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0886897a-f88f-4590-8147-dd89f252bd21",
+      "name": "Bhim Bdr Gurung",
+      "phone": "77415377",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-18/2946",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "046bc5df-9328-48f4-a658-da551409bb6c",
+      "name": "Bijay Bajgai",
+      "phone": "17586380",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-16/0279",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "08398866-1aef-4f79-9a93-15e899996de3",
+      "name": "Bumpa Tenzin",
+      "phone": "17912228",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-15/2010",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "015daa38-71f0-4962-a3a8-e95b0dbbe907",
+      "name": "Chencho Dorji",
+      "phone": "17381449",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-14/0106",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "06059f18-4ab5-4c73-916f-822145492bc5",
+      "name": "Chencho Dorji",
+      "phone": "17306360",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C/T)-15/0149",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "05ab6ef3-b6cd-4651-88d7-3ea27bb75a7d",
+      "name": "Chhimi Dorji",
+      "phone": "77351940",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)- 18/2779",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0796c35e-6255-4f92-9235-3bde408e3cfb",
+      "name": "Chimi Dem",
+      "phone": "17601664",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG ( C)-99/1642",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "05f087c1-bf4c-4ba5-a73a-96a5413226b0",
+      "name": "Dawa Dakpa",
+      "phone": "77287523",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG( C )-19/3238",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "063290a2-d59e-446d-b621-163dff478255",
+      "name": "Dawa Yoezer",
+      "phone": "17743868",
+      "languages": [
+        "English"
+      ],
+      "license_no": "DOT/TG(C)-24/3770",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "02bd10a4-1ec0-4ac2-8a11-60b4a605bd79",
+      "name": "Dechen Tshering",
+      "phone": "17748195",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-22/3599",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "08b3c900-2e78-4eaa-9568-21ade0cb9a02",
+      "name": "Dendup Norbu",
+      "phone": "17667195",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C/T)-06-1497",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "05b2db05-d140-4608-bdb0-caf7d161786b",
+      "name": "Dorji Wangchuk",
+      "phone": "77213757",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C/T)-16/0700",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "06cc21e2-dea2-4f31-b9f7-118b5af2a92c",
+      "name": "Gyenden Jamtsho",
+      "phone": "17329148",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C/T)-13/1765",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "02e1c8e0-28cc-4427-8b17-2a2dc20ee60f",
+      "name": "Jamyang Kuenley",
+      "phone": "77259274",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-16/3535",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "03a92f52-4afa-4592-a0bf-9095ae9a5ceb",
+      "name": "Jigme Norbu",
+      "phone": "17614238",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-05/2024",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "05e88fa1-b44d-438d-b9de-3fe1be291a14",
+      "name": "Jigme Wangchuk",
+      "phone": "17436883",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-20/3426",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "02baebda-3633-4e69-af07-d861b9c4f6ca",
+      "name": "Jigme Yoezer",
+      "phone": "17709343",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-16/1077",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "05f762c0-9380-44b7-8b1e-73f89b09c580",
+      "name": "Karma Dendup",
+      "phone": "17640428",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C/T)-08/2063",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0857038c-347f-4036-9ba2-9721211331a2",
+      "name": "Karma Zangmo",
+      "phone": "17832998",
+      "languages": [
+        "English"
+      ],
+      "license_no": "DOT/TG(C)-24/3744",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "00fb21f6-f6fd-442f-b576-f0ffb858ede5",
+      "name": "Kelzang Jigme",
+      "phone": "17840990",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-18/2902",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0605127b-585c-4311-94e9-584a676f494c",
+      "name": "Kencho Chophel",
+      "phone": "77939599",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(c) - 15/0772",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "039564a8-ecf5-42fd-92dd-6bafe9e33d83",
+      "name": "Kezang Dawa",
+      "phone": "17534506",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG ( C/T)-11/0367",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "056325c1-5399-4c7a-bdb3-3d6571d17e65",
+      "name": "Khandu",
+      "phone": "77350780",
+      "languages": [
+        "English"
+      ],
+      "license_no": "DOT/TG(C)-24/4000",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "09aa83c5-cad7-4241-8e70-308b2c16afcd",
+      "name": "Kharka Bahadur Rai",
+      "phone": "77439994",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-17/0775",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "068d13da-c2fc-443e-9bf8-b1248ac5036b",
+      "name": "Kiliya",
+      "phone": "17636425",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C/T)-07/2277",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0345791b-be1d-4157-a238-cff7d89aecf0",
+      "name": "Kinlay Wangchuk",
+      "phone": "17492489",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-14/0084",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "071887df-ec80-4bc0-9921-e7208c5365f6",
+      "name": "Kinley Dorji",
+      "phone": "17869044",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG (C)-17/1053",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0964e1d1-1f79-4452-897b-d8cb0e1442be",
+      "name": "Kinley Dorji",
+      "phone": "17608284",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C/T)-08/0542",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "034ceffd-5663-4030-8ebb-c40dd2503951",
+      "name": "Kinley Tenzin",
+      "phone": "77400920",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-17/1426",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "05262e20-6dc2-46cd-9fda-1c4ffeb84955",
+      "name": "Kinley Wangchuk",
+      "phone": "17718533",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG ( C)-18/2685",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "07ebd1d5-36fd-4c97-a315-a05ac934ff06",
+      "name": "Kinley Wangchuk",
+      "phone": "17119808",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG (C )- 08/2503",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0298f31b-1937-4032-8a98-d8ca7ee1fabe",
+      "name": "Kuenga Tenzin",
+      "phone": "17787707",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-07/0683",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "094400a9-bf3b-49a6-8da1-ecfbf48d559f",
+      "name": "Kuenzang Namgyel",
+      "phone": "77457842",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-22/3594",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "023060c6-7ede-499a-bc4c-2d94476dd749",
+      "name": "Kuenzang Tobgay",
+      "phone": "17835408",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG( C/T)-17/2026",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "05002ac9-3e95-41ac-b09f-834fc90b8e19",
+      "name": "Lungten",
+      "phone": "17580411",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C/T)-08/1601",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "08e59ecb-aac4-40ad-b9d5-a8c168afc790",
+      "name": "Mindu Wangdi",
+      "phone": "17480932",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-22/3624",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "001b8705-26a0-44b5-8668-bbddf4d1850f",
+      "name": "Mohan Prasad Bhatta",
+      "phone": "16923718",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG( C/T )-15/0317",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "04a28d29-a5fd-494d-be95-0bcab75a8f4b",
+      "name": "Namgay Rinchen",
+      "phone": "17473455",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG( C/T )-17/0082",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "060293fa-327d-46ed-b999-4ddc766606fd",
+      "name": "Namgay Tshering",
+      "phone": "77777151",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG (C) -06/0188",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "00541082-bb10-4178-b712-fb0656da6b5a",
+      "name": "Namgay Wangchuk",
+      "phone": "17280983",
+      "languages": [
+        "English"
+      ],
+      "license_no": "DOT/TG(C)-24/3932",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "00c08692-c31d-4b7e-93e3-7e1c6d4d5f58",
+      "name": "Namgyal",
+      "phone": "17112426",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG (C) - 04/0270",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0608614b-fe58-477e-92af-8e8e505f2162",
+      "name": "Ngawang Dorji",
+      "phone": "17448709",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C/T)-15/1306",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "06e44459-8c7e-4706-8bce-97d233441c2a",
+      "name": "Ngawang Tashi",
+      "phone": "17765243",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-18/3093",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "051822db-2b64-496e-b7d1-2bf0261ccb74",
+      "name": "Nima Tshering",
+      "phone": "17324434",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG ( C/T)-16/0612",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "021cb3fc-b85b-410d-b0f6-45636cf94e59",
+      "name": "Nima Wangdi Gyeltsh",
+      "phone": "17372728",
+      "languages": [
+        "English"
+      ],
+      "license_no": "DOT/TG(C)-24/3734",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0910d38f-54ca-4ecc-8f86-639c7ce9268a",
+      "name": "Nob Tshering",
+      "phone": "77281216",
+      "languages": [
+        "English"
+      ],
+      "license_no": "DOT/TG(C)-24/3749",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "01ee6cd0-b12f-49b7-958a-9d2c5e4f3adc",
+      "name": "Pema Rinchen",
+      "phone": "77615496",
+      "languages": [
+        "English"
+      ],
+      "license_no": "DOT/TG (C/T)-08/2371",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0374f1a5-c4c8-4b24-80dc-74958320f7ec",
+      "name": "Pema Tshering",
+      "phone": "17425697",
+      "languages": [
+        "English"
+      ],
+      "license_no": "DOT/TG(C)-24/3747",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0251a61b-88a1-4f21-a159-acdd9cef9fae",
+      "name": "Pema Wangda",
+      "phone": "17502316",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-13/0536",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "00953275-40de-4ab7-a40e-72915b9c5a90",
+      "name": "Phub Tshering",
+      "phone": "17843483",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG ( C)-17/0407",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0694b2f4-2117-40cd-aa1a-8f24df8487bf",
+      "name": "Phuntsho Dendup",
+      "phone": "17861065",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-15/1621",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "02303fd4-df91-4b5b-a306-81ce1adc0ef5",
+      "name": "Sangay Dorji",
+      "phone": "17886448",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-19/3203",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "03fcb660-75c1-4123-bfb4-99adbbc2060e",
+      "name": "Sangay Dorji",
+      "phone": "17893745",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)20-3463",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "09cd23cc-299c-47f3-b31e-a5b63424b459",
+      "name": "Sangay Dorji",
+      "phone": "17885473",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-15/0243",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "023227b3-bf56-4a50-93f7-458868df2f7e",
+      "name": "Sangay Nima",
+      "phone": "17353726",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C/T)-12/0110",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "071c2ee3-2f98-4ce6-9a30-3c629cd093c8",
+      "name": "Sonam Choden",
+      "phone": "77657766",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-19/3331",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "05289ce0-1be6-44bc-af58-ae7893c68aa4",
+      "name": "Sonam Dhendup",
+      "phone": "17607858",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG (C/T)-12/0017",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "01826a44-72ae-4ae2-9bfa-ed2782484e6f",
+      "name": "Sonam Gyeltshen",
+      "phone": "17470174",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C/T)-12/1826",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "087fb40f-9b8e-4dcf-93e7-661396a00bdd",
+      "name": "Sonam lhamo",
+      "phone": "17646612",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-08/0682",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "00233a9a-f238-4f42-a04d-4654b5b6d707",
+      "name": "Sonam Tobgay",
+      "phone": "16923282",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG (C )- 18/2733",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0313b98e-7d13-48d0-99d6-71409101f658",
+      "name": "Sonam Tshering",
+      "phone": "77263463",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(c)-14/2300",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "035f8ddd-dfb4-4714-86d4-b65513e86f5b",
+      "name": "Sonam Tshering",
+      "phone": "17754795",
+      "languages": [
+        "English"
+      ],
+      "license_no": "DOT/TG(C)-23/3664",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "075cf62f-9b12-4564-9879-62d965b371b5",
+      "name": "Sonam wangyel",
+      "phone": "17634331",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-13/1819",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0747d719-3982-4589-aa4c-04870c134fd7",
+      "name": "Tandin Choki",
+      "phone": "17252047",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C/T)-19/3212",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "085a1736-44cd-499b-9085-b8a794c20a00",
+      "name": "Tara Nidhi Dahal",
+      "phone": "17983440",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-08/1455",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0655efa4-9f8a-4339-81ca-2e1088f68a6a",
+      "name": "Tashi Dendup",
+      "phone": "17360604",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-22/3613",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "050a1ce9-13ca-4411-9e60-10879b7ba5dc",
+      "name": "Tashi Dorji",
+      "phone": "17119644",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C/T)-00/1635",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "09090d93-5639-42c8-858c-f90f28d81ef2",
+      "name": "Tashi Dorji",
+      "phone": "17747001",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG( C)-08/1952",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "072c38c4-25e9-46da-836d-57ae579461ca",
+      "name": "Tashi Penjor",
+      "phone": "17677887",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C/T)-17/0765",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "099a7085-d85a-424d-a7e5-a0e2b3fcd30c",
+      "name": "Tashi Phuntsho",
+      "phone": "17610079",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG ( C/T)-00/2140",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "091259a5-7e00-4acd-ba5c-7d2def30f1c1",
+      "name": "Tashi Tobgay",
+      "phone": "17536429",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG (C)-16/1341",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "009ae9da-cd56-4979-840a-ee8b0a414d44",
+      "name": "Tashi Wangchuk",
+      "phone": "77383925",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-15/1715",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "01774518-41aa-4347-9b81-fa2ecc425db8",
+      "name": "Tashi Wangdi",
+      "phone": "17637904",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG ( C)-18/3075",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "04eff04f-f75b-4fde-bd85-b5adf013db5c",
+      "name": "Tashila",
+      "phone": "77833243",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-14/1252",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0097c2b1-8fdc-40be-8e90-62549c591f0c",
+      "name": "Tenzin Gyeltshen",
+      "phone": "77728031",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C) 21/3503",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0545f02e-00fa-4716-8702-edc0eb6ec5ce",
+      "name": "Thinley Phuntsho",
+      "phone": "17590779",
+      "languages": [
+        "English"
+      ],
+      "license_no": "DOT/TG(C)-24/3933",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "010e62b8-e45b-4309-9129-ac72efbe4463",
+      "name": "Thuji",
+      "phone": "17597272",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-18/2891",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0285d28f-614e-4141-974e-03f28e2f7b51",
+      "name": "Tshering Penjor",
+      "phone": "17378889",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG( C )-14/0170",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "02e90733-c5ce-46c6-97df-627ce2ae190c",
+      "name": "Tshering Penjor",
+      "phone": "17933566",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-15-0077",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "08fe0207-07fb-4d92-9fce-267045ac26d5",
+      "name": "Tshering Penjor",
+      "phone": "17892181",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-15/1688",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "059a70e4-afc3-4ba1-a726-0311373a5f47",
+      "name": "Tshering Wangchuk",
+      "phone": "77404010",
+      "languages": [
+        "English"
+      ],
+      "license_no": "DOT/TG(C)-23/3684",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "000f5eb5-6f9c-4482-85cd-c53b255ef36f",
+      "name": "Tshewang Jatsho",
+      "phone": "17742321",
+      "languages": [
+        "English"
+      ],
+      "license_no": "DOT/TG(C)-24/3841",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0790879d-1c92-4211-b7ca-6fc720cc6b2b",
+      "name": "Tshewang Tandin",
+      "phone": "17939673",
+      "languages": [
+        "English"
+      ],
+      "license_no": "DOT/TG(C)-24/3840",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "01b46bbc-6c8c-458b-93e9-2f3e1aa4b793",
+      "name": "Ugyen Chophel",
+      "phone": "17522387",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-18/3031",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "05e0695b-85cb-42a5-8563-66ca8c231506",
+      "name": "Ugyen Dorji",
+      "phone": "17114727",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C/T)-05/0438",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "057f1dde-ad9b-4874-ab97-1f4b23ca3c9b",
+      "name": "Ugyen Lhendup",
+      "phone": "17325958",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG( C )-17/1214",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "04db49bf-ac74-4b9b-83ae-ee30167e10df",
+      "name": "Ugyen Tshomo",
+      "phone": "17579672",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-20/3410",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "0359caec-bd28-4ada-b447-58537b234704",
+      "name": "Utam kumar Ghalley",
+      "phone": "17607897",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-99/0493",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "093f1ed3-3a8e-496b-a513-7dac6f8e1a3b",
+      "name": "Wangchuk",
+      "phone": "17803515",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-18/2756",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "09aad9bb-1d14-443d-9096-a05a3b149d53",
+      "name": "Yangchen Pem",
+      "phone": "17991370",
+      "languages": [
+        "English"
+      ],
+      "license_no": "DOT/TG(C)-24/4010",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "082aa932-cc89-4bc9-ad2b-61ecf5f27c7b",
+      "name": "Yeshey Saydee",
+      "phone": "17583838",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C/T)-18/2831",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "05c83cf0-1494-422d-afcc-dbff6eb03012",
+      "name": "Yeshi Dorji",
+      "phone": "77237448",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C/T)-15/1013",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "082b85d7-aed5-4f79-b3cb-df9fe568873c",
+      "name": "Yeshi Namgay",
+      "phone": "77332076",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C)-19/3309",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "057d410d-e849-44a2-9784-eca3c85df29e",
+      "name": "Yeshi Penjor",
+      "phone": "17614926",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C/T)-12/0047",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "04e0fc37-886c-4470-80c8-a8890adfd6b2",
+      "name": "Yeshi Wangdi",
+      "phone": "17544808",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C/T)-17/2956",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    },
+    {
+      "id": "030cf38d-70d9-468f-a1ea-f226b66a2ea0",
+      "name": "Yonten Wangchuk",
+      "phone": "17939236",
+      "languages": [
+        "English"
+      ],
+      "license_no": "TCB/TG(C )- 15/0447",
+      "day_rate_usd": 30,
+      "active": true,
+      "notes": "Thimphu"
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "vehicle-1",
+      "name": "Alto, WagonR, i20, Eeco",
+      "phone": null,
+      "vehicle_type": "Hatchback / city taxi | chauffeur-included",
+      "plate": null,
+      "day_rate_usd": 60,
+      "active": true
+    },
+    {
+      "id": "vehicle-2",
+      "name": "Hyundai Creta, Tucson, Santa Fe, Mahindra Scorpio, Bolero",
+      "phone": null,
+      "vehicle_type": "Compact SUV | chauffeur-included",
+      "plate": null,
+      "day_rate_usd": 60,
+      "active": true
+    },
+    {
+      "id": "vehicle-8",
+      "name": "Toyota Coaster 4-cyl / 6-cyl",
+      "phone": null,
+      "vehicle_type": "Coaster minibus | chauffeur-included",
+      "plate": null,
+      "day_rate_usd": 60,
+      "active": true
+    },
+    {
+      "id": "vehicle-6",
+      "name": "Toyota Hiace",
+      "phone": null,
+      "vehicle_type": "Minivan | chauffeur-included",
+      "plate": null,
+      "day_rate_usd": 60,
+      "active": true
+    },
+    {
+      "id": "vehicle-7",
+      "name": "Toyota Hiace Highroof",
+      "phone": null,
+      "vehicle_type": "High-roof van | chauffeur-included",
+      "plate": null,
+      "day_rate_usd": 60,
+      "active": true
+    },
+    {
+      "id": "vehicle-9",
+      "name": "Toyota Hilux, Isuzu D-Max",
+      "phone": null,
+      "vehicle_type": "Pickup / utility | chauffeur-included",
+      "plate": null,
+      "day_rate_usd": 60,
+      "active": true
+    },
+    {
+      "id": "vehicle-3",
+      "name": "Toyota Innova / Innova Crysta, Ertiga, Hyundai H1",
+      "phone": null,
+      "vehicle_type": "MPV / family | chauffeur-included",
+      "plate": null,
+      "day_rate_usd": 60,
+      "active": true
+    },
+    {
+      "id": "vehicle-5",
+      "name": "Toyota Land Cruiser 200/300",
+      "phone": null,
+      "vehicle_type": "Premium 4WD | chauffeur-included",
+      "plate": null,
+      "day_rate_usd": 60,
+      "active": true
+    },
+    {
+      "id": "vehicle-4",
+      "name": "Toyota Land Cruiser Prado",
+      "phone": null,
+      "vehicle_type": "Luxury SUV | chauffeur-included",
+      "plate": null,
+      "day_rate_usd": 60,
+      "active": true
+    }
+  ]
+}

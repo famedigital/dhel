@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-09-20T07:12:46.218Z",
+  "live_db": {
+    "project": "npqxvxvwjanpjlpggddx (pelbuItinerary)",
+    "public_tables": "none after restore — catalog_hotels / catalog_guides / catalog_drivers do not exist yet"
+  },
+  "this_folder": "data/html-references/bhutan-ops-catalog",
+  "hotels": {
+    "rows": 99,
+    "cities": [
+      "Bumthang",
+      "Chhukha",
+      "Haa",
+      "Mongar",
+      "Paro",
+      "Pemagatshel",
+      "Phuentsholing",
+      "Punakha",
+      "Samtse",
+      "Sarpang",
+      "Thimphu",
+      "Wangdue Phodrang"
+    ],
+    "coverage": "Silverpine library dump (~100 rows; Table Editor export cap). Official DOT registered hotels 2025 is larger (~300+ star hotels). Not a complete national inventory."
+  },
+  "guides": {
+    "rows": 100,
+    "female": 7,
+    "male": 73,
+    "unknown": 20,
+    "chinese_tagged": 0,
+    "coverage": "Silverpine dump of licensed guides, languages almost all English. National pool ~1,809 certified guides / ~122 female (DoT statements). Confirm gender/language on GMS."
+  },
+  "drivers": {
+    "named_drivers": 0,
+    "vehicle_categories": 9,
+    "coverage": "No public driver directory. Vehicle categories + agent-quoted day rates collected."
+  },
+  "entry_fees": 41,
+  "sources": [
+    "supabase/scripts/data/library_hotels_rows.sql",
+    "supabase/scripts/data/library_guides_rows.sql",
+    "supabase/scripts/data/library_activities_rows.sql",
+    "https://www.drukasia.com/bhutan/bhutan-monument-attractions-entrance-fees/ (Jan 2026)",
+    "https://www.windhorsetours.com/bhutan/bhutan-travel-info/entrance-fees-monuments-bhutan/ (2026)",
+    "https://www.heavenlybhutan.com/car-rentals-in-bt/",
+    "https://www.bhutantravelservice.com/car-rental",
+    "https://gms.tourism.gov.bt/",
+    "https://services.bhutan.travel/search/hotel",
+    "https://services.bhutan.travel/search/homestay",
+    "https://www.reisefernsehen.com/downloads/dot-certified-list-latest-home-stay.pdf"
+  ],
+  "homestays": {
+    "rows": 127,
+    "certified_pdf": 123,
+    "extra_portal_licensed": 4,
+    "dzongkhags": 15,
+    "coverage": "DOT certified village homestay roster (123) plus extra licensed portal profiles. Live search index currently shows 1 card."
+  },
+  "master_sheet": {
+    "csv": "MASTER.csv",
+    "json": "MASTER.json",
+    "readme": "README.md",
+    "rows": 383,
+    "counts": {
+      "hotel": 99,
+      "homestay": 127,
+      "guide": 100,
+      "vehicle": 9,
+      "attraction": 48
+    }
+  }
+}

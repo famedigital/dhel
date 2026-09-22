@@ -1,0 +1,979 @@
+{
+  "generated_at": "2026-09-20",
+  "total": 127,
+  "certified_pdf": 123,
+  "extra_portal_licensed": 4,
+  "by_dzongkhag": {
+    "Bumthang": {
+      "count": 14,
+      "homestays": [
+        {
+          "name": "Pema Lhazom Homestay",
+          "phone": "17292177",
+          "rooms": 5,
+          "beds": 10,
+          "email": "pemalhazom51@gmail.com"
+        },
+        {
+          "name": "Dorjibee (Ugyen Lhamo) Homestay",
+          "phone": "77661132",
+          "rooms": 4,
+          "beds": 8,
+          "email": "chimmidelker88@gmail.com"
+        },
+        {
+          "name": "Sherab Doma Homestay",
+          "phone": "17723673",
+          "rooms": 4,
+          "beds": 8,
+          "email": "kamdex@gmail.com"
+        },
+        {
+          "name": "Dechen Gawa Homestay",
+          "phone": "17291600",
+          "rooms": 2,
+          "beds": 4,
+          "email": "bumthangchakhar@gmail.com"
+        },
+        {
+          "name": "Tshewang Choden Homestay",
+          "phone": "77757909",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Sangay Dawa Homestay",
+          "phone": "77351570",
+          "rooms": 2,
+          "beds": 4,
+          "email": ""
+        },
+        {
+          "name": "Yeshi Wangmo Homestay",
+          "phone": "17235076",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Lemo Homestay",
+          "phone": "17670870",
+          "rooms": 2,
+          "beds": 4,
+          "email": ""
+        },
+        {
+          "name": "Tshomo Homestay (Pangri)",
+          "phone": "17861095",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Tashi Wangmo / Ura (VHS)",
+          "phone": "77639828 / 17639828",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Tshomo Homestay (Dorjibee)",
+          "phone": "17649947",
+          "rooms": 5,
+          "beds": 10,
+          "email": "dekidrodu@gmail.com"
+        },
+        {
+          "name": "Dechen Homestay",
+          "phone": "17917619 / 17383434",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Yeshi Nidup Homestay",
+          "phone": "17795211 / 17802028",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Ngawang Homestay",
+          "phone": "17622222 / 17345565",
+          "rooms": 3,
+          "beds": 6,
+          "email": "Aimhightour1762@gmai.com"
+        }
+      ]
+    },
+    "Chhukha": {
+      "count": 5,
+      "homestays": [
+        {
+          "name": "Sonam Choki Homestay",
+          "phone": "17986512",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Gangkhap Homestay",
+          "phone": "77700153",
+          "rooms": 1,
+          "beds": 2,
+          "email": ""
+        },
+        {
+          "name": "Lhamo Homestay",
+          "phone": "17933178",
+          "rooms": 2,
+          "beds": 4,
+          "email": ""
+        },
+        {
+          "name": "Dekis Homestay",
+          "phone": "77678937",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Kaydee Homestay",
+          "phone": "17589430",
+          "rooms": 1,
+          "beds": 2,
+          "email": ""
+        }
+      ]
+    },
+    "Dagana": {
+      "count": 2,
+      "homestays": [
+        {
+          "name": "Sangay Lhaden Homestay",
+          "phone": "17538263 / 17937371",
+          "rooms": 2,
+          "beds": 4,
+          "email": ""
+        },
+        {
+          "name": "Karma Homestay",
+          "phone": "17691632",
+          "rooms": 2,
+          "beds": 4,
+          "email": ""
+        }
+      ]
+    },
+    "Gasa": {
+      "count": 5,
+      "homestays": [
+        {
+          "name": "Namgay Homestay",
+          "phone": "17537744",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Chador Zangmo Homestay",
+          "phone": "17422868",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Karma Yuden Homestay",
+          "phone": "17408142",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Bagos (Chencho) Homestay",
+          "phone": "17817425",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Tashi Dechiling Homestay",
+          "phone": "17696921",
+          "rooms": 4,
+          "beds": 8,
+          "email": "sonamyounten87@gmail.com"
+        }
+      ]
+    },
+    "Haa": {
+      "count": 12,
+      "homestays": [
+        {
+          "name": "Phub Dem Homestay",
+          "phone": "77250421",
+          "rooms": 2,
+          "beds": 4,
+          "email": ""
+        },
+        {
+          "name": "Namgay Wangmo Homestay",
+          "phone": "77448319",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Kinley Wangchuk Homestay",
+          "phone": "17654981",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Choden Homestay",
+          "phone": "17657450",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Lhaki Homestay",
+          "phone": "77639036",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Kinley Wangmo Homestay",
+          "phone": "17810332",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Jam Tshering Homestay",
+          "phone": "17617782",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Chhimmi Homestay",
+          "phone": "77240938",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Ugyen Homestay",
+          "phone": "77265817",
+          "rooms": 5,
+          "beds": 10,
+          "email": ""
+        },
+        {
+          "name": "Pema Dema Homestay",
+          "phone": "77209984",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Kelzang Dawa Homestay",
+          "phone": "17610449",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Damcho Pem Homestay",
+          "phone": "17628873 / 17648468",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        }
+      ]
+    },
+    "Lhuentse": {
+      "count": 13,
+      "homestays": [
+        {
+          "name": "Yangkula Homestay",
+          "phone": "17788454",
+          "rooms": 5,
+          "beds": 10,
+          "email": ""
+        },
+        {
+          "name": "Tshering Mo Homestay",
+          "phone": "17576688",
+          "rooms": 5,
+          "beds": 10,
+          "email": ""
+        },
+        {
+          "name": "Rinchen Yangtsho Homestay",
+          "phone": "17813058",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Chimi Yuden Homestay",
+          "phone": "17576688",
+          "rooms": 2,
+          "beds": 4,
+          "email": ""
+        },
+        {
+          "name": "Norbu Homestay",
+          "phone": "17310774",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Norbu Lhaden Homestay",
+          "phone": "17700848 / 17932885",
+          "rooms": 2,
+          "beds": 4,
+          "email": ""
+        },
+        {
+          "name": "Bumpa Dema Homestay",
+          "phone": "77714102 / 17303515",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Namgay Zam Homestay",
+          "phone": "17788383",
+          "rooms": 2,
+          "beds": 4,
+          "email": ""
+        },
+        {
+          "name": "Tashi Pelmo Homestay",
+          "phone": "17695200",
+          "rooms": 2,
+          "beds": 4,
+          "email": ""
+        },
+        {
+          "name": "Sonam Zangmo Homestay",
+          "phone": "17380638",
+          "rooms": 2,
+          "beds": 4,
+          "email": ""
+        },
+        {
+          "name": "Tashi Chozom Homestay",
+          "phone": "17788394",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Kinzang Tobgay Homestay",
+          "phone": "17626618",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Deki Peldon Homestay",
+          "phone": "17814374",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        }
+      ]
+    },
+    "Mongar": {
+      "count": 1,
+      "homestays": [
+        {
+          "name": "Yoezer Homestay (Thridangbi)",
+          "phone": "17644057",
+          "rooms": 2,
+          "beds": 4,
+          "email": ""
+        }
+      ]
+    },
+    "Paro": {
+      "count": 19,
+      "homestays": [
+        {
+          "name": "Paro Village View Homestay",
+          "phone": "77210636",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Ugyen Homestay",
+          "phone": "77665376",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Terton Sherab Maebar Homestay",
+          "phone": "17841344",
+          "rooms": 2,
+          "beds": 3,
+          "email": ""
+        },
+        {
+          "name": "Deki Homestay",
+          "phone": "17610851",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Gatana Homestay",
+          "phone": "17580425",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Kinley Lhamo Homestay",
+          "phone": "17609123",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Tshering Homestay",
+          "phone": "17687642",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Paro Penlop Heritage Homestay",
+          "phone": "17622667",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Tashi Lhamo Homestay",
+          "phone": "17666293",
+          "rooms": 2,
+          "beds": 4,
+          "email": ""
+        },
+        {
+          "name": "Dema Homestay",
+          "phone": "17628150",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Chencho Dema Homestay",
+          "phone": "17675757",
+          "rooms": 4,
+          "beds": 7,
+          "email": "chenchodema5757@gmail.com"
+        },
+        {
+          "name": "Travellers Homestay",
+          "phone": "17604517",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Paro Kichu Homestay",
+          "phone": "17620695",
+          "rooms": 3,
+          "beds": 6,
+          "email": "killaychoki@gmail.com"
+        },
+        {
+          "name": "Gensa Homestay",
+          "phone": "17614157",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Sangay Homestay",
+          "phone": "17969145",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Chencho Dorji Homestay",
+          "phone": "17824314",
+          "rooms": 1,
+          "beds": 1,
+          "email": "nchoki@yahoo.com"
+        },
+        {
+          "name": "Bara Homestay",
+          "phone": "17710171",
+          "rooms": 3,
+          "beds": 6,
+          "email": "somyanday@gmail.com"
+        },
+        {
+          "name": "Dorji Dema Homestay",
+          "phone": "17791416",
+          "rooms": 3,
+          "beds": 6,
+          "email": "sherabdorjee76@gmail.com"
+        },
+        {
+          "name": "Pema Wangchuk Homestay",
+          "phone": "77368059 / 17982509",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        }
+      ]
+    },
+    "Punakha": {
+      "count": 18,
+      "homestays": [
+        {
+          "name": "Chimi Lhakhang Homestay",
+          "phone": "17851311",
+          "rooms": 3,
+          "beds": 6,
+          "email": "dagozam07@gmail.com"
+        },
+        {
+          "name": "Lala Homestay",
+          "phone": "17660506",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Chechey Homestay",
+          "phone": "17545898",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Chimi Wangmo Homestay",
+          "phone": "77606530",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Leki Wangmo Homestay",
+          "phone": "17615212",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Happiness Field Homestay",
+          "phone": "17609998",
+          "rooms": 3,
+          "beds": 8,
+          "email": "yangchenkarma698@gmail.com"
+        },
+        {
+          "name": "Thinley Wangmo Homestay",
+          "phone": "17659143",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Mendrelgang Homestay",
+          "phone": "77469174",
+          "rooms": 5,
+          "beds": 7,
+          "email": ""
+        },
+        {
+          "name": "Namgay Zam Homestay",
+          "phone": "17843335",
+          "rooms": 3,
+          "beds": 6,
+          "email": "tenzinom1995@gmail.com"
+        },
+        {
+          "name": "Yuwakha Homestay",
+          "phone": "17623793 / 77623793",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Sonam Chenzom Homestay",
+          "phone": "17605948",
+          "rooms": 3,
+          "beds": 6,
+          "email": "kinleyd2014@gmail.com"
+        },
+        {
+          "name": "Mendelgang Heritage Homestay",
+          "phone": "17603474",
+          "rooms": 3,
+          "beds": 6,
+          "email": "mendegangheritagehome@gmail.com"
+        },
+        {
+          "name": "Pema Zangmo Homestay",
+          "phone": "17475742",
+          "rooms": 2,
+          "beds": 4,
+          "email": ""
+        },
+        {
+          "name": "Lotay Gyeltshen Homestay",
+          "phone": "17619315",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "FAM Heritage Homestay",
+          "phone": "17619962",
+          "rooms": 2,
+          "beds": 4,
+          "email": "tdorjinsb@gmail.com"
+        },
+        {
+          "name": "Damchi Homestay",
+          "phone": "77212308",
+          "rooms": 3,
+          "beds": null,
+          "email": "Kinleydema205@gmail.com"
+        },
+        {
+          "name": "Kinley Om Homestay",
+          "phone": "17775611",
+          "rooms": 3,
+          "beds": null,
+          "email": "omkinley493@gmail.com"
+        },
+        {
+          "name": "Zomlingthang Homestay",
+          "phone": "17721172",
+          "rooms": 3,
+          "beds": null,
+          "email": "pemazam1982@gmail.com"
+        }
+      ]
+    },
+    "Trashigang": {
+      "count": 4,
+      "homestays": [
+        {
+          "name": "Merak Homestay",
+          "phone": "17745042",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Naktsang Homestay (Rangshikhar)",
+          "phone": "17116766",
+          "rooms": 3,
+          "beds": 6,
+          "email": "dek_pel@yahoo.com"
+        },
+        {
+          "name": "Wangpo Tshering Homestay",
+          "phone": "17356380",
+          "rooms": 2,
+          "beds": 4,
+          "email": ""
+        },
+        {
+          "name": "Sangay Dema Home Stay",
+          "phone": "17261119",
+          "rooms": 4,
+          "beds": null,
+          "email": "tashidorji1119@gmail.com"
+        }
+      ]
+    },
+    "Thimphu": {
+      "count": 1,
+      "homestays": [
+        {
+          "name": "Sisina Homestay",
+          "phone": "17902417",
+          "rooms": 3,
+          "beds": 3,
+          "email": ""
+        }
+      ]
+    },
+    "Trashi Yangtse": {
+      "count": 3,
+      "homestays": [
+        {
+          "name": "Chorten Dendup Homestay",
+          "phone": "17701156",
+          "rooms": 5,
+          "beds": 10,
+          "email": ""
+        },
+        {
+          "name": "Jigme Tenzin Homestay",
+          "phone": "17714103",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Thukten Tshering Homestay",
+          "phone": "17659821",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        }
+      ]
+    },
+    "Trongsa": {
+      "count": 1,
+      "homestays": [
+        {
+          "name": "Dorji Tse Homestay",
+          "phone": "77619923",
+          "rooms": 3,
+          "beds": 6,
+          "email": "tshodee90@gmail.com"
+        }
+      ]
+    },
+    "Wangdue Phodrang": {
+      "count": 25,
+      "homestays": [
+        {
+          "name": "Dawa Lham Homestay",
+          "phone": "17845863",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Dechen Om Homestay",
+          "phone": "17870644",
+          "rooms": 2,
+          "beds": 4,
+          "email": ""
+        },
+        {
+          "name": "Karma Wangmo Homestay",
+          "phone": "17683831 / 77234698",
+          "rooms": 5,
+          "beds": 10,
+          "email": "karmawangmohomestay@gmail.com"
+        },
+        {
+          "name": "Karma Homestay",
+          "phone": "17683831",
+          "rooms": 2,
+          "beds": 4,
+          "email": "klley89@gmail.com"
+        },
+        {
+          "name": "Sonam Yuden Homestay",
+          "phone": "17625853",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Passang Zam Homestay",
+          "phone": "17443219",
+          "rooms": 4,
+          "beds": 8,
+          "email": "passanghomestay@gmail.com"
+        },
+        {
+          "name": "Sigay Homestay",
+          "phone": "17995496 / 17841894",
+          "rooms": 5,
+          "beds": 10,
+          "email": ""
+        },
+        {
+          "name": "Kuenzang Choeling Homestay",
+          "phone": "17364619 / 77379375",
+          "rooms": 3,
+          "beds": 6,
+          "email": "passangzangmo@gmail.com"
+        },
+        {
+          "name": "Dophu Wangmo Homestay",
+          "phone": "17749283",
+          "rooms": 2,
+          "beds": 4,
+          "email": ""
+        },
+        {
+          "name": "Dorji Om Homestay",
+          "phone": "17964102 / 77875586",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Gyelmo Homestay",
+          "phone": "17970585",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Lhakpa Homestay",
+          "phone": "17518940",
+          "rooms": 5,
+          "beds": 10,
+          "email": ""
+        },
+        {
+          "name": "Pem Homestay",
+          "phone": "17736941",
+          "rooms": 5,
+          "beds": 10,
+          "email": ""
+        },
+        {
+          "name": "Phub Gyeltshen Homestay",
+          "phone": "77343118 / 17879831",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Phub Lham Homestay",
+          "phone": "17512152 / 77890836",
+          "rooms": 3,
+          "beds": 6,
+          "email": "Dechenma604@gmail.com"
+        },
+        {
+          "name": "Phub Lhamo Homestay",
+          "phone": "77376000",
+          "rooms": 5,
+          "beds": 10,
+          "email": ""
+        },
+        {
+          "name": "Shakar Homestay",
+          "phone": "77422570 / 17754508",
+          "rooms": 2,
+          "beds": 4,
+          "email": "Dekigawa995@gmail.com"
+        },
+        {
+          "name": "Tshering Lhamo Homestay",
+          "phone": "17846102",
+          "rooms": 3,
+          "beds": 6,
+          "email": "Yeegadema123@gmail.com"
+        },
+        {
+          "name": "Wangchuk Dema Homestay",
+          "phone": "17451374 / 17861601",
+          "rooms": 4,
+          "beds": 8,
+          "email": "wangchukdema174@gmail.com"
+        },
+        {
+          "name": "Yangka Homestay",
+          "phone": "17846897",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Zangmo Homestay",
+          "phone": "17512474",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Kumbu Lhamo Homestay",
+          "phone": "77807211",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Tokha Menchu Homestay",
+          "phone": "17512512 / 17253939",
+          "rooms": 3,
+          "beds": 6,
+          "email": ""
+        },
+        {
+          "name": "Pemba Homestay",
+          "phone": "17734049 / 17447754",
+          "rooms": 3,
+          "beds": 6,
+          "email": "peewang312@yahoo.com"
+        },
+        {
+          "name": "Dechen Peldon Homestay",
+          "phone": "17527214",
+          "rooms": 5,
+          "beds": 10,
+          "email": ""
+        }
+      ]
+    },
+    "Zhemgang": {
+      "count": 4,
+      "homestays": [
+        {
+          "name": "Tsewang Buthri Homestay",
+          "phone": "17545152",
+          "rooms": 2,
+          "beds": 4,
+          "email": "sonamyaden102@gmail.com"
+        },
+        {
+          "name": "Tshering Yuden Homestay",
+          "phone": "77444780",
+          "rooms": 3,
+          "beds": 6,
+          "email": "chodentashi17@gmail.com"
+        },
+        {
+          "name": "Sonam Yangzom Homestay",
+          "phone": "17878185",
+          "rooms": 4,
+          "beds": 8,
+          "email": ""
+        },
+        {
+          "name": "Yeshi Choden Homestay",
+          "phone": "17483910",
+          "rooms": 5,
+          "beds": 10,
+          "email": ""
+        }
+      ]
+    }
+  },
+  "notes": [
+    "Live search https://services.bhutan.travel/search/homestay currently indexes 1 complete public card (Karma Wangmo). Individual profile URLs still exist.",
+    "Core roster is the public DOT certified village homestay list (123 numbered entries).",
+    "Extra rows are DOT-licensed profiles found on the portal / internet that are not on that numbered PDF (mostly 2024 Punakha/Trashigang licences).",
+    "Overnight tourist stays at uncertified private homes are prohibited under DoT 2024 accommodation rules.",
+    "Confirm rooms/beds/phone before quoting."
+  ]
+}

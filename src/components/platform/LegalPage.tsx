@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { BRAND_NAME, BRAND_TAGLINE } from "@/lib/brand";
 import { getLiveLegalContent } from "@/lib/platform/cms";
 import { LEGAL_FALLBACKS, type LegalSlug } from "@/lib/platform/legal-fallbacks";
 
@@ -31,8 +32,8 @@ export async function buildLegalPage(slug: LegalSlug) {
   const version = cms?.version ?? fallback.version;
 
   const metadata: Metadata = {
-    title: `${title} — Dhel`,
-    description: `${title} for Dhel Bhutan travel platform.`,
+    title: `${title} — ${BRAND_NAME}`,
+    description: `${title} for ${BRAND_NAME} (${BRAND_TAGLINE}).`,
     robots: { index: true, follow: true },
   };
 
@@ -40,7 +41,7 @@ export async function buildLegalPage(slug: LegalSlug) {
     <div className="min-h-screen bg-[var(--background)]">
       <header className="flex items-center justify-between px-6 py-4">
         <Link href="/" className="font-[family-name:var(--font-display)] text-xl">
-          Dhel
+          {BRAND_NAME}
         </Link>
         <nav className="flex gap-4 text-sm">
           <Link href="/terms">Terms</Link>

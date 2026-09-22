@@ -7,6 +7,7 @@ import {
   CheckCircle2,
   ClipboardList,
   Link2,
+  Receipt,
   Smartphone,
   Users,
 } from "lucide-react";
@@ -22,7 +23,7 @@ import {
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
-type PackId = "guest" | "ops" | "field";
+type PackId = "guest" | "ops" | "field" | "receipt";
 
 type Pack = {
   id: PackId;
@@ -55,12 +56,20 @@ const PACKS: Pack[] = [
   },
   {
     id: "field",
-    title: "Mobile field",
-    blurb: "Phone-first run sheet for guide & driver — no rates. Share the link.",
+    title: "Field pack",
+    blurb: "Guide & driver run sheet — no rates. Print A4 or share the link.",
     audience: "On the road",
     icon: Smartphone,
     href: "field",
     mobile: true,
+  },
+  {
+    id: "receipt",
+    title: "Receipt",
+    blurb: "Official stamped receipt — trip total, paid in, balance due.",
+    audience: "Guests",
+    icon: Receipt,
+    href: "receipt",
   },
 ];
 
@@ -113,8 +122,8 @@ export function DocsPacksPanel({
     if (navigator.share) {
       try {
         await navigator.share({
-          title: tripTitle ? `Mobile field · ${tripTitle}` : "Mobile field pack",
-          text: "Guide/driver mobile field pack (no rates)",
+          title: tripTitle ? `Field pack · ${tripTitle}` : "Field pack",
+          text: "Guide/driver field pack (no rates)",
           url,
         });
         return;
@@ -132,11 +141,11 @@ export function DocsPacksPanel({
       <div>
         <h2 className="text-sm font-semibold tracking-tight">Print & share</h2>
         <p className="text-xs text-muted-foreground">
-          Three packs from one trip · Guest & Ops for A4 · Mobile field for phones
+          Four packs from one trip · Guest, Ops, Field, Receipt
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
         {PACKS.map((pack) => {
           const Icon = pack.icon;
           const href = `/preview/${itineraryId}?pack=${pack.href}`;
@@ -147,6 +156,7 @@ export function DocsPacksPanel({
                 "flex aspect-[4/5] min-h-0 flex-col overflow-hidden shadow-sm",
                 pack.primary && "border-foreground/20",
                 pack.mobile && "border-primary/30 bg-primary/[0.03]",
+                pack.id === "receipt" && "border-foreground/15",
               )}
             >
               <CardHeader className="space-y-2 p-3 pb-2">
@@ -184,7 +194,7 @@ export function DocsPacksPanel({
                     onClick={() => void shareField()}
                   >
                     <Link2 className="size-3.5" />
-                    {copied ? "Link copied" : "Share mobile link"}
+                    {copied ? "Link copied" : "Share field link"}
                   </Button>
                 ) : null}
               </CardContent>
@@ -197,7 +207,7 @@ export function DocsPacksPanel({
         <CardHeader className="p-4 pb-2">
           <CardTitle className="text-sm">Ops readiness</CardTitle>
           <CardDescription className="text-xs">
-            Guest PDF anytime · Ops & mobile field stronger with stays and staff
+            Guest PDF anytime · Receipt needs trip total + money-in · Field stronger with stays and staff
           </CardDescription>
         </CardHeader>
         <CardContent className="p-4 pt-0">
@@ -224,7 +234,7 @@ export function DocsPacksPanel({
           </ul>
         </CardContent>
         <CardFooter className="border-t border-border py-2 text-[11px] text-muted-foreground">
-          Mobile field opens best on a phone browser
+          Receipt: log client payments under Money, then print and stamp
         </CardFooter>
       </Card>
     </div>

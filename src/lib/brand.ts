@@ -1,7 +1,10 @@
 /** Product brand — single source of truth for name + tagline. */
-export const BRAND_NAME = "Dhel";
-export const BRAND_TAGLINE = "Bhutan travel desk";
+export const BRAND_NAME = "Luma Trips";
+export const BRAND_SHORT = "Luma";
+export const BRAND_TAGLINE = "Bhutan tour ops";
 export const BRAND_TITLE = `${BRAND_NAME} — ${BRAND_TAGLINE}`;
+export const BRAND_DOMAIN = "lumatrips.com";
+export const BRAND_URL = `https://${BRAND_DOMAIN}`;
 
 /**
  * Royal Bhutan palette — midnight navy + ivory stone.

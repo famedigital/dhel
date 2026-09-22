@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome · 欢迎 · Tracy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Sans+SC:wght@400;500;600&family=Outfit:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    @page { size: A4 portrait; margin: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans SC', 'Outfit', sans-serif;
+      color: #1a1916;
+      background: #c8c4bc;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .sheet {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: #faf8f5;
+      padding: 18mm 20mm 16mm;
+      position: relative;
+    }
+    @media screen {
+      body { padding: 24px 0 48px; }
+      .sheet { box-shadow: 0 12px 40px rgba(0,0,0,.18); }
+    }
+    @media print {
+      body { background: none; }
+      .sheet { box-shadow: none; }
+      .print-fab { display: none !important; }
+    }
+    .print-fab {
+      position: fixed; top: 1.25rem; right: 1.25rem; z-index: 10;
+    }
+    .print-fab button {
+      appearance: none; border: none; cursor: pointer;
+      font-family: Outfit, sans-serif; font-size: 0.95rem; font-weight: 500;
+      color: #faf8f5; background: #141412; padding: 0.7rem 1.15rem;
+      box-shadow: 0 4px 18px rgba(0,0,0,.22);
+    }
+    .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22pt; font-weight: 600; letter-spacing: 0.02em;
+    }
+    .brand span { font-weight: 500; font-style: italic; color: #8a6a3a; }
+    .meta {
+      font-size: 8pt; letter-spacing: 0.14em; text-transform: uppercase;
+      color: #6b655c; margin-top: 2mm;
+    }
+    .rule {
+      height: 0.4pt; background: #c9b896; margin: 8mm 0 7mm; border: none;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26pt; font-weight: 600; line-height: 1.2; margin-bottom: 2mm;
+    }
+    .sub {
+      font-size: 10.5pt; color: #5c574f; margin-bottom: 7mm; line-height: 1.5;
+    }
+    .col { margin-bottom: 6mm; }
+    .col h2 {
+      font-size: 9pt; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #8a6a3a; margin-bottom: 2.5mm;
+    }
+    .col p {
+      font-size: 11pt; line-height: 1.65; color: #1a1916;
+    }
+    .en {
+      font-family: Outfit, sans-serif;
+      font-size: 9.5pt; line-height: 1.55; color: #5c574f;
+      margin-top: 2.5mm; padding-top: 2.5mm;
+      border-top: 0.4pt dashed rgba(26,25,22,.15);
+    }
+    .grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4mm 8mm;
+      margin: 7mm 0; padding: 4.5mm 5mm;
+      background: #f3efe6; border: 0.4pt solid rgba(138,106,58,.25);
+    }
+    .grid label {
+      display: block; font-size: 7.5pt; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #8a6a3a; margin-bottom: 1mm;
+    }
+    .grid p { font-size: 10.5pt; line-height: 1.4; }
+    .note {
+      font-size: 10.5pt; line-height: 1.55;
+      padding: 3.5mm 4mm; margin-top: 2mm;
+      background: #fff; border-left: 2.5pt solid #8a6a3a;
+    }
+    .sign {
+      margin-top: 8mm; display: flex; gap: 6mm; align-items: flex-end;
+    }
+    .sign img {
+      width: 28mm; height: 28mm; object-fit: cover;
+      border: 0.4pt solid rgba(26,25,22,.12);
+    }
+    .sign .closing { font-size: 10pt; color: #5c574f; margin-bottom: 1.5mm; }
+    .sign .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14pt; font-weight: 600;
+    }
+    .sign .role { font-size: 9pt; color: #6b655c; margin-top: 1mm; }
+    .foot {
+      position: absolute; left: 20mm; right: 20mm; bottom: 12mm;
+      display: flex; justify-content: space-between;
+      font-size: 8pt; color: #6b655c; border-top: 0.4pt solid rgba(26,25,22,.12);
+      padding-top: 3mm;
+    }
+  </style>
+</head>
+<body>
+  <div class="print-fab">
+    <button type="button" onclick="window.print()">Print A4</button>
+  </div>
+
+  <article class="sheet">
+    <div class="brand">Silverpine <span>Tours</span></div>
+    <p class="meta">Arrival welcome · 抵达欢迎 · 23 Sep 2026</p>
+    <hr class="rule" />
+
+    <h1>欢迎来到不丹</h1>
+    <p class="sub">Dear Liu Zhong &amp; Zhu Yiyong · 尊敬的刘忠与朱一勇</p>
+
+    <div class="col">
+      <h2>中文</h2>
+      <p>
+        欢迎你们。漫长旅途辛苦了——从今天起，你们可以慢慢放下肩上的紧张。
+        不丹欢迎你们；我们也把你们当作家里的客人。
+      </p>
+      <p style="margin-top:3mm;">
+        我们的向导和司机不会说中文，你们也可以少说英文。没关系。
+        微笑、手势、手机翻译，加上耐心，就够让我们一路好好相处。
+        请放心：吃、住、车、行程，我们都已安排好。有任何需要，随时告诉我们——用中文发微信/WhatsApp 也可以，办公室会帮忙。
+      </p>
+      <p style="margin-top:3mm;">
+        请慢慢走、慢慢拍、好好休息。这里是你们的旅程；我们只是陪在身边，让你们感到安心、自在。
+      </p>
+    </div>
+
+    <div class="col">
+      <h2>English</h2>
+      <p class="en" style="border:0;padding:0;margin:0;color:#1a1916;font-size:10.5pt;line-height:1.65;">
+        A warm welcome to Bhutan. You have come a long way — from today, you can set the travel stress down.
+        Please think of yourselves not only as guests of this country, but as guests in our care.
+      </p>
+      <p class="en" style="border:0;padding:0;margin:3mm 0 0;color:#1a1916;font-size:10.5pt;line-height:1.65;">
+        Our guide and driver do not speak Chinese, and you need not strain to speak English.
+        That is perfectly all right. Between a smile, a gesture, a phone translator, and a little patience,
+        we will understand one another well enough. Meals, hotels, the car, and your itinerary are already in place.
+        If you need anything at all, simply tell us — a message in Chinese on WhatsApp is welcome; our office will help.
+      </p>
+      <p class="en" style="border:0;padding:0;margin:3mm 0 0;color:#1a1916;font-size:10.5pt;line-height:1.65;">
+        Take the days slowly. Photograph what moves you. Rest when you need to.
+        This journey is yours; we are only here so you feel looked after — and at home.
+      </p>
+    </div>
+
+    <div class="grid">
+      <div>
+        <label>向导 Guide</label>
+        <p>Tshering Kencho</p>
+      </div>
+      <div>
+        <label>司机 · 车辆 Driver</label>
+        <p>Aue Kinzang · Kia Seltos</p>
+      </div>
+      <div>
+        <label>办公室 Office WhatsApp</label>
+        <p>+975-17649720</p>
+      </div>
+      <div>
+        <label>网站 Website</label>
+        <p>www.silverpinebhutan.com</p>
+      </div>
+    </div>
+
+    <p class="note">
+      <strong>小提示 · Tip:</strong>
+      景点有中文地点手册可随身带。今日轻松抵达、早些休息。
+      · You have a Chinese site booklet with you. Today is deliberately light — an early night will help.
+    </p>
+
+    <div class="sign">
+      <img src="images/Rajiv_Tshering.jpg" alt="Rajiv &amp; Tshering" />
+      <div>
+        <p class="closing">此致 · With warm regards,</p>
+        <p class="name">Rajiv Pradhan &amp; Tshering Lhamo</p>
+        <p class="role">Silverpine Tours · Thimphu · Since 2012</p>
+      </div>
+    </div>
+
+    <footer class="foot">
+      <span>Tracy · welcome letter</span>
+      <span>www.silverpinebhutan.com</span>
+      <span>1 / 1</span>
+    </footer>
+  </article>
+</body>
+</html>

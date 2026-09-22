@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { BRAND_NAME } from "@/lib/brand";
 
 const NAV = [
   { href: "/platform/library", label: "Library" },
@@ -21,7 +22,7 @@ export function PlatformShell({
       <header className="app-header">
         <div className="app-header-inner">
           <Link href="/platform/library" className="app-logo">
-            Dhel Platform
+            {BRAND_NAME} Platform
           </Link>
           <nav className="app-nav">
             {NAV.map((item) => (

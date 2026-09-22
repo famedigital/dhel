@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Silverpine Tours — Bhutan 3N4D · Japanese party of 4 · 21–24 Sep 2026</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600&family=Noto+Serif+JP:wght@400;500;600&display=swap');
+
+    .lang-ja,
+    .lang-ja .page-body,
+    .lang-ja p,
+    .lang-ja li,
+    .lang-ja td,
+    .lang-ja dd {
+      font-family: 'Noto Sans JP', 'Outfit', sans-serif;
+      line-height: 1.7;
+    }
+    .lang-ja .page-heading,
+    .lang-ja .day-route,
+    .lang-ja .cover-brand,
+    .lang-ja .cover-title,
+    .lang-ja .cover-client,
+    .lang-ja .letter-greeting,
+    .lang-ja .letter-sign .name,
+    .lang-ja .price-hero .amount,
+    .lang-ja .price-card h3,
+    .lang-ja .price-card .value,
+    .lang-ja .stay-band-info h3,
+    .lang-ja .hotel-block-head h3,
+    .lang-ja .closing-block h3,
+    .lang-ja .day-desc {
+      font-family: 'Noto Serif JP', 'Cormorant Garamond', serif;
+    }
+    .lang-ja .cover-title { font-size: 18pt; letter-spacing: 0.04em; }
+    .lang-ja .day-route { font-size: 16pt; letter-spacing: 0.02em; }
+    .en-line {
+      display: block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--stone);
+      margin-top: 0.6mm;
+      line-height: 1.35;
+    }
+    .cmp-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-bottom: 4mm; }
+    .cmp-table th, .cmp-table td {
+      border: 0.5pt solid var(--line);
+      padding: 2.2mm 2.5mm;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    .cmp-table thead th {
+      background: var(--mist);
+      font-family: 'Noto Serif JP', 'Cormorant Garamond', serif;
+      font-size: 12pt;
+      font-weight: 600;
+    }
+    .cmp-table tbody th {
+      width: 28%;
+      font-weight: 500;
+      background: #faf8f5;
+    }
+    .cmp-table .price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16pt;
+      font-weight: 600;
+    }
+    .cmp-table .small { font-size: 8pt; color: var(--stone); }
+    .day-table { width: 100%; border-collapse: collapse; font-size: 8.5pt; margin-bottom: 3mm; }
+    .day-table th, .day-table td {
+      border: 0.5pt solid var(--line);
+      padding: 1.8mm 2mm;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.45;
+    }
+    .day-table thead th {
+      background: var(--mist);
+      font-weight: 500;
+      font-size: 8pt;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+    }
+    .day-table td:first-child { white-space: nowrap; font-weight: 500; width: 14mm; }
+    .highlight-note {
+      border-left: 2pt solid var(--gold);
+      background: var(--mist);
+      padding: 3mm 4mm;
+      font-size: 8.5pt;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin-bottom: 4mm;
+    }
+    .price-3col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3mm;
+      margin-bottom: 4mm;
+    }
+    .hotel-shots {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr;
+      grid-template-rows: 34mm 34mm;
+      gap: 1.8mm;
+    }
+    .hotel-shots figure {
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      background: var(--cream);
+    }
+    .hotel-shots figure:first-child { grid-row: 1 / span 2; }
+    .hotel-shots img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hotel-shots figcaption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 1.5mm 2mm;
+      font-size: 5.5pt;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(14, 14, 12, 0.78));
+    }
+    .hotel-block { margin-bottom: 4mm; }
+    .hotel-block-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 4mm;
+      margin-bottom: 1.5mm;
+      padding-bottom: 1mm;
+      border-bottom: 0.5pt solid var(--gold-pale);
+    }
+    .hotel-block-head h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15pt;
+      font-weight: 500;
+    }
+    .hotel-block-head .nights {
+      font-size: 7.5pt;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .hotel-block-meta {
+      font-size: 8pt;
+      color: var(--stone);
+      margin-bottom: 2mm;
+      line-height: 1.4;
+    }
+    .hotel-block-meta a {
+      color: var(--ink-soft);
+      text-decoration: underline;
+      text-underline-offset: 1.5px;
+    }
+    .why-pick {
+      font-size: 8.5pt;
+      color: var(--ink-soft);
+      line-height: 1.45;
+      margin: 0 0 2mm;
+    }
+    .timeline {
+      border-left: 1.5pt solid var(--gold-pale);
+      margin: 2mm 0 3.5mm 2mm;
+      padding-left: 4mm;
+    }
+    .timeline-row { margin-bottom: 2.2mm; }
+    .timeline-row .t {
+      font-size: 8pt;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+    }
+    .timeline-row .d {
+      font-size: 8.5pt;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      margin-top: 0.4mm;
+    }
+    .mini-meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2mm;
+      margin-bottom: 3mm;
+    }
+    .mini-meta div {
+      background: var(--mist);
+      padding: 2mm 2.5mm;
+      border-left: 1.5pt solid var(--gold);
+    }
+    .mini-meta label {
+      display: block;
+      font-size: 6.5pt;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 0.5mm;
+    }
+    .mini-meta p { margin: 0; font-size: 8.5pt; font-weight: 500; color: var(--ink); line-height: 1.3; }
+    .places-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2mm;
+      margin-top: 3mm;
+    }
+    .places-strip figure {
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+      height: 42mm;
+      background: var(--cream);
+    }
+    .places-strip img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .places-strip figcaption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 1.5mm 2mm;
+      font-size: 5.5pt;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(14, 14, 12, 0.78));
+    }
+    .split-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5mm;
+      margin-bottom: 3mm;
+    }
+  </style>
+</head>
+<body class="itinerary-sheet lang-ja">
+
+  <!-- 01 COVER -->
+  <section class="page cover">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="cover-hero">
+      <img src="images/paro_tigers_nest.jpg" alt="パロ・タクツァン（タイガーネスト）" />
+    </div>
+    <div class="page-body">
+      <div class="cover-content">
+        <p class="cover-eyebrow">Kingdom of Bhutan · 3 nights · 4 days · Japanese party of 4</p>
+        <h1 class="cover-brand">Silverpine <em>Tours</em></h1>
+        <p class="cover-title">ティンプー滞在 · チェチュ · タイガーネスト</p>
+        <div class="cover-rule"></div>
+        <p class="cover-client">日本ご一行 4名様 · Pelbu Suites 3泊</p>
+        <div class="cover-details">
+          <div class="cover-detail"><label>到着</label><p>21 Sep · パロ 07:45</p></div>
+          <div class="cover-detail"><label>日程</label><p>21 – 24 September 2026</p></div>
+          <div class="cover-detail"><label>宿泊</label><p>Pelbu Suites · ティンプー 3泊</p></div>
+          <div class="cover-detail"><label>部屋</label><p>2室 · ツイン / ダブル</p></div>
+          <div class="cover-detail"><label>車両</label><p>専用 SUV · 英語ガイド</p></div>
+          <div class="cover-detail"><label>土地代金</label><p>USD 4,400 · 4名合計</p></div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">日本ご一行 · 4名</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">01 / 12</span>
+    </footer>
+  </section>
+
+  <!-- 02 LETTER -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Correspondence</p>
+      <h2 class="page-heading">ご案内</h2>
+      <p class="page-sub">21–24 September 2026 · 4 adults · Pelbu Suites 3 nights · Tiger’s Nest</p>
+
+      <p class="letter-date">発行日 · 20 September 2026</p>
+      <p class="letter-greeting">拝啓</p>
+
+      <div class="letter-body">
+        <p>
+          ブータンよりご挨拶申し上げます。4名様、
+          <strong>9月21日パロ着 07:45 → 24日発、3泊4日</strong>、
+          全泊をティンプーの当館 <strong>Pelbu Suites</strong>
+          （<a href="https://www.pelbusuites.bt" target="_blank" rel="noopener">pelbusuites.bt</a>）で。
+          ホテルは変えません。荷物は一度解けば足ります。
+        </p>
+        <p>
+          ご希望の <strong>タイガーネスト（タクツァン僧院）</strong> は
+          <strong>23日（水）</strong> に置きます。到着翌日に高度へ体を慣らし、
+          翌々日に歩く。ティンプーからパロへ車で約1時間15分、日帰り往復です。
+        </p>
+        <p>
+          この日付は偶然ではありません。
+          <strong>ティンプー・チェチュ</strong>（国の大きな仮面舞踊祭）が
+          <strong>21–23日</strong>、タシチョ・ゾンで行われています。
+          21日午後と22日を祭りに充て、23日の最終日と「恵みの雨の日」は
+          ハイキングを優先します。チェチュを見ずにプナカへ走る案は、この短い日程では取りません。
+        </p>
+        <p>
+          ガイドはライセンス英語ガイド、車は専用SUV。食事はホテルで朝食・夕食（MAP）、
+          昼は現地レストラン。航空券はお客様手配。WhatsApp
+          <strong>+975-17649720</strong>。
+        </p>
+      </div>
+
+      <div class="letter-sign">
+        <img class="letter-photo" src="images/Rajiv_Tshering.jpg" alt="Rajiv Pradhan and Tshering Lhamo" />
+        <div>
+          <p class="closing">敬具</p>
+          <p class="name">Rajiv Pradhan &amp; Tshering Lhamo</p>
+          <p class="role">Proprietors · Silverpine Tours</p>
+          <p class="since">Managing Silverpine Tours as a couple since 2012</p>
+        </div>
+      </div>
+
+      <div class="letter-contact">
+        <div>
+          <label>Website</label>
+          <a href="https://www.silverpinebhutan.com">www.silverpinebhutan.com</a>
+        </div>
+        <div>
+          <label>WhatsApp</label>
+          <p>+975-17649720</p>
+        </div>
+        <div>
+          <label>Stay</label>
+          <p>Pelbu Suites · Olakha, Thimphu</p>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">日本ご一行 · 4名</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">02 / 12</span>
+    </footer>
+  </section>
+
+  <!-- 03 PRICE -->
+  <section class="page page-pricing">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Quote</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Investment</p>
+      <h2 class="page-heading">土地代金</h2>
+      <p class="page-sub">
+        4名 · 2室 · 3泊4日 · 21–24 Sep 2026 · すべて <strong>USD</strong>。
+        パロ発着航空券は含みません。
+      </p>
+
+      <div class="price-hero">
+        <div>
+          <p class="label">Total · four adults</p>
+          <p class="amount">USD 4,400</p>
+        </div>
+        <p class="note">Package + SDF + visa. ≈ USD 1,100 / person.</p>
+      </div>
+
+      <div class="price-3col">
+        <div class="price-card">
+          <p class="num">01 · Package</p>
+          <h3>ホテル · ガイド · 車 · 入場 · 昼食</h3>
+          <p class="value">USD 3,040</p>
+          <p class="hint">Pelbu MAP · SUV · ガイド · 入場料 · 昼食</p>
+        </div>
+        <div class="price-card">
+          <p class="num">02 · SDF</p>
+          <h3>Sustainable Development Fee</h3>
+          <p class="value">USD 1,200</p>
+          <p class="hint">USD 100 / 人 / 泊 × 3 × 4</p>
+        </div>
+        <div class="price-card">
+          <p class="num">03 · Visa</p>
+          <h3>観光ビザ取次</h3>
+          <p class="value">USD 160</p>
+          <p class="hint">USD 40 / 人 × 4 · 政府手数料</p>
+        </div>
+      </div>
+
+      <div class="docs-row" style="margin-bottom: 3.5mm;">
+        <div class="closing-block dos">
+          <h3>含まれるもの</h3>
+          <ul>
+            <li>SDF 3泊 · 観光ビザ取次</li>
+            <li>Pelbu Suites 3泊 · 2室 · 朝食・夕食（MAP）</li>
+            <li>昼食 3回（21・22・23日）</li>
+            <li>ライセンス英語ガイド · 専用SUV · 4日間</li>
+            <li>この行程の寺院・ゾン・タクツァン入場料</li>
+            <li>パロ空港送迎 · 飲料水 · 国内通行許可</li>
+            <li>チェチュ会場への案内（21日午後・22日）</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>含まれないもの</h3>
+          <ul>
+            <li>パロ発着航空券（お客様手配）</li>
+            <li>海外旅行保険（加入を推奨）</li>
+            <li>飲料 · 洗濯 · 個人的な買い物</li>
+            <li>ガイド・ドライバーへのチップ（任意）</li>
+            <li>スパ / ホットストーン / ポニー（希望時）</li>
+            <li>天候による欠航・迂回の追加費用</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="validity-box">
+        <div>
+          <p class="v-label">Quote</p>
+          <p class="v-text">USD 3,040 + 1,200 + 160 = <strong>USD 4,400</strong> · 4名合計</p>
+        </div>
+        <p class="v-side">パスポート写し4名分でビザ開始。部屋タイプ（ツイン / ダブル）を教えてください。</p>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">日本ご一行 · 4名</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">03 / 12</span>
+    </footer>
+  </section>
+
+  <!-- 04 ROUTE -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">The journey</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">The journey</p>
+      <h2 class="page-heading">4日間 · この順で</h2>
+      <p class="page-sub">ホテルはティンプーのみ。パロは到着・ハイキング・出発の日に入ります。</p>
+
+      <table class="day-table">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>日付</th>
+            <th>動き</th>
+            <th>宿泊</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td>Mon 21 Sep</td>
+            <td>パロ着 07:45 · ティンプーへ · 午後チェチュ（1日目）</td>
+            <td>Pelbu Suites</td>
+          </tr>
+          <tr>
+            <td>02</td>
+            <td>Tue 22 Sep</td>
+            <td>仏陀像 · チェチュ（2日目） · メモリアル・チョルテン</td>
+            <td>Pelbu Suites</td>
+          </tr>
+          <tr>
+            <td>03</td>
+            <td>Wed 23 Sep</td>
+            <td><strong>タイガーネスト</strong> 日帰り（ティンプー発） · 夕方戻り</td>
+            <td>Pelbu Suites</td>
+          </tr>
+          <tr>
+            <td>04</td>
+            <td>Thu 24 Sep</td>
+            <td>チェックアウト · パロ空港へ（便に合わせて）</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="highlight-note">
+        <strong>なぜこの順か。</strong>
+        07:45着は、祭りに間に合う到着です。21日は高度に体を慣らし、午後だけ会場へ。
+        22日がチェチュの本場。23日にタクツァンを歩く（チェチュ最終日と「恵みの雨の日」はハイキングを優先）。
+        プナカ日帰りは、この3泊では祭りか虎の巣のどちらかを捨てることになります。捨てません。
+      </div>
+
+      <div class="docs-row">
+        <div class="closing-block dos">
+          <h3>この行程で見るもの</h3>
+          <ul>
+            <li>パロ渓谷の着陸と山道</li>
+            <li>ティンプー・チェチュの仮面舞踊</li>
+            <li>大仏（ブッダ・ドルデンマ）</li>
+            <li>タクツァン僧院 — 徒歩</li>
+            <li>ペルブでの3晩（荷物は動かさない）</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>この行程でしないこと</h3>
+          <ul>
+            <li>ホテル移動（パロ泊は入れない）</li>
+            <li>プナカ / ドチュラの日帰り強行</li>
+            <li>到着日のタイガーネスト（高度と時差）</li>
+            <li>23日未明のトンデルとハイキングの併用</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="places-strip">
+        <figure>
+          <img src="images/paro_airport_arrive.jpg" alt="パロ空港" />
+          <figcaption>21 Sep · Arrival</figcaption>
+        </figure>
+        <figure>
+          <img src="images/thimphu_capital.jpg" alt="ティンプー" />
+          <figcaption>Tshechu · capital</figcaption>
+        </figure>
+        <figure>
+          <img src="images/thimphu_buddha_point.jpg" alt="大仏" />
+          <figcaption>Buddha Dordenma</figcaption>
+        </figure>
+        <figure>
+          <img src="images/paro_tigers_nest.jpg" alt="タイガーネスト" />
+          <figcaption>23 Sep · Taktsang</figcaption>
+        </figure>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">日本ご一行 · 4名</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">04 / 12</span>
+    </footer>
+  </section>
+
+  <!-- 05 HOTEL -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Stay</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Stay · 3 nights</p>
+      <h2 class="page-heading">ティンプー · Pelbu Suites</h2>
+      <p class="page-sub">21・22・23日泊 · 2室 · 朝食・夕食。当館です。</p>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Pelbu Suites · Olakha</h3>
+          <span class="nights">3 nights · 21–23 Sep</span>
+        </div>
+        <p class="hotel-block-meta">
+          ティンプー南 · Olakha ·
+          <a href="https://www.pelbusuites.bt" target="_blank" rel="noopener">pelbusuites.bt</a>
+          · 3★ · MAP · 専用車で市街・ゾンまで約15–20分
+        </p>
+        <p class="why-pick">
+          チェチュ期間は市内が混みます。Olakhaは少し南で、戻りが静かです。
+          23日は早朝出発になるので、荷物を動かさないことがいちばんの贅沢です。
+          部屋はツインかダブル、2室。パスポート名と希望の組み方をください。
+        </p>
+        <div class="hotel-shots">
+          <figure>
+            <img src="images/hotel_pelbu_exterior.jpg" alt="Pelbu Suites 外観" />
+            <figcaption>Exterior</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_room_double.jpg" alt="客室" />
+            <figcaption>Room</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_suite.jpg" alt="スイート" />
+            <figcaption>Suite</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_dining.jpg" alt="ダイニング" />
+            <figcaption>Dining</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_spa.jpg" alt="スパ" />
+            <figcaption>Spa · optional</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="mini-meta">
+        <div>
+          <label>標高</label>
+          <p>約 2,300 m</p>
+        </div>
+        <div>
+          <label>食事</label>
+          <p>朝食・夕食 MAP</p>
+        </div>
+        <div>
+          <label>辛さ</label>
+          <p>厨房に「控えめ」と伝えます</p>
+        </div>
+        <div>
+          <label>任意</label>
+          <p>スパ / ホットストーン（実費）</p>
+        </div>
+      </div>
+
+      <p class="highlight-note" style="margin-bottom: 0;">
+        チェチュ週はティンプーの部屋が動きます。この3泊は当館で押さえます。
+        万一満室になった夜だけ、同クラス近隣へ移し、夕食は Pelbu に戻す。その場合は事前にお伝えします。
+      </p>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">日本ご一行 · 4名</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">05 / 12</span>
+    </footer>
+  </section>
+
+  <!-- 06 BRIEFING -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Notes</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Two signatures</p>
+      <h2 class="page-heading">チェチュとタイガーネスト</h2>
+      <p class="page-sub">短い旅の二つ。同時にはできません。日を分けます。</p>
+
+      <div class="split-2">
+        <div class="closing-block dos">
+          <h3>ティンプー・チェチュ · 21–23 Sep</h3>
+          <ul>
+            <li>タシチョ・ゾン / テンドレル・タンの野外会場</li>
+            <li>仮面舞踊（チャム）。地元の人は正装で一日座る</li>
+            <li>21日午後：到着後、体力があれば会場へ</li>
+            <li>22日：本場。午前からゆっくり見る</li>
+            <li>23日：トンデル（巨大掛軸）は未明。ハイキングと両立しないので見送ります</li>
+            <li>帽子は脱ぐ · 肩と膝を出す服は避ける · 踊り手の顔へのズーム撮影は控える</li>
+            <li>座席は簡易。折りたたみ座布団か薄いジャケットを持っていくと楽です</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>タイガーネスト · 23 Sep</h3>
+          <ul>
+            <li>標高 約 3,120 m · 往復 4–6 時間 · 階段とつづら折れ</li>
+            <li>技術的な登山ではない。足と肺の問題</li>
+            <li>カフェ展望台までで終えても、谷は見えています。それも完歩です</li>
+            <li>ポニーはカフェ付近まで（当日現金 · 任意）</li>
+            <li>僧院内は撮影禁止 · 靴を脱ぐ</li>
+            <li>23日は「恵みの雨の日」。カッパ必須</li>
+            <li>ティンプー 06:20 発。遅れないでください</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="highlight-note">
+        英語ガイドが終日同行します。日本語ガイドはこの便では付けません。
+        数字・時間・場所はこの冊子に書いてあります。重要な案内はガイドがゆっくり英語で言い、数字は指差しします。
+      </div>
+
+      <div class="docs-row" style="margin-bottom: 0;">
+        <div class="closing-block dos">
+          <h3>寺院の作法（全日程）</h3>
+          <ul>
+            <li>肩・膝を覆う · 帽子を脱ぐ · 堂内は靴を脱ぐ</li>
+            <li>チョルテンは時計回り</li>
+            <li>仏像を指ささない（手のひらで示す）</li>
+            <li>堂内撮影はガイドの合図まで待つ</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>体と高度</h3>
+          <ul>
+            <li>パロ 2,200 m · ティンプー 2,300 m · タクツァン 3,120 m</li>
+            <li>初日はゆっくり歩く · 酒は控えめ</li>
+            <li>水を飲む · 頭痛が続くときはガイドに言う</li>
+            <li>常用薬は機内持ち込みに</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">日本ご一行 · 4名</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">06 / 12</span>
+    </footer>
+  </section>
+
+  <!-- 07 DAY 01 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Day 01 · Detail</div>
+    </header>
+    <div class="page-body">
+      <p class="day-number">Day 01 · Monday 21 September 2026</p>
+      <h2 class="day-route">パロ着 → ティンプー · チェチュ 1日目</h2>
+      <dl class="day-meta">
+        <div><dt>到着</dt><dd>Paro 07:45 · 便名は PNR で確定</dd></div>
+        <div><dt>移動</dt><dd>パロ空港 → Pelbu · 約 1–1.5 時間</dd></div>
+        <div><dt>宿泊</dt><dd>Pelbu Suites · MAP 夕食</dd></div>
+        <div><dt>主題</dt><dd>着陸 · 慣らす · 午後だけ祭り</dd></div>
+      </dl>
+
+      <div class="timeline">
+        <div class="timeline-row">
+          <div class="t">07:45 · パロ空港</div>
+          <div class="d">着陸。ビザ事前クリアランスで入国。荷物。税関。到着ロビーで Silverpine の名前板。</div>
+        </div>
+        <div class="timeline-row">
+          <div class="t">08:45–09:15 · 出迎え</div>
+          <div class="d">ガイド・ドライバー紹介。水。車は専用SUV。短い行程説明（今日は急がない）。</div>
+        </div>
+        <div class="timeline-row">
+          <div class="t">09:15–10:45 · ティンプーへ</div>
+          <div class="d">パロ渓谷を東へ。体力があればタチョガン鉄橋で写真一瞬。なければ直進。山道はゆっくり。</div>
+        </div>
+        <div class="timeline-row">
+          <div class="t">11:00 · Pelbu</div>
+          <div class="d">チェックイン。荷物を解く。シャワー。短い昼寝可。高度の水を飲む。</div>
+        </div>
+        <div class="timeline-row">
+          <div class="t">12:30 · 昼食</div>
+          <div class="d">ホテルまたは近くの店（行程に含む）。辛さは「マイルド」と厨房へ。</div>
+        </div>
+        <div class="timeline-row">
+          <div class="t">14:00–16:30 · チェチュ 1日目</div>
+          <div class="d">タシチョ・ゾン会場。仮面の最初の日。疲れていれば会場を1時間見て戻ってよい。無理はしない。</div>
+        </div>
+        <div class="timeline-row">
+          <div class="t">19:00 · 夕食</div>
+          <div class="d">Pelbu MAP。22日の集合時間をガイドが確認。早めに休む。</div>
+        </div>
+      </div>
+
+      <div class="day-activities">
+        <h4>Notes</h4>
+        <ul>
+          <li>便名（KB / B3）を今夜までに送ってください。看板の表記を合わせます</li>
+          <li>到着が遅れても、祭りは翌日が本場です。焦らない</li>
+          <li>パスポートは手元。SIMは空港またはティンプーで（希望者）</li>
+        </ul>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">日本ご一行 · 4名</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">07 / 12</span>
+    </footer>
+  </section>
+
+  <!-- 08 DAY 02 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Day 02 · Detail</div>
+    </header>
+    <div class="page-body">
+      <p class="day-number">Day 02 · Tuesday 22 September 2026</p>
+      <h2 class="day-route">ティンプー · 大仏とチェチュ 2日目</h2>
+      <dl class="day-meta">
+        <div><dt>宿泊</dt><dd>Pelbu Suites · 朝食・夕食 MAP</dd></div>
+        <div><dt>焦点</dt><dd>ブッダ・ドルデンマ · チェチュ · チョルテン</dd></div>
+        <div><dt>ペース</dt><dd>祭りを急がない · 午後は選択可</dd></div>
+        <div><dt>車両</dt><dd>専用SUV · ガイド終日</dd></div>
+      </dl>
+
+      <div class="timeline">
+        <div class="timeline-row">
+          <div class="t">07:30–08:15</div>
+          <div class="d">Pelbu で朝食。日焼け止め、帽子、薄いジャケット、水、小さな座布団代わりの服。</div>
+        </div>
+        <div class="timeline-row">
+          <div class="t">08:30–09:45 · 大仏</div>
+          <div class="d">クエンセル・フォドン（ブッダ・ドルデンマ）。テラスからの谷。短く説明する。混む前に来る。</div>
+        </div>
+        <div class="timeline-row">
+          <div class="t">10:15–13:00 · チェチュ</div>
+          <div class="d">会場へ戻る。2日目が一番動きが多いことが多い。座って見る。途中で茶。写真撮影はガイドの指示。</div>
+        </div>
+        <div class="timeline-row">
+          <div class="t">13:00 · 昼食</div>
+          <div class="d">市内レストラン（行程に含む）。ブータン料理 / ネパール / 簡単な洋食。ガイドが店を選ぶ。</div>
+        </div>
+        <div class="timeline-row">
+          <div class="t">14:30–16:30 · 選択</div>
+          <div class="d">
+            A 祭りへ戻る ·
+            B メモリアル・チョルテンを右回りに歩く ·
+            C クラフト / カフェ / ホテルで休む。
+            4名が分かれても車は1台。ガイドが調整します。
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="t">夕方</div>
+          <div class="d">Pelbu へ。明日の登山服を出す。レインシェル。ヘッドランプは不要（日中の山）。21:00 前に消灯が理想。</div>
+        </div>
+      </div>
+
+      <div class="day-activities">
+        <h4>明日の袋（今夜用意）</h4>
+        <ul>
+          <li>歩き慣れた靴 · 速乾シャツ · フリース · カッパ</li>
+          <li>日焼け止め · 帽子 · 水 1–2 L · 少量の現金（カフェ / ポニー）</li>
+          <li>パスポートはホテルのセーフへ。トレイルには不要</li>
+        </ul>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">日本ご一行 · 4名</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">08 / 12</span>
+    </footer>
+  </section>
+
+  <!-- 09 DAY 03 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Day 03 · Detail</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 03 · Wednesday 23 September 2026</p>
+          <h2 class="day-route">タイガーネスト</h2>
+          <dl class="day-meta">
+            <div><dt>出発</dt><dd>Pelbu 06:20 · トレイル 07:45</dd></div>
+            <div><dt>歩行</dt><dd>往復 4–6 時間 · ガイド同行</dd></div>
+            <div><dt>宿泊</dt><dd>Pelbu Suites · 夕方戻り</dd></div>
+            <div><dt>注意</dt><dd>恵みの雨の日 · カッパ</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Today</h4>
+            <ul>
+              <li>早朝にティンプーを出る（祭り最終日は見送り）</li>
+              <li>松林の道 → カフェ展望台</li>
+              <li>体力があれば僧院まで。なければ展望台で完歩</li>
+              <li>堂内は撮影禁止 · 靴を脱ぐ</li>
+              <li>下りは膝を大切に · 夕方 Pelbu</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            ブータンへ来る理由の写真は、歩いて得る。
+            カフェのテラスで止めても、谷はすでにそこにあります。
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/paro_tigers_nest.jpg" alt="タクツァン" />
+            <span>Paro Taktsang</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/paro_tigers_nest_trek.jpg" alt="登山道" />
+              <figcaption>Forest trail</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_tigers_nest_viewpoint.jpg" alt="展望" />
+              <figcaption>Viewpoint</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_tigers_nest_alt.jpg" alt="断崖の寺" />
+              <figcaption>Cliff temple</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_kyichu_lhakhang.jpg" alt="キチュ" />
+              <figcaption>Kyichu if time</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">日本ご一行 · 4名</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">09 / 12</span>
+    </footer>
+  </section>
+
+  <!-- 10 DAY 03 TIMES -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Day 03 · Timing</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Wednesday 23 September</p>
+      <h2 class="page-heading">タクツァン · 時刻表</h2>
+      <p class="page-sub">天候と足で前後します。この順は変えません。</p>
+
+      <div class="timeline">
+        <div class="timeline-row">
+          <div class="t">05:45 起床 · 06:00 軽い朝食</div>
+          <div class="d">Pelbu。パン・果物・お茶。重い朝食は山で負担。水を詰める。</div>
+        </div>
+        <div class="timeline-row">
+          <div class="t">06:20 出発</div>
+          <div class="d">ティンプー → パロ。約 1 時間15分。トイレは空港手前またはトレイル入口。</div>
+        </div>
+        <div class="timeline-row">
+          <div class="t">07:45 トレイルヘッド</div>
+          <div class="d">入場手続き。グループで歩き始める。ポニー希望者はここで払う（任意・現金）。</div>
+        </div>
+        <div class="timeline-row">
+          <div class="t">09:15–09:45 カフェ展望台</div>
+          <div class="d">最初の「絵」の場所。茶。トイレ。ここから先へ行く人と、ここで待つ人を分けることができる。</div>
+        </div>
+        <div class="timeline-row">
+          <div class="t">10:30–12:00 僧院</div>
+          <div class="d">滝の橋、最後の階段。堂を静かに回る。内部写真なし。滞在は急がないが、下り分の足を残す。</div>
+        </div>
+        <div class="timeline-row">
+          <div class="t">12:00–13:30 下り開始 · 昼食</div>
+          <div class="d">カフェまたは簡単な弁当。下りは登りより膝。ゆっくり。</div>
+        </div>
+        <div class="timeline-row">
+          <div class="t">15:00–15:30 車</div>
+          <div class="d">体力と時刻があればキチュ・ラカン（パロ最古級の寺）へ短く寄る。なければ直帰。</div>
+        </div>
+        <div class="timeline-row">
+          <div class="t">17:00–17:30 Pelbu</div>
+          <div class="d">シャワー。任意でスパ。MAP夕食。24日の便時刻を最終確認。荷物は出しておいてよい。</div>
+        </div>
+      </div>
+
+      <div class="highlight-note" style="margin-bottom: 0;">
+        <strong>4名が同じ速度である必要はありません。</strong>
+        ガイドは頂上希望者に付きます。カフェ待ちの方はドライバーが下で連絡を取ります。
+        「全員が頂上」は約束しません。「全員が谷を見る」は約束します。
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">日本ご一行 · 4名</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">10 / 12</span>
+    </footer>
+  </section>
+
+  <!-- 11 DAY 04 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Day 04 · Detail</div>
+    </header>
+    <div class="page-body">
+      <p class="day-number">Day 04 · Thursday 24 September 2026</p>
+      <h2 class="day-route">ティンプー → パロ空港</h2>
+      <p class="page-sub">復路便がまだこちらにないので、二つの窓を書いてあります。PNR をください。時刻を一本にします。</p>
+
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>午前便 · 例 KB400 07:10 / B3 700 10:35</th>
+            <th>午後便 · 例 KB140 16:20（バンコク方面）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Pelbu 出発</th>
+            <td>04:45–07:00（便による）</td>
+            <td>11:30–13:00</td>
+          </tr>
+          <tr>
+            <th>観光</th>
+            <td>なし。ハイキング翌日の早朝はそれだけで十分</td>
+            <td>キチュ、またはパロ・ゾンを短く。荷物は車</td>
+          </tr>
+          <tr>
+            <th>空港</th>
+            <td>出発の 2 時間前。国際線カウンターは混むことがある</td>
+            <td>同左</td>
+          </tr>
+          <tr>
+            <th>朝食</th>
+            <td>超早朝はボックス、または空港前の茶</td>
+            <td>Pelbu で通常の朝食</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="highlight-note">
+        日本からのお客様はバンコク経由が多いです。
+        木曜のバンコク方面は、Bhutan Airlines <strong>B3 700</strong>（パロ 10:35 → コルカタ経由 → バンコク約 16:05）
+        または Drukair <strong>KB140</strong>（パロ 16:20 → グワハティ経由 → バンコク約 21:50）が典型です。
+        チケットの便名を送ってください。迎えの逆を組みます。
+      </div>
+
+      <div class="docs-row" style="margin-bottom: 0;">
+        <div class="closing-block dos">
+          <h3>空港で</h3>
+          <ul>
+            <li>パスポート · 搭乗券 · SDF/ビザはすでに処理済み</li>
+            <li>土産の木製品・香は申告不要なことが多いが、ガイドに袋を見せる</li>
+            <li>現金 BTN の残りは空港の店か、少額チップに</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>欠航のとき</h3>
+          <ul>
+            <li>パロは視界で飛ぶ山岳空港です</li>
+            <li>遅延・翌日送りがあり得る</li>
+            <li>追加のホテルは実費。ガイドは現場で案内します</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">日本ご一行 · 4名</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">11 / 12</span>
+    </footer>
+  </section>
+
+  <!-- 12 CLOSING -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Next step</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">To confirm</p>
+      <h2 class="page-heading">確定のために</h2>
+      <p class="page-sub">1行程 · USD 4,400（4名） · 21–24 Sep 2026 · Pelbu 3泊 · タイガーネスト。</p>
+
+      <table class="cmp-table">
+        <thead>
+          <tr><th></th><th>この旅</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Package</th>
+            <td>USD 3,040 · Pelbu MAP + 昼食 · ガイド · SUV · 入場</td>
+          </tr>
+          <tr>
+            <th>SDF</th>
+            <td>USD 1,200</td>
+          </tr>
+          <tr>
+            <th>Visa</th>
+            <td>USD 160</td>
+          </tr>
+          <tr>
+            <th>Total</th>
+            <td><span class="price">USD 4,400</span><br /><span class="small">≈ USD 1,100 / person · 航空券別</span></td>
+          </tr>
+          <tr>
+            <th>今夜ください</th>
+            <td>
+              パスポート写し 4名 · 氏名（パスポート表記） · 部屋（ツイン / ダブル） ·
+              到着便名と 24日の出発便名
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="docs-row">
+        <div class="closing-block dos">
+          <h3>持ち物</h3>
+          <ul>
+            <li>歩き慣れた靴（新品不可）</li>
+            <li>層着 · カッパ · 帽子</li>
+            <li>寺用：肩と膝を覆う服</li>
+            <li>USD 現金（少額）· カードは町の一部のみ</li>
+            <li>常用薬 · 日焼け止め</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>知っておいてほしいこと</h3>
+          <ul>
+            <li>SDF は政府の税です。割引できません</li>
+            <li>チェチュは野外。雨と混雑があり得る</li>
+            <li>タイガーネストは強制頂上ではありません</li>
+            <li>ガイドは英語です</li>
+            <li>円はほぼ使えません。USD か BTN</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="letter-sign" style="margin-top: 4mm;">
+        <img class="letter-photo" src="images/Rajiv_Tshering.jpg" alt="Rajiv and Tshering" />
+        <div>
+          <p class="closing">お迎えできるのを、楽しみにしています。</p>
+          <p class="name">Rajiv Pradhan &amp; Tshering Lhamo</p>
+          <p class="role">Silverpine Tours · Pelbu Suites, Thimphu</p>
+          <p class="since">
+            <a href="https://www.silverpinebhutan.com">silverpinebhutan.com</a>
+            · WhatsApp +975-17649720
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">日本ご一行 · 4名</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">12 / 12</span>
+    </footer>
+  </section>
+
+</body>
+</html>

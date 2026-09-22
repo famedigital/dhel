@@ -1,7 +1,7 @@
 {
-  "name": "Dhel",
-  "short_name": "Dhel",
-  "description": "Bhutan travel desk — local-first itineraries for agents and the road",
+  "name": "Luma Trips",
+  "short_name": "Luma",
+  "description": "Bhutan tour ops — live itineraries for agents and the road",
   "start_url": "/portal",
   "scope": "/",
   "display": "standalone",

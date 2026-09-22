@@ -39,6 +39,8 @@ export function LibraryBulkUpload() {
   const [dryRun, setDryRun] = useState<{ insert: number; update: number; skip: number } | null>(
     null,
   );
+  const [ingestMsg, setIngestMsg] = useState<string | null>(null);
+  const [ingesting, setIngesting] = useState(false);
 
   const preview = useMemo(() => parseCsvPreview(csvText), [csvText]);
 
@@ -65,12 +67,59 @@ export function LibraryBulkUpload() {
     });
   }
 
+  async function commitMasterIngest(withDb: boolean) {
+    setIngesting(true);
+    setIngestMsg(null);
+    try {
+      const res = await fetch("/api/platform/library/ingest-master", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ db: withDb }),
+      });
+      const data = (await res.json()) as { error?: string; message?: string; stdout?: string };
+      if (!res.ok) throw new Error(data.error || "Ingest failed");
+      setIngestMsg(data.message || data.stdout || "Ingest complete");
+    } catch (e) {
+      setIngestMsg(e instanceof Error ? e.message : "Ingest failed");
+    } finally {
+      setIngesting(false);
+    }
+  }
+
   return (
     <div className="panel">
       <p className="section-title">Bulk CSV upload</p>
       <p className="field-hint" style={{ marginBottom: "1rem" }}>
-        Upload master catalog data. Preview is client-side only — commit wiring comes in Phase 2.1.
+        Prefer MASTER.json ingest for Bhutan ops catalog. CSV preview remains for ad-hoc files.
       </p>
+
+      <div className="form-stack" style={{ marginBottom: "1.5rem" }}>
+        <p className="section-title">MASTER catalog ingest</p>
+        <p className="field-hint">
+          Rebuilds <code>master-hotels.generated.json</code> from{" "}
+          <code>data/html-references/bhutan-ops-catalog/MASTER.json</code> (99 hotels). Optional DB
+          upsert when service role is configured.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <button
+            type="button"
+            className="btn btn-primary"
+            disabled={ingesting}
+            onClick={() => void commitMasterIngest(false)}
+          >
+            {ingesting ? "Ingesting…" : "Commit MASTER → app catalog"}
+          </button>
+          <button
+            type="button"
+            className="btn btn-secondary"
+            disabled={ingesting}
+            onClick={() => void commitMasterIngest(true)}
+          >
+            Commit MASTER → app + Supabase
+          </button>
+        </div>
+        {ingestMsg ? <div className="alert alert-ok">{ingestMsg}</div> : null}
+      </div>
 
       <div className="form-stack">
         <div className="field">
@@ -104,8 +153,8 @@ export function LibraryBulkUpload() {
           <button type="button" className="btn btn-secondary" onClick={runDryRun} disabled={!csvText}>
             Dry run (mock)
           </button>
-          <button type="button" className="btn btn-primary" disabled title="Server import not wired yet">
-            Commit import
+          <button type="button" className="btn btn-ghost" disabled title="Use MASTER ingest above">
+            CSV commit (use MASTER)
           </button>
           <a className="btn btn-ghost" href="/templates/library-hotels.csv" download>
             Download template

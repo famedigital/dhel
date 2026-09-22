@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Silverpine Tours — Forests &amp; Valleys · Anna-Lena Hillebrecht</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .stay-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      gap: 2.5mm;
+      margin-bottom: 4mm;
+    }
+    .stay-intro-item {
+      border-top: 1.5pt solid var(--gold);
+      padding-top: 2mm;
+    }
+    .stay-intro-item label {
+      display: block;
+      font-size: 6pt;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8mm;
+    }
+    .stay-intro-item p {
+      font-size: 8.5pt;
+      color: var(--ink-soft);
+      line-height: 1.3;
+    }
+    .stay-band {
+      display: grid;
+      grid-template-columns: 52mm 1fr;
+      gap: 4mm;
+      padding: 3.2mm 0;
+      border-bottom: 0.5pt solid var(--line);
+      page-break-inside: avoid;
+    }
+    .stay-band:first-of-type { border-top: 0.5pt solid var(--line); }
+    .stay-band-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14pt;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 1.2mm;
+    }
+    .stay-band-info .nights {
+      font-size: 7.5pt;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.8mm;
+    }
+    .stay-band-info p {
+      font-size: 8pt;
+      line-height: 1.45;
+      color: var(--stone);
+    }
+    .stay-band-info a {
+      color: var(--ink-soft);
+      text-decoration: underline;
+      text-underline-offset: 1.5px;
+    }
+    .stay-band-photos {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr;
+      gap: 1.8mm;
+      height: 40mm;
+    }
+    .stay-band-photos figure {
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      background: var(--cream);
+    }
+    .stay-band-photos img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .stay-band-photos figcaption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 1.2mm 2mm;
+      font-size: 5pt;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(14, 14, 12, 0.78));
+    }
+    .hotel-block { margin-bottom: 4mm; page-break-inside: avoid; }
+    .hotel-block-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 4mm;
+      margin-bottom: 1.5mm;
+      padding-bottom: 1mm;
+      border-bottom: 0.5pt solid var(--gold-pale);
+    }
+    .hotel-block-head h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15pt;
+      font-weight: 500;
+    }
+    .hotel-block-head .nights {
+      font-size: 7.5pt;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .hotel-block-meta {
+      font-size: 8pt;
+      color: var(--stone);
+      margin-bottom: 2mm;
+      line-height: 1.4;
+    }
+    .hotel-block-meta a {
+      color: var(--ink-soft);
+      text-decoration: underline;
+      text-underline-offset: 1.5px;
+    }
+    .why-pick {
+      font-size: 8.5pt;
+      color: var(--ink-soft);
+      line-height: 1.45;
+      margin: 0 0 2mm;
+    }
+    .hotel-shots {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr;
+      grid-template-rows: 32mm 32mm;
+      gap: 1.8mm;
+    }
+    .hotel-shots figure {
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      background: var(--cream);
+    }
+    .hotel-shots figure:first-child { grid-row: 1 / span 2; }
+    .hotel-shots img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hotel-shots figcaption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 1.5mm 2mm;
+      font-size: 5.5pt;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(14, 14, 12, 0.78));
+    }
+    .cmp-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin-bottom: 4mm; }
+    .cmp-table th, .cmp-table td {
+      border: 0.5pt solid var(--line);
+      padding: 2.2mm 2.5mm;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.4;
+    }
+    .cmp-table thead th {
+      background: var(--mist);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12pt;
+      font-weight: 600;
+    }
+    .cmp-table tbody th {
+      width: 32%;
+      font-weight: 500;
+      background: #faf8f5;
+    }
+    .cmp-table .price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16pt;
+      font-weight: 600;
+    }
+    .cmp-table .small { font-size: 8pt; color: var(--stone); }
+    .day-table { width: 100%; border-collapse: collapse; font-size: 8.5pt; margin-bottom: 3mm; }
+    .day-table th, .day-table td {
+      border: 0.5pt solid var(--line);
+      padding: 1.8mm 2mm;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.35;
+    }
+    .day-table thead th {
+      background: var(--mist);
+      font-weight: 500;
+      font-size: 8pt;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+    }
+    .day-table td:first-child { white-space: nowrap; font-weight: 500; width: 16mm; }
+    .highlight-note {
+      border-left: 2pt solid var(--gold);
+      background: var(--mist);
+      padding: 3mm 4mm;
+      font-size: 8.5pt;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      margin-bottom: 4mm;
+    }
+    .price-3col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3mm;
+      margin-bottom: 4mm;
+    }
+  </style>
+</head>
+<body class="itinerary-sheet">
+
+  <!-- 01 COVER -->
+  <section class="page cover">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="cover-hero">
+      <img src="images/haa_meri_puensum.jpg" alt="Meri Puensum hills, Haa Valley, Bhutan" />
+    </div>
+    <div class="page-body">
+      <div class="cover-content">
+        <p class="cover-eyebrow">Kingdom of Bhutan · 10 Days · 9 Nights · Nature · Forests · Couple</p>
+        <h1 class="cover-brand">Silverpine <em>Tours</em></h1>
+        <p class="cover-title">Thimphu · Phobjikha · Punakha · Haa · Tiger’s Nest</p>
+        <div class="cover-rule"></div>
+        <p class="cover-client">Prepared for Anna-Lena Hillebrecht &amp; husband</p>
+        <div class="cover-details">
+          <div class="cover-detail"><label>Gateway</label><p>Kathmandu ↔ Paro · Drukair</p></div>
+          <div class="cover-detail"><label>Land dates</label><p>26 Oct – 4 Nov 2026</p></div>
+          <div class="cover-detail"><label>Route</label><p>Paro → Thimphu → Phobjikha → Punakha → Haa → Paro</p></div>
+          <div class="cover-detail"><label>Stay</label><p>3-star + farmstay · 1 double · MAP + lunch</p></div>
+          <div class="cover-detail"><label>Vehicle</label><p>Hyundai Creta / Santa Fe SUV</p></div>
+          <div class="cover-detail"><label>Total</label><p>USD 5,265 · two adults</p></div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Anna-Lena · 2 adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">01 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 02 LETTER -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Correspondence</p>
+      <h2 class="page-heading">A note of welcome</h2>
+      <p class="page-sub">One private nature journey · Kathmandu in and out · October–November 2026</p>
+
+      <p class="letter-date">Issue date · 19 September 2026</p>
+      <p class="letter-greeting">Dear Anna-Lena,</p>
+
+      <div class="letter-body">
+        <p>
+          Thank you for writing — and greetings from Bhutan. Nehasha spoke of you after Tokyo;
+          we are very happy you found us. This letter is the journey we have designed for you
+          and your husband: <strong>ten days</strong>, simple and nature-first, from
+          <strong>26 October to 4 November 2026</strong>.
+        </p>
+        <p>
+          You asked for forests, wildlife, landscapes, hiking, and everyday Bhutan — not luxury.
+          The circuit is one line: <strong>Paro → Thimphu → Phobjikha → Punakha → Haa → Paro</strong>,
+          then Drukair back to Kathmandu. Botanical forest at Lamperi, the crane valley at Phobjikha,
+          farm evenings in Punakha, the high woods of Chele La and Haa, and
+          <strong>Tiger’s Nest</strong> on foot.
+        </p>
+        <p>
+          Your husband’s work as a biologist and forest scientist shaped the days.
+          There is also something we can offer that no hotel list can.
+          <strong>My father is a retired Bhutanese forester.</strong> He was among those who helped
+          establish the Forest Division in its early years — including logging and the first forest
+          administration — and he has watched Bhutan change from timber work to the country that
+          keeps forest in its Constitution. If you would like, we will sit you with him in Thimphu
+          for tea and an unhurried conversation. Please ask him anything. He is happiest when the
+          questions are real. (This depends on his being well that week.)
+        </p>
+        <p>
+          One price, in three lines. Hotels are clean 3-star and farmstays, breakfast, lunch and dinner
+          included. We ticket the Drukair flights. WhatsApp <strong>+975-17649720</strong> ·
+          <a href="https://www.silverpinebhutan.com">www.silverpinebhutan.com</a>.
+        </p>
+      </div>
+
+      <div class="letter-sign">
+        <img class="letter-photo" src="images/Rajiv_Tshering.jpg" alt="Rajiv Pradhan and Tshering Lhamo" />
+        <div>
+          <p class="closing">With warm regards from Bhutan,</p>
+          <p class="name">Rajiv Pradhan &amp; Tshering Lhamo</p>
+          <p class="role">Proprietors · Silverpine Tours</p>
+          <p class="since">Managing Silverpine Tours as a couple since 2012</p>
+        </div>
+      </div>
+
+      <div class="letter-contact">
+        <div>
+          <label>Website</label>
+          <a href="https://www.silverpinebhutan.com">www.silverpinebhutan.com</a>
+        </div>
+        <div>
+          <label>WhatsApp</label>
+          <p>+975-17649720</p>
+        </div>
+        <div>
+          <label>Prepared for</label>
+          <p>Anna-Lena Hillebrecht · couple · Oct 2026</p>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Anna-Lena · 2 adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">02 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 03 PRICE -->
+  <section class="page page-pricing">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Quote</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Investment</p>
+      <h2 class="page-heading">Your tour cost</h2>
+      <p class="page-sub">
+        2 adults · 1 double · 10 days / 9 nights · 26 Oct – 4 Nov 2026 · all figures <strong>USD</strong>.
+        Payable to us — including Drukair.
+      </p>
+
+      <div class="price-hero">
+        <div>
+          <p class="label">Total · two adults</p>
+          <p class="amount">USD 5,265</p>
+        </div>
+        <p class="note">Package + SDF + Drukair KTM↔Paro. ≈ USD 2,635 / person.</p>
+      </div>
+
+      <div class="price-3col">
+        <div class="price-card">
+          <p class="num">01 · Package</p>
+          <h3>Hotels · guide · car · entry · lunch</h3>
+          <p class="value">USD 2,565</p>
+          <p class="hint">3★ MAP + lunch · SUV · guide · entries · agent</p>
+        </div>
+        <div class="price-card">
+          <p class="num">02 · SDF</p>
+          <h3>Sustainable Development Fee</h3>
+          <p class="value">USD 1,800</p>
+          <p class="hint">USD 100 / person / night × 9 × 2</p>
+        </div>
+        <div class="price-card">
+          <p class="num">03 · Flight</p>
+          <h3>Drukair Kathmandu ↔ Paro</h3>
+          <p class="value">USD 900</p>
+          <p class="hint">USD 450 / person return · we ticket</p>
+        </div>
+      </div>
+
+      <div class="docs-row" style="margin-bottom: 3.5mm;">
+        <div class="closing-block dos">
+          <h3>Included</h3>
+          <ul>
+            <li>SDF · visa facilitation</li>
+            <li>9 nights 3-star / farmstay · 1 double · breakfast &amp; dinner</li>
+            <li>Lunch daily in Bhutan (9 days · not on the early departure morning)</li>
+            <li>Licensed English guide · private SUV · 10 days</li>
+            <li>Monument &amp; park entries on this circuit</li>
+            <li>Drukair KTM ↔ Paro economy · two seats</li>
+            <li>Paro airport pickup &amp; drop · bottled water · permits</li>
+            <li>Tea with Rajiv’s father in Thimphu (if he is well that week)</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>Not included</h3>
+          <ul>
+            <li>Kathmandu hotels &amp; Nepal transfers</li>
+            <li>Your flights into / out of Kathmandu</li>
+            <li>Travel insurance (recommended)</li>
+            <li>Drinks, laundry, personal shopping</li>
+            <li>Tips for guide &amp; driver (optional)</li>
+            <li>Spa / hot-stone / pony if you add them</li>
+            <li>Costs from Paro weather diversions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="validity-box">
+        <div>
+          <p class="v-label">Quote</p>
+          <p class="v-text">USD 2,565 + 1,800 + 900 = <strong>USD 5,265</strong> · valid 15 days</p>
+        </div>
+        <p class="v-side">Deposit to lock hotels, SDF and Drukair. WhatsApp +975-17649720.</p>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Anna-Lena · 2 adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">03 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 04 ROUTE -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">The journey</p>
+      <h2 class="page-heading">One circuit · as designed</h2>
+      <p class="page-sub">Paro → Thimphu → Phobjikha → Punakha → Haa → Paro → Kathmandu. No second option.</p>
+
+      <table class="day-table">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Date</th>
+            <th>Move</th>
+            <th>Stay</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>01</td><td>Mon 26 Oct</td><td>KB401 KTM→Paro · drive Paro → Thimphu</td><td>Pelbu Suites</td></tr>
+          <tr><td>02</td><td>Tue 27 Oct</td><td>Thimphu nature &amp; capital · tea with Rajiv’s father</td><td>Pelbu Suites</td></tr>
+          <tr><td>03</td><td>Wed 28 Oct</td><td>Thimphu → Phobjikha · Dochula · Botanical Park</td><td>Dewachen / farm</td></tr>
+          <tr><td>04</td><td>Thu 29 Oct</td><td>Full Phobjikha · crane valley · Gangtey</td><td>Dewachen / farm</td></tr>
+          <tr><td>05</td><td>Fri 30 Oct</td><td>Phobjikha → Punakha · Dzong · farm evening</td><td>Farmstay</td></tr>
+          <tr><td>06</td><td>Sat 31 Oct</td><td>Punakha · Khamsum hike · village &amp; rice fields</td><td>Farmstay</td></tr>
+          <tr><td>07</td><td>Sun 1 Nov</td><td>Punakha → Haa · long scenic day via Chele La</td><td>Risum Resort</td></tr>
+          <tr><td>08</td><td>Mon 2 Nov</td><td>Haa morning · Chele La forest → Paro</td><td>Paro 3-star</td></tr>
+          <tr><td>09</td><td>Tue 3 Nov</td><td>Tiger’s Nest hike · afternoon rest</td><td>Paro 3-star</td></tr>
+          <tr><td>10</td><td>Wed 4 Nov</td><td>KB400 Paro → Kathmandu · ~07:10</td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight-note">
+        <strong>Nights:</strong> Thimphu 2 · Phobjikha 2 · Punakha 2 · Haa 1 · Paro 2.
+        Day 7 is a transfer day on purpose — hike Punakha on Day 6, not on the Haa drive.
+        Black-necked cranes usually begin arriving in late October; this is the season, we never promise a sighting.
+      </div>
+
+      <div class="docs-row">
+        <div class="closing-block dos">
+          <h3>Why this order</h3>
+          <ul>
+            <li>Altitude eases in Thimphu before the high valley</li>
+            <li>Botanical Park sits on the road to Phobjikha</li>
+            <li>Phobjikha then drops naturally to Punakha</li>
+            <li>Haa &amp; Chele La are the forest chapter — kept for later, when you are walking well</li>
+            <li>Tiger’s Nest last, when legs are ready</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>For a forest scientist</h3>
+          <ul>
+            <li>Lamperi mixed temperate forest &amp; trails</li>
+            <li>Phobjikha wetland · RSPN crane habitat</li>
+            <li>Punakha subtropical contrast (rice, river, chir pine)</li>
+            <li>Haa / Chele La fir, hemlock, rhododendron</li>
+            <li>Conversation with a founding-generation Bhutanese forester</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Anna-Lena · 2 adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">04 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 05 FLIGHTS -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Flights · Drukair</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Access</p>
+      <h2 class="page-heading">Kathmandu ↔ Paro</h2>
+      <p class="page-sub">We ticket both sectors. Included in the USD 900 flight line. Times from the published Oct–Nov 2026 schedule — reconfirm before issue.</p>
+
+      <div class="price-grid" style="margin-bottom: 4mm;">
+        <div class="price-card">
+          <p class="num">Inbound · Mon 26 Oct 2026</p>
+          <h3>Kathmandu → Paro</h3>
+          <p class="value" style="font-size: 14pt;">Drukair KB401</p>
+          <p class="hint">≈ 09:10 → 10:30 · ≈ 1 hr · economy<br />Same-day drive to Thimphu</p>
+        </div>
+        <div class="price-card">
+          <p class="num">Outbound · Wed 4 Nov 2026</p>
+          <h3>Paro → Kathmandu</h3>
+          <p class="value" style="font-size: 14pt;">Drukair KB400</p>
+          <p class="hint">≈ 07:10 → 08:10 · ≈ 1 hr · economy<br />Pre-dawn hotel out · we drop you</p>
+        </div>
+      </div>
+
+      <div class="highlight-note">
+        Arrive Kathmandu on <strong>24 October</strong> and rest the 25th — do not plan a same-day connection onto KB401.
+        After Bhutan, KB400 lands KTM ~08:10 on 4 November. Keep buffer before your 9 November international departure.
+        Paro is visual flight; cloud can delay. We monitor Drukair with you.
+      </div>
+
+      <table class="cmp-table">
+        <thead>
+          <tr><th colspan="2">Ticketing</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Fare in this quote</th>
+            <td>USD 450 / person return · USD 900 for two · published adult economy planning fare</td>
+          </tr>
+          <tr>
+            <th>If the airline fare moves</th>
+            <td>We reconfirm at issue. Small tax differences possible. We will not ticket until you approve the live amount.</td>
+          </tr>
+          <tr>
+            <th>Names</th>
+            <td>Must match passports exactly. Send scans to start visa + e-tickets.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="page-sub" style="margin-bottom: 0;">
+        Nepal nights, Kathmandu airport transfers and your long-haul tickets remain yours.
+        We meet you at Paro arrivals with a name board.
+      </p>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Anna-Lena · 2 adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">05 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 06 HOTELS WEST -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Stay</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Stay · 3-star &amp; farm</p>
+      <h2 class="page-heading">Thimphu · Phobjikha · Punakha</h2>
+      <p class="page-sub">One double · breakfast &amp; dinner. Same-tier substitute only if a named house is full.</p>
+
+      <div class="stay-band">
+        <div class="stay-band-info">
+          <p class="nights">2 nights · 26–27 Oct</p>
+          <h3>Thimphu<br />Pelbu Suites</h3>
+          <p>
+            Olakha · our hotel · quiet capital base<br />
+            <a href="https://www.pelbusuites.bt" target="_blank" rel="noopener">pelbusuites.bt</a>
+          </p>
+        </div>
+        <div class="stay-band-photos">
+          <figure>
+            <img src="images/hotel_pelbu_exterior.jpg" alt="Pelbu Suites exterior" />
+            <figcaption>Exterior</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_room_double.jpg" alt="Pelbu room" />
+            <figcaption>Room</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_pelbu_dining.jpg" alt="Pelbu dining" />
+            <figcaption>Dining</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="stay-band">
+        <div class="stay-band-info">
+          <p class="nights">2 nights · 28–29 Oct</p>
+          <h3>Phobjikha<br />Hotel Dewachen</h3>
+          <p>
+            Crane valley lodge · simple rooms · cold nights at ~3,000 m<br />
+            or a clean valley farmstay if Dewachen is full
+          </p>
+        </div>
+        <div class="stay-band-photos">
+          <figure>
+            <img src="images/hotel_dewachen_05.jpg" alt="Hotel Dewachen" />
+            <figcaption>Dewachen</figcaption>
+          </figure>
+          <figure>
+            <img src="images/bhutan_green_valley.jpg" alt="Phobjikha valley" />
+            <figcaption>Valley</figcaption>
+          </figure>
+          <figure>
+            <img src="images/bhutan_prayer_flags.jpg" alt="Prayer flags" />
+            <figcaption>High valley</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="stay-band">
+        <div class="stay-band-info">
+          <p class="nights">2 nights · 30–31 Oct</p>
+          <h3>Punakha<br />Farmstay</h3>
+          <p>
+            Happiness Field Village Farmstay or Dhumra Farm · home cooking · river valley<br />
+            <a href="https://www.hfvf.bt" target="_blank" rel="noopener">hfvf.bt</a>
+          </p>
+        </div>
+        <div class="stay-band-photos">
+          <figure>
+            <img src="images/punakha_valley.jpg" alt="Punakha valley" />
+            <figcaption>Valley</figcaption>
+          </figure>
+          <figure>
+            <img src="images/punakha_dzong.jpg" alt="Punakha Dzong" />
+            <figcaption>Dzong</figcaption>
+          </figure>
+          <figure>
+            <img src="images/punakha_suspension_bridge.jpg" alt="Suspension bridge" />
+            <figcaption>Bridge</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Anna-Lena · 2 adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">06 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 07 HOTELS HAA + PARO -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Stay · Haa</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">Stay · new region in this pack</p>
+      <h2 class="page-heading">Haa · Risum Resort</h2>
+      <p class="page-sub">Family-owned cottages · Wangtsa · 2,700 m · the oldest resort in the valley · then two simple Paro nights.</p>
+
+      <div class="hotel-block">
+        <div class="hotel-block-head">
+          <h3>Haa · Risum Resort</h3>
+          <span class="nights">1 night · 1 Nov</span>
+        </div>
+        <p class="hotel-block-meta">
+          Wangtsa village ·
+          <a href="https://risumresort.com/" target="_blank" rel="noopener">risumresort.com</a>
+          · wood cottages · valley &amp; Meri Puensum views · farm-to-table dining
+        </p>
+        <p class="why-pick">
+          Named for the three sacred hills. Quiet, not luxury — the right house after the long drive from Punakha.
+        </p>
+        <div class="hotel-shots">
+          <figure>
+            <img src="images/hotel_risum_aerial.jpg" alt="Risum Resort above Haa valley" />
+            <figcaption>Cottages · valley</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_risum_exterior.jpg" alt="Risum exterior" />
+            <figcaption>Evening light</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_risum_room.jpg" alt="Risum room" />
+            <figcaption>Cottage room</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_risum_path.jpg" alt="Risum garden path" />
+            <figcaption>Garden path</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hotel_risum_dining.jpg" alt="Risum dining" />
+            <figcaption>Dining</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="stay-band">
+        <div class="stay-band-info">
+          <p class="nights">2 nights · 2–3 Nov</p>
+          <h3>Paro<br />Gakyidiana / Tenzinling</h3>
+          <p>
+            Clean 3-star · short run to Tiger’s Nest and the 4 Nov airport<br />
+            same-tier substitute if the named house is full
+          </p>
+        </div>
+        <div class="stay-band-photos">
+          <figure>
+            <img src="images/paro_location.jpg" alt="Paro valley" />
+            <figcaption>Paro valley</figcaption>
+          </figure>
+          <figure>
+            <img src="images/paro_kyichu_lhakhang.jpg" alt="Kyichu Lhakhang" />
+            <figcaption>Kyichu</figcaption>
+          </figure>
+          <figure>
+            <img src="images/paro_shaba_river.jpg" alt="Paro river" />
+            <figcaption>River</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Anna-Lena · 2 adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">07 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 08 DAY 01 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 01 · Monday 26 October 2026</p>
+          <h2 class="day-route">Kathmandu → Paro → Thimphu</h2>
+          <dl class="day-meta">
+            <div><dt>Flight</dt><dd>KB401 · 09:10 → 10:30</dd></div>
+            <div><dt>Drive</dt><dd>Paro → Thimphu · ≈ 1–1.5 hrs</dd></div>
+            <div><dt>Stay</dt><dd>Pelbu Suites</dd></div>
+            <div><dt>Pace</dt><dd>Arrive · settle · no rush</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Today</h4>
+            <ul>
+              <li>Early check-in at KTM Terminal I · we ticket the seats</li>
+              <li>Paro immigration · meet guide &amp; SUV</li>
+              <li>Optional Tachogang iron bridge stop</li>
+              <li>Pelbu check-in · short evening walk if energy allows</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            First valley light and a gentle rise into the capital. Walk slowly.
+            This night is for altitude, not sightseeing.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/paro_airport_arrive.jpg" alt="Arrival at Paro" />
+            <span>Paro · arrival</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/thimphu_mountain_highway.jpg" alt="Drive to Thimphu" />
+              <figcaption>Paro → Thimphu</figcaption>
+            </figure>
+            <figure>
+              <img src="images/thimphu_capital.jpg" alt="Thimphu" />
+              <figcaption>Capital valley</figcaption>
+            </figure>
+            <figure>
+              <img src="images/thimphu_pelbu_suites.jpg" alt="Pelbu Suites" />
+              <figcaption>Pelbu Suites</figcaption>
+            </figure>
+            <figure>
+              <img src="images/bhutan_prayer_mountains.jpg" alt="Prayer flags" />
+              <figcaption>First mountains</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Anna-Lena · 2 adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">08 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 09 DAY 02 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 02 · Tuesday 27 October 2026</p>
+          <h2 class="day-route">Thimphu · forests in conversation</h2>
+          <dl class="day-meta">
+            <div><dt>Place</dt><dd>Thimphu</dd></div>
+            <div><dt>Signature</dt><dd>Tea with Rajiv’s father</dd></div>
+            <div><dt>Stay</dt><dd>Pelbu Suites</dd></div>
+            <div><dt>Pace</dt><dd>Unhurried · questions welcome</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Today</h4>
+            <ul>
+              <li>Motithang Takin Preserve — Bhutan’s national animal</li>
+              <li>Buddha Point · Memorial Chorten · everyday capital</li>
+              <li>Weekend market if stalls are open; otherwise a neighbourhood walk</li>
+              <li>Late afternoon / evening: tea with a retired Forest Division forester</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            Not a lecture. Logging, species, community forestry, what changed, what was hard —
+            ask what you actually want to know. If he prefers to walk a familiar patch of forest
+            rather than sit, we follow him.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/thimphu_buddha_point.jpg" alt="Buddha Dordenma" />
+            <span>Thimphu · Buddha Point</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/thimphu_farmers_market.jpg" alt="Farmers market" />
+              <figcaption>Market / town</figcaption>
+            </figure>
+            <figure>
+              <img src="images/thimphu_memorial_chorten.jpg" alt="Memorial Chorten" />
+              <figcaption>Memorial Chorten</figcaption>
+            </figure>
+            <figure>
+              <img src="images/thimphu_buddha_gate.jpg" alt="Buddha gate" />
+              <figcaption>Kuenselphodrang</figcaption>
+            </figure>
+            <figure>
+              <img src="images/Rajiv_Tshering.jpg" alt="Rajiv and Tshering" />
+              <figcaption>Host family</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Anna-Lena · 2 adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">09 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 10 DAY 03 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 03 · Wednesday 28 October 2026</p>
+          <h2 class="day-route">Thimphu → Phobjikha</h2>
+          <dl class="day-meta">
+            <div><dt>Via</dt><dd>Dochula · Royal Botanical Park</dd></div>
+            <div><dt>Drive</dt><dd>≈ 5–6 hrs with forest stops</dd></div>
+            <div><dt>Stay</dt><dd>Dewachen / valley farmstay</dd></div>
+            <div><dt>Altitude</dt><dd>Phobjikha ≈ 3,000 m</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Today</h4>
+            <ul>
+              <li>Dochula Pass · 108 chortens · Himalayan view if the sky is clear</li>
+              <li>Royal Botanical Park, Lamperi — mixed temperate forest, nature trails</li>
+              <li>Continue via Wangdue into the glacial valley</li>
+              <li>Gangtey Nature Trail if light remains · otherwise rest</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            Lamperi is the field classroom of the trip: rhododendron, oak, bamboo understorey,
+            interpretation boards worth reading slowly. Then the road opens into Phobjikha.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/dochula_pass.jpg" alt="Dochula Pass" />
+            <span>Dochula</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/thimphu_mountain_highway.jpg" alt="Mountain highway" />
+              <figcaption>Eastbound forest</figcaption>
+            </figure>
+            <figure>
+              <img src="images/bhutan_green_valley.jpg" alt="Phobjikha" />
+              <figcaption>Phobjikha</figcaption>
+            </figure>
+            <figure>
+              <img src="images/bhutan_prayer_flags.jpg" alt="Prayer flags" />
+              <figcaption>Pass flags</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_dewachen_05.jpg" alt="Dewachen" />
+              <figcaption>Valley lodge</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Anna-Lena · 2 adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">10 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 11 DAY 04 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 04 · Thursday 29 October 2026</p>
+          <h2 class="day-route">Phobjikha · crane valley</h2>
+          <dl class="day-meta">
+            <div><dt>Place</dt><dd>Gangtey / Phobjikha</dd></div>
+            <div><dt>Walks</dt><dd>Nature trail · village paths</dd></div>
+            <div><dt>Stay</dt><dd>Dewachen / farmstay</dd></div>
+            <div><dt>Note</dt><dd>Cranes possible · never promised</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Today</h4>
+            <ul>
+              <li>Gangtey Nature Trail through dwarf bamboo and open wetland edge</li>
+              <li>RSPN crane information centre</li>
+              <li>Gangtey Goenpa — Nyingma monastery above the valley</li>
+              <li>Village walk · farm life · community conservation story</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            Late October is the start of black-necked crane season. If birds have arrived, we watch
+            quietly. If not, the valley is still the habitat — glacial bowl, potato fields, cold air.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/bhutan_green_valley.jpg" alt="Phobjikha valley" />
+            <span>Phobjikha</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/buddhist_temple.jpg" alt="Monastery" />
+              <figcaption>Gangtey Goenpa</figcaption>
+            </figure>
+            <figure>
+              <img src="images/bhutan_prayer_flags.jpg" alt="Flags" />
+              <figcaption>Valley edge</figcaption>
+            </figure>
+            <figure>
+              <img src="images/punakha_valley_alt.jpg" alt="Rural Bhutan" />
+              <figcaption>Farm fields</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_dewachen_05.jpg" alt="Lodge" />
+              <figcaption>Night in the valley</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Anna-Lena · 2 adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">11 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 12 DAY 05 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 05 · Friday 30 October 2026</p>
+          <h2 class="day-route">Phobjikha → Punakha</h2>
+          <dl class="day-meta">
+            <div><dt>Drive</dt><dd>≈ 3 hrs · downhill to the rivers</dd></div>
+            <div><dt>Stay</dt><dd>Farmstay</dd></div>
+            <div><dt>Ecology</dt><dd>High wetland → subtropical valley</dd></div>
+            <div><dt>Meals</dt><dd>Farm dinner</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Today</h4>
+            <ul>
+              <li>Leave the crane valley after a last walk if you wish</li>
+              <li>Punakha Dzong at the meeting of father and mother rivers</li>
+              <li>Suspension bridge · photos from the bank</li>
+              <li>Farmstay welcome · simple home cooking</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            The drop in altitude is the story: chir pine, banana, rice. Warmer air.
+            This is everyday Bhutan after the high silence of Phobjikha.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/punakha_dzong.jpg" alt="Punakha Dzong" />
+            <span>Punakha Dzong</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/punakha_valley.jpg" alt="Punakha valley" />
+              <figcaption>River valley</figcaption>
+            </figure>
+            <figure>
+              <img src="images/punakha_suspension_bridge.jpg" alt="Bridge" />
+              <figcaption>Suspension bridge</figcaption>
+            </figure>
+            <figure>
+              <img src="images/punakha_location.jpg" alt="Punakha" />
+              <figcaption>Punakha</figcaption>
+            </figure>
+            <figure>
+              <img src="images/punakha_valley_alt.jpg" alt="Fields" />
+              <figcaption>Rice country</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Anna-Lena · 2 adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">12 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 13 DAY 06 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 06 · Saturday 31 October 2026</p>
+          <h2 class="day-route">Punakha · hike &amp; farm life</h2>
+          <dl class="day-meta">
+            <div><dt>Hike</dt><dd>Khamsum Yulley Namgyel</dd></div>
+            <div><dt>Stay</dt><dd>Farmstay · second night</dd></div>
+            <div><dt>Tomorrow</dt><dd>Long drive to Haa — early night</dd></div>
+            <div><dt>Pace</dt><dd>Walk in the morning</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Today</h4>
+            <ul>
+              <li>Khamsum Yulley hike through rice terraces (moderate, ~2 hrs round)</li>
+              <li>Village paths · talk with hosts if they are free</li>
+              <li>Optional Chimi Lhakhang if you want a short temple walk</li>
+              <li>Pack tonight · Day 7 starts early</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            This is the hiking day in the warm valley. Do it fully — tomorrow is a windshield day
+            west to Haa, and we do not stack a long walk onto that drive.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/punakha_valley.jpg" alt="Punakha rice valley" />
+            <span>Punakha terraces</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/punakha_suspension_bridge.jpg" alt="Bridge" />
+              <figcaption>River crossing</figcaption>
+            </figure>
+            <figure>
+              <img src="images/punakha_dzong.jpg" alt="Dzong" />
+              <figcaption>Dzong light</figcaption>
+            </figure>
+            <figure>
+              <img src="images/punakha_valley_alt.jpg" alt="Fields" />
+              <figcaption>Farm paths</figcaption>
+            </figure>
+            <figure>
+              <img src="images/buddhist_temple.jpg" alt="Temple" />
+              <figcaption>Village temple</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Anna-Lena · 2 adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">13 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 14 DAY 07 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 07 · Sunday 1 November 2026</p>
+          <h2 class="day-route">Punakha → Haa</h2>
+          <dl class="day-meta">
+            <div><dt>Drive</dt><dd>Long day · Dochula · Paro · Chele La</dd></div>
+            <div><dt>Stay</dt><dd>Risum Resort · Wangtsa</dd></div>
+            <div><dt>Pass</dt><dd>Chele La ≈ 3,988 m</dd></div>
+            <div><dt>Pace</dt><dd>Scenic transfer · photo stops</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Today</h4>
+            <ul>
+              <li>Early start · west over Dochula</li>
+              <li>Through Paro valley, then climb Chele La</li>
+              <li>First look at fir / hemlock / prayer-flag ridgeline</li>
+              <li>Descend into Haa · Risum cottages · quiet dinner</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            Honest length: this is the longest car day. We stop for forest and views, not temples.
+            Haa is one of Bhutan’s least-visited valleys — worth the hours.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/haa_meri_puensum.jpg" alt="Meri Puensum, Haa" />
+            <span>Haa · Meri Puensum</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/dochula_pass.jpg" alt="Dochula" />
+              <figcaption>Dochula westbound</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_chelela_pass.jpg" alt="Chele La" />
+              <figcaption>Chele La</figcaption>
+            </figure>
+            <figure>
+              <img src="images/haa_valley.jpg" alt="Haa Valley" />
+              <figcaption>Haa Chhu valley</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_risum_aerial.jpg" alt="Risum" />
+              <figcaption>Risum · night 7</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Anna-Lena · 2 adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">14 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 15 DAY 08 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 08 · Monday 2 November 2026</p>
+          <h2 class="day-route">Haa · Chele La forest → Paro</h2>
+          <dl class="day-meta">
+            <div><dt>Morning</dt><dd>Haa valley · Lhakhang Karpo / village</dd></div>
+            <div><dt>Forest</dt><dd>Chele La · fir, hemlock, rhododendron</dd></div>
+            <div><dt>Stay</dt><dd>Paro 3-star</dd></div>
+            <div><dt>Drive</dt><dd>Haa → Paro · ≈ 2–3 hrs with stops</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Today</h4>
+            <ul>
+              <li>White Temple (Lhakhang Karpo) and valley floor</li>
+              <li>Short village walk if you want everyday Haa, not only the pass</li>
+              <li>Climb Chele La again in daylight — this is the forest hour</li>
+              <li>Descend to Paro · Kyichu if time · early night for Tiger’s Nest</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            Chele La is the highest motorable pass in Bhutan. Walk a little off the road among
+            old conifers. Himalayan monal is possible; we do not promise birds.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/haa_valley.jpg" alt="Haa Valley" />
+            <span>Haa Valley</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/haa_valley_town.jpg" alt="Haa town and valley" />
+              <figcaption>Haa town &amp; fields</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_chelela_pass.jpg" alt="Chele La prayer flags" />
+              <figcaption>Chele La flags</figcaption>
+            </figure>
+            <figure>
+              <img src="images/hotel_risum_path.jpg" alt="Risum path" />
+              <figcaption>Morning at Risum</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_kyichu_lhakhang.jpg" alt="Kyichu" />
+              <figcaption>Kyichu · Paro</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Anna-Lena · 2 adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">15 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 16 DAY 09 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 09 · Tuesday 3 November 2026</p>
+          <h2 class="day-route">Tiger’s Nest</h2>
+          <dl class="day-meta">
+            <div><dt>Hike</dt><dd>Paro Taktsang · pine forest stairs</dd></div>
+            <div><dt>Time</dt><dd>Start early · 4–6 hrs typical</dd></div>
+            <div><dt>Stay</dt><dd>Paro 3-star</dd></div>
+            <div><dt>Note</dt><dd>Cafe / viewpoint is an honourable finish</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Today</h4>
+            <ul>
+              <li>Early trail through blue pine to the cafeteria viewpoint</li>
+              <li>Continue to the monastery if legs and head allow</li>
+              <li>No interior photos · shoes off in chapels</li>
+              <li>Afternoon rest · pack for a 07:10 flight</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            The image that brought many people to Bhutan — earned on foot.
+            If either of you prefers to stop at the cafe terrace, that is still the valley.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/paro_tigers_nest.jpg" alt="Tiger's Nest" />
+            <span>Paro Taktsang</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/paro_tigers_nest_trek.jpg" alt="Trail" />
+              <figcaption>Forest trail</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_tigers_nest_viewpoint.jpg" alt="Viewpoint" />
+              <figcaption>Viewpoint</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_tigers_nest_alt.jpg" alt="Monastery" />
+              <figcaption>Cliff temple</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_ta_dzong.jpg" alt="Paro" />
+              <figcaption>Paro afternoon</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Anna-Lena · 2 adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">16 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 17 DAY 10 -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Private Tour Itinerary</div>
+    </header>
+    <div class="page-body">
+      <div class="day-layout">
+        <div class="day-left">
+          <p class="day-number">Day 10 · Wednesday 4 November 2026</p>
+          <h2 class="day-route">Paro → Kathmandu</h2>
+          <dl class="day-meta">
+            <div><dt>Flight</dt><dd>KB400 · ≈ 07:10 → 08:10</dd></div>
+            <div><dt>Hotel out</dt><dd>Very early · packed the night before</dd></div>
+            <div><dt>Lunch</dt><dd>Not in Bhutan today</dd></div>
+            <div><dt>Nepal</dt><dd>Your KTM plan · 4–8 Nov buffer</dd></div>
+          </dl>
+          <div class="day-activities">
+            <h4>Today</h4>
+            <ul>
+              <li>Pre-dawn transfer to Paro Airport</li>
+              <li>Drukair check-in · farewell after security as allowed</li>
+              <li>Short hop to Kathmandu</li>
+              <li>Land services end on arrival at KTM</li>
+            </ul>
+          </div>
+          <p class="day-desc">
+            Do not book a tight international connection the same morning.
+            You already have until 9 November in Kathmandu — use it as weather buffer.
+          </p>
+        </div>
+        <div class="day-right">
+          <div class="day-loc">
+            <img src="images/paro_airport_arrive.jpg" alt="Paro Airport" />
+            <span>Paro Airport · KB400</span>
+          </div>
+          <div class="day-acts">
+            <figure>
+              <img src="images/paro_tigers_nest_viewpoint.jpg" alt="Last valley" />
+              <figcaption>Last Paro light</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_location.jpg" alt="Paro valley" />
+              <figcaption>Valley from the air</figcaption>
+            </figure>
+            <figure>
+              <img src="images/bhutan_prayer_mountains.jpg" alt="Himalaya" />
+              <figcaption>Himalayan sector</figcaption>
+            </figure>
+            <figure>
+              <img src="images/paro_chelela_pass.jpg" alt="High country" />
+              <figcaption>The high country</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Anna-Lena · 2 adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">17 / 18</span>
+    </footer>
+  </section>
+
+  <!-- 18 CLOSING -->
+  <section class="page">
+    <header class="page-header">
+      <div class="brand">Silverpine <span>Tours</span></div>
+      <div class="meta">Next step</div>
+    </header>
+    <div class="page-body">
+      <p class="section-label">To confirm</p>
+      <h2 class="page-heading">How we lock this</h2>
+      <p class="page-sub">One itinerary · USD 5,265 for two · 26 Oct – 4 Nov 2026.</p>
+
+      <table class="cmp-table">
+        <thead>
+          <tr><th></th><th>This journey</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Package</th>
+            <td>USD 2,565 · hotels MAP + lunch · guide · car · entries</td>
+          </tr>
+          <tr>
+            <th>SDF</th>
+            <td>USD 1,800</td>
+          </tr>
+          <tr>
+            <th>Drukair</th>
+            <td>USD 900 · we ticket KTM↔Paro</td>
+          </tr>
+          <tr>
+            <th>Total</th>
+            <td><span class="price">USD 5,265</span><br /><span class="small">≈ USD 2,635 / person</span></td>
+          </tr>
+          <tr>
+            <th>Send us</th>
+            <td>Passport scans (both) · full names as on passport · Kathmandu hotel nights if known</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="docs-row">
+        <div class="closing-block dos">
+          <h3>Please pack</h3>
+          <ul>
+            <li>Broken-in walking shoes · layers for 3,000 m nights</li>
+            <li>Warm hat for Chele La and Phobjikha</li>
+            <li>Temple dress: covered shoulders and knees</li>
+            <li>Small daypack · water · sun cream</li>
+          </ul>
+        </div>
+        <div class="closing-block">
+          <h3>Please know</h3>
+          <ul>
+            <li>SDF is a government fee, not optional</li>
+            <li>Cranes: season, not a guarantee</li>
+            <li>Father’s conversation: if he is well that week</li>
+            <li>Quote 15 days · deposit locks rooms and flights</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="letter-sign" style="margin-top: 5mm;">
+        <img class="letter-photo" src="images/Rajiv_Tshering.jpg" alt="Rajiv and Tshering" />
+        <div>
+          <p class="closing">We would be honoured to host you,</p>
+          <p class="name">Rajiv Pradhan &amp; Tshering Lhamo</p>
+          <p class="role">Silverpine Tours · Pelbu Suites, Thimphu</p>
+          <p class="since">
+            <a href="https://www.silverpinebhutan.com">silverpinebhutan.com</a>
+            · WhatsApp +975-17649720
+          </p>
+        </div>
+      </div>
+    </div>
+    <footer class="page-footer">
+      <span class="ft-left">Anna-Lena · 2 adults</span>
+      <span class="ft-mid">www.silverpinebhutan.com · WhatsApp +975-17649720</span>
+      <span class="ft-right">18 / 18</span>
+    </footer>
+  </section>
+
+</body>
+</html>

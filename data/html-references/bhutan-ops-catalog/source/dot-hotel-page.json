@@ -1,0 +1,2162 @@
+{
+  "component": "Search/Show",
+  "props": {
+    "errors": {},
+    "auth": {
+      "user": null
+    },
+    "ziggy": {
+      "url": "https://services.bhutan.travel",
+      "port": null,
+      "defaults": [],
+      "routes": {
+        "debugbar.openhandler": {
+          "uri": "_debugbar/open",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "debugbar.clockwork": {
+          "uri": "_debugbar/clockwork/{id}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "debugbar.assets.css": {
+          "uri": "_debugbar/assets/stylesheets",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "debugbar.assets.js": {
+          "uri": "_debugbar/assets/javascript",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "debugbar.cache.delete": {
+          "uri": "_debugbar/cache/{key}/{tags?}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "key",
+            "tags"
+          ]
+        },
+        "sanctum.csrf-cookie": {
+          "uri": "sanctum/csrf-cookie",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "ignition.healthCheck": {
+          "uri": "_ignition/health-check",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "ignition.executeSolution": {
+          "uri": "_ignition/execute-solution",
+          "methods": [
+            "POST"
+          ]
+        },
+        "ignition.updateConfig": {
+          "uri": "_ignition/update-config",
+          "methods": [
+            "POST"
+          ]
+        },
+        "home": {
+          "uri": "/",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "about": {
+          "uri": "about",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "registration.index": {
+          "uri": "registration",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "registration.create": {
+          "uri": "registration/{slug}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "slug": "tour-operator|guide|hotel|homestay|restaurant|handicraft|other"
+          },
+          "parameters": [
+            "slug"
+          ]
+        },
+        "registration.success": {
+          "uri": "registration/success",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "tour-operator.register": {
+          "uri": "tour-operator-registration",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.register": {
+          "uri": "guide-registration",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.register": {
+          "uri": "hotel-registration",
+          "methods": [
+            "POST"
+          ]
+        },
+        "homestay.register": {
+          "uri": "homestay-registration",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.register": {
+          "uri": "restaurant-registration",
+          "methods": [
+            "POST"
+          ]
+        },
+        "handicraft.register": {
+          "uri": "handicraft-registration",
+          "methods": [
+            "POST"
+          ]
+        },
+        "other-service-providers.register": {
+          "uri": "other-service-providers",
+          "methods": [
+            "POST"
+          ]
+        },
+        "registration.track-status": {
+          "uri": "track-registration-status",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "search.dashboard": {
+          "uri": "search/dashboard",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "search.index": {
+          "uri": "search/{slug}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "slug"
+          ]
+        },
+        "search.show": {
+          "uri": "search/{registrationType}/{slug}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "registrationType",
+            "slug"
+          ]
+        },
+        "external.user.dashboard": {
+          "uri": "user/dashboard",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "external.user.profile-photo": {
+          "uri": "user/profile-photo",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "external.user.profile-photo-update": {
+          "uri": "user/profile-photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "external.user.cover-photo": {
+          "uri": "user/cover-photo",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "external.user.cover-photo-update": {
+          "uri": "user/cover-photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "external.user.page-type": {
+          "uri": "user/{pageType}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "tour-operator.page-type.edit": {
+          "uri": "tour-operator/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|social-media|language|tour-types|itinerary|photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "tour-operator.profile.update": {
+          "uri": "tour-operator/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.social-media.update": {
+          "uri": "tour-operator/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.tour-location.update": {
+          "uri": "tour-operator/tour-location/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.tour-type.update": {
+          "uri": "tour-operator/tour-types/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.language.update": {
+          "uri": "tour-operator/language/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.itinerary.update": {
+          "uri": "tour-operator/itinerary/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.photo.update": {
+          "uri": "tour-operator/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.guest-review.update": {
+          "uri": "tour-operator/guest-review/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.delete.data": {
+          "uri": "tour-operator/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|social-media|language|tour-types|itinerary|photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "guide.page-type.edit": {
+          "uri": "guide/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|social-media|language|tour-types|photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "guide.profile.update": {
+          "uri": "guide/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.social-media.update": {
+          "uri": "guide/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.tour-location.update": {
+          "uri": "guide/tour-location/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.language.update": {
+          "uri": "guide/language/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.tour-type.update": {
+          "uri": "guide/tour-types/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.photo.update": {
+          "uri": "guide/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.delete.data": {
+          "uri": "guide/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|social-media|language|tour-types|photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "hotel.page-type.edit": {
+          "uri": "hotel/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|language|social-media|facility|photo|experience-photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "hotel.profile.update": {
+          "uri": "hotel/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.language.update": {
+          "uri": "hotel/language/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.social-media.update": {
+          "uri": "hotel/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.facility.update": {
+          "uri": "hotel/facility/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.photo.update": {
+          "uri": "hotel/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.experience-photo.update": {
+          "uri": "hotel/experience-photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.delete.data": {
+          "uri": "hotel/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|language|social-media|facility|photo|experience-photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "other-service-provider.page-type.edit": {
+          "uri": "other-service-provider/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|service|social-media|photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "other-service-provider.profile.update": {
+          "uri": "other-service-provider/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "other-service-provider.service.update": {
+          "uri": "other-service-provider/service/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "other-service-provider.social-media.update": {
+          "uri": "other-service-provider/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "other-service-provider.photo.update": {
+          "uri": "other-service-provider/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "other-service-provider.delete.data": {
+          "uri": "other-service-provider/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|service|social-media|photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "homestay.page-type.edit": {
+          "uri": "homestay/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|social-media|facility|photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "homestay.profile.update": {
+          "uri": "homestay/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "homestay.social-media.update": {
+          "uri": "homestay/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "homestay.facility.update": {
+          "uri": "homestay/facility/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "homestay.photo.update": {
+          "uri": "homestay/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "homestay.delete.data": {
+          "uri": "homestay/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|social-media|facility|photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "restaurant.page-type.edit": {
+          "uri": "restaurant/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|cuisines|opening-hours|social-media|menu|photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "restaurant.profile.update": {
+          "uri": "restaurant/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.social-media.update": {
+          "uri": "restaurant/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.opening-hours.update": {
+          "uri": "restaurant/opening-hours/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.menu.update": {
+          "uri": "restaurant/menu/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.photo.update": {
+          "uri": "restaurant/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.cuisine.update": {
+          "uri": "restaurant/cuisines/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.delete.data": {
+          "uri": "restaurant/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|cuisines|opening-hours|social-media|menu|photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "handicraft.page-type.edit": {
+          "uri": "handicraft/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|opening-hours|social-media|photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "handicraft.profile.update": {
+          "uri": "handicraft/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "handicraft.social-media.update": {
+          "uri": "handicraft/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "handicraft.opening-hours.update": {
+          "uri": "handicraft/opening-hours/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "handicraft.photo.update": {
+          "uri": "handicraft/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "handicraft.delete.data": {
+          "uri": "handicraft/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|opening-hours|social-media|photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "profile.change-password": {
+          "uri": "change-password",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "dashboard": {
+          "uri": "dashboard",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "preview.license-copy": {
+          "uri": "preview-license-copy/{registrationType}/{registrationId}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "registrationType": "1|2|3|4|5|6|7"
+          },
+          "parameters": [
+            "registrationType",
+            "registrationId"
+          ]
+        },
+        "preview.star-rating-certificate": {
+          "uri": "preview-star-rating-certificate/{registrationId}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "registrationId"
+          ]
+        },
+        "masters.index": {
+          "uri": "masters",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "masters.create": {
+          "uri": "masters/create",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "masters.store": {
+          "uri": "masters",
+          "methods": [
+            "POST"
+          ]
+        },
+        "masters.show": {
+          "uri": "masters/{master}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "master"
+          ]
+        },
+        "masters.edit": {
+          "uri": "masters/{master}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "master"
+          ]
+        },
+        "masters.update": {
+          "uri": "masters/{master}",
+          "methods": [
+            "PUT",
+            "PATCH"
+          ],
+          "parameters": [
+            "master"
+          ]
+        },
+        "masters.destroy": {
+          "uri": "masters/{master}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "master"
+          ]
+        },
+        "users.update.password": {
+          "uri": "users/update/password/{id}",
+          "methods": [
+            "POST"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "users.index": {
+          "uri": "users",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "users.create": {
+          "uri": "users/create",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "users.store": {
+          "uri": "users",
+          "methods": [
+            "POST"
+          ]
+        },
+        "users.show": {
+          "uri": "users/{user}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "user"
+          ]
+        },
+        "users.edit": {
+          "uri": "users/{user}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "user"
+          ]
+        },
+        "users.update": {
+          "uri": "users/{user}",
+          "methods": [
+            "PUT",
+            "PATCH"
+          ],
+          "parameters": [
+            "user"
+          ]
+        },
+        "users.destroy": {
+          "uri": "users/{user}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "user"
+          ]
+        },
+        "verify.registration.dashboard": {
+          "uri": "verify/registration/dashboard",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "verify.registration.list": {
+          "uri": "verify/registration/{type}/list",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "type"
+          ]
+        },
+        "verify.registration.show": {
+          "uri": "verify/{type}/registration/{id}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "type",
+            "id"
+          ]
+        },
+        "verify.registration.update": {
+          "uri": "verify/registration/{type}/{id}",
+          "methods": [
+            "POST"
+          ],
+          "parameters": [
+            "type",
+            "id"
+          ]
+        },
+        "service-provider.dashboard": {
+          "uri": "service-providers/dashboard",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "service-provider.index": {
+          "uri": "service-providers/{type}/list",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "type"
+          ]
+        },
+        "service-provider.show": {
+          "uri": "service-providers/{type}/{id}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "type",
+            "id"
+          ]
+        },
+        "service-provider.export-to-excel": {
+          "uri": "service-providers-export/{type}/excel",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "type"
+          ]
+        },
+        "service-provider.tour-operator.delete": {
+          "uri": "service-providers/tour-operator/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "service-provider.guide.delete": {
+          "uri": "service-providers/guuide/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "service-provider.hotel.delete": {
+          "uri": "service-providers/hotel/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "service-provider.homestay.delete": {
+          "uri": "service-providers/homestay/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "service-provider.restaurant.delete": {
+          "uri": "service-providers/restaurant/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "service-provider.handicraft.delete": {
+          "uri": "service-providers/handicraft/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "service-provider.others.delete": {
+          "uri": "service-providers/others/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "register": {
+          "uri": "register",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "login": {
+          "uri": "login",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "password.request": {
+          "uri": "forgot-password",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "password.email": {
+          "uri": "forgot-password",
+          "methods": [
+            "POST"
+          ]
+        },
+        "password.reset": {
+          "uri": "reset-password/{token}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "token"
+          ]
+        },
+        "password.store": {
+          "uri": "reset-password",
+          "methods": [
+            "POST"
+          ]
+        },
+        "verification.notice": {
+          "uri": "verify-email",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "verification.verify": {
+          "uri": "verify-email/{id}/{hash}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "id",
+            "hash"
+          ]
+        },
+        "verification.send": {
+          "uri": "email/verification-notification",
+          "methods": [
+            "POST"
+          ]
+        },
+        "password.confirm": {
+          "uri": "confirm-password",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "password.update": {
+          "uri": "password",
+          "methods": [
+            "PUT"
+          ]
+        },
+        "logout": {
+          "uri": "logout",
+          "methods": [
+            "POST"
+          ]
+        }
+      },
+      "location": "https://services.bhutan.travel/search/hotel"
+    },
+    "flash": {
+      "success": null,
+      "error": null,
+      "registration_success": null
+    },
+    "registrationTypes": [
+      {
+        "label": "Tour Operators",
+        "value": 1,
+        "slug": "tour-operator"
+      },
+      {
+        "label": "Guides",
+        "value": 2,
+        "slug": "guide"
+      },
+      {
+        "label": "Hotels",
+        "value": 3,
+        "slug": "hotel"
+      },
+      {
+        "label": "Homestays",
+        "value": 4,
+        "slug": "homestay"
+      },
+      {
+        "label": "Restaurants",
+        "value": 5,
+        "slug": "restaurant"
+      },
+      {
+        "label": "Handicrafts",
+        "value": 6,
+        "slug": "handicraft"
+      },
+      {
+        "label": "Other Service Providers",
+        "value": 7,
+        "slug": "other"
+      }
+    ],
+    "registrationTypeSlug": "hotel",
+    "filters": {
+      "operationYears": [
+        {
+          "value": "2026",
+          "label": "2026"
+        },
+        {
+          "value": 2025,
+          "label": 2025
+        },
+        {
+          "value": 2024,
+          "label": 2024
+        },
+        {
+          "value": 2023,
+          "label": 2023
+        },
+        {
+          "value": 2022,
+          "label": 2022
+        },
+        {
+          "value": 2021,
+          "label": 2021
+        },
+        {
+          "value": 2020,
+          "label": 2020
+        },
+        {
+          "value": 2019,
+          "label": 2019
+        },
+        {
+          "value": 2018,
+          "label": 2018
+        },
+        {
+          "value": 2017,
+          "label": 2017
+        },
+        {
+          "value": 2016,
+          "label": 2016
+        },
+        {
+          "value": 2015,
+          "label": 2015
+        },
+        {
+          "value": 2014,
+          "label": 2014
+        },
+        {
+          "value": 2013,
+          "label": 2013
+        },
+        {
+          "value": 2012,
+          "label": 2012
+        },
+        {
+          "value": 2011,
+          "label": 2011
+        },
+        {
+          "value": 2010,
+          "label": 2010
+        },
+        {
+          "value": 2009,
+          "label": 2009
+        },
+        {
+          "value": 2008,
+          "label": 2008
+        },
+        {
+          "value": 2007,
+          "label": 2007
+        },
+        {
+          "value": 2006,
+          "label": 2006
+        },
+        {
+          "value": 2005,
+          "label": 2005
+        },
+        {
+          "value": 2004,
+          "label": 2004
+        },
+        {
+          "value": 2003,
+          "label": 2003
+        },
+        {
+          "value": 2002,
+          "label": 2002
+        },
+        {
+          "value": 2001,
+          "label": 2001
+        },
+        {
+          "value": 2000,
+          "label": 2000
+        },
+        {
+          "value": 1999,
+          "label": 1999
+        },
+        {
+          "value": 1998,
+          "label": 1998
+        },
+        {
+          "value": 1997,
+          "label": 1997
+        },
+        {
+          "value": 1996,
+          "label": 1996
+        },
+        {
+          "value": 1995,
+          "label": 1995
+        },
+        {
+          "value": 1994,
+          "label": 1994
+        },
+        {
+          "value": 1993,
+          "label": 1993
+        },
+        {
+          "value": 1992,
+          "label": 1992
+        },
+        {
+          "value": 1991,
+          "label": 1991
+        },
+        {
+          "value": 1990,
+          "label": 1990
+        }
+      ],
+      "locations": [
+        {
+          "id": 11,
+          "value": "Bumthang"
+        },
+        {
+          "id": 4,
+          "value": "Chhukha"
+        },
+        {
+          "id": 7,
+          "value": "Dagana"
+        },
+        {
+          "id": 8,
+          "value": "Gasa"
+        },
+        {
+          "id": 5,
+          "value": "Haa"
+        },
+        {
+          "id": 15,
+          "value": "Lhuntse"
+        },
+        {
+          "id": 16,
+          "value": "Mongar"
+        },
+        {
+          "id": 2,
+          "value": "Paro"
+        },
+        {
+          "id": 17,
+          "value": "Pema Gatshel"
+        },
+        {
+          "id": 3,
+          "value": "Punakha"
+        },
+        {
+          "id": 18,
+          "value": "Samdrup Jongkhar"
+        },
+        {
+          "id": 6,
+          "value": "Samtse"
+        },
+        {
+          "id": 12,
+          "value": "Sarpang"
+        },
+        {
+          "id": 1,
+          "value": "Thimphu"
+        },
+        {
+          "id": 20,
+          "value": "Trashi Yangtse"
+        },
+        {
+          "id": 19,
+          "value": "Trashigang"
+        },
+        {
+          "id": 13,
+          "value": "Trongsa"
+        },
+        {
+          "id": 9,
+          "value": "Tsirang"
+        },
+        {
+          "id": 10,
+          "value": "Wangdue Phodrang"
+        },
+        {
+          "id": 14,
+          "value": "Zhemgang"
+        }
+      ],
+      "starCategories": [
+        {
+          "id": 50,
+          "value": "Five Star"
+        },
+        {
+          "id": 49,
+          "value": "Four Star"
+        },
+        {
+          "id": 46,
+          "value": "One Star"
+        },
+        {
+          "id": 48,
+          "value": "Three Star"
+        },
+        {
+          "id": 47,
+          "value": "Two Star"
+        },
+        {
+          "id": 51,
+          "value": "Village Homestay"
+        }
+      ],
+      "facilities": [
+        {
+          "id": 139,
+          "value": "24 hours front desk"
+        },
+        {
+          "id": 138,
+          "value": "24 hours room service"
+        },
+        {
+          "id": 56,
+          "value": "Air conditioning"
+        },
+        {
+          "id": 142,
+          "value": "Airport transfers"
+        },
+        {
+          "id": 102,
+          "value": "ATM"
+        },
+        {
+          "id": 140,
+          "value": "Bar"
+        },
+        {
+          "id": 55,
+          "value": "Bathtubs in the rooms"
+        },
+        {
+          "id": 151,
+          "value": "Bicycle Rental"
+        },
+        {
+          "id": 131,
+          "value": "Can cater to specific dietary requirements"
+        },
+        {
+          "id": 141,
+          "value": "Coffee shop"
+        },
+        {
+          "id": 58,
+          "value": "Conference hall available on-site"
+        },
+        {
+          "id": 101,
+          "value": "Credit card facilities"
+        },
+        {
+          "id": 144,
+          "value": "Elevator or lift"
+        },
+        {
+          "id": 64,
+          "value": "Family friendly facilities"
+        },
+        {
+          "id": 147,
+          "value": "Gym or fitness centre"
+        },
+        {
+          "id": 57,
+          "value": "Heating"
+        },
+        {
+          "id": 60,
+          "value": "Hot stone bath"
+        },
+        {
+          "id": 53,
+          "value": "In-room balcony"
+        },
+        {
+          "id": 132,
+          "value": "Indian menu items available"
+        },
+        {
+          "id": 133,
+          "value": "Jain menu items available"
+        },
+        {
+          "id": 145,
+          "value": "Laundry service"
+        },
+        {
+          "id": 146,
+          "value": "Parking"
+        },
+        {
+          "id": 63,
+          "value": "Restaurant"
+        },
+        {
+          "id": 137,
+          "value": "Room service"
+        },
+        {
+          "id": 61,
+          "value": "Spa"
+        },
+        {
+          "id": 62,
+          "value": "Steam or sauna room"
+        },
+        {
+          "id": 125,
+          "value": "Sustainable / environmentally friendly facilities"
+        },
+        {
+          "id": 54,
+          "value": "Swimming pool"
+        },
+        {
+          "id": 143,
+          "value": "Travel desk"
+        },
+        {
+          "id": 130,
+          "value": "Vegan / plant based friendly options"
+        },
+        {
+          "id": 134,
+          "value": "Western / continental menu items available"
+        },
+        {
+          "id": 59,
+          "value": "Wifi available"
+        },
+        {
+          "id": 150,
+          "value": "Yoga"
+        }
+      ]
+    },
+    "serviceProviderType": {
+      "id": 3,
+      "display_order": 2,
+      "slug": "hotel",
+      "label": "Hotels",
+      "excerpt": "Hotels identified as tourist standard by DOT can register and share the facilities they provide",
+      "description": "Accommodation plays a crucial role in your overall travel experience. Choose the right property that meets your requirements",
+      "cover": "/images/cover-seven.jpeg"
+    },
+    "results": {
+      "current_page": 1,
+      "data": [
+        {
+          "id": 168,
+          "name": "Paro Eco Lodge",
+          "email": "paroecolodge@gmail.com",
+          "contact": 17836993,
+          "description": "At Paro Eco Lodge, we take pride in harmonizing with the beauty that surrounds us. Nestled in the heart of Paro Valley, our lodge is a serene retreat, perfectly situated among the lush paddy fields that stretch as far as the eye can see. The gentle rhythm of rural life blends effortlessly with the comfort we offer, creating a space where nature and hospitality coexist in perfect balance. Our lodge is a testament to sustainable living, built with locally crafted mud bricks, refurbished wood, bamboo, and stone. These natural materials not only echo the earthy tones of the valley but also ground us in a tradition that honors the land. We believe that luxury does not have to come at the expense of our environment, and every element of our lodge reflects this commitment. Here, we cater to your needs with genuine warmth and a professional touch that is more personal than corporate. Here, hospitality feels like a natural extension of who we are—a reflection of the valley’s quiet grace and timeless charm.",
+          "website": "http://www.bhutanecolodges.com",
+          "slug": "paro-eco-lodge",
+          "description_excerpt": "At Paro Eco Lodge, we take pride in harmonizing with the beauty that surrounds us. Nestled in the heart of Paro Valley, our lodge is a serene retreat,...",
+          "cover_photo": {
+            "id": 7747,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/168-cover_c240i9.jpg",
+            "resourceable_id": 168,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2024-08-22T07:07:46.000000Z",
+            "updated_at": "2024-08-22T07:07:46.000000Z"
+          }
+        },
+        {
+          "id": 270,
+          "name": "Vara",
+          "email": "hotelvarabhutan@gmail.com",
+          "contact": 17113883,
+          "description": "Hotel Vara \r\nIf you are looking for a room with a gallery, facing mountains and a flowing river, where the sun rises, birds chirp, clouds and rain are present. Our hotels have all the authentic views.",
+          "website": "http://www.varabhutan.com",
+          "slug": "vara",
+          "description_excerpt": "Hotel Vara \r\nIf you are looking for a room with a gallery, facing mountains and a flowing river, where the sun rises, birds chirp, clouds and rain are...",
+          "cover_photo": {
+            "id": 12938,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/270-cover_j97SKb.jpg",
+            "resourceable_id": 270,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2025-08-15T04:41:25.000000Z",
+            "updated_at": "2025-08-15T04:41:25.000000Z"
+          }
+        },
+        {
+          "id": 197,
+          "name": "Tara Phendeyling",
+          "email": "gm@taraphendeyling.com",
+          "contact": 17127752,
+          "description": null,
+          "website": "http://www.taraphendeyling.com",
+          "slug": "tara-phendeyling",
+          "description_excerpt": null,
+          "cover_photo": {
+            "id": 10237,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/197-cover_X59Ttn.jpg",
+            "resourceable_id": 197,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2024-12-04T08:21:55.000000Z",
+            "updated_at": "2024-12-04T08:21:55.000000Z"
+          }
+        },
+        {
+          "id": 249,
+          "name": "Pelyang Boutique",
+          "email": "info@pelyang.com",
+          "contact": 17122656,
+          "description": "Pelyang Boutique is centrally located in Capital City. All Rooms have central heating system(HVAC) with all basic amenities for guest comfort. Spa and fitness facilities available.",
+          "website": "http://www.pelyang.com",
+          "slug": "pelyang-boutique",
+          "description_excerpt": "Pelyang Boutique is centrally located in Capital City. All Rooms have central heating system(HVAC) with all basic amenities for guest comfort. Spa and...",
+          "cover_photo": {
+            "id": 12013,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/249-cover_Yh3ato.jpg",
+            "resourceable_id": 249,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2025-04-03T12:52:05.000000Z",
+            "updated_at": "2025-04-03T12:52:05.000000Z"
+          }
+        },
+        {
+          "id": 126,
+          "name": "Lhaki yangchak Residency",
+          "email": "lyresidency@gmail.com",
+          "contact": 17300392,
+          "description": "Welcome to Lhaki YANGCHAK Residency, our second property, designed to provide an exceptional family-friendly retreat in the heart of Thimphu&#039;s vibrant Babena neighborhood. Located right above the Indian Embassy and just 100 meters from the local park, our hotel is perfect for families. We are close to the Olympic stadium and just a kilometer away from Tashichho Dzong, with the main city only a five-minute drive away. With 36 comfortable and well-appointed rooms, Lhaki YANGCHAK Residency ensures unparalleled hospitality and convenience, complementing our first hotel in Paro.",
+          "website": "http://www.lhakiyangchak.com",
+          "slug": "lhaki-yangchak-residency",
+          "description_excerpt": "Welcome to Lhaki YANGCHAK Residency, our second property, designed to provide an exceptional family-friendly retreat in the heart of Thimphu&#039;s vibrant...",
+          "cover_photo": {
+            "id": 4945,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/126-cover_8ox9WL.jpg",
+            "resourceable_id": 126,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2024-07-28T05:53:11.000000Z",
+            "updated_at": "2024-07-28T05:53:11.000000Z"
+          }
+        },
+        {
+          "id": 123,
+          "name": "Jampelyang Hotel",
+          "email": "hoteljampelyang@gmail.com",
+          "contact": 17450928,
+          "description": "Jampelyang hotel ,  a three star property, lies at the base of a sacred three distinctive sister mountains,  for centuries they have been venerated as the abode of the three principal deities in the Vajrayana Buddhist pantheon. The farthest southernmost is Jampelyang ( manjushri/wisdom) , in middle is Chenrezi ( avalokiteshvara/compassion ) and Chana Dorji ( vajrapani / warth) is in the north.  These mountains present a breathtaking view, like heaps of flour in the middle of valley. They appear equal in height, in a line and upright without touching one another. Our hotel is nearest to the most popular tourist attractions like white temple ( lhakhang Karpo) & black temple ( lhakhang nagpo) . \r\nOur hotel has 22 rooms, includes 20 deluxe and 2 family suites is attached kitchen & bathrooms . All the rooms with showers, 24 hours water , and latest technology floor and wall heating systems. The location, can be the best choice to escape from the hustle and bustle of everyday life. We promise our guests a wonderful stay with the best hospitable service .",
+          "website": "http://www.Jampelyanghotel.com",
+          "slug": "jampelyang-hotel",
+          "description_excerpt": "Jampelyang hotel ,  a three star property, lies at the base of a sacred three distinctive sister mountains,  for centuries they have been venerated as...",
+          "cover_photo": {
+            "id": 4608,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/123-cover_LPYFb0.jpg",
+            "resourceable_id": 123,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2024-07-25T12:20:02.000000Z",
+            "updated_at": "2024-07-25T12:20:02.000000Z"
+          }
+        },
+        {
+          "id": 327,
+          "name": "Hotel Moon Tara",
+          "email": "dawad15may@gmail.com",
+          "contact": 17841327,
+          "description": "Seven minutes drive from airport, convinent to shop around Paro town, beat location to reach each corner of Paro",
+          "website": null,
+          "slug": "hotel-moon-tara",
+          "description_excerpt": "Seven minutes drive from airport, convinent to shop around Paro town, beat location to reach each corner of Paro",
+          "cover_photo": {
+            "id": 15743,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/327-cover_tQXARa.jpg",
+            "resourceable_id": 327,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2026-07-14T09:24:34.000000Z",
+            "updated_at": "2026-07-14T09:24:34.000000Z"
+          }
+        },
+        {
+          "id": 315,
+          "name": "Hotel Thinley pelbar",
+          "email": "tppp2011@gmail.com",
+          "contact": 17650168,
+          "description": "Hotel Thinley Pelbar is more than just a hotel — it is a peaceful destination where comfort, nature, and hospitality come together. Located at Khandothang, Samtse, away from the busy town area, our hotel offers guests a calm and refreshing environment surrounded by open space and natural beauty. Since starting operations in September 2025, we have proudly welcomed engineers, business travelers, factory professionals, and visitors from different places with warm Bhutanese hospitality.\r\n\r\nWhat makes Hotel Thinley Pelbar unique is its combination of modern facilities and recreational experiences. Along with comfortable accommodation, we provide a conference hall, commercial gym, traditional archery range, and upcoming swimming pool facilities within a spacious 6-acre property. Our vision is to create not only a place to stay, but a destination where guests can relax, work, and enjoy quality experiences in a peaceful atmosphere unmatched in Samtse.",
+          "website": null,
+          "slug": "hotel-thinley-pelbar",
+          "description_excerpt": "Hotel Thinley Pelbar is more than just a hotel — it is a peaceful destination where comfort, nature, and hospitality come together. Located at Khandot...",
+          "cover_photo": {
+            "id": 15309,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/315-cover_zczy4d.jpg",
+            "resourceable_id": 315,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2026-05-28T14:49:45.000000Z",
+            "updated_at": "2026-05-28T14:49:45.000000Z"
+          }
+        },
+        {
+          "id": 321,
+          "name": "Bumthang Guesthouse",
+          "email": "bumthangguesthouse@gmail.com",
+          "contact": 17863842,
+          "description": "Bunthang Guesthouse offers a comfortable, budget-friendly, and authentic stay in the heart of Bumthang Dzongkhag. Conveniently located near the region’s most important spiritual, cultural, and historical sites, guests can easily explore monasteries, temples, and local attractions while enjoying easy access to nearby shops, restaurants, and essential services.\r\n\r\nOne of the guesthouse’s standout features is its spacious and well-appointed rooms, providing excellent comfort and value for money. Guests can relax in a peaceful environment and enjoy beautiful views of the historic Jakar Dzong, one of Bhutan’s most iconic landmarks.\r\n\r\nWhat truly makes Bunthang Guesthouse special is its warm, homely atmosphere and friendly staff. We are committed to providing genuine Bhutanese hospitality and personalized service, ensuring every guest feels welcome and at home. Whether visiting Bumthang for pilgrimage, leisure, or cultural exploration, guests can enjoy affordable accommodation, spacious rooms, a central location, and exceptional hospitality. Bunthang Guesthouse combines comfort, convenience, and value, making it an ideal choice for travelers seeking a memorable stay in Bhutan’s spiritual heartland.",
+          "website": null,
+          "slug": "bumthang-guesthouse",
+          "description_excerpt": "Bunthang Guesthouse offers a comfortable, budget-friendly, and authentic stay in the heart of Bumthang Dzongkhag. Conveniently located near the region...",
+          "cover_photo": {
+            "id": 15372,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/321-cover_Gp8jte.jpg",
+            "resourceable_id": 321,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2026-06-04T10:07:31.000000Z",
+            "updated_at": "2026-06-04T10:07:31.000000Z"
+          }
+        },
+        {
+          "id": 136,
+          "name": "Mandala Resort",
+          "email": "bhutanmandalaresort@gmail.com",
+          "contact": 17514547,
+          "description": "Mandala Resort is a tourist 3 - star property rated by the Tourism corporation of Bhutan, located at Paro Bhutan. The resort is nestled  on a hilltop facing the beautiful Paro valley and boasts of a unique panoramic view of the bustling Paro Tshongdue town, majestic Paro Dzong (fortress),National Museum(Ta Dzong) and snowcapped mountains in the background. \r\nThe property is located about 10-15 minutes drive away from the Paro International airport. The resort offers 24 standard deluxe rooms attached with a balcony to capture the panoramic view of the valley. The resort facilities include a bar and restaurant serving, multi cuisine dishes, free Wi-Fi service, Spa massage, airport pick and drop service, 24 hours hot and cold water supply.",
+          "website": "http://www.bhutanmandalaresort.com.bt",
+          "slug": "mandala-resort",
+          "description_excerpt": "Mandala Resort is a tourist 3 - star property rated by the Tourism corporation of Bhutan, located at Paro Bhutan. The resort is nestled  on a hilltop...",
+          "cover_photo": {
+            "id": 5333,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/136-cover_F3a4Fn.jpg",
+            "resourceable_id": 136,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2024-07-30T04:43:02.000000Z",
+            "updated_at": "2024-07-30T04:43:02.000000Z"
+          }
+        },
+        {
+          "id": 170,
+          "name": "Dragon Nest Resort",
+          "email": "dragonsnestresort@gmail.com",
+          "contact": 17254510,
+          "description": "Dragon Nest Resort stands out for its idyllic location, perched overlooking the serene Punatsangchhu River. This picturesque setting offers our guests stunning views of the flowing waters and the lush landscapes that surround our resort. The tranquil ambiance is perfect for those seeking a peaceful retreat while still being within easy reach of local attractions. What makes us truly unique is our family-run heritage. At Dragon Nest Resort, hospitality is not just a business but a tradition passed down through generations. We treat every guest like family, ensuring that your stay is personalized and infused with warmth. Our intimate knowledge of the area allows us to offer tailored experiences, whether you&#039;re exploring nearby cultural sites or simply relaxing by the river. Our commitment to making every stay special is reflected in the little details—from the cozy, locally inspired décor to the home-cooked meals that celebrate the flavors of Bhutan. At Dragon Nest Resort, you’ll find a perfect blend of comfort, tradition, and natural beauty, making your visit truly memorable.",
+          "website": "http://www.bhutanecolodges.com",
+          "slug": "dragon-nest-resort",
+          "description_excerpt": "Dragon Nest Resort stands out for its idyllic location, perched overlooking the serene Punatsangchhu River. This picturesque setting offers our guests...",
+          "cover_photo": {
+            "id": 7775,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/170-cover_BikCxA.jpg",
+            "resourceable_id": 170,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2024-08-22T08:47:01.000000Z",
+            "updated_at": "2024-08-22T08:47:01.000000Z"
+          }
+        },
+        {
+          "id": 70,
+          "name": "Gawaling Hotel",
+          "email": "gawalinghotel1@gmail.com",
+          "contact": 17170768,
+          "description": "Gawaling Hotel is one of the finest three-star luxury hotels in the country and hosts a roster of both regional and international clients. It offers a majestic blend of luxury, authentic architecture and extraordinary services for vacationers. The hotel holds the contemporary design with traditional Bhutanese architecture that has massive wooden beams and antique furnishings.",
+          "website": "http://www.gawalinghotel.com",
+          "slug": "gawaling-hotel",
+          "description_excerpt": "Gawaling Hotel is one of the finest three-star luxury hotels in the country and hosts a roster of both regional and international clients. It offers a...",
+          "cover_photo": {
+            "id": 1960,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/70-cover_NBcdj0.jpg",
+            "resourceable_id": 70,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2024-07-03T12:30:40.000000Z",
+            "updated_at": "2024-07-03T12:30:40.000000Z"
+          }
+        },
+        {
+          "id": 274,
+          "name": "Hotel Ugyen",
+          "email": "hotelugyenreservation2019@gmail.com",
+          "contact": 77366312,
+          "description": "Ugyen Hotel in olakha, Thimphu is more than just a place to stay. It is a warm home away from home. What makes the hotel special is the way it combines modern comfort with the charm of bhutanese tradition. From the moment you walk in, you are welcomed with genuine bhutanese hospitality that makes you feel cared for and respected.\r\nThe hotel is.located in olakha, a peaceful area of Thimphu, away from the noise of the city but still close enough to reach important places easily. GueTs enjoy clean and spacious rooms with beautiful views of the valley and the surrounding mountains. The interiors are designed with a touch of bhutanese art and style, which gives the hotel a unique cultural feel.\r\nUgyen hotel is also known for its delicious food, offering both bhutanese dishes and international choices prepared with care. The friendly staff always go the extra mile to make sure everything guest feels comfortable and happy. Ugyen hotel different is it&#039;s personal touch. It&#039;s not just about service, but about creating memorable experiences. Here, guests do not just stay they connect with bhutanese cultural peace and warmth.",
+          "website": "http://Hotelugyenreservation2019@gmail.com",
+          "slug": "hotel-ugyen-1",
+          "description_excerpt": "Ugyen Hotel in olakha, Thimphu is more than just a place to stay. It is a warm home away from home. What makes the hotel special is the way it combine...",
+          "cover_photo": {
+            "id": 13164,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/274-cover_RzPwcL.jpg",
+            "resourceable_id": 274,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2025-09-03T11:44:51.000000Z",
+            "updated_at": "2025-09-03T11:44:51.000000Z"
+          }
+        },
+        {
+          "id": 115,
+          "name": "Mantra Home",
+          "email": "mantrahomefo@gmail.com",
+          "contact": 17100111,
+          "description": "Mantra Home is ideally located right at the entrance of capital city with panoramic valley view of Babesa and Thimphu valley. Its peaceful surrounding perfected with modern hotel amenities provide for the pristine ambiance to rest and relax.\r\nOur restaurant serves a wide varieties of authentic Bhutanese flavors, Indian, Oriental and continental dishes.  You can sit and relax in our lounge with bars open to serve your favorite drinks and cocktails.\r\nOur friendly staff will attend to you with unique Bhutanese hospitality with a smile and touch of humility.",
+          "website": "http://www.Mantrahome.bt",
+          "slug": "mantra-home",
+          "description_excerpt": "Mantra Home is ideally located right at the entrance of capital city with panoramic valley view of Babesa and Thimphu valley. Its peaceful surrounding...",
+          "cover_photo": {
+            "id": 4194,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/115-cover_h0lrlh.jpg",
+            "resourceable_id": 115,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2024-07-24T03:38:33.000000Z",
+            "updated_at": "2024-07-24T03:38:33.000000Z"
+          }
+        },
+        {
+          "id": 120,
+          "name": "Spirit Of Bhutan Resort",
+          "email": "spiritofbhutanresort@gmail.com",
+          "contact": 17170388,
+          "description": "Nestled in the picturesque landscape of Paro, our hotel offers a truly unique experience that sets us apart from the rest. As you walk through the lush paddy fields surrounding our property, you&#039;ll be greeted by the sight of vibrant, fresh organic vegetables that make their way directly to our tables. The farm-to-table concept is not just a trend for us; it&#039;s a way of life, ensuring that every meal is a celebration of the local harvest and a testament to our commitment to sustainability and quality.\r\nBeyond the culinary delights, our hotel boasts a strategic view of the magnificent Paro Dzong, a sight that captivates the senses and transports you to a place of serenity and awe. The ancient fortress stands proudly against the backdrop of the Himalayas, offering a view that is as breathtaking as it is unforgettable.",
+          "website": "http://www.spiritofbhutan.net/spirit-of-bhutan-resorts-paro",
+          "slug": "spirit-of-bhutan-resort",
+          "description_excerpt": "Nestled in the picturesque landscape of Paro, our hotel offers a truly unique experience that sets us apart from the rest. As you walk through the lus...",
+          "cover_photo": {
+            "id": 15081,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/120-cover_RlAqIv.jpg",
+            "resourceable_id": 120,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2026-05-15T07:04:27.000000Z",
+            "updated_at": "2026-05-15T07:04:27.000000Z"
+          }
+        },
+        {
+          "id": 106,
+          "name": "Jakar Village Lodge",
+          "email": "jakarvillagelodge@gmail.com",
+          "contact": 77171777,
+          "description": "Our lodge stands apart through a blend of serene natural surroundings and a commitment to personalized Bhutanese  hospitality. Nestled amidst traditional Bhutanese village with  towering Jakar Dzong on the hill above. we offer an escape that seamlessly combines comfort with an authentic Bhutanese  experience.\r\nWhat truly sets us apart is our dedication to creating memorable stays for our guest by our multi generational family. \r\nIn essence, our lodge is not just a tourist lodge but a gateway to  where warmth welcomes and comfort feels like home embracing  the homely difference and where comfort embraces your heart and familiarity paints the walls  to your home away from home.",
+          "website": "http://www.jakarvillagelodge.com",
+          "slug": "jakar-village-lodge",
+          "description_excerpt": "Our lodge stands apart through a blend of serene natural surroundings and a commitment to personalized Bhutanese  hospitality. Nestled amidst traditio...",
+          "cover_photo": {
+            "id": 3752,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/106-cover_qbyc4W.jpg",
+            "resourceable_id": 106,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2024-07-23T04:23:12.000000Z",
+            "updated_at": "2024-07-23T04:23:12.000000Z"
+          }
+        },
+        {
+          "id": 147,
+          "name": "Haa Heritage Hotel",
+          "email": "haaheritage3@gmail.com",
+          "contact": 17730707,
+          "description": "We provide heritage and traditional Bhutanese foods, untouched environment and architecture Bhutanese building design, culture experiences and hot stone bath.",
+          "website": "http://www.haaheritagehotel.com",
+          "slug": "haa-heritage-hotel",
+          "description_excerpt": "We provide heritage and traditional Bhutanese foods, untouched environment and architecture Bhutanese building design, culture experiences and hot sto...",
+          "cover_photo": {
+            "id": 5495,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/147-cover_dM6BVe.jpg",
+            "resourceable_id": 147,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2024-07-30T12:35:23.000000Z",
+            "updated_at": "2024-07-30T12:35:23.000000Z"
+          }
+        },
+        {
+          "id": 269,
+          "name": "Six Senses Bhutan",
+          "email": "ritika.trehan@sixsenses.com",
+          "contact": 17277953,
+          "description": "Set in a pine forest on a hillside above a rushing stream, Six Senses Bumthang was built to immerse guests in the natural beauty of its surroundings, history and traditions, honoring the environment rather than impacting it. As such, the lodge takes its name “The Forest in a Forest” from its setting. In total, there are eight suites and one two-bedroom villa featuring spacious balconies and calming forest views across the valley.",
+          "website": "http://www.sixsenses.com/en/hotels-resorts/asia-the-pacific/bhutan/bhutan/",
+          "slug": "six-senses-bhutan-3",
+          "description_excerpt": "Set in a pine forest on a hillside above a rushing stream, Six Senses Bumthang was built to immerse guests in the natural beauty of its surroundings,...",
+          "cover_photo": {
+            "id": 12887,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/269-cover_yM3wvi.jpg",
+            "resourceable_id": 269,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2025-08-05T12:02:58.000000Z",
+            "updated_at": "2025-08-05T12:02:58.000000Z"
+          }
+        },
+        {
+          "id": 75,
+          "name": "Jagathang Village Inn",
+          "email": "jagathangvillageinn@gmail.com",
+          "contact": 77990707,
+          "description": "Jagathang Village Inn - a 4-Star boutique Hotel is your home away from home where only a few privileged guests are welcomed at its 12 Premium Deluxe rooms which are undoubtedly spacious, beautifully designed with ornate yet simple furnishings and luxurious ambience with each enjoying a view across the valley not forgetting to extend personalized service and attention to their guests.\r\nJagathang Village Inn is located approximately 5km away from the main town and just 3 kms from the most popular Tiger’s Nest Monastery base. Jagathang Village Inn sits in the midst of upper Jagathang Village (2250 meters) with scenic views of the valley floor and some of the most iconic sights such as 17th Century Paro Rinpung Dzong, Paro Museum, Sangchoekor Monastery, the ancient and mysterious Dongkola Temple perched up on a high ridge, SE of the valley, towards the NE sits the Iconic Tigers Nest clinging at an elevation of 3120 Metres on Rock Cliff and finally behind on the western ridge is another historical Tsito Goempa.  The very fact our location is surrounded peripherally with iconic landmarks such as the ones mentioned above.",
+          "website": "http://jagathangvillageinn.com",
+          "slug": "jagathang-village-inn",
+          "description_excerpt": "Jagathang Village Inn - a 4-Star boutique Hotel is your home away from home where only a few privileged guests are welcomed at its 12 Premium Deluxe r...",
+          "cover_photo": {
+            "id": 2430,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/75-cover_nKG143.jpg",
+            "resourceable_id": 75,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2024-07-09T06:16:29.000000Z",
+            "updated_at": "2024-07-09T06:16:29.000000Z"
+          }
+        },
+        {
+          "id": 96,
+          "name": "Central Hotel",
+          "email": "centralhotelbtn@gmail.com",
+          "contact": 17791841,
+          "description": "Central Hotel  is a 3 star hotel with a  33  rooms property located in the heart of the town of Phuentsholing. Hotel features a wide range of room categories with private balconies, luxurious room amenities and toiletries. \r\nRooms are luxurious, well maintained, neat and clean.  All rooms are equipped with split AC, Led Tv,Geyser, Telephone, Tea & Coffee Maker & on demand Iron and Iron board. \r\nGuests can enjoy unlimited high speed internet during their visit or their stay.\r\nOur staff are highly motivated and professionally trained to fulfill the guest requirements.\r\nHotel is just 0.5Km from the border town and  just 1 minute walkable distance from the New Pedestrian Terminal.",
+          "website": null,
+          "slug": "central-hotel",
+          "description_excerpt": "Central Hotel  is a 3 star hotel with a  33  rooms property located in the heart of the town of Phuentsholing. Hotel features a wide range of room cat...",
+          "cover_photo": {
+            "id": 3089,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/96-cover_6rlTND.jpg",
+            "resourceable_id": 96,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2024-07-19T06:44:50.000000Z",
+            "updated_at": "2024-07-19T06:44:50.000000Z"
+          }
+        },
+        {
+          "id": 48,
+          "name": "Hotel Sonamgang",
+          "email": "hotelsonamgang@gmail.com",
+          "contact": 17942626,
+          "description": "Hotel Sonamgang is located above the valley of Khuruthang which gives off breathtaking view of the town and its river. A 3-star deluxe hotel with many facilities and sedulous staff whose services ensure you a great stay. Our unique infrastructure is designed to provide our guests with a modern yet quaint feel on the inside.",
+          "website": "http://www.hotelsonamgang.bt",
+          "slug": "hotel-sonamgang",
+          "description_excerpt": "Hotel Sonamgang is located above the valley of Khuruthang which gives off breathtaking view of the town and its river. A 3-star deluxe hotel with many...",
+          "cover_photo": {
+            "id": 1202,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/48-cover_LxRYii.jpg",
+            "resourceable_id": 48,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2024-06-26T04:24:49.000000Z",
+            "updated_at": "2024-06-26T04:24:49.000000Z"
+          }
+        },
+        {
+          "id": 73,
+          "name": "Phuntsho Khangsar Hotel",
+          "email": "phuntshokhangsar@gmail.com",
+          "contact": 17112147,
+          "description": "Welcome to Phuntsho Khangsar Hotel, where tranquility meets luxury in an unforgettable setting. With just 18 rooms, our boutique hotel offers a personalized experience in two exquisite categories: Super Deluxe and Deluxe. Each of our 9 Super Deluxe rooms features a stunning sit-out balcony, perfect for soaking in the breathtaking mountain and city views. The 9 Deluxe rooms are equally spacious, providing a serene retreat.\r\n\r\nOur unique location along the highway, facing the majestic Buddha Dordenma, offers a peaceful escape from the hustle and bustle of the town while remaining easily accessible. The hotel&#039;s serene ambiance is ideal for relaxation and rejuvenation.\r\n\r\nCulinary delights await at our restrobar and restaurant, where we specialize in Indian, Continental, and Bhutanese cuisine. Enjoy expertly crafted dishes in a setting that blends comfort and elegance.\r\n\r\nAt Phuntsho Khangsar Hotel, we pride ourselves on offering a distinct blend of serene surroundings, exceptional hospitality, and culinary excellence. Experience the unique charm of our hotel, where every detail is designed to create a memorable stay.",
+          "website": "http://pkhangsar.com",
+          "slug": "phuntsho-khangsar-hotel",
+          "description_excerpt": "Welcome to Phuntsho Khangsar Hotel, where tranquility meets luxury in an unforgettable setting. With just 18 rooms, our boutique hotel offers a person...",
+          "cover_photo": {
+            "id": 2074,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/73-cover_qtCHLM.jpg",
+            "resourceable_id": 73,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2024-07-04T07:14:40.000000Z",
+            "updated_at": "2024-07-04T07:14:40.000000Z"
+          }
+        },
+        {
+          "id": 193,
+          "name": "Hotel Khang Residency",
+          "email": "khangresidency@gmail.com",
+          "contact": 17762255,
+          "description": "Opened during the auspicious year of 2011, coinciding with the royal wedding, our hotel has had the honor of hosting royal guests, setting a distinguished tone for our hospitality. Nestled just steps away from Changangkha Lhakhang, the oldest monastery in Thimphu, our location offers a unique blend of cultural immersion and modern convenience. Situated in an upscale neighborhood, we’re only a five-minute drive from the city center and close to all major tourist attractions.\r\n\r\nOur spacious rooms feature modern amenities, each with a private balcony that provides breathtaking views of the surrounding valley and mountains. We pride ourselves on seamlessly blending contemporary comforts with Bhutanese art and culture, creating an inviting atmosphere that celebrates our heritage. Our dedicated staff ensures every guest feels like they are in a home away from home, offering warm, personalized service that sets us apart.",
+          "website": "http://www.khangresidency.com",
+          "slug": "hotel-khang-residency",
+          "description_excerpt": "Opened during the auspicious year of 2011, coinciding with the royal wedding, our hotel has had the honor of hosting royal guests, setting a distingui...",
+          "cover_photo": {
+            "id": 9914,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/193-cover_dIv7bu.jpg",
+            "resourceable_id": 193,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2024-11-13T03:28:52.000000Z",
+            "updated_at": "2024-11-13T03:28:52.000000Z"
+          }
+        },
+        {
+          "id": 82,
+          "name": "HOTEL PARK",
+          "email": "hotelparkthimphu@gmail.com",
+          "contact": 17235474,
+          "description": "Hotel Park Thimphu located at Babasa under Thimphu Dzongkhag the capital city of Bhutan. Well designed building with beautiful appearance with silent place to rest and relax. Hotel Park 3 star hotel in Bhutan located along the express way Thimphu away from the noisy place with best selected place for the guest. Clean sanitation around, located in plane valley of Thimphu. \r\n Hotel have best quality room for the guest along free Wi-Fi service, bar, restaurant with well trained chief with varieties of food item with your choice. we have parking area and have currency exchange for the guest. every one are well trained and well organized for the work that they are assigned for starting from guest reception, your entrance to our hotel till the end of your holiday we do care and we always makes it perfect. we represent our country and we are concerned about the reputation of our country. with that to serve our guest are always our priority.\r\n\r\nCOME, STAY WIH US AND WE WILL SHOW YOU THAT SOME TIME, A SOUVIENIR YOU TAKE BACK FROM A PLACE IS NOTHING, BUT A FEELINGS.",
+          "website": "http://www.hotelparkthimphu.com",
+          "slug": "hotel-park",
+          "description_excerpt": "Hotel Park Thimphu located at Babasa under Thimphu Dzongkhag the capital city of Bhutan. Well designed building with beautiful appearance with silent...",
+          "cover_photo": {
+            "id": 2226,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/82-cover_ldhyxI.jpg",
+            "resourceable_id": 82,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2024-07-05T13:06:43.000000Z",
+            "updated_at": "2024-07-05T13:06:43.000000Z"
+          }
+        },
+        {
+          "id": 228,
+          "name": "The Dragon Boutique",
+          "email": "thedragonboutique@gmail.com",
+          "contact": 17113171,
+          "description": "The Dragon Boutique with 15 rooms is conveniently located in the heart of the Thimphu Town, whereby, it is easily accessible to most of the shopping and sightseeing areas. We believe in the passionate pursuit of excellence and simplicity and sophistication combined with a hospitable friendliness and uncompromising services and integrity, we strive to provide the best of services and welcome our guests as a part of our family.\r\n\r\nThe Dragon Boutique will provide a conducive environment for our customers to take a break from their busy days, and a place where they can find comfort and luxury. We will at all times demonstrate commitment to sustainability, both individually and as a firm by integrating sustainable business practices wherever possible. We will ensure that we hold ourselves accountable to the highest standards by meeting our client’s needs precisely and completely.",
+          "website": "http://www.thedragonboutique.com",
+          "slug": "the-dragon-boutique",
+          "description_excerpt": "The Dragon Boutique with 15 rooms is conveniently located in the heart of the Thimphu Town, whereby, it is easily accessible to most of the shopping a...",
+          "cover_photo": {
+            "id": 11247,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/228-cover_6b8VCE.jpg",
+            "resourceable_id": 228,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2025-02-20T05:33:41.000000Z",
+            "updated_at": "2025-02-20T05:33:41.000000Z"
+          }
+        },
+        {
+          "id": 100,
+          "name": "Taktsang Village Resort",
+          "email": "reservationshlr@gmail.com",
+          "contact": 17163186,
+          "description": "The Taktsang Village Resort is situated amid paddy fiends from where one can see many of Paro&#039;s sacred temples and monasteries. It is a fine example of a mix of traditional and modern architecture the rooms are spacious and comfortable.  The panoramic view of The Tigers Nest on a cliff directly facing the lodge is a visual delight.",
+          "website": "http://www.hhlbhutan.bt",
+          "slug": "taktsang-village-resort",
+          "description_excerpt": "The Taktsang Village Resort is situated amid paddy fiends from where one can see many of Paro&#039;s sacred temples and monasteries. It is a fine example o...",
+          "cover_photo": {
+            "id": 2880,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/100-cover_kxgnhL.jpg",
+            "resourceable_id": 100,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2024-07-17T07:58:20.000000Z",
+            "updated_at": "2024-07-17T07:58:20.000000Z"
+          }
+        },
+        {
+          "id": 312,
+          "name": "Goldfish Resort & Chhu Lingka",
+          "email": "gofi.resort@gmail.com",
+          "contact": 17354554,
+          "description": "Outskirt of main Town, Calm and peaceful, spacious, all greenaries, family friend waterpark, Nice & cozy outdoor dine/bar with good ambience, Villas to all old folks and children. all with tub/shower. All room with A/C and Geysers, Most affordable Tariff. Business center for huge group 160-180 and a Board meeting hall for ViP meetings for 18 people. a small gym and up coming Steaming facility. Very friendly people to serve & assist.",
+          "website": "http://www.goldfishresort.com",
+          "slug": "goldfish-resort-chhu-lingka",
+          "description_excerpt": "Outskirt of main Town, Calm and peaceful, spacious, all greenaries, family friend waterpark, Nice & cozy outdoor dine/bar with good ambience, Villas t...",
+          "cover_photo": {
+            "id": 15265,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/312-cover_7UrjFm.jpg",
+            "resourceable_id": 312,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2026-05-26T14:19:07.000000Z",
+            "updated_at": "2026-05-26T14:19:07.000000Z"
+          }
+        },
+        {
+          "id": 190,
+          "name": "Yangkhil Resort",
+          "email": "yangkhilresort@gmail.com",
+          "contact": 17111588,
+          "description": "Over the last 20 years, our property has transformed from a modest establishment into a harmonious blend of contemporary comforts and professionalized service, while maintaining the warmth and authenticity of traditional Bhutanese hospitality.\r\n\r\nA distinctive feature of our property is that our core management team has been with the establishment since the very beginning. This continuity has allowed us to deliver consistent, high-quality service that has progressively improved over the years.\r\n\r\nBeyond our business objectives, we are deeply committed to socio-environment sustainability. The majority of our vegetables and fruits are locally sourced and organic, while our hot water system utilizes energy-efficient, eco-friendly heat pump system.\r\n\r\nFor a 3-star rated hotel, Yangkhil offers a range of exclusive amenities that set us apart. These include a cocktail lounge with breathtaking views, spa services, traditional hot stone bath, and a multi-purpose hall designed to function as a yoga/meditation hall, conference hall, to host banquet service and private events.\r\n\r\nThis unique combination of personalized service, sustainable practices, and diverse facilities provides our guests with a memorable and enriching experience that extends far beyond their expectations.",
+          "website": "http://www.yangkhil.com",
+          "slug": "yangkhil-resort",
+          "description_excerpt": "Over the last 20 years, our property has transformed from a modest establishment into a harmonious blend of contemporary comforts and professionalized...",
+          "cover_photo": {
+            "id": 9317,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/190-cover_06lbeD.jpg",
+            "resourceable_id": 190,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2024-10-03T11:24:55.000000Z",
+            "updated_at": "2024-10-03T11:24:55.000000Z"
+          }
+        },
+        {
+          "id": 10,
+          "name": "Bhutan Peaceful Residency & Spa",
+          "email": "bhutanpeaceful2022@gmail.com",
+          "contact": 17140297,
+          "description": "I started my journey in the tourism & hospitality industry in 1996 as a young German speaking tour guide in Bhutan. I was very curious about how my guests felt during their trip to Bhutan so I would always ask for their feedback to improve. Time and time again I would hear about how much they enjoyed visiting Bhutan. However, it was always followed by murmurs like “I couldn’t sleep well”, “the dogs wouldn’t stop barking”, “the beds were not comfortable”, “the heating and cooling system in the rooms were not adequate” – and the long list of feedback on hotels kept piling after each group I led. Many of my guests used to always suggest me that if I ever build anything in Bhutan it should be a hotel. With this in mind, I never stopped dreaming of building a hotel where I could address all the constructive feedback from our guests. Today, after 27 years, the dream of addressing the issues of our guests is finally a reality. Therefore, I would like present to you all - “Bhutan Peaceful Residency & Spa”.",
+          "website": "http://www.bhutanpeacefulresidency.com",
+          "slug": "bhutan-peaceful-residency-spa",
+          "description_excerpt": "I started my journey in the tourism & hospitality industry in 1996 as a young German speaking tour guide in Bhutan. I was very curious about how my gu...",
+          "cover_photo": {
+            "id": 324,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/10-cover_tdeDOE.jpg",
+            "resourceable_id": 10,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2024-06-20T08:42:12.000000Z",
+            "updated_at": "2024-06-20T08:42:12.000000Z"
+          }
+        },
+        {
+          "id": 230,
+          "name": "Kichu Resort",
+          "email": "kichuwangdue1@gmail.com",
+          "contact": 17112160,
+          "description": "KICHU RESORT- CHUZOMSA\r\n\r\nDriving down about 10 km from the Dzong towards Trongsa lies Chuzomsa, at an elevation of 500ft. The Resort at Chuzomsa is once again a riverside respite, only here, the temperature is almost sub-tropical, as can be seen from trees and plants that embellish the setting. Every visitor is lavished with genuine Bhutanese hospitality and friendly service that is the motto of Kichu Resorts.\r\n\r\nThe resort boasts delightful rooms and a suite all of which merges into the riverside foliage and become part of the gushing river. The resort is a true oasis of comfort, in an ambience that is about sylvan splendor. Built in architecture of traditional splendor, hotel has comfortable tastefully furnished rooms opening on to a private balcony from where you can watch the first rays of sun paint reflect on the high tide in the morning or soak in the soft Himalayan sunset \r\n\r\nThe superb Bhutanese vegetarian cuisine served in its modern restaurant, is a real treat. The restaurant chooses to go purely vegetarian as a gesture to His Holiness the Dudjom Rimpoche. A team of chefs and caterers provide a range of international and local cuisine in the most authentic flavor.",
+          "website": null,
+          "slug": "kichu-resort",
+          "description_excerpt": "KICHU RESORT- CHUZOMSA\r\n\r\nDriving down about 10 km from the Dzong towards Trongsa lies Chuzomsa, at an elevation of 500ft. The Resort at Chuzomsa is o...",
+          "cover_photo": {
+            "id": 11256,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/230-cover_Kia1nG.jpg",
+            "resourceable_id": 230,
+            "resourceable_type": "App\\Models\\Hotel",
+            "created_at": "2025-02-20T07:08:19.000000Z",
+            "updated_at": "2025-02-20T07:08:19.000000Z"
+          }
+        }
+      ],
+      "first_page_url": "https://services.bhutan.travel/search/hotel?page=1",
+      "from": 1,
+      "last_page": 7,
+      "last_page_url": "https://services.bhutan.travel/search/hotel?page=7",
+      "links": [
+        {
+          "url": null,
+          "label": "&laquo; Previous",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/hotel?page=1",
+          "label": "1",
+          "active": true
+        },
+        {
+          "url": "https://services.bhutan.travel/search/hotel?page=2",
+          "label": "2",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/hotel?page=3",
+          "label": "3",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/hotel?page=4",
+          "label": "4",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/hotel?page=5",
+          "label": "5",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/hotel?page=6",
+          "label": "6",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/hotel?page=7",
+          "label": "7",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/hotel?page=2",
+          "label": "Next &raquo;",
+          "active": false
+        }
+      ],
+      "next_page_url": "https://services.bhutan.travel/search/hotel?page=2",
+      "path": "https://services.bhutan.travel/search/hotel",
+      "per_page": 30,
+      "prev_page_url": null,
+      "to": 30,
+      "total": 203
+    }
+  },
+  "url": "/search/hotel",
+  "version": "00a82b5f0dcc58101a94d6f7c25a2542"
+}

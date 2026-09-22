@@ -1,0 +1,95 @@
+{
+  "note": "Bhutan does not publish a public national roster of tourist drivers. Licensed tour operators hire/contract chauffeurs with the vehicle. This file is the agent-hire vehicle catalog (chauffeur included, guide extra, fuel usually included for standard west-Bhutan routing; extra km/east/winter may surcharge).",
+  "hire_rules": {
+    "self_drive": false,
+    "chauffeur_included": true,
+    "guide_included": false,
+    "typical_booking_lead_days": 20,
+    "popular_models": [
+      "Santa Fe",
+      "Tucson",
+      "Creta",
+      "Hiace",
+      "Prado",
+      "Innova",
+      "Coaster",
+      "H1",
+      "Hilux"
+    ]
+  },
+  "categories": [
+    {
+      "category": "Hatchback / city taxi",
+      "models": "Alto, WagonR, i20, Eeco",
+      "pax": "2–3 + driver",
+      "typical_inr_day": 3500,
+      "typical_usd_day": 42,
+      "use": "Local hops / tight budget; rarely used for multi-day FIT"
+    },
+    {
+      "category": "Compact SUV",
+      "models": "Hyundai Creta, Tucson, Santa Fe, Mahindra Scorpio, Bolero",
+      "pax": "3–4 + driver",
+      "typical_inr_day": 4500,
+      "typical_usd_day": 54,
+      "use": "Standard 2–4 pax FIT, Indian FIT workhorse"
+    },
+    {
+      "category": "MPV / family",
+      "models": "Toyota Innova / Innova Crysta, Ertiga, Hyundai H1",
+      "pax": "5–6 + driver",
+      "typical_inr_day": 5500,
+      "typical_usd_day": 66,
+      "use": "Families with luggage; H1 as van alternative"
+    },
+    {
+      "category": "Luxury SUV",
+      "models": "Toyota Land Cruiser Prado",
+      "pax": "3–4 + driver",
+      "typical_inr_day": 7000,
+      "typical_usd_day": 84,
+      "use": "VIP / Chinese FIT / winter snow routes"
+    },
+    {
+      "category": "Premium 4WD",
+      "models": "Toyota Land Cruiser 200/300",
+      "pax": "3–4 + driver",
+      "typical_inr_day": 14000,
+      "typical_usd_day": 167,
+      "use": "High-end FIT, east Bhutan, rough roads"
+    },
+    {
+      "category": "Minivan",
+      "models": "Toyota Hiace",
+      "pax": "7–8 + driver",
+      "typical_inr_day": 7500,
+      "typical_usd_day": 89,
+      "use": "Small groups 5–8 pax"
+    },
+    {
+      "category": "High-roof van",
+      "models": "Toyota Hiace Highroof",
+      "pax": "8 + driver",
+      "typical_inr_day": 9000,
+      "typical_usd_day": 107,
+      "use": "Comfort groups, taller guests, more luggage"
+    },
+    {
+      "category": "Coaster minibus",
+      "models": "Toyota Coaster 4-cyl / 6-cyl",
+      "pax": "18–21 + driver",
+      "typical_inr_day": 10500,
+      "typical_usd_day": 125,
+      "use": "Coach groups; 6-cyl ~ Nu 12,000"
+    },
+    {
+      "category": "Pickup / utility",
+      "models": "Toyota Hilux, Isuzu D-Max",
+      "pax": "3–4 + driver",
+      "typical_inr_day": 5500,
+      "typical_usd_day": 66,
+      "use": "Trekking support, east / farm roads"
+    }
+  ],
+  "drivers_in_this_dataset": []
+}

@@ -1,0 +1,1845 @@
+{
+  "component": "Search/Show",
+  "props": {
+    "errors": {},
+    "auth": {
+      "user": null
+    },
+    "ziggy": {
+      "url": "https://services.bhutan.travel",
+      "port": null,
+      "defaults": [],
+      "routes": {
+        "debugbar.openhandler": {
+          "uri": "_debugbar/open",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "debugbar.clockwork": {
+          "uri": "_debugbar/clockwork/{id}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "debugbar.assets.css": {
+          "uri": "_debugbar/assets/stylesheets",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "debugbar.assets.js": {
+          "uri": "_debugbar/assets/javascript",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "debugbar.cache.delete": {
+          "uri": "_debugbar/cache/{key}/{tags?}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "key",
+            "tags"
+          ]
+        },
+        "sanctum.csrf-cookie": {
+          "uri": "sanctum/csrf-cookie",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "ignition.healthCheck": {
+          "uri": "_ignition/health-check",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "ignition.executeSolution": {
+          "uri": "_ignition/execute-solution",
+          "methods": [
+            "POST"
+          ]
+        },
+        "ignition.updateConfig": {
+          "uri": "_ignition/update-config",
+          "methods": [
+            "POST"
+          ]
+        },
+        "home": {
+          "uri": "/",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "about": {
+          "uri": "about",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "registration.index": {
+          "uri": "registration",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "registration.create": {
+          "uri": "registration/{slug}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "slug": "tour-operator|guide|hotel|homestay|restaurant|handicraft|other"
+          },
+          "parameters": [
+            "slug"
+          ]
+        },
+        "registration.success": {
+          "uri": "registration/success",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "tour-operator.register": {
+          "uri": "tour-operator-registration",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.register": {
+          "uri": "guide-registration",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.register": {
+          "uri": "hotel-registration",
+          "methods": [
+            "POST"
+          ]
+        },
+        "homestay.register": {
+          "uri": "homestay-registration",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.register": {
+          "uri": "restaurant-registration",
+          "methods": [
+            "POST"
+          ]
+        },
+        "handicraft.register": {
+          "uri": "handicraft-registration",
+          "methods": [
+            "POST"
+          ]
+        },
+        "other-service-providers.register": {
+          "uri": "other-service-providers",
+          "methods": [
+            "POST"
+          ]
+        },
+        "registration.track-status": {
+          "uri": "track-registration-status",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "search.dashboard": {
+          "uri": "search/dashboard",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "search.index": {
+          "uri": "search/{slug}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "slug"
+          ]
+        },
+        "search.show": {
+          "uri": "search/{registrationType}/{slug}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "registrationType",
+            "slug"
+          ]
+        },
+        "external.user.dashboard": {
+          "uri": "user/dashboard",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "external.user.profile-photo": {
+          "uri": "user/profile-photo",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "external.user.profile-photo-update": {
+          "uri": "user/profile-photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "external.user.cover-photo": {
+          "uri": "user/cover-photo",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "external.user.cover-photo-update": {
+          "uri": "user/cover-photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "external.user.page-type": {
+          "uri": "user/{pageType}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "tour-operator.page-type.edit": {
+          "uri": "tour-operator/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|social-media|language|tour-types|itinerary|photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "tour-operator.profile.update": {
+          "uri": "tour-operator/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.social-media.update": {
+          "uri": "tour-operator/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.tour-location.update": {
+          "uri": "tour-operator/tour-location/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.tour-type.update": {
+          "uri": "tour-operator/tour-types/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.language.update": {
+          "uri": "tour-operator/language/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.itinerary.update": {
+          "uri": "tour-operator/itinerary/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.photo.update": {
+          "uri": "tour-operator/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.guest-review.update": {
+          "uri": "tour-operator/guest-review/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "tour-operator.delete.data": {
+          "uri": "tour-operator/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|social-media|language|tour-types|itinerary|photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "guide.page-type.edit": {
+          "uri": "guide/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|social-media|language|tour-types|photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "guide.profile.update": {
+          "uri": "guide/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.social-media.update": {
+          "uri": "guide/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.tour-location.update": {
+          "uri": "guide/tour-location/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.language.update": {
+          "uri": "guide/language/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.tour-type.update": {
+          "uri": "guide/tour-types/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.photo.update": {
+          "uri": "guide/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "guide.delete.data": {
+          "uri": "guide/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|social-media|language|tour-types|photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "hotel.page-type.edit": {
+          "uri": "hotel/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|language|social-media|facility|photo|experience-photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "hotel.profile.update": {
+          "uri": "hotel/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.language.update": {
+          "uri": "hotel/language/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.social-media.update": {
+          "uri": "hotel/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.facility.update": {
+          "uri": "hotel/facility/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.photo.update": {
+          "uri": "hotel/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.experience-photo.update": {
+          "uri": "hotel/experience-photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "hotel.delete.data": {
+          "uri": "hotel/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|language|social-media|facility|photo|experience-photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "other-service-provider.page-type.edit": {
+          "uri": "other-service-provider/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|service|social-media|photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "other-service-provider.profile.update": {
+          "uri": "other-service-provider/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "other-service-provider.service.update": {
+          "uri": "other-service-provider/service/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "other-service-provider.social-media.update": {
+          "uri": "other-service-provider/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "other-service-provider.photo.update": {
+          "uri": "other-service-provider/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "other-service-provider.delete.data": {
+          "uri": "other-service-provider/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|service|social-media|photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "homestay.page-type.edit": {
+          "uri": "homestay/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|social-media|facility|photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "homestay.profile.update": {
+          "uri": "homestay/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "homestay.social-media.update": {
+          "uri": "homestay/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "homestay.facility.update": {
+          "uri": "homestay/facility/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "homestay.photo.update": {
+          "uri": "homestay/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "homestay.delete.data": {
+          "uri": "homestay/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|social-media|facility|photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "restaurant.page-type.edit": {
+          "uri": "restaurant/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|cuisines|opening-hours|social-media|menu|photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "restaurant.profile.update": {
+          "uri": "restaurant/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.social-media.update": {
+          "uri": "restaurant/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.opening-hours.update": {
+          "uri": "restaurant/opening-hours/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.menu.update": {
+          "uri": "restaurant/menu/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.photo.update": {
+          "uri": "restaurant/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.cuisine.update": {
+          "uri": "restaurant/cuisines/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "restaurant.delete.data": {
+          "uri": "restaurant/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|cuisines|opening-hours|social-media|menu|photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "handicraft.page-type.edit": {
+          "uri": "handicraft/{pageType}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "pageType": "profile|opening-hours|social-media|photo"
+          },
+          "parameters": [
+            "pageType"
+          ]
+        },
+        "handicraft.profile.update": {
+          "uri": "handicraft/profile/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "handicraft.social-media.update": {
+          "uri": "handicraft/social-media/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "handicraft.opening-hours.update": {
+          "uri": "handicraft/opening-hours/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "handicraft.photo.update": {
+          "uri": "handicraft/photo/update",
+          "methods": [
+            "POST"
+          ]
+        },
+        "handicraft.delete.data": {
+          "uri": "handicraft/{id}/delete/{pageType}",
+          "methods": [
+            "DELETE"
+          ],
+          "wheres": {
+            "id": "[0-9]+",
+            "pageType": "profile|opening-hours|social-media|photo"
+          },
+          "parameters": [
+            "id",
+            "pageType"
+          ]
+        },
+        "profile.change-password": {
+          "uri": "change-password",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "dashboard": {
+          "uri": "dashboard",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "preview.license-copy": {
+          "uri": "preview-license-copy/{registrationType}/{registrationId}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "wheres": {
+            "registrationType": "1|2|3|4|5|6|7"
+          },
+          "parameters": [
+            "registrationType",
+            "registrationId"
+          ]
+        },
+        "preview.star-rating-certificate": {
+          "uri": "preview-star-rating-certificate/{registrationId}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "registrationId"
+          ]
+        },
+        "masters.index": {
+          "uri": "masters",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "masters.create": {
+          "uri": "masters/create",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "masters.store": {
+          "uri": "masters",
+          "methods": [
+            "POST"
+          ]
+        },
+        "masters.show": {
+          "uri": "masters/{master}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "master"
+          ]
+        },
+        "masters.edit": {
+          "uri": "masters/{master}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "master"
+          ]
+        },
+        "masters.update": {
+          "uri": "masters/{master}",
+          "methods": [
+            "PUT",
+            "PATCH"
+          ],
+          "parameters": [
+            "master"
+          ]
+        },
+        "masters.destroy": {
+          "uri": "masters/{master}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "master"
+          ]
+        },
+        "users.update.password": {
+          "uri": "users/update/password/{id}",
+          "methods": [
+            "POST"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "users.index": {
+          "uri": "users",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "users.create": {
+          "uri": "users/create",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "users.store": {
+          "uri": "users",
+          "methods": [
+            "POST"
+          ]
+        },
+        "users.show": {
+          "uri": "users/{user}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "user"
+          ]
+        },
+        "users.edit": {
+          "uri": "users/{user}/edit",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "user"
+          ]
+        },
+        "users.update": {
+          "uri": "users/{user}",
+          "methods": [
+            "PUT",
+            "PATCH"
+          ],
+          "parameters": [
+            "user"
+          ]
+        },
+        "users.destroy": {
+          "uri": "users/{user}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "user"
+          ]
+        },
+        "verify.registration.dashboard": {
+          "uri": "verify/registration/dashboard",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "verify.registration.list": {
+          "uri": "verify/registration/{type}/list",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "type"
+          ]
+        },
+        "verify.registration.show": {
+          "uri": "verify/{type}/registration/{id}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "type",
+            "id"
+          ]
+        },
+        "verify.registration.update": {
+          "uri": "verify/registration/{type}/{id}",
+          "methods": [
+            "POST"
+          ],
+          "parameters": [
+            "type",
+            "id"
+          ]
+        },
+        "service-provider.dashboard": {
+          "uri": "service-providers/dashboard",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "service-provider.index": {
+          "uri": "service-providers/{type}/list",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "type"
+          ]
+        },
+        "service-provider.show": {
+          "uri": "service-providers/{type}/{id}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "type",
+            "id"
+          ]
+        },
+        "service-provider.export-to-excel": {
+          "uri": "service-providers-export/{type}/excel",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "type"
+          ]
+        },
+        "service-provider.tour-operator.delete": {
+          "uri": "service-providers/tour-operator/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "service-provider.guide.delete": {
+          "uri": "service-providers/guuide/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "service-provider.hotel.delete": {
+          "uri": "service-providers/hotel/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "service-provider.homestay.delete": {
+          "uri": "service-providers/homestay/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "service-provider.restaurant.delete": {
+          "uri": "service-providers/restaurant/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "service-provider.handicraft.delete": {
+          "uri": "service-providers/handicraft/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "service-provider.others.delete": {
+          "uri": "service-providers/others/delete/{id}",
+          "methods": [
+            "DELETE"
+          ],
+          "parameters": [
+            "id"
+          ]
+        },
+        "register": {
+          "uri": "register",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "login": {
+          "uri": "login",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "password.request": {
+          "uri": "forgot-password",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "password.email": {
+          "uri": "forgot-password",
+          "methods": [
+            "POST"
+          ]
+        },
+        "password.reset": {
+          "uri": "reset-password/{token}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "token"
+          ]
+        },
+        "password.store": {
+          "uri": "reset-password",
+          "methods": [
+            "POST"
+          ]
+        },
+        "verification.notice": {
+          "uri": "verify-email",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "verification.verify": {
+          "uri": "verify-email/{id}/{hash}",
+          "methods": [
+            "GET",
+            "HEAD"
+          ],
+          "parameters": [
+            "id",
+            "hash"
+          ]
+        },
+        "verification.send": {
+          "uri": "email/verification-notification",
+          "methods": [
+            "POST"
+          ]
+        },
+        "password.confirm": {
+          "uri": "confirm-password",
+          "methods": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "password.update": {
+          "uri": "password",
+          "methods": [
+            "PUT"
+          ]
+        },
+        "logout": {
+          "uri": "logout",
+          "methods": [
+            "POST"
+          ]
+        }
+      },
+      "location": "https://services.bhutan.travel/search/guide"
+    },
+    "flash": {
+      "success": null,
+      "error": null,
+      "registration_success": null
+    },
+    "registrationTypes": [
+      {
+        "label": "Tour Operators",
+        "value": 1,
+        "slug": "tour-operator"
+      },
+      {
+        "label": "Guides",
+        "value": 2,
+        "slug": "guide"
+      },
+      {
+        "label": "Hotels",
+        "value": 3,
+        "slug": "hotel"
+      },
+      {
+        "label": "Homestays",
+        "value": 4,
+        "slug": "homestay"
+      },
+      {
+        "label": "Restaurants",
+        "value": 5,
+        "slug": "restaurant"
+      },
+      {
+        "label": "Handicrafts",
+        "value": 6,
+        "slug": "handicraft"
+      },
+      {
+        "label": "Other Service Providers",
+        "value": 7,
+        "slug": "other"
+      }
+    ],
+    "registrationTypeSlug": "guide",
+    "filters": {
+      "locations": [
+        {
+          "id": 11,
+          "value": "Bumthang"
+        },
+        {
+          "id": 4,
+          "value": "Chhukha"
+        },
+        {
+          "id": 7,
+          "value": "Dagana"
+        },
+        {
+          "id": 8,
+          "value": "Gasa"
+        },
+        {
+          "id": 5,
+          "value": "Haa"
+        },
+        {
+          "id": 15,
+          "value": "Lhuntse"
+        },
+        {
+          "id": 16,
+          "value": "Mongar"
+        },
+        {
+          "id": 2,
+          "value": "Paro"
+        },
+        {
+          "id": 17,
+          "value": "Pema Gatshel"
+        },
+        {
+          "id": 3,
+          "value": "Punakha"
+        },
+        {
+          "id": 18,
+          "value": "Samdrup Jongkhar"
+        },
+        {
+          "id": 6,
+          "value": "Samtse"
+        },
+        {
+          "id": 12,
+          "value": "Sarpang"
+        },
+        {
+          "id": 1,
+          "value": "Thimphu"
+        },
+        {
+          "id": 20,
+          "value": "Trashi Yangtse"
+        },
+        {
+          "id": 19,
+          "value": "Trashigang"
+        },
+        {
+          "id": 13,
+          "value": "Trongsa"
+        },
+        {
+          "id": 9,
+          "value": "Tsirang"
+        },
+        {
+          "id": 10,
+          "value": "Wangdue Phodrang"
+        },
+        {
+          "id": 14,
+          "value": "Zhemgang"
+        }
+      ],
+      "languages": [
+        {
+          "id": 35,
+          "value": "Arabic"
+        },
+        {
+          "id": 26,
+          "value": "Cantonese"
+        },
+        {
+          "id": 21,
+          "value": "English"
+        },
+        {
+          "id": 22,
+          "value": "French"
+        },
+        {
+          "id": 30,
+          "value": "German"
+        },
+        {
+          "id": 28,
+          "value": "Hindi"
+        },
+        {
+          "id": 27,
+          "value": "Italian"
+        },
+        {
+          "id": 31,
+          "value": "Japanese"
+        },
+        {
+          "id": 33,
+          "value": "Korean"
+        },
+        {
+          "id": 32,
+          "value": "Malay"
+        },
+        {
+          "id": 25,
+          "value": "Mandarin"
+        },
+        {
+          "id": 29,
+          "value": "Nepali"
+        },
+        {
+          "id": 34,
+          "value": "Portugese"
+        },
+        {
+          "id": 24,
+          "value": "Russian"
+        },
+        {
+          "id": 23,
+          "value": "Spanish"
+        }
+      ],
+      "tour_types": [
+        {
+          "id": 38,
+          "value": "Adventure"
+        },
+        {
+          "id": 40,
+          "value": "Bird Watching"
+        },
+        {
+          "id": 36,
+          "value": "Culture"
+        },
+        {
+          "id": 128,
+          "value": "Cycling"
+        },
+        {
+          "id": 39,
+          "value": "Family"
+        },
+        {
+          "id": 43,
+          "value": "Fishing"
+        },
+        {
+          "id": 126,
+          "value": "Hiking"
+        },
+        {
+          "id": 127,
+          "value": "History"
+        },
+        {
+          "id": 148,
+          "value": "MICE"
+        },
+        {
+          "id": 41,
+          "value": "Motorcycle"
+        },
+        {
+          "id": 42,
+          "value": "Nature"
+        },
+        {
+          "id": 129,
+          "value": "Other"
+        },
+        {
+          "id": 44,
+          "value": "Photography and videography"
+        },
+        {
+          "id": 149,
+          "value": "Rafting"
+        },
+        {
+          "id": 45,
+          "value": "Spiritual"
+        },
+        {
+          "id": 37,
+          "value": "Trekking"
+        }
+      ],
+      "genders": [
+        {
+          "value": "male",
+          "label": "Male"
+        },
+        {
+          "value": "female",
+          "label": "Female"
+        }
+      ],
+      "licenseTypes": [
+        {
+          "id": 65,
+          "value": "Culture (level 1)"
+        },
+        {
+          "id": 67,
+          "value": "Tour Leader (level 3)"
+        },
+        {
+          "id": 66,
+          "value": "Trekking (level 2)"
+        }
+      ]
+    },
+    "serviceProviderType": {
+      "id": 2,
+      "display_order": 4,
+      "slug": "guide",
+      "label": "Guides",
+      "excerpt": "Guides registered with DOT can share the tours and languages they specialize in",
+      "description": "A knowledgeable and personable guide can significantly enhance your travel experience",
+      "cover": "/images/cover-four.jpeg"
+    },
+    "results": {
+      "current_page": 1,
+      "data": [
+        {
+          "id": 109,
+          "name": "Pema wangda",
+          "email": "wangdapema2@gmail.com",
+          "contact": 17743506,
+          "description": "I have gained ample knowledge and experiences dealing with different kinds of people around the world over my six years of experiences in the guiding field. I have burned midnight oil to achieve the height of capabilities and I am always optimistic to render my service with outmost respect and dedication.",
+          "website": null,
+          "slug": "pema-wangda",
+          "description_excerpt": "I have gained ample knowledge and experiences dealing with different kinds of people around the world over my six years of experiences in the guiding...",
+          "cover_photo": null
+        },
+        {
+          "id": 303,
+          "name": "Tshewang Phuntsho",
+          "email": "tshewaangg@gmail.com",
+          "contact": 17995220,
+          "description": "I am different from other tour guides: \n\n 1.  Patience and consistency\n\n 2.  Punctual and Honest\n\n 3.  Adaptability and flexibility \n\n4.  Instant Availability and Information Accuracy. \nI expanded my skills by completing German language in Europe and am now ready to guide and connect with German-speaking visitors in Bhutan. In addition to this, I am also a licensed trekking guide, which allows me to lead both cultural and trekking tours with confidence and passion.",
+          "website": "https://wa.me/qr/OBPFYQZ4O7Q6J1",
+          "slug": "tshewang-phuntsho",
+          "description_excerpt": "I am different from other tour guides: \n\n 1.  Patience and consistency\n\n 2.  Punctual and Honest\n\n 3.  Adaptability and flexibility \n\n4.  Instant Avai...",
+          "cover_photo": {
+            "id": 7211,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/303-cover_t42zUa.jpg",
+            "resourceable_id": 303,
+            "resourceable_type": "App\\Models\\Guide",
+            "created_at": "2024-08-16T20:00:06.000000Z",
+            "updated_at": "2024-08-16T20:00:06.000000Z"
+          }
+        },
+        {
+          "id": 1281,
+          "name": "Kharka bahadur Gurung",
+          "email": "kharka606@gmail.com",
+          "contact": 77423195,
+          "description": "I am different from others because I love to upgrade my knowledge by doing as many as possible traning related to guiding or tourism. So someone should hire me because I am government satisfy license holder tour guide who has also done training in tracking,Basic birding, fishing. Basic first ads  Those are all in addition to Culture and Buddhism of the country and I love to travel around to explore more about the new ideas .",
+          "website": null,
+          "slug": "kharka-bahadur-gurung",
+          "description_excerpt": "I am different from others because I love to upgrade my knowledge by doing as many as possible traning related to guiding or tourism. So someone shoul...",
+          "cover_photo": null
+        },
+        {
+          "id": 353,
+          "name": "Yeshey Dorji",
+          "email": "ydyd.dorji@gmail.com",
+          "contact": 17611963,
+          "description": null,
+          "website": null,
+          "slug": "yeshey-dorji",
+          "description_excerpt": null,
+          "cover_photo": null
+        },
+        {
+          "id": 293,
+          "name": "Ugyen dhongag nima",
+          "email": "dhongagugyen@gmail.com",
+          "contact": 77241065,
+          "description": "Someone should hire me because I take guiding as not just profession but as passion and I love dealing with people of different cultural backgrounds and ethnicity that includes both regional and international tourists. On top of that I&#039;m a very patient, punctual and honest guy with the aim of always giving full services with outmost interest. Some only work for capital but I chose guiding as I love escorting and interacting outside people who chose our country Bhutan as their tour destination.",
+          "website": null,
+          "slug": "ugyen-dhongag-nima",
+          "description_excerpt": "Someone should hire me because I take guiding as not just profession but as passion and I love dealing with people of different cultural backgrounds a...",
+          "cover_photo": null
+        },
+        {
+          "id": 1170,
+          "name": "Tandin Phurba",
+          "email": "tandinphurb@gmail.com",
+          "contact": 17563745,
+          "description": "I always go above and beyond what is expected at work , so that I can make their experience a memorable one and I can also work extra hour if my tourist needed me in short notice so that even in future it will help our country and the company. I believe that my motivation, team work, communication and work ethics make me different from other guides which makes me cooperative  with others and provide a quality service to the tourist. I am a also a person who don&#039;t treat guiding as a work but I always think what I can I do to make the company grow as well as for the benefits of the country promoting our country&#039;s brand. Every thing I do is just for the company and the country to growans provide good result. And lastly I am a person who can make my own decision during difficult challenges and slove the conflict when things go wrong that is best interest of the clients, company as well as the country.",
+          "website": null,
+          "slug": "tandin-phurba",
+          "description_excerpt": "I always go above and beyond what is expected at work , so that I can make their experience a memorable one and I can also work extra hour if my touri...",
+          "cover_photo": {
+            "id": 8539,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/1170-cover_LGUoMh.jpg",
+            "resourceable_id": 1170,
+            "resourceable_type": "App\\Models\\Guide",
+            "created_at": "2024-09-05T11:02:23.000000Z",
+            "updated_at": "2024-09-05T11:02:23.000000Z"
+          }
+        },
+        {
+          "id": 264,
+          "name": "Tenzin Namgyel",
+          "email": "namgyelten@gmail.com",
+          "contact": 17413132,
+          "description": "I have running 14 years experience in tour guiding and i have both culture and trekking guide license.",
+          "website": null,
+          "slug": "tenzin-namgyel",
+          "description_excerpt": "I have running 14 years experience in tour guiding and i have both culture and trekking guide license.",
+          "cover_photo": {
+            "id": 3641,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/264-cover_i2VBtA.jpg",
+            "resourceable_id": 264,
+            "resourceable_type": "App\\Models\\Guide",
+            "created_at": "2024-07-22T11:52:30.000000Z",
+            "updated_at": "2024-07-22T11:52:30.000000Z"
+          }
+        },
+        {
+          "id": 154,
+          "name": "Singye Wangmo",
+          "email": "Singyewangmo200@gmail.com",
+          "contact": 17354737,
+          "description": "Although all the guides are same who have responsibility to serve guests.but for me I prefer guest satisfaction over self satisfaction,and I think that am a capable person to serve the guest as they have short periods of time here in Bhutan so why not make it wonderful one.",
+          "website": null,
+          "slug": "singye-wangmo",
+          "description_excerpt": "Although all the guides are same who have responsibility to serve guests.but for me I prefer guest satisfaction over self satisfaction,and I think tha...",
+          "cover_photo": null
+        },
+        {
+          "id": 1355,
+          "name": "Kinley wangmo",
+          "email": "kueenly79@gmail.com",
+          "contact": 17853438,
+          "description": "What sets me apart as a guide is my genuine passion for sharing knowledge in a way that is both engaging and accessible. I am dedicated to tailoring each experience to the interests and needs of my guests, ensuring that every tour feels personal and enriching. I make an effort to create an interactive atmosphere where questions are encouraged, allowing visitors to dive deeper into the subject matter. My ability to adapt to different learning styles and energy levels helps me connect with a wide range of people, from first-time visitors to seasoned travelers.\r\n\r\nMoreover, I am committed to continuous learning and improvement, staying up to date with the latest information about the areas I guide through. My previous experiences, combined with my natural curiosity, mean I often uncover lesser-known stories or perspectives that captivate my audience. My goal is not just to inform, but to create memorable, immersive experiences that leave a lasting impression. It’s my belief that a successful guide goes beyond simply delivering facts; they inspire a sense of wonder and connection. This approach ensures that every guest leaves with more than just knowledge—they leave with lasting memories.",
+          "website": null,
+          "slug": "kinley-wangmo",
+          "description_excerpt": "What sets me apart as a guide is my genuine passion for sharing knowledge in a way that is both engaging and accessible. I am dedicated to tailoring e...",
+          "cover_photo": null
+        },
+        {
+          "id": 254,
+          "name": "Tshering Wangchuk",
+          "email": "tsheringw987@gmail.com",
+          "contact": 17439572,
+          "description": "Guiding is a profession that I enjoy the most. Everyday I’m learning, exchanging different cultural diversities and getting to know them\r\nVery good at speaking and I believe in punctuality",
+          "website": null,
+          "slug": "tshering-wangchuk-1",
+          "description_excerpt": "Guiding is a profession that I enjoy the most. Everyday I’m learning, exchanging different cultural diversities and getting to know them\r\nVery good at...",
+          "cover_photo": null
+        },
+        {
+          "id": 355,
+          "name": "Gyem Dorji",
+          "email": "ijrod193@gmail.com",
+          "contact": 77856852,
+          "description": "What sets me apart from other guides is my ability to provide comprehensive, tailored information quickly based on a vast range of topics. I can adapt to different needs, whether it&#039;s offering detailed explanations, helping with problem-solving, or providing creative ideas. If you hire me, you&#039;ll benefit from a responsive, knowledgeable resource that&#039;s available 24/7, ready to assist with a wide variety of questions and challenges.",
+          "website": null,
+          "slug": "gyem-dorji",
+          "description_excerpt": "What sets me apart from other guides is my ability to provide comprehensive, tailored information quickly based on a vast range of topics. I can adapt...",
+          "cover_photo": {
+            "id": 4108,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/355-cover_gUhva8.jpg",
+            "resourceable_id": 355,
+            "resourceable_type": "App\\Models\\Guide",
+            "created_at": "2024-07-23T13:32:17.000000Z",
+            "updated_at": "2024-07-23T13:32:17.000000Z"
+          }
+        },
+        {
+          "id": 982,
+          "name": "Ratu",
+          "email": "ratu2136@gmail.com",
+          "contact": 17222444,
+          "description": "As a tour leader catering to VVIP and high-end clients in Bhutan, I have had the privilege of showcasing the country&#039;s rich culture, stunning nature, and unique ecological treasures. From the sacred monasteries and vibrant festivals to the serene landscapes of the Himalayas, each tour is meticulously crafted to offer an exclusive and immersive experience. My clients enjoy personalized journeys through ancient fortresses, traditional villages, and pristine forests. I ensure every detail is attended to, providing insights into Bhutan&#039;s heritage and ecological practices. Whether it&#039;s a private audience with a lama or a tranquil hike to a hidden valley, my goal is to create unforgettable memories, highlighting Bhutan’s harmony between tradition and nature. This role allows me to share the beauty and wisdom of Bhutan with discerning travelers.",
+          "website": null,
+          "slug": "ratu",
+          "description_excerpt": "As a tour leader catering to VVIP and high-end clients in Bhutan, I have had the privilege of showcasing the country&#039;s rich culture, stunning nature,...",
+          "cover_photo": null
+        },
+        {
+          "id": 1584,
+          "name": "Wangchuk Wangchuk",
+          "email": "iwillbetheone23@yahoo.com",
+          "contact": 77333455,
+          "description": "Discover Bhutan with an award-winning guide. Holder of the Best Hospitality trophy, I weave local folklore and hidden trails into your perfect journey. Let’s create your unforgettable adventure.",
+          "website": null,
+          "slug": "wangchuk-wangchuk",
+          "description_excerpt": "Discover Bhutan with an award-winning guide. Holder of the Best Hospitality trophy, I weave local folklore and hidden trails into your perfect journey...",
+          "cover_photo": null
+        },
+        {
+          "id": 124,
+          "name": "Thinley Wangchuk",
+          "email": "bhutannamdruk@gmail.com",
+          "contact": 17602566,
+          "description": "**Embarking on a Journey Through the Mystic Himalayas: 21 Years of Guiding in Bhutan**\nFor a two decades, I have had the profound privilege of guiding adventurous souls and culture seekers through the enchanting realm of Bhutan. As a trekking and culture guide, I have witnessed firsthand the transformative power of this Himalayan paradise.\nMy passion for Bhutan ignited with my first steps into its pristine valleys. The towering peaks, vibrant monasteries, and warm smiles of its people captivated me. Since then, I have dedicated my life to sharing the wonders of my homeland with those who seek a truly immersive experience.",
+          "website": "http://www.bhutannamdruk.com",
+          "slug": "thinley-wangchuk",
+          "description_excerpt": "**Embarking on a Journey Through the Mystic Himalayas: 21 Years of Guiding in Bhutan**\nFor a two decades, I have had the profound privilege of guiding...",
+          "cover_photo": {
+            "id": 9140,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/124-cover_Ocdq80.jpg",
+            "resourceable_id": 124,
+            "resourceable_type": "App\\Models\\Guide",
+            "created_at": "2024-09-25T15:03:28.000000Z",
+            "updated_at": "2024-09-25T15:03:28.000000Z"
+          }
+        },
+        {
+          "id": 152,
+          "name": "Kezang Tshering",
+          "email": "kelszangt@gmail.com",
+          "contact": 17237396,
+          "description": "What sets me apart from other guides is my unique blend of knowledge, passion, and dedication to creating personalized and memorable experiences for my clients.\r\nYou should consider hiring me as your tour guide because of my deep knowledge and expertise in the destinations we will be exploring. With years of experience leading tours, I am well-equipped to provide you with a seamless and enriching travel experience. My passion for sharing the history, culture, and highlights of each location ensures that you will gain a thorough understanding and appreciation of the places we visit. Additionally, my organizational skills and commitment to customer satisfaction guarantee that your tour will run smoothly and be tailored to meet your individual preferences. With me as your guide, you can rest assured that you will not only see the best each destination has to offer but also have a memorable and enjoyable journey.",
+          "website": null,
+          "slug": "kezang-tshering",
+          "description_excerpt": "What sets me apart from other guides is my unique blend of knowledge, passion, and dedication to creating personalized and memorable experiences for m...",
+          "cover_photo": null
+        },
+        {
+          "id": 590,
+          "name": "Tashi Dendup",
+          "email": "trashidnamgyel@gmail.com",
+          "contact": 17360604,
+          "description": "I may not have much experience than others but I am confident that I have confidence, knowledge about Bhutan, culture and tradition of Bhutan. I am friendly, easy to be friend. I am punctual and likes to do works on time. And I am responsible citizen and ready to serve by nation. And I am also para military of the nation( DeSuup).",
+          "website": null,
+          "slug": "tashi-dendup-1",
+          "description_excerpt": "I may not have much experience than others but I am confident that I have confidence, knowledge about Bhutan, culture and tradition of Bhutan. I am fr...",
+          "cover_photo": {
+            "id": 5340,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/590-cover_8bjoBw.jpg",
+            "resourceable_id": 590,
+            "resourceable_type": "App\\Models\\Guide",
+            "created_at": "2024-07-30T04:46:27.000000Z",
+            "updated_at": "2024-07-30T04:46:27.000000Z"
+          }
+        },
+        {
+          "id": 540,
+          "name": "Ugyen Wangchuk",
+          "email": "bhutanugyen@yahoo.com",
+          "contact": 17613284,
+          "description": "Some one mean the agent hired me being have a good reputation, work with loyalty and dedication, and fulfill their duties without failure.",
+          "website": null,
+          "slug": "ugyen-wangchuk",
+          "description_excerpt": "Some one mean the agent hired me being have a good reputation, work with loyalty and dedication, and fulfill their duties without failure.",
+          "cover_photo": null
+        },
+        {
+          "id": 1356,
+          "name": "Yang den",
+          "email": "yangu1997@gmail.com",
+          "contact": 17928959,
+          "description": "As a need guide, I take immense pride in my work, dedicating myself fully to each task and responsibility. My passion drives me to go above and beyond in delivering top-notch guidance to those I assist. Hard work is a core value for me, and I believe that consistent effort leads to meaningful outcomes, not only for myself but also for the people who rely on my support.\r\n\r\nI approach my role with a deep sense of purpose, striving to make a positive impact by being attentive, reliable, and adaptable. Each interaction I have is an opportunity to connect and provide the best possible service, ensuring that I meet the needs of those I guide with the utmost care and professionalism. My dedication motivates me to continuously improve, always seeking ways to enhance my skills and contribute more effectively.\r\n\r\nPassion fuels my commitment, allowing me to remain enthusiastic and driven, even in challenging situations. I understand the importance of making a difference, and that is what keeps me focused and motivated. By staying true to my values, I aim to leave a lasting impression and contribute meaningfully to the success of others.",
+          "website": null,
+          "slug": "yang-den",
+          "description_excerpt": "As a need guide, I take immense pride in my work, dedicating myself fully to each task and responsibility. My passion drives me to go above and beyond...",
+          "cover_photo": null
+        },
+        {
+          "id": 416,
+          "name": "Kaka",
+          "email": "shaakaka05@gmail.com",
+          "contact": 17331590,
+          "description": "What makes me different from others is I have a long working experience not only in guiding but in teaching as well. So  combined these together I think that I can be a better guide. Also my educational background, Language and Cultural Studies where I have a good History and Iconography knowledge. Which is very important in the guiding field. On the other hand my working experience as a guide in the Tourism Industry for over 10 years where I have gained lots of experiences and exposures meeting with different people across the world.",
+          "website": null,
+          "slug": "kaka",
+          "description_excerpt": "What makes me different from others is I have a long working experience not only in guiding but in teaching as well. So  combined these together I thi...",
+          "cover_photo": null
+        },
+        {
+          "id": 885,
+          "name": "Pema wangdi",
+          "email": "peemaaongdi@gmail.com",
+          "contact": 17280237,
+          "description": "Main thing make me unique is my energy,my passion for this type of work. I believe I always get more done than average person, which means you will see a positive return on tour if you hire me.\r\nI am always energetic person and I always go beyond the what is required in the work,I will go out of my way to do extra hours when you need me too and to experience memorable Holiday.\r\nFinally my uniqueness is the fact i will put extra effort.",
+          "website": null,
+          "slug": "pema-wangdi-1",
+          "description_excerpt": "Main thing make me unique is my energy,my passion for this type of work. I believe I always get more done than average person, which means you will se...",
+          "cover_photo": null
+        },
+        {
+          "id": 459,
+          "name": "Chencho",
+          "email": "chenchonamgyael@gmail.com",
+          "contact": 17651091,
+          "description": "I mainly focuse on the best service when i am on tour.i don&#039;t differentiate the tourists.",
+          "website": null,
+          "slug": "chencho-1",
+          "description_excerpt": "I mainly focuse on the best service when i am on tour.i don&#039;t differentiate the tourists.",
+          "cover_photo": null
+        },
+        {
+          "id": 477,
+          "name": "Dawa Zam",
+          "email": "dawazam17@gmail.com",
+          "contact": 17384345,
+          "description": "As a culture and trekking guide, I passionately intertwine my expertise in local traditions and historical narratives with skilled navigation through diverse landscapes. I lead travelers on transformative journeys that harmoniously blend outdoor exploration with cultural immersion. By sharing captivating stories and facilitating genuine interactions with communities, I aim to deepen travelers&#039; understanding and appreciation of each destination&#039;s natural beauty and cultural richness. Through personalized experiences and thoughtful insights, I strive to create unforgettable adventures that not only educate and inspire but also leave a lasting positive impact on both travelers and the places we explore together.",
+          "website": null,
+          "slug": "dawa-zam",
+          "description_excerpt": "As a culture and trekking guide, I passionately intertwine my expertise in local traditions and historical narratives with skilled navigation through...",
+          "cover_photo": {
+            "id": 15791,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/477-cover_J9zHaM.jpg",
+            "resourceable_id": 477,
+            "resourceable_type": "App\\Models\\Guide",
+            "created_at": "2026-07-17T16:19:07.000000Z",
+            "updated_at": "2026-07-17T16:19:07.000000Z"
+          }
+        },
+        {
+          "id": 1083,
+          "name": "Ugyen Tashi",
+          "email": "ugentashi2018@gmail.com",
+          "contact": 17638280,
+          "description": "I know almost all the trekking routes and cultural site.",
+          "website": null,
+          "slug": "ugyen-tashi",
+          "description_excerpt": "I know almost all the trekking routes and cultural site.",
+          "cover_photo": null
+        },
+        {
+          "id": 1249,
+          "name": "Yeshi wangdi",
+          "email": "yeshiwangdi2016@gmail.com",
+          "contact": 17645870,
+          "description": "I am different from other because I am very active, sincere, physical fit for hiking and trekking. Moreover I am good in flora and fauna,birding tour . I am also good in culture of bhutan and history too. I do some research on Buddhism when I get free time .\r\nGuide is my passion Job. I love what I am doing .",
+          "website": null,
+          "slug": "yeshi-wangdi",
+          "description_excerpt": "I am different from other because I am very active, sincere, physical fit for hiking and trekking. Moreover I am good in flora and fauna,birding tour...",
+          "cover_photo": null
+        },
+        {
+          "id": 463,
+          "name": "Jigme Tshering",
+          "email": "Write2jigmetshering108@gmail.com",
+          "contact": 17319322,
+          "description": "I have 5.5 years experience, before Guiding I was served as Physcial Instructor in higher secondary school( Gyelpozhing central School) almost 10 years which makes me more experience than other fellow guides. Knowing about history & iconography is not enough, being guide is more than knowing all those things. It&#039;s about how to deal & handle , being patient in any circumstances. Remember, every guests we come across re not same. Apart from knowing history & iconography. There are many guests who prefer different things.",
+          "website": null,
+          "slug": "jigme-tshering-2",
+          "description_excerpt": "I have 5.5 years experience, before Guiding I was served as Physcial Instructor in higher secondary school( Gyelpozhing central School) almost 10 year...",
+          "cover_photo": null
+        },
+        {
+          "id": 1094,
+          "name": "Tashi Wangdi",
+          "email": "tashiwangdiwangdi@gmail.com",
+          "contact": 17767468,
+          "description": "I became a tour guide to share the rich stories and history of Bhutan, a passion I’ve pursued since 2008. Over the years, I’ve immersed myself in Bhutan’s historical events and cultural heritage, making it my mission to bring these tales to life for every visitor. In 2012, I was honoured with second prize for the Best Tour Guide awarded by Mountain Kingdoms, a recognition of my dedication and expertise.\r\n\r\nI continually update my knowledge by reading books, exploring new stories, and participating in the short courses offered by the Tourism Council of Bhutan, ensuring that I offer the most accurate and engaging insights. My approach is not just about guiding; it’s about creating a personalized experience tailored to each guest’s interests. Whether you need detailed historical facts, creative ideas for exploring Bhutan, or help with any aspect of your journey, I’m here to adapt to your needs.\r\n\r\nWith up-to-date knowledge and a deep love for Bhutan, I offer a unique, reliable, and enriching experience that goes beyond the typical tour. Hiring me means choosing a guide who is deeply invested in making your journey unforgettable.",
+          "website": null,
+          "slug": "tashi-wangdi-2",
+          "description_excerpt": "I became a tour guide to share the rich stories and history of Bhutan, a passion I’ve pursued since 2008. Over the years, I’ve immersed myself in Bhut...",
+          "cover_photo": null
+        },
+        {
+          "id": 455,
+          "name": "Tshering wangchuk",
+          "email": "rigpots@gmail.com",
+          "contact": 17477119,
+          "description": "A humble guide with genuine objectives to serve the Guests to our nation so they return back home bag full of memories.",
+          "website": null,
+          "slug": "tshering-wangchuk-4",
+          "description_excerpt": "A humble guide with genuine objectives to serve the Guests to our nation so they return back home bag full of memories.",
+          "cover_photo": {
+            "id": 5046,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/455-cover_Sv3u3p.png",
+            "resourceable_id": 455,
+            "resourceable_type": "App\\Models\\Guide",
+            "created_at": "2024-07-29T05:47:28.000000Z",
+            "updated_at": "2024-07-29T05:47:28.000000Z"
+          }
+        },
+        {
+          "id": 550,
+          "name": "Tshering Gyeltshen",
+          "email": "tgyeltshen884@gmail.com",
+          "contact": 17613837,
+          "description": "Due to my humble attitude, easy going with the different interest of the respective clients, vast experiences in cultural, adventure, trekking, recommendations from clients and partner agencies.",
+          "website": null,
+          "slug": "tshering-gyeltshen-2",
+          "description_excerpt": "Due to my humble attitude, easy going with the different interest of the respective clients, vast experiences in cultural, adventure, trekking, recomm...",
+          "cover_photo": null
+        },
+        {
+          "id": 705,
+          "name": "Chugyal Tamang",
+          "email": "chugyaltheeng@gmail.com",
+          "contact": 17971139,
+          "description": "Smart, hardworking, sincere and dedicated to my work are my keys  and gives me confidence to handle my guest. I found most of the guides lack all these things and lost their interests and good service.",
+          "website": null,
+          "slug": "chugyal-tamang",
+          "description_excerpt": "Smart, hardworking, sincere and dedicated to my work are my keys  and gives me confidence to handle my guest. I found most of the guides lack all thes...",
+          "cover_photo": {
+            "id": 5795,
+            "type": "profile_cover_photo",
+            "label": "cover_photo",
+            "url": "cover_photo/705-cover_tu73cX.jpg",
+            "resourceable_id": 705,
+            "resourceable_type": "App\\Models\\Guide",
+            "created_at": "2024-07-31T15:05:33.000000Z",
+            "updated_at": "2024-07-31T15:05:33.000000Z"
+          }
+        },
+        {
+          "id": 1362,
+          "name": "Yeewong Tobden Yargay",
+          "email": "yeewongyargay@gmail.com",
+          "contact": 17382922,
+          "description": "I can adapt to your needs instantly, providing clear explanations, suggestions, and insights tailored to your specific questions. Whether you&#039;re looking for quick advice, detailed guidance, or creative solutions, I can help you find the best choices without delay. You should hire me if you value a flexible, knowledgeable, and efficient individual always available and ready to assist.",
+          "website": null,
+          "slug": "yeewong-tobden-yargay",
+          "description_excerpt": "I can adapt to your needs instantly, providing clear explanations, suggestions, and insights tailored to your specific questions. Whether you&#039;re looki...",
+          "cover_photo": null
+        }
+      ],
+      "first_page_url": "https://services.bhutan.travel/search/guide?page=1",
+      "from": 1,
+      "last_page": 37,
+      "last_page_url": "https://services.bhutan.travel/search/guide?page=37",
+      "links": [
+        {
+          "url": null,
+          "label": "&laquo; Previous",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/guide?page=1",
+          "label": "1",
+          "active": true
+        },
+        {
+          "url": "https://services.bhutan.travel/search/guide?page=2",
+          "label": "2",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/guide?page=3",
+          "label": "3",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/guide?page=4",
+          "label": "4",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/guide?page=5",
+          "label": "5",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/guide?page=6",
+          "label": "6",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/guide?page=7",
+          "label": "7",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/guide?page=8",
+          "label": "8",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/guide?page=9",
+          "label": "9",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/guide?page=10",
+          "label": "10",
+          "active": false
+        },
+        {
+          "url": null,
+          "label": "...",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/guide?page=36",
+          "label": "36",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/guide?page=37",
+          "label": "37",
+          "active": false
+        },
+        {
+          "url": "https://services.bhutan.travel/search/guide?page=2",
+          "label": "Next &raquo;",
+          "active": false
+        }
+      ],
+      "next_page_url": "https://services.bhutan.travel/search/guide?page=2",
+      "path": "https://services.bhutan.travel/search/guide",
+      "per_page": 30,
+      "prev_page_url": null,
+      "to": 30,
+      "total": 1102
+    }
+  },
+  "url": "/search/guide",
+  "version": "00a82b5f0dcc58101a94d6f7c25a2542"
+}

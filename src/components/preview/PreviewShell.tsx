@@ -7,6 +7,7 @@ import {
   ClipboardList,
   Download,
   Map,
+  Receipt,
   Users,
 } from "lucide-react";
 import {
@@ -14,14 +15,14 @@ import {
   type MenuBarItem,
 } from "@/components/ui/animated-menu-bar";
 
-type PreviewMenuKey = "edit" | "guest" | "ops" | "field" | "pdf";
+type PreviewMenuKey = "edit" | "guest" | "ops" | "field" | "receipt" | "pdf";
 
 export function PreviewShell({
   itineraryId,
   pack,
 }: {
   itineraryId: string;
-  pack: "guest" | "ops" | "field";
+  pack: "guest" | "ops" | "field" | "receipt";
   /** @deprecated kept for call-site compat; print uses the iframe document */
   imageUrls?: string[];
 }) {
@@ -49,8 +50,13 @@ export function PreviewShell({
       },
       {
         key: "field",
-        label: "Mobile",
+        label: "Field",
         icon: <Map strokeWidth={1.5} />,
+      },
+      {
+        key: "receipt",
+        label: "Receipt",
+        icon: <Receipt strokeWidth={1.5} />,
       },
       {
         key: "pdf",

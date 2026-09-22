@@ -18,13 +18,16 @@ import type {
   ItineraryStay,
   Payment,
   Room,
+  TripFlight,
+  TripTraveler,
 } from "@/lib/types";
 
-export type PreviewPack = "guest" | "ops" | "field";
+export type PreviewPack = "guest" | "ops" | "field" | "receipt";
 
 export function parsePreviewPack(packParam?: string): PreviewPack {
   if (packParam === "ops") return "ops";
   if (packParam === "field") return "field";
+  if (packParam === "receipt") return "receipt";
   return "guest";
 }
 
@@ -88,6 +91,8 @@ export async function loadPreviewItinerary(agencyId: string, id: string) {
     rooms: opsRaw.rooms as Room[],
     guides: opsRaw.guides as Guide[],
     drivers: opsRaw.drivers as Driver[],
+    travelers: (opsRaw.travelers || []) as TripTraveler[],
+    flights: (opsRaw.flights || []) as TripFlight[],
   };
 
   return { itinerary, brand, imageUrls, ops };

@@ -20,12 +20,14 @@ import { applyCostAnswerToIntent } from "@/lib/catalog/trip-costs";
 import type { ItineraryContent } from "@/lib/types";
 import type { ClarifyingQuestion } from "@/lib/desk/question-bank";
 import { TripWizard } from "@/components/dhel/TripWizard";
+import { DeskSelectWizard } from "@/components/dhel/DeskSelectWizard";
 import { HotelPickModal } from "@/components/dhel/HotelPickModal";
 import { DraftItineraryPreview } from "@/components/dhel/DraftItineraryPreview";
 import { BriefIntentForm } from "@/components/dhel/BriefIntentForm";
 import { routeHotelsComplete, type HotelSelection } from "@/components/dhel/RouteHotelPicker";
 import { stashItineraryClient } from "@/lib/offline/stash-client";
 import { cn } from "@/lib/utils";
+import { BRAND_NAME } from "@/lib/brand";
 
 const COST_QUESTION_IDS = new Set([
   "room_avg",
@@ -126,6 +128,11 @@ export function ProposalComposer({
   const [mobileLayout, setMobileLayout] = useState<MobileLayout>("tabs");
   const [mobileTab, setMobileTab] = useState<"chat" | "itinerary">("chat");
   const [awaitingCosts, setAwaitingCosts] = useState(false);
+  const [deskMode, setDeskMode] = useState<"wizard" | "chat">("wizard");
+  const [availabilityHints, setAvailabilityHints] = useState<string[]>([]);
+  const [liveByHotelId, setLiveByHotelId] = useState<
+    Record<string, import("@/components/dhel/RouteHotelPicker").LiveHotelHint>
+  >({});
   const threadEndRef = useRef<HTMLDivElement>(null);
 
   const formGaps = useMemo(() => {
@@ -169,6 +176,7 @@ export function ProposalComposer({
       briefOverride?: string;
       confirmedIntent?: BriefIntent;
       hotelSelections?: HotelSelection[];
+      polish?: boolean;
     },
   ) {
     const thread = opts?.extraMessages ?? messages;
@@ -181,14 +189,15 @@ export function ProposalComposer({
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        brief: brief || undefined,
-        messages: thread,
+        brief: brief || opts?.confirmedIntent?.raw_brief || undefined,
+        messages: thread.length ? thread : undefined,
         rateTier,
         action,
         optionId: opts?.optionId,
         skipGapCheck: opts?.skipGapCheck,
         confirmedIntent: opts?.confirmedIntent,
         hotelSelections: opts?.hotelSelections,
+        polish: opts?.polish,
       }),
     });
     const data = (await res.json()) as ProposalResponse & { error?: unknown };
@@ -401,7 +410,7 @@ export function ProposalComposer({
   function backToOptions() {
     setReviewMode(false);
     setReviewContent(null);
-    setDeskReady(true);
+    setDeskReady(deskMode === "chat");
   }
 
   function selectQuestionOption(questionId: string, option: string) {
@@ -532,6 +541,7 @@ export function ProposalComposer({
     Boolean(result?.questions?.length) && answeredCount === (result?.questions?.length ?? 0);
 
   const showHotelStep =
+    deskMode === "chat" &&
     deskReady &&
     !reviewMode &&
     !awaitingCosts &&
@@ -542,9 +552,108 @@ export function ProposalComposer({
     else setHotelModalOpen(false);
   }, [showHotelStep]);
 
+  async function wizardLoadHotels(nextIntent: BriefIntent) {
+    setLoading(true);
+    setEditIntent(nextIntent);
+    try {
+      const data = await callProposal("parse", {
+        confirmedIntent: nextIntent,
+        skipGapCheck: true,
+        briefOverride: nextIntent.raw_brief,
+      });
+      setResult(data);
+      setDeskReady(true);
+      setBriefConfirm(false);
+      setHotelSelections([]);
+      setAvailabilityHints(
+        data.hotelChoices?.length
+          ? []
+          : ["No hotels for this route in catalog — try another stay plan."],
+      );
+      setLiveByHotelId({});
+      try {
+        const res = await fetch("/api/inventory/availability", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            hotelChoices: data.hotelChoices ?? [],
+            travelDates: nextIntent.travel_dates,
+          }),
+        });
+        if (res.ok) {
+          const inv = (await res.json()) as {
+            hints?: string[];
+            byHotelId?: Record<
+              string,
+              { propertyId: string; available: number; source: "live" | "mock"; label: string }
+            >;
+          };
+          if (inv.hints?.length) setAvailabilityHints(inv.hints);
+          if (inv.byHotelId) {
+            const mapped: Record<
+              string,
+              import("@/components/dhel/RouteHotelPicker").LiveHotelHint
+            > = {};
+            for (const [hotelId, row] of Object.entries(inv.byHotelId)) {
+              mapped[hotelId] = {
+                hotelId,
+                propertyId: row.propertyId,
+                available: row.available,
+                source: row.source,
+                label: row.label,
+              };
+            }
+            setLiveByHotelId(mapped);
+          }
+        }
+      } catch {
+        /* optional */
+      }
+    } catch (e) {
+      setResult({ error: e instanceof Error ? e.message : "Failed" });
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function wizardBuild(nextIntent: BriefIntent, hotels: HotelSelection[], polish = false) {
+    setGenerating(true);
+    setEditIntent(nextIntent);
+    try {
+      const data = await callProposal("full", {
+        confirmedIntent: nextIntent,
+        hotelSelections: hotels,
+        skipGapCheck: true,
+        briefOverride: nextIntent.raw_brief,
+        polish,
+      });
+      setResult(data);
+      if (data.content) {
+        setReviewContent(JSON.parse(JSON.stringify(data.content)) as ItineraryContent);
+        setReviewMode(true);
+        setDeskReady(false);
+        setAwaitingCosts(false);
+        setMobileTab("itinerary");
+      } else if (data.error) {
+        setResult({ error: typeof data.error === "string" ? data.error : "Build failed" });
+      }
+    } catch (e) {
+      setResult({ error: e instanceof Error ? e.message : "Failed" });
+    } finally {
+      setGenerating(false);
+    }
+  }
+
+  const runningTotalHint = result?.selected
+    ? `${result.selected.currency} ${Math.round(result.selected.sell_per_person).toLocaleString()} /pp`
+    : result?.compare?.[0]
+      ? `From ${result.compare[0].currency} ${Math.round(result.compare[0].total_pp).toLocaleString()} /pp`
+      : null;
+
   const isB2c = rateTier === "b2c";
   const showLivePreview = Boolean(reviewMode && reviewContent);
   const showSplitDesktop = showLivePreview;
+  const showWizard = deskMode === "wizard" && !reviewMode;
 
   const chatColumn = (
     <div className="desk-chat flex min-h-0 flex-1 flex-col">
@@ -568,6 +677,13 @@ export function ProposalComposer({
                   ? "Tell us your dates, group size, and what you love — we shape a private journey and hotels around you."
                   : "Paste WhatsApp or email — clarify gaps, pick hotels per city, confirm cost lines, then see the live guest PDF."}
               </p>
+              <button
+                type="button"
+                className="text-xs text-muted-foreground underline-offset-2 hover:underline"
+                onClick={() => setDeskMode("wizard")}
+              >
+                Prefer the select wizard instead?
+              </button>
             </div>
           ) : (
             <div className="flex flex-col gap-1 py-4 sm:py-6">
@@ -774,9 +890,9 @@ export function ProposalComposer({
                     <button
                       type="button"
                       className="underline-offset-2 hover:text-foreground hover:underline"
-                      onClick={() => setWizardOpen(true)}
+                      onClick={() => setDeskMode("wizard")}
                     >
-                      {isB2c ? "Prefer guided questions?" : "No message? Use wizard"}
+                      {isB2c ? "Use guided wizard" : "Use select wizard"}
                     </button>
                   ) : null}
                   <span>Enter to send · Shift+Enter for a new line</span>
@@ -815,6 +931,38 @@ export function ProposalComposer({
 
   return (
     <div className="proposal-workspace flex min-h-0 flex-1 flex-col">
+      {showWizard ? (
+        <div className="min-h-0 flex-1 overflow-y-auto">
+          <DeskSelectWizard
+            audience={isB2c ? "traveler" : "agent"}
+            hotelChoices={result?.hotelChoices ?? []}
+            hotelSelections={hotelSelections}
+            onHotelSelectionsChange={setHotelSelections}
+            intent={editIntent}
+            onIntentChange={setEditIntent}
+            loading={loading}
+            generating={generating}
+            error={typeof result?.error === "string" ? result.error : null}
+            runningTotalHint={runningTotalHint}
+            availabilityHints={availabilityHints}
+            liveByHotelId={liveByHotelId}
+            onLoadHotels={wizardLoadHotels}
+            onBuild={(intent, hotels) => wizardBuild(intent, hotels, false)}
+            onPolish={
+              reviewContent || result?.content
+                ? () => wizardBuild(editIntent!, hotelSelections, true)
+                : undefined
+            }
+            onOpenPaste={() => {
+              setDeskMode("chat");
+              setMessages([]);
+            }}
+          />
+        </div>
+      ) : null}
+
+      {!showWizard && deskMode === "chat" ? (
+        <>
       {/* Mobile controls */}
       <div className="flex shrink-0 items-center justify-between gap-2 border-b border-border bg-card px-3 py-2 lg:hidden">
         <div className="flex rounded-lg border border-border p-0.5">
@@ -925,6 +1073,35 @@ export function ProposalComposer({
           void submitUserMessage(wizardBrief);
         }}
       />
+        </>
+      ) : null}
+
+      {/* After wizard build — show preview shell */}
+      {deskMode === "wizard" && showLivePreview ? (
+        <div className="flex min-h-0 flex-1 flex-col lg:grid lg:grid-cols-[3fr_7fr]">
+          <div className="min-h-0 border-r border-border p-4">
+            <p className="mb-3 text-sm font-medium">{BRAND_NAME} draft ready</p>
+            <div className="flex flex-wrap gap-2">
+              <Button type="button" size="sm" variant="outline" onClick={backToOptions}>
+                Back to wizard
+              </Button>
+              <Button
+                type="button"
+                size="sm"
+                variant="outline"
+                disabled={generating || !editIntent}
+                onClick={() => void wizardBuild(editIntent!, hotelSelections, true)}
+              >
+                Polish prose with AI
+              </Button>
+            </div>
+            {result?.warning ? (
+              <p className="mt-3 text-xs text-muted-foreground">{result.warning}</p>
+            ) : null}
+          </div>
+          <div className="min-h-0">{previewColumn}</div>
+        </div>
+      ) : null}
     </div>
   );
 }

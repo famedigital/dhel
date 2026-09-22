@@ -4,10 +4,11 @@ import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { signOut } from "@/app/actions/auth";
 import { UserDropdown } from "@/components/ui/user-dropdown";
+import { BRAND_NAME } from "@/lib/brand";
 
 function initialsFrom(nameOrEmail: string) {
   const parts = nameOrEmail.trim().split(/[\s@._-]+/).filter(Boolean);
-  if (!parts.length) return "DH";
+  if (!parts.length) return "LT";
   if (parts.length === 1) return parts[0]!.slice(0, 2).toUpperCase();
   return `${parts[0]![0] ?? ""}${parts[1]![0] ?? ""}`.toUpperCase();
 }
@@ -53,7 +54,7 @@ export function AppShellUserMenu({
       user={{
         name,
         username,
-        initials: initialsFrom(agencyName || email || "Dhel"),
+        initials: initialsFrom(agencyName || email || BRAND_NAME),
         status: role || "online",
         avatar: undefined,
       }}
